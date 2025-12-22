@@ -1,10 +1,10 @@
 <script>
-	// Простая реализация без store пока
-	let visibleMobileMenu = $state(false);
+	let mobileMenuRef;
 
 	function handleClick() {
-		visibleMobileMenu = true;
-		// TODO: Открыть мобильное меню
+		if (mobileMenuRef) {
+			mobileMenuRef.open();
+		}
 	}
 </script>
 
