@@ -11,26 +11,10 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="app">
+<div class="flex min-h-screen flex-col">
 	<Header />
-	<main class="main">
+	<main class="flex-1">
 		{@render children()}
 	</main>
 	<Footer />
 </div>
-
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	.main {
-		flex: 1;
-		max-width: 1200px;
-		width: 100%;
-		margin: 0 auto;
-		padding: 2rem 1rem;
-	}
-</style>
