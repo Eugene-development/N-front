@@ -1,31 +1,26 @@
 <script>
-	let mobileMenuRef;
+	import MobileMenu from './MobileMenu.svelte';
+	
+	let mobileMenuComponent = $state(null);
 
 	function handleClick() {
-		if (mobileMenuRef) {
-			mobileMenuRef.open();
+		if (mobileMenuComponent) {
+			mobileMenuComponent.open();
 		}
 	}
 </script>
 
+<MobileMenu bind:this={mobileMenuComponent} />
+
 <button
 	type="button"
 	onclick={handleClick}
-	class="relative isolate z-20 px-2 focus-visible:outline-offset-[-4px]"
+	class="group relative flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-200 hover:bg-white/10"
 >
-	<span class="sr-only">Мобильное Меню</span>
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		fill="none"
-		viewBox="0 0 24 24"
-		stroke-width={1.5}
-		stroke="currentColor"
-		class="size-5 text-gray-50"
-	>
-		<path
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-		/>
-	</svg>
+	<span class="sr-only">Открыть меню</span>
+	<div class="flex flex-col items-center justify-center gap-1.5">
+		<span class="block h-0.5 w-5 rounded-full bg-white transition-all duration-300 group-hover:w-6 group-hover:bg-pink-400"></span>
+		<span class="block h-0.5 w-4 rounded-full bg-white transition-all duration-300 group-hover:w-6 group-hover:bg-pink-400"></span>
+		<span class="block h-0.5 w-3 rounded-full bg-white transition-all duration-300 group-hover:w-6 group-hover:bg-pink-400"></span>
+	</div>
 </button>
