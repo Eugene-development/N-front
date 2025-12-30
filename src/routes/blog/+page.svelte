@@ -108,10 +108,7 @@
 					<div class="relative mt-8 flex items-center gap-x-4">
 						<div class="text-sm/6">
 							<p class="font-semibold text-gray-900">
-								<a href="/post/1">
-									<span class="absolute inset-0"></span>
-									Время чтения
-								</a>
+								Время чтения
 							</p>
 							<p class="text-gray-600">{post.readingTime}</p>
 						</div>

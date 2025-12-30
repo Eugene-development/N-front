@@ -6,13 +6,27 @@
 	import MobileMenu from './MobileMenu.svelte';
 
 	let visibleServicesMenu = $state(false);
+	let visibleCatalogMenu = $state(false);
+	let visibleCityMenu = $state(false);
+	let selectedCity = $state('Москва и МО');
 	let hoveredItem = $state(null);
 
 	const menuItems = [
 		{ href: '/', label: 'Главная', icon: 'home' },
-		{ href: '/mebel', label: 'Каталог', icon: 'catalog' },
-		{ href: '/actions', label: 'Акции', icon: 'sale' },
-		{ href: '/contacts', label: 'Контакты', icon: 'contacts' }
+		{ href: '/actions', label: 'Акции', icon: 'sale' }
+	];
+
+	const cities = [
+		{ label: 'Москва и МО' },
+		{ label: 'Санкт-Петербург' }
+	];
+
+	const catalogItems = [
+		{ href: '/mebel', label: 'Мебель' },
+		{ href: '/tehnika', label: 'Бытовая техника' },
+		{ href: '/stoleshnica', label: 'Столешницы' },
+		{ href: '/santehnika', label: 'Сантехника' },
+		{ href: '/furnitura', label: 'Фурнитура' }
 	];
 
 	const serviceItems = [
@@ -50,7 +64,7 @@
 			{#each menuItems as item, i}
 				<a
 					href={item.href}
-					class="nav-item group relative px-4 py-2.5 text-sm font-medium transition-all duration-300"
+					class="nav-item group relative px-4 py-2.5 text-base font-medium transition-all duration-300"
 					class:active={$page.url.pathname === item.href}
 					onmouseenter={() => hoveredItem = i}
 					onmouseleave={() => hoveredItem = null}
@@ -74,6 +88,57 @@
 				</a>
 			{/each}
 
+			<!-- Dropdown каталог -->
+			<div 
+				class="relative"
+				role="navigation"
+				onmouseenter={() => visibleCatalogMenu = true}
+				onmouseleave={() => visibleCatalogMenu = false}
+			>
+				<button
+					type="button"
+					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-medium text-slate-700 transition-all duration-300 hover:text-sky-600"
+					aria-expanded={visibleCatalogMenu}
+				>
+					<span>Каталог</span>
+					<svg 
+						class="h-4 w-4 transition-transform duration-300 {visibleCatalogMenu ? 'rotate-180 text-sky-500' : ''}" 
+						fill="none" 
+						viewBox="0 0 24 24" 
+						stroke="currentColor"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+					</svg>
+				</button>
+
+				{#if visibleCatalogMenu}
+					<!-- Невидимый мост между кнопкой и dropdown -->
+					<div class="absolute left-0 right-0 top-full h-3"></div>
+					<div
+						transition:fly={{ y: -10, duration: 200, easing: cubicOut }}
+						role="menu"
+						tabindex="0"
+						class="absolute left-1/2 top-full z-50 mt-3 w-56 -translate-x-1/2 overflow-hidden rounded-2xl bg-white p-2 shadow-xl ring-1 ring-slate-900/5"
+					>
+						<!-- Декоративный градиент сверху -->
+						<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
+						
+						{#each catalogItems as item, idx}
+							<a
+								href={item.href}
+								class="group flex items-center justify-between rounded-xl px-4 py-2.5 transition-all duration-200 hover:bg-gradient-to-r hover:from-sky-50 hover:to-cyan-50"
+								transition:fly={{ y: -5, duration: 150, delay: idx * 30 }}
+							>
+								<span class="text-base font-medium text-slate-700 transition-colors group-hover:text-sky-600">{item.label}</span>
+								<svg class="h-4 w-4 text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
+							</a>
+						{/each}
+					</div>
+				{/if}
+			</div>
+
 			<!-- Dropdown услуги -->
 			<div 
 				class="relative"
@@ -83,7 +148,7 @@
 			>
 				<button
 					type="button"
-					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-sm font-medium text-slate-700 transition-all duration-300 hover:text-sky-600"
+					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-medium text-slate-700 transition-all duration-300 hover:text-sky-600"
 					aria-expanded={visibleServicesMenu}
 				>
 					<span>Наши услуги</span>
@@ -140,7 +205,7 @@
 									{/if}
 								</div>
 								<div class="flex-1">
-									<p class="text-sm font-medium text-slate-900 transition-colors group-hover:text-sky-600">{service.label}</p>
+									<p class="text-base font-medium text-slate-900 transition-colors group-hover:text-sky-600">{service.label}</p>
 									<p class="mt-0.5 text-xs text-slate-500">{service.desc}</p>
 								</div>
 								<svg class="h-5 w-5 text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -151,32 +216,83 @@
 					</div>
 				{/if}
 			</div>
+
+			<!-- Контакты -->
+			<a
+				href="/contacts"
+				class="nav-item group relative px-4 py-2.5 text-base font-medium transition-all duration-300"
+				class:active={$page.url.pathname === '/contacts'}
+			>
+				<span class="relative z-10 text-slate-700 transition-colors duration-300 group-hover:text-sky-600">
+					Контакты
+				</span>
+				{#if $page.url.pathname === '/contacts'}
+					<span class="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500"></span>
+				{/if}
+			</a>
 		</div>
 
 		<!-- Город -->
 		<div class="flex items-center gap-4 lg:flex-1 lg:justify-end">
-			<button
-				type="button"
-				class="city-selector group relative flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-slate-100 to-slate-50 px-5 py-2.5 text-sm font-medium text-slate-700 ring-1 ring-slate-200/50 transition-all duration-300 hover:ring-sky-200 hover:shadow-lg hover:shadow-sky-500/10"
+			<div 
+				class="relative"
+				onmouseenter={() => visibleCityMenu = true}
+				onmouseleave={() => visibleCityMenu = false}
 			>
-				<!-- Анимированный фон -->
-				<span class="absolute inset-0 -z-10 bg-gradient-to-r from-sky-500 to-cyan-500 opacity-0 transition-opacity duration-300 group-hover:opacity-10"></span>
-				
-				<!-- Иконка локации -->
-				<span class="flex items-center justify-center">
-					<svg class="h-4 w-4 text-sky-500 transition-transform duration-300 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+				<button
+					type="button"
+					class="city-selector group relative flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-slate-100 to-slate-50 px-5 py-2.5 text-base font-medium text-slate-700 ring-1 ring-slate-200/50 transition-all duration-300 hover:ring-sky-200 hover:shadow-lg hover:shadow-sky-500/10"
+					aria-expanded={visibleCityMenu}
+				>
+					<!-- Анимированный фон -->
+					<span class="absolute inset-0 -z-10 bg-gradient-to-r from-sky-500 to-cyan-500 opacity-0 transition-opacity duration-300 group-hover:opacity-10"></span>
+					
+					<!-- Иконка локации -->
+					<span class="flex items-center justify-center">
+						<svg class="h-4 w-4 text-sky-500 transition-transform duration-300 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+						</svg>
+					</span>
+					
+					<span class="transition-colors duration-300 group-hover:text-sky-600">{selectedCity}</span>
+					
+					<!-- Стрелка -->
+					<svg class="h-4 w-4 text-slate-400 transition-all duration-300 group-hover:text-sky-500 {visibleCityMenu ? 'rotate-180' : ''}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
 					</svg>
-				</span>
-				
-				<span class="transition-colors duration-300 group-hover:text-sky-600">Москва и МО</span>
-				
-				<!-- Стрелка -->
-				<svg class="h-4 w-4 text-slate-400 transition-all duration-300 group-hover:text-sky-500 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-				</svg>
-			</button>
+				</button>
+
+				{#if visibleCityMenu}
+					<!-- Невидимый мост между кнопкой и dropdown -->
+					<div class="absolute left-0 right-0 top-full h-3"></div>
+					<div
+						transition:fly={{ y: -10, duration: 200, easing: cubicOut }}
+						role="listbox"
+						class="absolute right-0 top-full z-50 mt-3 w-48 overflow-hidden rounded-2xl bg-white p-2 shadow-xl ring-1 ring-slate-900/5"
+					>
+						<!-- Декоративный градиент сверху -->
+						<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
+						
+						{#each cities as city, idx}
+							<button
+								type="button"
+								onclick={() => { selectedCity = city.label; visibleCityMenu = false; }}
+								class="group flex w-full items-center justify-between rounded-xl px-4 py-2.5 text-left transition-all duration-200 hover:bg-gradient-to-r hover:from-sky-50 hover:to-cyan-50"
+								class:bg-sky-50={selectedCity === city.label}
+								transition:fly={{ y: -5, duration: 150, delay: idx * 30 }}
+							>
+								<span class="text-sm font-medium transition-colors {selectedCity === city.label ? 'text-sky-600' : 'text-slate-700'} group-hover:text-sky-600">{city.label}</span>
+								{#if selectedCity === city.label}
+									<svg class="h-4 w-4 text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+									</svg>
+								{/if}
+							</button>
+						{/each}
+					</div>
+				{/if}
+			</div>
 		</div>
 	</nav>
 
