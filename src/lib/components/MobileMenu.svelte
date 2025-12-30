@@ -97,7 +97,7 @@
 									>
 									<a
 										onclick={() => (visibleMobileMenu = false)}
-										href="/assembly-and-installation"
+										href="/assembly"
 										class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
 										>Сборка и установка</a
 									>

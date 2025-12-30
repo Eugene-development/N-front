@@ -62,7 +62,7 @@
 							>Проектирование мебели</a
 						>
 						<a
-							href="/assembly-and-installation"
+							href="/assembly"
 							class="block rounded-lg px-3 py-2 text-sm/6 font-medium text-gray-900 hover:bg-gray-50"
 							>Сборка и установка</a
 						>

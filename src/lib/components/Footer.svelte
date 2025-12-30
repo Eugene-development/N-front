@@ -63,8 +63,8 @@
 								<a href="/delivery" class="text-sm/6 text-gray-400 hover:text-white">Доставка</a>
 							</li>
 							<li>
-								<a href="/installation" class="text-sm/6 text-gray-400 hover:text-white"
-									>Установка</a
+								<a href="/assembly" class="text-sm/6 text-gray-400 hover:text-white"
+									>Сборка</a
 								>
 							</li>
 						</ul>
