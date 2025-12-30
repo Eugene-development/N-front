@@ -14,18 +14,19 @@
 			alt="Кухонный гарнитур"
 			class="absolute inset-0 -z-10 hidden size-full scale-x-[-1] animate-fade object-cover animate-delay-500 animate-duration-[3000ms] sm:block"
 		/>
+
 		<div class="absolute inset-0 -z-10 hidden bg-black/20 sm:block"></div>
 		<div class="mx-auto">
 			<div class="-mt-24 mx-auto max-w-5xl py-32 sm:py-40 lg:py-48">
 				<div class="animate-fade-up animate-duration-10000 animate-ease-in-out">
-					<section class="rounded-lg bg-neutral-100/80 dark:bg-gray-900">
-						<div class="mx-auto max-w-screen-xl px-4 py-8 text-center lg:px-12 lg:py-16">
+					<section class="rounded-lg bg-neutral-100/50">
+						<div class="mx-auto max-w-7xl px-4 py-8 text-center lg:px-12 lg:py-16">
 							<a
 								href="/blog"
 								class="mb-7 inline-flex items-center justify-between rounded-full bg-neutral-100 px-1 py-1 pr-4 text-sm text-gray-700 hover:bg-neutral-50 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
 							>
 								<span class="mr-3 rounded-full bg-neutral-200 px-4 py-1.5 text-xs text-red-700"
-									>Это интересно</span
+									>Это очень интересно</span
 								>
 								<span class="text-sm font-medium">Наш мебельный блог</span>
 								<svg
@@ -167,10 +168,13 @@
 						/>
 						<use href="#quote" x="86" />
 					</svg>
-					<blockquote class="text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+					<blockquote
+						class="text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9"
+					>
 						<p>
-							Наша компания предлагает создание стильных дизайн-проектов корпусной мебели и интерьера
-							с точным подбором бытовой техники, освещением, сантехники и кухонных столешниц.
+							Наша компания предлагает создание стильных дизайн-проектов корпусной мебели и
+							интерьера с точным подбором бытовой техники, освещением, сантехники и кухонных
+							столешниц.
 						</p>
 					</blockquote>
 				</figure>
