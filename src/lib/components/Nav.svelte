@@ -26,7 +26,8 @@
 		{ href: '/tehnika', label: 'Бытовая техника' },
 		{ href: '/stoleshnica', label: 'Столешницы' },
 		{ href: '/santehnika', label: 'Сантехника' },
-		{ href: '/furnitura', label: 'Фурнитура' }
+		{ href: '/furnitura', label: 'Фурнитура' },
+		{ href: '/aksessuary', label: 'Аксессуары' }
 	];
 
 	const serviceItems = [
