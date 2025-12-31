@@ -135,7 +135,7 @@
 								href="/mebel/{cat.slug}" 
 								class="group flex items-center gap-3 rounded-xl px-4 py-3 transition-all {cat.slug === categorySlug ? 'bg-white shadow-md text-sky-600' : 'text-slate-700 hover:bg-white hover:shadow-md hover:text-sky-600'}"
 							>
-								<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br {cat.slug === categorySlug ? colors.activeBg + ' text-white shadow-lg' : colors.bg + ' ' + colors.text} transition-all group-hover:from-sky-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg">
+								<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {cat.slug === categorySlug ? colors.activeBg + ' text-white shadow-lg' : colors.bg + ' ' + colors.text} transition-all group-hover:from-sky-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg">
 									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={cat.icon} />
 									</svg>
@@ -146,7 +146,7 @@
 					</nav>
 
 					<!-- Баннер консультации -->
-					<div class="mt-8 rounded-2xl bg-gradient-to-br from-sky-500 to-cyan-600 p-6 text-white">
+					<div class="mt-8 rounded-2xl bg-linear-to-br from-sky-500 to-cyan-600 p-6 text-white">
 						<h3 class="text-lg font-semibold">Нужна помощь?</h3>
 						<p class="mt-2 text-sm text-sky-100">Получите бесплатную консультацию дизайнера</p>
 						<a href="/consultation" class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50">
@@ -162,7 +162,7 @@
 			<!-- Основной контент -->
 			<main class="lg:col-span-3">
 				<!-- Hero секция -->
-				<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800">
+				<div class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800">
 					<img
 						src={categoryData.heroImage}
 						alt={categoryData.title}
@@ -243,7 +243,7 @@
 									alt={product.name}
 									class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
 								/>
-								<div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+								<div class="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 								
 								<!-- Быстрые действия -->
 								<div class="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 transition-all duration-300 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
@@ -330,7 +330,7 @@
 				</div>
 
 				<!-- CTA секция -->
-				<div class="mt-12 rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-600 p-8 text-center text-white sm:p-12">
+				<div class="mt-12 rounded-2xl bg-linear-to-r from-sky-500 to-cyan-600 p-8 text-center text-white sm:p-12">
 					<h2 class="text-2xl font-bold sm:text-3xl">Не нашли подходящий вариант?</h2>
 					<p class="mx-auto mt-3 max-w-md text-sky-100">
 						Мы изготовим мебель по вашему индивидуальному проекту

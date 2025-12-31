@@ -83,7 +83,7 @@
 
 		<!-- City Selector -->
 		<div class="border-b border-slate-100 px-6 py-4">
-			<button class="flex w-full items-center justify-between rounded-xl bg-gradient-to-r from-pink-50 to-rose-50 px-4 py-3 text-left">
+			<button class="flex w-full items-center justify-between rounded-xl bg-linear-to-r from-pink-50 to-rose-50 px-4 py-3 text-left">
 				<div class="flex items-center gap-3">
 					<div class="flex h-8 w-8 items-center justify-center rounded-full bg-pink-100">
 						<svg class="h-4 w-4 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -113,7 +113,7 @@
 						class="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left transition-colors duration-200 hover:bg-slate-50"
 					>
 						<div class="flex items-center gap-3">
-							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-pink-100 to-rose-100 text-pink-600">
+							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-pink-100 to-rose-100 text-pink-600">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
 								</svg>
@@ -154,7 +154,7 @@
 						class="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left transition-colors duration-200 hover:bg-slate-50"
 					>
 						<div class="flex items-center gap-3">
-							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 text-violet-600">
+							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-violet-100 to-purple-100 text-violet-600">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
 								</svg>
@@ -195,7 +195,7 @@
 						class="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left transition-colors duration-200 hover:bg-slate-50"
 					>
 						<div class="flex items-center gap-3">
-							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-sky-100 to-blue-100 text-sky-600">
+							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-sky-100 to-blue-100 text-sky-600">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
 								</svg>
@@ -235,7 +235,7 @@
 						onclick={closeMenu}
 						class="flex items-center gap-3 rounded-xl px-4 py-3 transition-colors duration-200 hover:bg-amber-50"
 					>
-						<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-amber-100 to-orange-100 text-amber-600">
+						<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-amber-100 to-orange-100 text-amber-600">
 							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
 							</svg>
@@ -249,7 +249,7 @@
 						onclick={closeMenu}
 						class="flex items-center gap-3 rounded-xl px-4 py-3 transition-colors duration-200 hover:bg-emerald-50"
 					>
-						<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-100 to-green-100 text-emerald-600">
+						<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-emerald-100 to-green-100 text-emerald-600">
 							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
 							</svg>
@@ -264,7 +264,7 @@
 		<div class="border-t border-slate-100 bg-slate-50 px-6 py-4">
 			<a
 				href="tel:+79154000020"
-				class="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-3 text-white shadow-lg shadow-pink-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/30"
+				class="flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-pink-500 to-rose-500 px-4 py-3 text-white shadow-lg shadow-pink-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/30"
 			>
 				<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

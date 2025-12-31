@@ -17,7 +17,7 @@
 	<Header />
 	<main class="flex-1">
 		{#key $page.url.pathname}
-			<PageTransition type="fade" duration={300}>
+			<PageTransition type="fade" duration={500}>
 				{@render children()}
 			</PageTransition>
 		{/key}

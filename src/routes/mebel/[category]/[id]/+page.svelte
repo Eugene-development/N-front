@@ -308,7 +308,7 @@
 		{/if}
 
 		<!-- CTA секция -->
-		<div class="mt-16 rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-600 p-8 text-center text-white sm:p-12">
+		<div class="mt-16 rounded-2xl bg-linear-to-r from-sky-500 to-cyan-600 p-8 text-center text-white sm:p-12">
 			<h2 class="text-2xl font-bold sm:text-3xl">Хотите такую же мебель?</h2>
 			<p class="mx-auto mt-3 max-w-md text-sky-100">
 				Оставьте заявку и получите бесплатный расчёт стоимости с учётом ваших размеров

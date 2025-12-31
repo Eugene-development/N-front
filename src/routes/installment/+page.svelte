@@ -5,7 +5,7 @@
 
 <div class="min-h-screen bg-slate-50">
 	<!-- Hero секция -->
-	<div class="relative overflow-hidden bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700">
+	<div class="relative overflow-hidden bg-linear-to-br from-violet-600 via-purple-600 to-indigo-700">
 		<div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%220.05%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
 		<div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
 			<div class="text-center">
@@ -48,7 +48,7 @@
 		<div class="mt-12 grid gap-8 lg:grid-cols-4">
 			<!-- Карточка 6 месяцев -->
 			<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-emerald-100 to-teal-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
+				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-linear-to-br from-emerald-100 to-teal-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
 					<div class="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-700">
 						Популярно
@@ -89,7 +89,7 @@
 
 			<!-- Карточка 10 месяцев -->
 			<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-sky-100 to-blue-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
+				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-linear-to-br from-sky-100 to-blue-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
 					<div class="inline-flex items-center rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-700">
 						Оптимально
@@ -129,7 +129,7 @@
 			</div>
 
 			<!-- Карточка 12 месяцев -->
-			<div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-600 to-purple-700 p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+			<div class="group relative overflow-hidden rounded-2xl bg-linear-to-br from-violet-600 to-purple-700 p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
 				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
 					<div class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white">
@@ -171,7 +171,7 @@
 
 			<!-- Карточка 24 месяца -->
 			<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
+				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-linear-to-br from-amber-100 to-orange-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
 					<div class="inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700">
 						Кредит
@@ -221,8 +221,8 @@
 			</div>
 
 			<div class="mt-12 grid gap-8 sm:grid-cols-3">
-				<div class="relative rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 p-8 text-center">
-					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-lg shadow-violet-500/25">
+				<div class="relative rounded-2xl bg-linear-to-br from-slate-50 to-slate-100 p-8 text-center">
+					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-violet-500 to-purple-600 text-white shadow-lg shadow-violet-500/25">
 						<svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
 						</svg>
@@ -231,8 +231,8 @@
 					<p class="mt-2 text-slate-600">Действующий паспорт гражданина Российской Федерации</p>
 				</div>
 
-				<div class="relative rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 p-8 text-center">
-					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/25">
+				<div class="relative rounded-2xl bg-linear-to-br from-slate-50 to-slate-100 p-8 text-center">
+					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/25">
 						<svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
 						</svg>
@@ -241,8 +241,8 @@
 					<p class="mt-2 text-slate-600">Официальное трудоустройство или подтверждение дохода</p>
 				</div>
 
-				<div class="relative rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 p-8 text-center">
-					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white shadow-lg shadow-sky-500/25">
+				<div class="relative rounded-2xl bg-linear-to-br from-slate-50 to-slate-100 p-8 text-center">
+					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-sky-500 to-blue-600 text-white shadow-lg shadow-sky-500/25">
 						<svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
 						</svg>
@@ -264,28 +264,28 @@
 
 			<div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
 				<div class="relative text-center">
-					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-purple-600 text-2xl font-bold text-white shadow-lg shadow-violet-500/25">1</div>
+					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-violet-500 to-purple-600 text-2xl font-bold text-white shadow-lg shadow-violet-500/25">1</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Выберите товар</h3>
 					<p class="mt-2 text-sm text-slate-500">Подберите мебель или технику в нашем каталоге</p>
-					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-gradient-to-r from-violet-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
+					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-linear-to-r from-violet-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
 				</div>
 
 				<div class="relative text-center">
-					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-purple-600 text-2xl font-bold text-white shadow-lg shadow-violet-500/25">2</div>
+					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-violet-500 to-purple-600 text-2xl font-bold text-white shadow-lg shadow-violet-500/25">2</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Оставьте заявку</h3>
 					<p class="mt-2 text-sm text-slate-500">Заполните анкету онлайн или в салоне</p>
-					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-gradient-to-r from-violet-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
+					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-linear-to-r from-violet-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
 				</div>
 
 				<div class="relative text-center">
-					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-purple-600 text-2xl font-bold text-white shadow-lg shadow-violet-500/25">3</div>
+					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-violet-500 to-purple-600 text-2xl font-bold text-white shadow-lg shadow-violet-500/25">3</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Получите решение</h3>
 					<p class="mt-2 text-sm text-slate-500">Одобрение за 15 минут от банков-партнёров</p>
-					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-gradient-to-r from-violet-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
+					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-linear-to-r from-violet-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
 				</div>
 
 				<div class="text-center">
-					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 text-2xl font-bold text-white shadow-lg shadow-emerald-500/25">✓</div>
+					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-emerald-500 to-teal-600 text-2xl font-bold text-white shadow-lg shadow-emerald-500/25">✓</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Заберите покупку</h3>
 					<p class="mt-2 text-sm text-slate-500">Подпишите договор и получите товар</p>
 				</div>
@@ -350,7 +350,7 @@
 	</div>
 
 	<!-- CTA секция -->
-	<div class="bg-gradient-to-r from-violet-600 to-purple-700 py-16">
+	<div class="bg-linear-to-r from-violet-600 to-purple-700 py-16">
 		<div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
 			<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur">
 				<svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">

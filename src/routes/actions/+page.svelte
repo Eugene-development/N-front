@@ -4,10 +4,10 @@
 </svelte:head>
 
 <!-- Hero секция -->
-<section class="relative overflow-hidden bg-gradient-to-br from-slate-50 to-white py-24 sm:py-32">
+<section class="relative overflow-hidden bg-linear-to-br from-slate-50 to-white py-24 sm:py-32">
 	<!-- Диагональный декор -->
 	<div class="absolute inset-0">
-		<div class="absolute inset-0 bg-gradient-to-br from-red-50 to-amber-50" style="clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);"></div>
+		<div class="absolute inset-0 bg-linear-to-br from-red-50 to-amber-50" style="clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);"></div>
 	</div>
 	<!-- Светящиеся круги -->
 	<div class="absolute -left-40 top-0 size-80 rounded-full bg-red-100/50 blur-3xl"></div>

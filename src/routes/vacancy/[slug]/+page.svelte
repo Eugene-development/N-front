@@ -275,7 +275,7 @@
 			<div class="mt-8 lg:mt-0">
 				<div class="sticky top-24 space-y-6">
 					<!-- Карточка зарплаты -->
-					<div class="rounded-2xl bg-gradient-to-br {colors.gradient} p-6 text-white shadow-lg">
+					<div class="rounded-2xl bg-linear-to-br {colors.gradient} p-6 text-white shadow-lg">
 						<div class="text-sm opacity-80">Заработная плата</div>
 						<div class="mt-2 text-2xl font-bold">{vacancy.salary}</div>
 						<a href="mailto:hr@novostroy.ru?subject=Отклик на вакансию: {vacancy.title}" class="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-slate-900 transition-all hover:bg-slate-100">

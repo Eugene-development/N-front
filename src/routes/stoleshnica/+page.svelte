@@ -18,7 +18,7 @@
 						</h2>
 						
 						<a href="/stoleshnica/kvarc" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-slate-100 to-gray-200 text-slate-600 transition-all group-hover:from-slate-500 group-hover:to-gray-600 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-slate-100 to-gray-200 text-slate-600 transition-all group-hover:from-slate-500 group-hover:to-gray-600 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
 								</svg>
@@ -27,7 +27,7 @@
 						</a>
 
 						<a href="/stoleshnica/akril" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-sky-100 to-cyan-100 text-sky-600 transition-all group-hover:from-sky-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-sky-100 to-cyan-100 text-sky-600 transition-all group-hover:from-sky-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
 								</svg>
@@ -36,7 +36,7 @@
 						</a>
 
 						<a href="/stoleshnica/dsp" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-amber-100 to-yellow-100 text-amber-600 transition-all group-hover:from-amber-500 group-hover:to-yellow-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-amber-100 to-yellow-100 text-amber-600 transition-all group-hover:from-amber-500 group-hover:to-yellow-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
 								</svg>
@@ -45,7 +45,7 @@
 						</a>
 
 						<a href="/stoleshnica/massiv" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-orange-100 to-amber-100 text-orange-600 transition-all group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-orange-100 to-amber-100 text-orange-600 transition-all group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
 								</svg>
@@ -54,7 +54,7 @@
 						</a>
 
 						<a href="/stoleshnica/kompakt" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 text-violet-600 transition-all group-hover:from-violet-500 group-hover:to-purple-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-violet-100 to-purple-100 text-violet-600 transition-all group-hover:from-violet-500 group-hover:to-purple-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
 								</svg>
@@ -63,7 +63,7 @@
 						</a>
 
 						<a href="/stoleshnica/keramika" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-100 to-teal-100 text-emerald-600 transition-all group-hover:from-emerald-500 group-hover:to-teal-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-emerald-100 to-teal-100 text-emerald-600 transition-all group-hover:from-emerald-500 group-hover:to-teal-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
 								</svg>
@@ -73,7 +73,7 @@
 					</nav>
 
 					<!-- Баннер -->
-					<div class="mt-8 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 p-6 text-white">
+					<div class="mt-8 rounded-2xl bg-linear-to-br from-amber-500 to-orange-600 p-6 text-white">
 						<h3 class="text-lg font-semibold">Бесплатный замер</h3>
 						<p class="mt-2 text-sm text-amber-100">Выезд специалиста для точного расчёта столешницы</p>
 						<a href="/measurement" class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-amber-600 transition-all hover:bg-amber-50">
@@ -89,7 +89,7 @@
 			<!-- Основной контент -->
 			<main class="lg:col-span-3">
 				<!-- Hero секция -->
-				<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800">
+				<div class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800">
 					<img
 						src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200"
 						alt="Столешницы для кухни"
@@ -269,7 +269,7 @@
 								alt="Кварцевые столешницы"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
-							<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+							<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
 							<div class="absolute bottom-0 left-0 right-0 p-6">
 								<h3 class="text-xl font-bold text-white">Кварцевый агломерат</h3>
 								<p class="mt-1 text-sm text-slate-300">Прочность и элегантность натурального камня</p>
@@ -282,7 +282,7 @@
 								alt="Акриловые столешницы"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
-							<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+							<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
 							<div class="absolute bottom-0 left-0 right-0 p-6">
 								<h3 class="text-xl font-bold text-white">Акриловый камень</h3>
 								<p class="mt-1 text-sm text-slate-300">Бесшовное соединение и любые формы</p>
@@ -335,7 +335,7 @@
 				</div>
 
 				<!-- CTA секция -->
-				<div class="mt-12 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 p-8 text-center text-white sm:p-12">
+				<div class="mt-12 rounded-2xl bg-linear-to-r from-amber-500 to-orange-600 p-8 text-center text-white sm:p-12">
 					<h2 class="text-2xl font-bold sm:text-3xl">Рассчитайте стоимость столешницы</h2>
 					<p class="mx-auto mt-3 max-w-md text-amber-100">
 						Оставьте заявку и получите расчёт стоимости с учётом всех вырезов и монтажа

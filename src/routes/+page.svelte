@@ -16,21 +16,21 @@
 	/>
 	
 	<!-- Градиентный overlay -->
-	<div class="absolute inset-0 -z-10 hidden bg-gradient-to-r from-black/70 via-black/50 to-black/30 sm:block"></div>
+	<div class="absolute inset-0 -z-10 hidden bg-linear-to-r from-black/70 via-black/50 to-black/30 sm:block"></div>
 	
 	<!-- Мобильный фон -->
-	<div class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-900 to-slate-800 sm:hidden"></div>
+	<div class="absolute inset-0 -z-10 bg-linear-to-br from-slate-900 to-slate-800 sm:hidden"></div>
 	
 	<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
 		<div class="mx-auto max-w-4xl">
 			<!-- Контентный блок -->
-			<div class="rounded-2xl bg-white/95 p-8 text-center shadow-2xl backdrop-blur-sm sm:bg-white/90 sm:p-10 lg:p-12">
+			<div class="rounded-2xl bg-white/80 p-8 text-center shadow-2xl backdrop-blur-md sm:bg-white/50 sm:p-10 lg:p-12">
 				<!-- Бейдж блога -->
 				<a
 					href="/blog"
 					class="group mx-auto mb-6 inline-flex items-center gap-2 rounded-full bg-slate-100 py-1.5 pl-1.5 pr-4 text-sm transition-all duration-300 hover:bg-sky-50"
 				>
-					<span class="rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 px-3 py-1 text-xs font-medium text-white">
+					<span class="rounded-full bg-linear-to-r from-sky-500 to-cyan-500 px-3 py-1 text-xs font-medium text-white">
 						Новое
 					</span>
 					<span class="font-medium text-slate-700">Наш мебельный блог</span>
@@ -55,7 +55,7 @@
 				<div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
 					<a
 						href="/actions"
-						class="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/30"
+						class="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-sky-500 to-cyan-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/30"
 					>
 						Наши акции
 						<svg class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -106,7 +106,7 @@
 			<!-- Логотип -->
 			<div class="w-full max-w-sm lg:w-80 lg:flex-none">
 				<div class="relative">
-					<div class="absolute -inset-4 rounded-3xl bg-gradient-to-r from-sky-100 to-cyan-100 opacity-50 blur-xl"></div>
+					<div class="absolute -inset-4 rounded-3xl bg-linear-to-r from-sky-100 to-cyan-100 opacity-50 blur-xl"></div>
 					<img
 						src="https://storage.yandexcloud.net/brand-logo/novostroy/logomain.png"
 						alt="Логотип Новострой"
@@ -269,7 +269,7 @@
 			<!-- Консультация -->
 			<div class="group rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/15">
 				<div class="flex items-start gap-4">
-					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-cyan-500 text-white">
+					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-sky-500 to-cyan-500 text-white">
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
 						</svg>
@@ -286,7 +286,7 @@
 			<!-- Замер -->
 			<div class="group rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/15">
 				<div class="flex items-start gap-4">
-					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-cyan-500 text-white">
+					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-sky-500 to-cyan-500 text-white">
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
 						</svg>
@@ -303,7 +303,7 @@
 			<!-- Проект -->
 			<div class="group rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/15">
 				<div class="flex items-start gap-4">
-					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-cyan-500 text-white">
+					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-sky-500 to-cyan-500 text-white">
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
 						</svg>
@@ -320,7 +320,7 @@
 			<!-- Договор -->
 			<div class="group rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/15">
 				<div class="flex items-start gap-4">
-					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-cyan-500 text-white">
+					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-sky-500 to-cyan-500 text-white">
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 						</svg>
@@ -337,7 +337,7 @@
 			<!-- Изготовление -->
 			<div class="group rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/15">
 				<div class="flex items-start gap-4">
-					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-cyan-500 text-white">
+					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-sky-500 to-cyan-500 text-white">
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -355,7 +355,7 @@
 			<!-- Сборка -->
 			<div class="group rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/15">
 				<div class="flex items-start gap-4">
-					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-cyan-500 text-white">
+					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-sky-500 to-cyan-500 text-white">
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
 						</svg>
@@ -434,7 +434,7 @@
 							alt="Встроенный шкаф"
 							class="aspect-[4/3] w-full scale-x-[-1] object-cover transition-transform duration-500 group-hover:scale-110"
 						/>
-						<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+						<div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 						<div class="absolute bottom-4 left-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 							<p class="text-sm font-medium">Шкафы-купе</p>
 						</div>
@@ -445,7 +445,7 @@
 							alt="Кухня"
 							class="aspect-[4/3] w-full scale-x-[-1] object-cover transition-transform duration-500 group-hover:scale-110"
 						/>
-						<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+						<div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 						<div class="absolute bottom-4 left-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 							<p class="text-sm font-medium">Кухни</p>
 						</div>
@@ -458,7 +458,7 @@
 							alt="Гардеробная система"
 							class="aspect-[4/3] w-full scale-x-[-1] object-cover transition-transform duration-500 group-hover:scale-110"
 						/>
-						<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+						<div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 						<div class="absolute bottom-4 left-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 							<p class="text-sm font-medium">Гардеробные</p>
 						</div>
@@ -469,7 +469,7 @@
 							alt="Кухонный гарнитур"
 							class="aspect-[4/3] w-full scale-x-[-1] object-cover transition-transform duration-500 group-hover:scale-110"
 						/>
-						<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+						<div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 						<div class="absolute bottom-4 left-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 							<p class="text-sm font-medium">Кухонные гарнитуры</p>
 						</div>
@@ -490,7 +490,7 @@
 			alt="Кухонные гарнитуры"
 			class="absolute inset-0 h-full w-full scale-x-[-1] object-cover transition-transform duration-700 group-hover:scale-105"
 		/>
-		<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+		<div class="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
 		<div class="relative flex w-full flex-col items-start justify-end p-8 sm:p-12">
 			<span class="rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white/90 backdrop-blur-sm">
 				Основное направление
@@ -515,7 +515,7 @@
 			alt="Шкафы и гардеробы"
 			class="absolute inset-0 h-full w-full scale-x-[-1] object-cover transition-transform duration-700 group-hover:scale-105"
 		/>
-		<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+		<div class="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
 		<div class="relative flex w-full flex-col items-start justify-end p-8 sm:p-12">
 			<span class="rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white/90 backdrop-blur-sm">
 				Основное направление

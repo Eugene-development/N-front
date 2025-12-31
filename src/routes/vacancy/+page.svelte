@@ -64,11 +64,11 @@
 
 <div class="min-h-screen bg-slate-50">
 	<!-- Hero секция -->
-	<div class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900">
+	<div class="relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-sky-900">
 		<div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%239C92AC%22 fill-opacity=%220.05%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
 		<div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
 			<div class="text-center">
-				<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-cyan-500 shadow-lg shadow-sky-500/25">
+				<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-sky-400 to-cyan-500 shadow-lg shadow-sky-500/25">
 					<svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
 					</svg>
@@ -151,7 +151,7 @@
 					{@const colors = getColorClasses(vacancy.color)}
 					<a href="/vacancy/{vacancy.slug}" class="group relative overflow-hidden rounded-2xl bg-slate-50 p-6 transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1">
 						<div class="flex items-start gap-4">
-							<div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br {colors.gradient} text-white shadow-lg">
+							<div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-linear-to-br {colors.gradient} text-white shadow-lg">
 								<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={vacancy.icon} />
 								</svg>
@@ -189,7 +189,7 @@
 	</div>
 
 	<!-- CTA секция -->
-	<div class="bg-gradient-to-r from-sky-500 to-cyan-600 py-16">
+	<div class="bg-linear-to-r from-sky-500 to-cyan-600 py-16">
 		<div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
 			<h2 class="text-3xl font-bold text-white sm:text-4xl">Не нашли подходящую вакансию?</h2>
 			<p class="mx-auto mt-4 max-w-xl text-lg text-sky-100">

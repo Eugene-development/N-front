@@ -5,7 +5,7 @@
 
 <div class="min-h-screen bg-slate-50">
 	<!-- Hero секция -->
-	<div class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900">
+	<div class="relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-sky-900">
 		<div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%239C92AC%22 fill-opacity=%220.05%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
 		<div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
 			<div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -71,35 +71,35 @@
 	<div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
 		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 			<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-				<div class="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-gradient-to-br from-sky-100 to-cyan-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
+				<div class="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-linear-to-br from-sky-100 to-cyan-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
 					<div class="text-5xl font-bold text-slate-900">358</div>
 					<div class="mt-2 text-slate-600">Партнёрских салонов</div>
-					<div class="mt-4 h-1 w-12 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500"></div>
+					<div class="mt-4 h-1 w-12 rounded-full bg-linear-to-r from-sky-500 to-cyan-500"></div>
 				</div>
 			</div>
 			<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-				<div class="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-gradient-to-br from-emerald-100 to-teal-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
+				<div class="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-linear-to-br from-emerald-100 to-teal-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
 					<div class="text-5xl font-bold text-slate-900">24</div>
 					<div class="mt-2 text-slate-600">Года опыта работы</div>
-					<div class="mt-4 h-1 w-12 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+					<div class="mt-4 h-1 w-12 rounded-full bg-linear-to-r from-emerald-500 to-teal-500"></div>
 				</div>
 			</div>
 			<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-				<div class="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-gradient-to-br from-violet-100 to-purple-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
+				<div class="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-linear-to-br from-violet-100 to-purple-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
 					<div class="text-5xl font-bold text-slate-900">17</div>
 					<div class="mt-2 text-slate-600">Городов России</div>
-					<div class="mt-4 h-1 w-12 rounded-full bg-gradient-to-r from-violet-500 to-purple-500"></div>
+					<div class="mt-4 h-1 w-12 rounded-full bg-linear-to-r from-violet-500 to-purple-500"></div>
 				</div>
 			</div>
 			<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-				<div class="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
+				<div class="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-linear-to-br from-amber-100 to-orange-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
 					<div class="text-5xl font-bold text-slate-900">4000+</div>
 					<div class="mt-2 text-slate-600">Реализованных проектов</div>
-					<div class="mt-4 h-1 w-12 rounded-full bg-gradient-to-r from-amber-500 to-orange-500"></div>
+					<div class="mt-4 h-1 w-12 rounded-full bg-linear-to-r from-amber-500 to-orange-500"></div>
 				</div>
 			</div>
 		</div>
@@ -123,7 +123,7 @@
 				</div>
 				<div class="mt-12 lg:mt-0">
 					<div class="relative">
-						<div class="absolute -inset-4 rounded-3xl bg-gradient-to-r from-sky-100 to-cyan-100 opacity-50"></div>
+						<div class="absolute -inset-4 rounded-3xl bg-linear-to-r from-sky-100 to-cyan-100 opacity-50"></div>
 						<img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800" alt="Команда Новострой" class="relative rounded-2xl shadow-xl" />
 					</div>
 				</div>
@@ -216,7 +216,7 @@
 	</div>
 
 	<!-- Почему выбирают нас -->
-	<div class="bg-gradient-to-br from-slate-800 to-slate-900 py-16">
+	<div class="bg-linear-to-br from-slate-800 to-slate-900 py-16">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="text-center">
 				<h2 class="text-3xl font-bold text-white">Почему выбирают нас</h2>
@@ -278,7 +278,7 @@
 			<div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				<div class="group relative overflow-hidden rounded-2xl">
 					<img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600" alt="Современная кухня" class="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-110" />
-					<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+					<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 					<div class="absolute bottom-0 left-0 right-0 p-6 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 						<h3 class="text-lg font-semibold">Современная кухня</h3>
 						<p class="text-sm text-slate-300">Минималистичный дизайн</p>
@@ -287,7 +287,7 @@
 
 				<div class="group relative overflow-hidden rounded-2xl">
 					<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600" alt="Классический интерьер" class="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-110" />
-					<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+					<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 					<div class="absolute bottom-0 left-0 right-0 p-6 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 						<h3 class="text-lg font-semibold">Классический интерьер</h3>
 						<p class="text-sm text-slate-300">Элегантность и комфорт</p>
@@ -296,7 +296,7 @@
 
 				<div class="group relative overflow-hidden rounded-2xl">
 					<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600" alt="Лофт стиль" class="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-110" />
-					<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+					<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 					<div class="absolute bottom-0 left-0 right-0 p-6 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 						<h3 class="text-lg font-semibold">Лофт стиль</h3>
 						<p class="text-sm text-slate-300">Индустриальный шик</p>
@@ -316,7 +316,7 @@
 	</div>
 
 	<!-- CTA секция -->
-	<div class="bg-gradient-to-r from-sky-500 to-cyan-600 py-16">
+	<div class="bg-linear-to-r from-sky-500 to-cyan-600 py-16">
 		<div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
 			<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur">
 				<svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">

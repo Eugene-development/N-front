@@ -18,7 +18,7 @@
 						</h2>
 						
 						<a href="/santehnika/moyki" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-sky-100 to-blue-100 text-sky-600 transition-all group-hover:from-sky-500 group-hover:to-blue-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-sky-100 to-blue-100 text-sky-600 transition-all group-hover:from-sky-500 group-hover:to-blue-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
 								</svg>
@@ -27,7 +27,7 @@
 						</a>
 
 						<a href="/santehnika/smesiteli" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-100 to-teal-100 text-cyan-600 transition-all group-hover:from-cyan-500 group-hover:to-teal-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-cyan-100 to-teal-100 text-cyan-600 transition-all group-hover:from-cyan-500 group-hover:to-teal-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
 								</svg>
@@ -36,7 +36,7 @@
 						</a>
 
 						<a href="/santehnika/izmelchiteli" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-100 to-green-100 text-emerald-600 transition-all group-hover:from-emerald-500 group-hover:to-green-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-emerald-100 to-green-100 text-emerald-600 transition-all group-hover:from-emerald-500 group-hover:to-green-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
 								</svg>
@@ -45,7 +45,7 @@
 						</a>
 
 						<a href="/santehnika/dispensery" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 text-violet-600 transition-all group-hover:from-violet-500 group-hover:to-purple-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-violet-100 to-purple-100 text-violet-600 transition-all group-hover:from-violet-500 group-hover:to-purple-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
 								</svg>
@@ -54,7 +54,7 @@
 						</a>
 
 						<a href="/santehnika/filtry" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-100 to-indigo-100 text-blue-600 transition-all group-hover:from-blue-500 group-hover:to-indigo-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-blue-100 to-indigo-100 text-blue-600 transition-all group-hover:from-blue-500 group-hover:to-indigo-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
 								</svg>
@@ -63,7 +63,7 @@
 						</a>
 
 						<a href="/santehnika/aksessuary" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-slate-100 to-gray-200 text-slate-600 transition-all group-hover:from-slate-500 group-hover:to-gray-600 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-slate-100 to-gray-200 text-slate-600 transition-all group-hover:from-slate-500 group-hover:to-gray-600 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
 								</svg>
@@ -73,7 +73,7 @@
 					</nav>
 
 					<!-- Баннер -->
-					<div class="mt-8 rounded-2xl bg-gradient-to-br from-sky-500 to-cyan-600 p-6 text-white">
+					<div class="mt-8 rounded-2xl bg-linear-to-br from-sky-500 to-cyan-600 p-6 text-white">
 						<h3 class="text-lg font-semibold">Подбор под столешницу</h3>
 						<p class="mt-2 text-sm text-sky-100">Поможем выбрать мойку и смеситель под ваш проект</p>
 						<a href="/consultation" class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50">
@@ -89,7 +89,7 @@
 			<!-- Основной контент -->
 			<main class="lg:col-span-3">
 				<!-- Hero секция -->
-				<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800">
+				<div class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800">
 					<img
 						src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1200"
 						alt="Сантехника для кухни"
@@ -243,7 +243,7 @@
 								alt="Кухонные мойки"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
-							<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+							<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
 							<div class="absolute bottom-0 left-0 right-0 p-6">
 								<h3 class="text-xl font-bold text-white">Кухонные мойки</h3>
 								<p class="mt-1 text-sm text-slate-300">Врезные, накладные, интегрированные</p>
@@ -256,7 +256,7 @@
 								alt="Смесители"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
-							<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+							<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
 							<div class="absolute bottom-0 left-0 right-0 p-6">
 								<h3 class="text-xl font-bold text-white">Смесители</h3>
 								<p class="mt-1 text-sm text-slate-300">С выдвижным изливом, сенсорные, классические</p>
@@ -342,7 +342,7 @@
 				</div>
 
 				<!-- CTA секция -->
-				<div class="mt-12 rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-600 p-8 text-center text-white sm:p-12">
+				<div class="mt-12 rounded-2xl bg-linear-to-r from-sky-500 to-cyan-600 p-8 text-center text-white sm:p-12">
 					<h2 class="text-2xl font-bold sm:text-3xl">Нужна помощь с выбором?</h2>
 					<p class="mx-auto mt-3 max-w-md text-sky-100">
 						Наши специалисты помогут подобрать сантехнику под вашу кухню и бюджет

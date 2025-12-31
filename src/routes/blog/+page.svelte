@@ -92,11 +92,11 @@
 
 <div class="min-h-screen bg-slate-50">
 	<!-- Hero секция -->
-	<div class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900">
+	<div class="relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-sky-900">
 		<div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%239C92AC%22 fill-opacity=%220.05%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
 		<div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
 			<div class="text-center">
-				<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-cyan-500 shadow-lg shadow-sky-500/25">
+				<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-sky-400 to-cyan-500 shadow-lg shadow-sky-500/25">
 					<svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
 					</svg>
@@ -136,14 +136,14 @@
 	<!-- Главная статья -->
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<a href="/post/{posts[posts.length - 1].id}" class="group block">
-			<div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-800 to-slate-900 shadow-xl">
+			<div class="relative overflow-hidden rounded-3xl bg-linear-to-r from-slate-800 to-slate-900 shadow-xl">
 				<div class="absolute inset-0">
 					<img 
 						src={posts[posts.length - 1].image} 
 						alt={posts[posts.length - 1].title}
 						class="h-full w-full object-cover opacity-40 transition-transform duration-500 group-hover:scale-105"
 					/>
-					<div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
+					<div class="absolute inset-0 bg-linear-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
 				</div>
 				<div class="relative p-8 sm:p-12 lg:p-16">
 					<div class="max-w-2xl">
@@ -183,7 +183,7 @@
 							alt={post.title}
 							class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
 						/>
-						<div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+						<div class="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent"></div>
 						<div class="absolute bottom-4 left-4">
 							<span class="inline-flex items-center rounded-full {getCategoryColor(post.category.color)} px-3 py-1 text-xs font-medium">
 								{post.category.title}
@@ -229,7 +229,7 @@
 	<!-- Подписка на рассылку -->
 	<div class="bg-white py-16">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-sky-500 to-cyan-600 px-8 py-16 shadow-xl sm:px-16">
+			<div class="relative overflow-hidden rounded-3xl bg-linear-to-r from-sky-500 to-cyan-600 px-8 py-16 shadow-xl sm:px-16">
 				<div class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10"></div>
 				<div class="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-white/10"></div>
 				<div class="relative lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">

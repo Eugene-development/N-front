@@ -5,7 +5,7 @@
 
 <div class="min-h-screen bg-slate-50">
 	<!-- Hero секция -->
-	<div class="relative overflow-hidden bg-gradient-to-br from-sky-600 via-cyan-600 to-teal-600">
+	<div class="relative overflow-hidden bg-linear-to-br from-sky-600 via-cyan-600 to-teal-600">
 		<div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%220.05%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
 		<div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
 			<div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -69,9 +69,9 @@
 		<div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
 			<!-- Дизайнеры -->
 			<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-violet-100 to-purple-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
+				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-linear-to-br from-violet-100 to-purple-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
-					<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-lg shadow-violet-500/25">
+					<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-violet-500 to-purple-600 text-white shadow-lg shadow-violet-500/25">
 						<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
 						</svg>
@@ -85,9 +85,9 @@
 
 			<!-- Ремонтные бригады -->
 			<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
+				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-linear-to-br from-amber-100 to-orange-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
-					<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-lg shadow-amber-500/25">
+					<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-amber-500 to-orange-600 text-white shadow-lg shadow-amber-500/25">
 						<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -102,9 +102,9 @@
 
 			<!-- Продавцы мебели -->
 			<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-emerald-100 to-teal-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
+				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-linear-to-br from-emerald-100 to-teal-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
-					<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/25">
+					<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/25">
 						<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
 						</svg>
@@ -118,9 +118,9 @@
 
 			<!-- Самозанятые -->
 			<div class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-sky-100 to-blue-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
+				<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-linear-to-br from-sky-100 to-blue-100 opacity-50 transition-transform duration-300 group-hover:scale-150"></div>
 				<div class="relative">
-					<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 text-white shadow-lg shadow-sky-500/25">
+					<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-sky-500 to-blue-600 text-white shadow-lg shadow-sky-500/25">
 						<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
 						</svg>
@@ -219,7 +219,7 @@
 	</div>
 
 	<!-- Для фабрик -->
-	<div class="bg-gradient-to-br from-slate-800 to-slate-900 py-16">
+	<div class="bg-linear-to-br from-slate-800 to-slate-900 py-16">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
 				<div>
@@ -300,28 +300,28 @@
 
 			<div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
 				<div class="relative text-center">
-					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-sky-500 to-cyan-600 text-2xl font-bold text-white shadow-lg shadow-sky-500/25">1</div>
+					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-sky-500 to-cyan-600 text-2xl font-bold text-white shadow-lg shadow-sky-500/25">1</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Оставьте заявку</h3>
 					<p class="mt-2 text-sm text-slate-500">Заполните форму на сайте или позвоните нам</p>
-					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-gradient-to-r from-sky-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
+					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-linear-to-r from-sky-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
 				</div>
 
 				<div class="relative text-center">
-					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-sky-500 to-cyan-600 text-2xl font-bold text-white shadow-lg shadow-sky-500/25">2</div>
+					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-sky-500 to-cyan-600 text-2xl font-bold text-white shadow-lg shadow-sky-500/25">2</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Обсудим условия</h3>
 					<p class="mt-2 text-sm text-slate-500">Менеджер свяжется и расскажет детали</p>
-					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-gradient-to-r from-sky-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
+					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-linear-to-r from-sky-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
 				</div>
 
 				<div class="relative text-center">
-					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-sky-500 to-cyan-600 text-2xl font-bold text-white shadow-lg shadow-sky-500/25">3</div>
+					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-sky-500 to-cyan-600 text-2xl font-bold text-white shadow-lg shadow-sky-500/25">3</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Подпишем договор</h3>
 					<p class="mt-2 text-sm text-slate-500">Оформим партнёрство официально</p>
-					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-gradient-to-r from-sky-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
+					<div class="absolute right-0 top-8 hidden h-0.5 w-full bg-linear-to-r from-sky-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"></div>
 				</div>
 
 				<div class="text-center">
-					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 text-2xl font-bold text-white shadow-lg shadow-emerald-500/25">✓</div>
+					<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-emerald-500 to-teal-600 text-2xl font-bold text-white shadow-lg shadow-emerald-500/25">✓</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Начинайте работу</h3>
 					<p class="mt-2 text-sm text-slate-500">Получите доступ к личному кабинету</p>
 				</div>
@@ -330,7 +330,7 @@
 	</div>
 
 	<!-- CTA секция -->
-	<div class="bg-gradient-to-r from-sky-500 to-cyan-600 py-16">
+	<div class="bg-linear-to-r from-sky-500 to-cyan-600 py-16">
 		<div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
 			<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur">
 				<svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">

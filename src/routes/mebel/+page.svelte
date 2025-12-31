@@ -18,7 +18,7 @@
 						</h2>
 						
 						<a href="/mebel/kuhni" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-amber-100 to-orange-100 text-amber-600 transition-all group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-amber-100 to-orange-100 text-amber-600 transition-all group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
 								</svg>
@@ -27,7 +27,7 @@
 						</a>
 
 						<a href="/mebel/shkafy" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-sky-100 to-blue-100 text-sky-600 transition-all group-hover:from-sky-500 group-hover:to-blue-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-sky-100 to-blue-100 text-sky-600 transition-all group-hover:from-sky-500 group-hover:to-blue-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
 								</svg>
@@ -36,7 +36,7 @@
 						</a>
 
 						<a href="/mebel/garderobnye" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 text-violet-600 transition-all group-hover:from-violet-500 group-hover:to-purple-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-violet-100 to-purple-100 text-violet-600 transition-all group-hover:from-violet-500 group-hover:to-purple-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
 								</svg>
@@ -45,7 +45,7 @@
 						</a>
 
 						<a href="/mebel/prihozhie" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-100 to-teal-100 text-emerald-600 transition-all group-hover:from-emerald-500 group-hover:to-teal-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-emerald-100 to-teal-100 text-emerald-600 transition-all group-hover:from-emerald-500 group-hover:to-teal-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
 								</svg>
@@ -54,7 +54,7 @@
 						</a>
 
 						<a href="/mebel/detskaya" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-pink-100 to-rose-100 text-pink-600 transition-all group-hover:from-pink-500 group-hover:to-rose-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-pink-100 to-rose-100 text-pink-600 transition-all group-hover:from-pink-500 group-hover:to-rose-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
 								</svg>
@@ -63,7 +63,7 @@
 						</a>
 
 						<a href="/mebel/ofisnaya" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-slate-100 to-gray-200 text-slate-600 transition-all group-hover:from-slate-500 group-hover:to-gray-600 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-slate-100 to-gray-200 text-slate-600 transition-all group-hover:from-slate-500 group-hover:to-gray-600 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
 								</svg>
@@ -73,7 +73,7 @@
 					</nav>
 
 					<!-- Баннер консультации -->
-					<div class="mt-8 rounded-2xl bg-gradient-to-br from-sky-500 to-cyan-600 p-6 text-white">
+					<div class="mt-8 rounded-2xl bg-linear-to-br from-sky-500 to-cyan-600 p-6 text-white">
 						<h3 class="text-lg font-semibold">Нужна помощь?</h3>
 						<p class="mt-2 text-sm text-sky-100">Получите бесплатную консультацию дизайнера</p>
 						<a href="/consultation" class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50">
@@ -89,7 +89,7 @@
 			<!-- Основной контент -->
 			<main class="lg:col-span-3">
 				<!-- Hero секция -->
-				<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800">
+				<div class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800">
 					<img
 						src="https://zovofficial.com/image/cache/catalog/products/kuhni/2024/fabi/cam-1-1087x890.jpg"
 						alt="Мебель на заказ"
@@ -218,7 +218,7 @@
 								alt="Кухни на заказ"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
-							<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+							<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
 							<div class="absolute bottom-0 left-0 right-0 p-6">
 								<h3 class="text-xl font-bold text-white">Кухни на заказ</h3>
 								<p class="mt-1 text-sm text-slate-300">От классики до современного минимализма</p>
@@ -231,7 +231,7 @@
 								alt="Шкафы и гардеробные"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
-							<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+							<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
 							<div class="absolute bottom-0 left-0 right-0 p-6">
 								<h3 class="text-xl font-bold text-white">Шкафы и гардеробные</h3>
 								<p class="mt-1 text-sm text-slate-300">Максимум функциональности и стиля</p>
@@ -268,7 +268,7 @@
 				</div>
 
 				<!-- CTA секция -->
-				<div class="mt-12 rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-600 p-8 text-center text-white sm:p-12">
+				<div class="mt-12 rounded-2xl bg-linear-to-r from-sky-500 to-cyan-600 p-8 text-center text-white sm:p-12">
 					<h2 class="text-2xl font-bold sm:text-3xl">Готовы начать проект?</h2>
 					<p class="mx-auto mt-3 max-w-md text-sky-100">
 						Оставьте заявку и получите бесплатный дизайн-проект вашей мебели

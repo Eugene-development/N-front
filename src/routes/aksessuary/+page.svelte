@@ -18,7 +18,7 @@
 						</h2>
 						
 						<a href="/aksessuary/reylingi" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-slate-100 to-gray-200 text-slate-600 transition-all group-hover:from-slate-500 group-hover:to-gray-600 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-slate-100 to-gray-200 text-slate-600 transition-all group-hover:from-slate-500 group-hover:to-gray-600 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
 								</svg>
@@ -27,7 +27,7 @@
 						</a>
 
 						<a href="/aksessuary/organajzery" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-sky-100 to-blue-100 text-sky-600 transition-all group-hover:from-sky-500 group-hover:to-blue-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-sky-100 to-blue-100 text-sky-600 transition-all group-hover:from-sky-500 group-hover:to-blue-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
 								</svg>
@@ -36,7 +36,7 @@
 						</a>
 
 						<a href="/aksessuary/korziny" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-amber-100 to-orange-100 text-amber-600 transition-all group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-amber-100 to-orange-100 text-amber-600 transition-all group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
 								</svg>
@@ -45,7 +45,7 @@
 						</a>
 
 						<a href="/aksessuary/sushki" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-100 to-teal-100 text-emerald-600 transition-all group-hover:from-emerald-500 group-hover:to-teal-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-emerald-100 to-teal-100 text-emerald-600 transition-all group-hover:from-emerald-500 group-hover:to-teal-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
 								</svg>
@@ -54,7 +54,7 @@
 						</a>
 
 						<a href="/aksessuary/musor" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 text-violet-600 transition-all group-hover:from-violet-500 group-hover:to-purple-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-violet-100 to-purple-100 text-violet-600 transition-all group-hover:from-violet-500 group-hover:to-purple-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
 								</svg>
@@ -63,7 +63,7 @@
 						</a>
 
 						<a href="/aksessuary/podsvetka" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-yellow-100 to-amber-100 text-yellow-600 transition-all group-hover:from-yellow-500 group-hover:to-amber-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-yellow-100 to-amber-100 text-yellow-600 transition-all group-hover:from-yellow-500 group-hover:to-amber-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
 								</svg>
@@ -72,7 +72,7 @@
 						</a>
 
 						<a href="/aksessuary/kryuchki" class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600">
-							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-100 to-sky-100 text-cyan-600 transition-all group-hover:from-cyan-500 group-hover:to-sky-500 group-hover:text-white group-hover:shadow-lg">
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-cyan-100 to-sky-100 text-cyan-600 transition-all group-hover:from-cyan-500 group-hover:to-sky-500 group-hover:text-white group-hover:shadow-lg">
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
 								</svg>
@@ -82,7 +82,7 @@
 					</nav>
 
 					<!-- Баннер -->
-					<div class="mt-8 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 p-6 text-white">
+					<div class="mt-8 rounded-2xl bg-linear-to-br from-emerald-500 to-teal-600 p-6 text-white">
 						<h3 class="text-lg font-semibold">Организация пространства</h3>
 						<p class="mt-2 text-sm text-emerald-100">Поможем подобрать аксессуары под вашу кухню</p>
 						<a href="/consultation" class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-emerald-600 transition-all hover:bg-emerald-50">
@@ -98,7 +98,7 @@
 			<!-- Основной контент -->
 			<main class="lg:col-span-3">
 				<!-- Hero секция -->
-				<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800">
+				<div class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800">
 					<img
 						src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200"
 						alt="Аксессуары для кухни"
@@ -249,7 +249,7 @@
 								alt="Органайзеры для ящиков"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
-							<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+							<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
 							<div class="absolute bottom-0 left-0 right-0 p-6">
 								<h3 class="text-xl font-bold text-white">Органайзеры для ящиков</h3>
 								<p class="mt-1 text-sm text-slate-300">Порядок в каждом ящике</p>
@@ -262,7 +262,7 @@
 								alt="Выдвижные корзины"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
-							<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+							<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
 							<div class="absolute bottom-0 left-0 right-0 p-6">
 								<h3 class="text-xl font-bold text-white">Выдвижные корзины</h3>
 								<p class="mt-1 text-sm text-slate-300">Удобный доступ к содержимому</p>
@@ -348,7 +348,7 @@
 				</div>
 
 				<!-- CTA секция -->
-				<div class="mt-12 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 p-8 text-center text-white sm:p-12">
+				<div class="mt-12 rounded-2xl bg-linear-to-r from-emerald-500 to-teal-600 p-8 text-center text-white sm:p-12">
 					<h2 class="text-2xl font-bold sm:text-3xl">Организуем вашу кухню</h2>
 					<p class="mx-auto mt-3 max-w-md text-emerald-100">
 						Подберём аксессуары для максимального удобства и порядка на кухне

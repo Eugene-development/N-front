@@ -39,7 +39,7 @@
 	];
 </script>
 
-<header class="bg-gradient-to-r from-slate-50 via-white to-slate-50">
+<header class="bg-linear-to-r from-slate-50 via-white to-slate-50">
 	<nav
 		class="max-w-9xl mx-auto hidden items-center justify-between px-6 py-3 lg:flex lg:px-8"
 		aria-label="Global"
@@ -56,7 +56,7 @@
 					src="https://storage.yandexcloud.net/brand-logo/novostroy/logomain.png"
 					alt="Логотип компании Новострой"
 				/>
-				<div class="absolute inset-0 rounded-b-2xl bg-gradient-to-t from-sky-500/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+				<div class="absolute inset-0 rounded-b-2xl bg-linear-to-t from-sky-500/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 			</a>
 		</div>
 
@@ -77,14 +77,14 @@
 					<!-- Hover эффект -->
 					{#if hoveredItem === i}
 						<span 
-							class="absolute inset-0 -z-10 rounded-xl bg-gradient-to-r from-sky-50 to-cyan-50"
+							class="absolute inset-0 -z-10 rounded-xl bg-linear-to-r from-sky-50 to-cyan-50"
 							transition:scale={{ duration: 200, easing: cubicOut, start: 0.95 }}
 						></span>
 					{/if}
 					
 					<!-- Активный индикатор -->
 					{#if $page.url.pathname === item.href}
-						<span class="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500"></span>
+						<span class="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-linear-to-r from-sky-500 to-cyan-500"></span>
 					{/if}
 				</a>
 			{/each}
@@ -122,12 +122,12 @@
 						class="absolute left-1/2 top-full z-50 mt-3 w-56 -translate-x-1/2 overflow-hidden rounded-2xl bg-white p-2 shadow-xl ring-1 ring-slate-900/5"
 					>
 						<!-- Декоративный градиент сверху -->
-						<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
+						<div class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-sky-500 to-transparent"></div>
 						
 						{#each catalogItems as item, idx}
 							<a
 								href={item.href}
-								class="group flex items-center justify-between rounded-xl px-4 py-2.5 transition-all duration-200 hover:bg-gradient-to-r hover:from-sky-50 hover:to-cyan-50"
+								class="group flex items-center justify-between rounded-xl px-4 py-2.5 transition-all duration-200 hover:bg-linear-to-r hover:from-sky-50 hover:to-cyan-50"
 								transition:fly={{ y: -5, duration: 150, delay: idx * 30 }}
 							>
 								<span class="text-base font-medium text-slate-700 transition-colors group-hover:text-sky-600">{item.label}</span>
@@ -170,18 +170,18 @@
 						transition:fly={{ y: -10, duration: 200, easing: cubicOut }}
 						role="menu"
 						tabindex="0"
-						class="absolute left-1/2 top-full z-50 mt-3 w-80 -translate-x-1/2 overflow-hidden rounded-2xl bg-white p-2 shadow-xl ring-1 ring-slate-900/5"
+						class="absolute left-1/2 top-full z-50 mt-3 w-96 -translate-x-1/2 overflow-hidden rounded-2xl bg-white p-2 shadow-xl ring-1 ring-slate-900/5"
 					>
 						<!-- Декоративный градиент сверху -->
-						<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
+						<div class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-sky-500 to-transparent"></div>
 						
 						{#each serviceItems as service, idx}
 							<a
 								href={service.href}
-								class="group flex items-start gap-3 rounded-xl p-3 transition-all duration-200 hover:bg-gradient-to-r hover:from-sky-50 hover:to-cyan-50"
+								class="group flex items-start gap-3 rounded-xl p-3 transition-all duration-200 hover:bg-linear-to-r hover:from-sky-50 hover:to-cyan-50"
 								transition:fly={{ y: -5, duration: 150, delay: idx * 30 }}
 							>
-								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-sky-100 to-cyan-100 text-sky-600 transition-all duration-300 group-hover:from-sky-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-sky-500/25">
+								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-sky-100 to-cyan-100 text-sky-600 transition-all duration-300 group-hover:from-sky-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-sky-500/25">
 									{#if service.icon === 'chat'}
 										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -228,7 +228,7 @@
 					Контакты
 				</span>
 				{#if $page.url.pathname === '/contacts'}
-					<span class="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500"></span>
+					<span class="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-linear-to-r from-sky-500 to-cyan-500"></span>
 				{/if}
 			</a>
 		</div>
@@ -242,11 +242,11 @@
 			>
 				<button
 					type="button"
-					class="city-selector group relative flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-slate-100 to-slate-50 px-5 py-2.5 text-base font-medium text-slate-700 ring-1 ring-slate-200/50 transition-all duration-300 hover:ring-sky-200 hover:shadow-lg hover:shadow-sky-500/10"
+					class="city-selector group relative flex items-center gap-2 overflow-hidden rounded-full bg-linear-to-r from-slate-100 to-slate-50 px-5 py-2.5 text-base font-medium text-slate-700 ring-1 ring-slate-200/50 transition-all duration-300 hover:ring-sky-200 hover:shadow-lg hover:shadow-sky-500/10"
 					aria-expanded={visibleCityMenu}
 				>
 					<!-- Анимированный фон -->
-					<span class="absolute inset-0 -z-10 bg-gradient-to-r from-sky-500 to-cyan-500 opacity-0 transition-opacity duration-300 group-hover:opacity-10"></span>
+					<span class="absolute inset-0 -z-10 bg-linear-to-r from-sky-500 to-cyan-500 opacity-0 transition-opacity duration-300 group-hover:opacity-10"></span>
 					
 					<!-- Иконка локации -->
 					<span class="flex items-center justify-center">
@@ -273,13 +273,13 @@
 						class="absolute right-0 top-full z-50 mt-3 w-48 overflow-hidden rounded-2xl bg-white p-2 shadow-xl ring-1 ring-slate-900/5"
 					>
 						<!-- Декоративный градиент сверху -->
-						<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
+						<div class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-sky-500 to-transparent"></div>
 						
 						{#each cities as city, idx}
 							<button
 								type="button"
 								onclick={() => { selectedCity = city.label; visibleCityMenu = false; }}
-								class="group flex w-full items-center justify-between rounded-xl px-4 py-2.5 text-left transition-all duration-200 hover:bg-gradient-to-r hover:from-sky-50 hover:to-cyan-50"
+								class="group flex w-full items-center justify-between rounded-xl px-4 py-2.5 text-left transition-all duration-200 hover:bg-linear-to-r hover:from-sky-50 hover:to-cyan-50"
 								class:bg-sky-50={selectedCity === city.label}
 								transition:fly={{ y: -5, duration: 150, delay: idx * 30 }}
 							>

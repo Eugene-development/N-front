@@ -8,7 +8,7 @@
 </svelte:head>
 
 <div
-	class="animate-fade overflow-hidden bg-gradient-to-b from-white via-white to-gray-50 px-4 py-16 animate-duration-500 animate-ease-in-out sm:px-6 lg:px-8 xl:py-36"
+	class="animate-fade overflow-hidden bg-linear-to-b from-white via-white to-gray-50 px-4 py-16 animate-duration-500 animate-ease-in-out sm:px-6 lg:px-8 xl:py-36"
 >
 	<div class="mx-auto max-w-max lg:max-w-7xl">
 		<div class="relative z-10 mb-8 md:mb-2 md:px-6">
@@ -63,7 +63,7 @@
 				</defs>
 				<rect width="404" height="384" fill="url(#7a00fe67-0343-4a3c-8e81-c145097a3ce0)" />
 			</svg>
-			<div class="relative bg-gradient-to-b from-white via-white to-gray-50 md:p-6">
+			<div class="relative bg-linear-to-b from-white via-white to-gray-50 md:p-6">
 				<div class="lg:grid lg:grid-cols-1 lg:gap-12">
 					<div class="prose prose-base prose-indigo text-gray-500 lg:max-w-none">
 						{@html data.post.content}
