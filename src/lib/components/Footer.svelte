@@ -57,14 +57,21 @@
 								>
 							</li>
 							<li>
-								<a href="/measuring" class="text-sm/6 text-gray-400 hover:text-white">Замер</a>
+								<a href="/design-project" class="text-sm/6 text-gray-400 hover:text-white"
+									>Дизайн интерьера</a
+								>
 							</li>
 							<li>
-								<a href="/delivery" class="text-sm/6 text-gray-400 hover:text-white">Доставка</a>
+								<a href="/measurement" class="text-sm/6 text-gray-400 hover:text-white">Замер</a>
+							</li>
+							<li>
+								<a href="/furniture-project" class="text-sm/6 text-gray-400 hover:text-white"
+									>Проектирование мебели</a
+								>
 							</li>
 							<li>
 								<a href="/assembly" class="text-sm/6 text-gray-400 hover:text-white"
-									>Сборка</a
+									>Сборка и установка</a
 								>
 							</li>
 						</ul>

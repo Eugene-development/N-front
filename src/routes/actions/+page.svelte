@@ -4,21 +4,21 @@
 </svelte:head>
 
 <!-- Hero секция -->
-<section class="relative overflow-hidden bg-gray-900 py-24 sm:py-32">
+<section class="relative overflow-hidden bg-gradient-to-br from-slate-50 to-white py-24 sm:py-32">
 	<!-- Диагональный декор -->
 	<div class="absolute inset-0">
-		<div class="absolute inset-0 bg-gray-800" style="clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);"></div>
+		<div class="absolute inset-0 bg-gradient-to-br from-red-50 to-amber-50" style="clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);"></div>
 	</div>
 	<!-- Светящиеся круги -->
-	<div class="absolute -left-40 top-0 size-80 rounded-full bg-white/5 blur-3xl"></div>
-	<div class="absolute -right-40 bottom-0 size-96 rounded-full bg-sky-500/10 blur-3xl"></div>
+	<div class="absolute -left-40 top-0 size-80 rounded-full bg-red-100/50 blur-3xl"></div>
+	<div class="absolute -right-40 bottom-0 size-96 rounded-full bg-amber-100/50 blur-3xl"></div>
 	
 	<div class="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-		<p class="text-base/7 font-semibold text-red-400">Выгодные предложения</p>
-		<h1 class="mt-4 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+		<p class="text-base/7 font-semibold text-red-500">Выгодные предложения</p>
+		<h1 class="mt-4 text-pretty text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
 			Акции, скидки и подарки
 		</h1>
-		<p class="mx-auto mt-6 max-w-2xl text-lg/8 text-gray-300">
+		<p class="mx-auto mt-6 max-w-2xl text-lg/8 text-slate-600">
 			Получите актуальные акции наших партнёров и узнайте о подарках и скидках на товары и услуги
 		</p>
 	</div>
@@ -229,13 +229,9 @@
 </section>
 
 <!-- Баннер -->
-<section class="relative overflow-hidden bg-gray-900 py-24 sm:py-32">
-	<!-- Светящиеся акценты -->
-	<div class="absolute left-1/4 top-0 size-64 -translate-y-1/2 rounded-full bg-red-500/20 blur-3xl"></div>
-	<div class="absolute bottom-0 right-1/4 size-64 translate-y-1/2 rounded-full bg-amber-500/20 blur-3xl"></div>
-	
-	<div class="relative mx-auto max-w-5xl px-6 lg:px-8">
-		<div class="overflow-hidden rounded-3xl shadow-2xl">
+<section class="bg-gray-50 py-24 sm:py-32">
+	<div class="mx-auto max-w-5xl px-6 lg:px-8">
+		<div class="overflow-hidden rounded-3xl">
 			<img
 				alt="Акция"
 				src="https://storage.yandexcloud.net/mine2024/novostroy/site/actionfoto.png"
