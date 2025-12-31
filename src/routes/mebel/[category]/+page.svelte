@@ -119,36 +119,7 @@
 
 {#if categoryData}
 <div class="min-h-screen bg-slate-50">
-	<!-- Хлебные крошки -->
-	<div class="bg-white border-b border-slate-100">
-		<div class="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
-			<nav class="flex" aria-label="Breadcrumb">
-				<ol class="flex items-center space-x-2 text-sm">
-					<li>
-						<a href="/" class="text-slate-500 hover:text-sky-600 transition-colors">Главная</a>
-					</li>
-					<li class="flex items-center">
-						<svg class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-						</svg>
-					</li>
-					<li>
-						<a href="/mebel" class="text-slate-500 hover:text-sky-600 transition-colors">Мебель</a>
-					</li>
-					<li class="flex items-center">
-						<svg class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-						</svg>
-					</li>
-					<li>
-						<span class="text-slate-900 font-medium">{categoryData.title}</span>
-					</li>
-				</ol>
-			</nav>
-		</div>
-	</div>
-
-	<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+	<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 		<div class="lg:grid lg:grid-cols-4 lg:gap-8">
 			<!-- Сайдбар с категориями -->
 			<aside class="hidden lg:block">
