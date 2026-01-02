@@ -134,6 +134,7 @@
 							
 							<!-- Кнопка удаления -->
 							<button 
+								aria-label="Удалить из избранного"
 								onclick={() => removeFromFavorites(item.id)}
 								class="absolute right-3 top-3 flex size-10 items-center justify-center rounded-full bg-white/90 text-pink-500 shadow-lg backdrop-blur-sm transition-all duration-300 hover:bg-pink-500 hover:text-white"
 							>
@@ -166,6 +167,7 @@
 								</button>
 								<a 
 									href="/mebel/{item.id}"
+									aria-label="Подробнее о товаре"
 									class="flex size-11 items-center justify-center rounded-xl border-2 border-slate-200 text-slate-500 transition-all duration-300 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-600"
 								>
 									<svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
