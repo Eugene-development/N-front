@@ -118,256 +118,395 @@
 </svelte:head>
 
 {#if categoryData}
-<div class="min-h-screen bg-slate-50">
-	<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
-		<div class="lg:grid lg:grid-cols-4 lg:gap-8">
-			<!-- Сайдбар с категориями -->
-			<aside class="hidden lg:block">
-				<div class="sticky top-24">
-					<nav class="space-y-1">
-						<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-							Категории мебели
-						</h2>
-						
-						{#each allCategories as cat}
-							{@const colors = getColorClasses(cat.color)}
-							<a 
-								href="/mebel/{cat.slug}" 
-								class="group flex items-center gap-3 rounded-xl px-4 py-3 transition-all {cat.slug === categorySlug ? 'bg-white shadow-md text-sky-600' : 'text-slate-700 hover:bg-white hover:shadow-md hover:text-sky-600'}"
-							>
-								<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {cat.slug === categorySlug ? colors.activeBg + ' text-white shadow-lg' : colors.bg + ' ' + colors.text} transition-all group-hover:from-sky-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg">
-									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={cat.icon} />
-									</svg>
-								</span>
-								<span class="font-medium">{cat.name}</span>
-							</a>
-						{/each}
-					</nav>
+	<div class="min-h-screen bg-slate-50">
+		<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
+			<div class="lg:grid lg:grid-cols-4 lg:gap-8">
+				<!-- Сайдбар с категориями -->
+				<aside class="hidden lg:block">
+					<div class="sticky top-24">
+						<nav class="space-y-1">
+							<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+								Категории мебели
+							</h2>
 
-					<!-- Баннер консультации -->
-					<div class="mt-8 rounded-2xl bg-linear-to-br from-sky-500 to-cyan-600 p-6 text-white">
-						<h3 class="text-lg font-semibold">Нужна помощь?</h3>
-						<p class="mt-2 text-sm text-sky-100">Получите бесплатную консультацию дизайнера</p>
-						<a href="/consultation" class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50">
-							Записаться
-							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-							</svg>
-						</a>
-					</div>
-				</div>
-			</aside>
-
-			<!-- Основной контент -->
-			<main class="lg:col-span-3">
-				<!-- Hero секция -->
-				<div class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800">
-					<img
-						src={categoryData.heroImage}
-						alt={categoryData.title}
-						class="absolute inset-0 h-full w-full object-cover opacity-40"
-					/>
-					<div class="relative px-8 py-12 sm:px-12 sm:py-16">
-						<h1 class="text-3xl font-bold text-white sm:text-4xl">
-							{categoryData.title}
-						</h1>
-						<p class="mt-4 max-w-xl text-lg text-slate-300">
-							{categoryData.description}
-						</p>
-						<div class="mt-6 flex flex-wrap gap-4">
-							<a href="/consultation" class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600">
-								Заказать проект
-								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-								</svg>
-							</a>
-							<a href="/measurement" class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20">
-								Бесплатный замер
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Мобильные категории -->
-				<div class="mt-6 lg:hidden">
-					<h2 class="text-lg font-semibold text-slate-900">Категории</h2>
-					<div class="mt-4 flex gap-2 overflow-x-auto pb-2">
-						{#each allCategories as cat}
-							<a 
-								href="/mebel/{cat.slug}" 
-								class="flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all {cat.slug === categorySlug ? 'bg-sky-500 text-white' : 'bg-white text-slate-700 shadow-sm hover:shadow'}"
-							>
-								{cat.name}
-							</a>
-						{/each}
-					</div>
-				</div>
-
-				<!-- Фильтры и сортировка -->
-				<div class="mt-8 flex flex-wrap items-center justify-between gap-4">
-					<div class="flex items-center gap-2">
-						<span class="text-sm text-slate-500">Найдено:</span>
-						<span class="font-semibold text-slate-900">{categoryData.products.length} товаров</span>
-					</div>
-					<div class="flex items-center gap-4">
-						<select class="rounded-lg border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 shadow-sm focus:border-sky-500 focus:ring-sky-500">
-							<option>По популярности</option>
-							<option>Сначала дешевле</option>
-							<option>Сначала дороже</option>
-							<option>По названию</option>
-						</select>
-						<div class="hidden sm:flex items-center gap-1 rounded-lg bg-white p-1 shadow-sm">
-							<button class="rounded-md bg-sky-500 p-2 text-white">
-								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-								</svg>
-							</button>
-							<button class="rounded-md p-2 text-slate-400 hover:text-slate-600">
-								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-								</svg>
-							</button>
-						</div>
-					</div>
-				</div>
-
-				<!-- Сетка товаров -->
-				<div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-					{#each categoryData.products as product}
-						<article class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-							<!-- Изображение -->
-							<div class="relative aspect-[4/3] overflow-hidden">
-								<img 
-									src={product.image} 
-									alt={product.name}
-									class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-								/>
-								<div class="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-								
-								<!-- Быстрые действия -->
-								<div class="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 transition-all duration-300 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
-									<a href="/mebel/{categorySlug}/{product.id}" class="flex-1 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-lg transition-all hover:bg-sky-500 hover:text-white text-center">
-										Подробнее
-									</a>
-									<button class="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-slate-600 shadow-lg transition-all hover:bg-sky-500 hover:text-white">
+							{#each allCategories as cat}
+								{@const colors = getColorClasses(cat.color)}
+								<a
+									href="/mebel/{cat.slug}"
+									class="group flex items-center gap-3 rounded-xl px-4 py-3 transition-all {cat.slug ===
+									categorySlug
+										? 'bg-white shadow-md text-sky-600'
+										: 'text-slate-700 hover:bg-white hover:shadow-md hover:text-sky-600'}"
+								>
+									<span
+										class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {cat.slug ===
+										categorySlug
+											? colors.activeBg + ' text-white shadow-lg'
+											: colors.bg +
+												' ' +
+												colors.text} transition-all group-hover:from-sky-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg"
+									>
 										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												stroke-width="1.5"
+												d={cat.icon}
+											/>
 										</svg>
-									</button>
-								</div>
+									</span>
+									<span class="font-medium">{cat.name}</span>
+								</a>
+							{/each}
+						</nav>
+
+						<!-- Баннер консультации -->
+						<div class="mt-8 rounded-2xl bg-linear-to-br from-sky-500 to-cyan-600 p-6 text-white">
+							<h3 class="text-lg font-semibold">Нужна помощь?</h3>
+							<p class="mt-2 text-sm text-sky-100">Получите бесплатную консультацию дизайнера</p>
+							<a
+								href="/consultation"
+								class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50"
+							>
+								Записаться
+								<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M9 5l7 7-7 7"
+									/>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</aside>
+
+				<!-- Основной контент -->
+				<main class="lg:col-span-3">
+					<!-- Hero секция -->
+					<div
+						class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800"
+					>
+						<img
+							src={categoryData.heroImage}
+							alt={categoryData.title}
+							class="absolute inset-0 h-full w-full object-cover opacity-40"
+						/>
+						<div class="relative px-8 py-12 sm:px-12 sm:py-16">
+							<h1 class="text-3xl font-bold text-white sm:text-4xl">
+								{categoryData.title}
+							</h1>
+							<p class="mt-4 max-w-xl text-lg text-slate-300">
+								{categoryData.description}
+							</p>
+							<div class="mt-6 flex flex-wrap gap-4">
+								<a
+									href="/consultation"
+									class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
+								>
+									Заказать проект
+									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M17 8l4 4m0 0l-4 4m4-4H3"
+										/>
+									</svg>
+								</a>
+								<a
+									href="/measurement"
+									class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
+								>
+									Бесплатный замер
+								</a>
 							</div>
-							
-							<!-- Контент -->
-							<div class="p-5">
-								<div class="flex items-center gap-2 text-xs text-slate-500">
-									<span class="rounded-full bg-slate-100 px-2 py-1">{product.style}</span>
-									<span class="rounded-full bg-slate-100 px-2 py-1">{product.material}</span>
-								</div>
-								
-								<h3 class="mt-3 text-lg font-semibold text-slate-900 group-hover:text-sky-600 transition-colors">
-									{product.name}
-								</h3>
-								
-								<div class="mt-3 flex items-center justify-between">
-									<div>
-										<span class="text-xs text-slate-500">от</span>
-										<span class="ml-1 text-xl font-bold text-slate-900">{formatPrice(product.price)}</span>
+						</div>
+					</div>
+
+					<!-- Мобильные категории -->
+					<div class="mt-6 lg:hidden">
+						<h2 class="text-lg font-semibold text-slate-900">Категории</h2>
+						<div class="mt-4 flex gap-2 overflow-x-auto pb-2">
+							{#each allCategories as cat}
+								<a
+									href="/mebel/{cat.slug}"
+									class="flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all {cat.slug ===
+									categorySlug
+										? 'bg-sky-500 text-white'
+										: 'bg-white text-slate-700 shadow-sm hover:shadow'}"
+								>
+									{cat.name}
+								</a>
+							{/each}
+						</div>
+					</div>
+
+					<!-- Фильтры и сортировка -->
+					<div class="mt-8 flex flex-wrap items-center justify-between gap-4">
+						<div class="flex items-center gap-2">
+							<span class="text-sm text-slate-500">Найдено:</span>
+							<span class="font-semibold text-slate-900"
+								>{categoryData.products.length} товаров</span
+							>
+						</div>
+						<div class="flex items-center gap-4">
+							<select
+								class="rounded-lg border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 shadow-sm focus:border-sky-500 focus:ring-sky-500"
+							>
+								<option>По популярности</option>
+								<option>Сначала дешевле</option>
+								<option>Сначала дороже</option>
+								<option>По названию</option>
+							</select>
+							<div class="hidden sm:flex items-center gap-1 rounded-lg bg-white p-1 shadow-sm">
+								<button aria-label="Показать сеткой" class="rounded-md bg-sky-500 p-2 text-white">
+									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+										/>
+									</svg>
+								</button>
+								<button
+									aria-label="Показать списком"
+									class="rounded-md p-2 text-slate-400 hover:text-slate-600"
+								>
+									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M4 6h16M4 10h16M4 14h16M4 18h16"
+										/>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Сетка товаров -->
+					<div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+						{#each categoryData.products as product}
+							<article
+								class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+							>
+								<!-- Изображение -->
+								<div class="relative aspect-[4/3] overflow-hidden">
+									<img
+										src={product.image}
+										alt={product.name}
+										class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+									/>
+									<div
+										class="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+									></div>
+
+									<!-- Быстрые действия -->
+									<div
+										class="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 transition-all duration-300 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
+									>
+										<a
+											href="/mebel/{categorySlug}/{product.id}"
+											class="flex-1 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-lg transition-all hover:bg-sky-500 hover:text-white text-center"
+										>
+											Подробнее
+										</a>
+										<button
+											aria-label="Добавить в избранное"
+											class="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-slate-600 shadow-lg transition-all hover:bg-sky-500 hover:text-white"
+										>
+											<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+												/>
+											</svg>
+										</button>
 									</div>
-									<a href="/consultation" class="inline-flex items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700">
-										Заказать
-										<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-										</svg>
-									</a>
 								</div>
-							</div>
-						</article>
-					{/each}
-				</div>
 
-				<!-- Преимущества -->
-				<div class="mt-12">
-					<h2 class="text-2xl font-bold text-slate-900">Почему заказывают у нас</h2>
-					<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-						<div class="rounded-xl bg-white p-5 shadow-sm">
-							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-100 text-sky-600">
-								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-								</svg>
+								<!-- Контент -->
+								<div class="p-5">
+									<div class="flex items-center gap-2 text-xs text-slate-500">
+										<span class="rounded-full bg-slate-100 px-2 py-1">{product.style}</span>
+										<span class="rounded-full bg-slate-100 px-2 py-1">{product.material}</span>
+									</div>
+
+									<h3
+										class="mt-3 text-lg font-semibold text-slate-900 group-hover:text-sky-600 transition-colors"
+									>
+										{product.name}
+									</h3>
+
+									<div class="mt-3 flex items-center justify-between">
+										<div>
+											<span class="text-xs text-slate-500">от</span>
+											<span class="ml-1 text-xl font-bold text-slate-900"
+												>{formatPrice(product.price)}</span
+											>
+										</div>
+										<a
+											href="/consultation"
+											class="inline-flex items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700"
+										>
+											Заказать
+											<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M9 5l7 7-7 7"
+												/>
+											</svg>
+										</a>
+									</div>
+								</div>
+							</article>
+						{/each}
+					</div>
+
+					<!-- Преимущества -->
+					<div class="mt-12">
+						<h2 class="text-2xl font-bold text-slate-900">Почему заказывают у нас</h2>
+						<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+							<div class="rounded-xl bg-white p-5 shadow-sm">
+								<div
+									class="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-100 text-sky-600"
+								>
+									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="1.5"
+											d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+										/>
+									</svg>
+								</div>
+								<h3 class="mt-3 font-semibold text-slate-900">Гарантия 5 лет</h3>
+								<p class="mt-1 text-sm text-slate-600">На все изделия</p>
 							</div>
-							<h3 class="mt-3 font-semibold text-slate-900">Гарантия 5 лет</h3>
-							<p class="mt-1 text-sm text-slate-600">На все изделия</p>
-						</div>
-						<div class="rounded-xl bg-white p-5 shadow-sm">
-							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600">
-								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-								</svg>
+							<div class="rounded-xl bg-white p-5 shadow-sm">
+								<div
+									class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600"
+								>
+									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="1.5"
+											d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+										/>
+									</svg>
+								</div>
+								<h3 class="mt-3 font-semibold text-slate-900">Сроки от 14 дней</h3>
+								<p class="mt-1 text-sm text-slate-600">Быстрое изготовление</p>
 							</div>
-							<h3 class="mt-3 font-semibold text-slate-900">Сроки от 14 дней</h3>
-							<p class="mt-1 text-sm text-slate-600">Быстрое изготовление</p>
-						</div>
-						<div class="rounded-xl bg-white p-5 shadow-sm">
-							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-600">
-								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-								</svg>
+							<div class="rounded-xl bg-white p-5 shadow-sm">
+								<div
+									class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-600"
+								>
+									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="1.5"
+											d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+										/>
+									</svg>
+								</div>
+								<h3 class="mt-3 font-semibold text-slate-900">3D-проект бесплатно</h3>
+								<p class="mt-1 text-sm text-slate-600">Визуализация дизайна</p>
 							</div>
-							<h3 class="mt-3 font-semibold text-slate-900">3D-проект бесплатно</h3>
-							<p class="mt-1 text-sm text-slate-600">Визуализация дизайна</p>
-						</div>
-						<div class="rounded-xl bg-white p-5 shadow-sm">
-							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-100 text-violet-600">
-								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-								</svg>
+							<div class="rounded-xl bg-white p-5 shadow-sm">
+								<div
+									class="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-100 text-violet-600"
+								>
+									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="1.5"
+											d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+										/>
+									</svg>
+								</div>
+								<h3 class="mt-3 font-semibold text-slate-900">Доставка и монтаж</h3>
+								<p class="mt-1 text-sm text-slate-600">Установка под ключ</p>
 							</div>
-							<h3 class="mt-3 font-semibold text-slate-900">Доставка и монтаж</h3>
-							<p class="mt-1 text-sm text-slate-600">Установка под ключ</p>
 						</div>
 					</div>
-				</div>
 
-				<!-- CTA секция -->
-				<div class="mt-12 rounded-2xl bg-linear-to-r from-sky-500 to-cyan-600 p-8 text-center text-white sm:p-12">
-					<h2 class="text-2xl font-bold sm:text-3xl">Не нашли подходящий вариант?</h2>
-					<p class="mx-auto mt-3 max-w-md text-sky-100">
-						Мы изготовим мебель по вашему индивидуальному проекту
-					</p>
-					<div class="mt-6 flex flex-wrap justify-center gap-4">
-						<a href="/consultation" class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-sky-600 transition-all hover:bg-sky-50">
-							Заказать индивидуальный проект
-						</a>
-						<a href="tel:+74951234567" class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20">
-							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-							</svg>
-							Позвонить
-						</a>
+					<!-- CTA секция -->
+					<div
+						class="mt-12 rounded-2xl bg-linear-to-r from-sky-500 to-cyan-600 p-8 text-center text-white sm:p-12"
+					>
+						<h2 class="text-2xl font-bold sm:text-3xl">Не нашли подходящий вариант?</h2>
+						<p class="mx-auto mt-3 max-w-md text-sky-100">
+							Мы изготовим мебель по вашему индивидуальному проекту
+						</p>
+						<div class="mt-6 flex flex-wrap justify-center gap-4">
+							<a
+								href="/consultation"
+								class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-sky-600 transition-all hover:bg-sky-50"
+							>
+								Заказать индивидуальный проект
+							</a>
+							<a
+								href="tel:+74951234567"
+								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
+							>
+								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+									/>
+								</svg>
+								Позвонить
+							</a>
+						</div>
 					</div>
-				</div>
-			</main>
+				</main>
+			</div>
 		</div>
 	</div>
-</div>
 {:else}
-<!-- Страница не найдена -->
-<div class="min-h-screen bg-slate-50 flex items-center justify-center">
-	<div class="text-center px-4">
-		<div class="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-slate-100">
-			<svg class="h-12 w-12 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-			</svg>
+	<!-- Страница не найдена -->
+	<div class="min-h-screen bg-slate-50 flex items-center justify-center">
+		<div class="text-center px-4">
+			<div class="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-slate-100">
+				<svg class="h-12 w-12 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="1.5"
+						d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					/>
+				</svg>
+			</div>
+			<h1 class="mt-6 text-2xl font-bold text-slate-900">Категория не найдена</h1>
+			<p class="mt-2 text-slate-600">К сожалению, запрашиваемая категория не существует</p>
+			<a
+				href="/mebel"
+				class="mt-6 inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
+			>
+				<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M10 19l-7-7m0 0l7-7m-7 7h18"
+					/>
+				</svg>
+				Вернуться в каталог
+			</a>
 		</div>
-		<h1 class="mt-6 text-2xl font-bold text-slate-900">Категория не найдена</h1>
-		<p class="mt-2 text-slate-600">К сожалению, запрашиваемая категория не существует</p>
-		<a href="/mebel" class="mt-6 inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600">
-			<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-			</svg>
-			Вернуться в каталог
-		</a>
 	</div>
-</div>
 {/if}
