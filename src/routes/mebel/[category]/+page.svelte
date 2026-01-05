@@ -6,7 +6,7 @@
 		kuhni: {
 			title: 'Кухни на заказ',
 			description: 'Создаём кухни мечты по индивидуальным размерам. Современные и классические решения с использованием качественных материалов.',
-			heroImage: 'https://zovofficial.com/image/cache/catalog/products/kuhni/2024/fabi/cam-1-1087x890.jpg',
+			heroImage: '/kuhni_hero.png',
 			color: 'amber',
 			products: [
 				{ id: 1, name: 'Кухня "Модерн"', price: 185000, image: 'https://zovofficial.com/image/cache/catalog/products/kuhni/2022/pemont-22/cam-1-1087x890.jpg', style: 'Современный', material: 'МДФ эмаль' },
@@ -193,7 +193,7 @@
 							alt={categoryData.title}
 							class="absolute inset-0 h-full w-full object-cover opacity-40"
 						/>
-						<div class="relative px-8 py-12 sm:px-12 sm:py-16">
+						<div class="relative px-8 py-20 sm:px-12 sm:py-32">
 							<h1 class="text-3xl font-bold text-white sm:text-4xl">
 								{categoryData.title}
 							</h1>
