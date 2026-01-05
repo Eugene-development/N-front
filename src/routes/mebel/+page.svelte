@@ -117,7 +117,7 @@
 					class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800"
 				>
 					<img
-						src="https://zovofficial.com/image/cache/catalog/products/kuhni/2024/fabi/cam-1-1087x890.jpg"
+						src="/furniture_hero.png"
 						alt="Мебель на заказ"
 						class="absolute inset-0 h-full w-full object-cover opacity-40"
 					/>
