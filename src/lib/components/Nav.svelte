@@ -3,6 +3,8 @@
 	import { page } from '$app/stores';
 	import { fly, fade, scale } from 'svelte/transition';
 	import { cubicOut, elasticOut } from 'svelte/easing';
+	import { onMount } from 'svelte';
+	import { getRubrics } from '$lib/api/graphql.js';
 	import MobileMenu from './MobileMenu.svelte';
 
 	let visibleServicesMenu = $state(false);
@@ -10,6 +12,26 @@
 	let visibleCityMenu = $state(false);
 	let selectedCity = $state('Москва и МО');
 	let hoveredItem = $state(null);
+
+	// Динамически загружаемые рубрики для каталога
+	let catalogItems = $state([]);
+	let loadingCatalog = $state(true);
+
+	onMount(async () => {
+		try {
+			const rubrics = await getRubrics();
+			catalogItems = rubrics.map(rubric => ({
+				href: `/${rubric.slug}`,
+				label: rubric.value
+			}));
+		} catch (error) {
+			console.error('Failed to load rubrics:', error);
+			// Fallback к пустому массиву
+			catalogItems = [];
+		} finally {
+			loadingCatalog = false;
+		}
+	});
 
 	const menuItems = [
 		{ href: '/', label: 'Главная', icon: 'home' },
@@ -19,15 +41,6 @@
 	const cities = [
 		{ label: 'Москва и МО' },
 		{ label: 'Санкт-Петербург' }
-	];
-
-	const catalogItems = [
-		{ href: '/mebel', label: 'Мебель' },
-		{ href: '/tehnika', label: 'Бытовая техника' },
-		{ href: '/stoleshnica', label: 'Столешницы' },
-		{ href: '/santehnika', label: 'Сантехника' },
-		{ href: '/furnitura', label: 'Фурнитура' },
-		{ href: '/aksessuary', label: 'Аксессуары' }
 	];
 
 	const serviceItems = [
@@ -139,31 +152,61 @@
 							class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-sky-500 to-transparent"
 						></div>
 
-						{#each catalogItems as item, idx}
-							<a
-								href={item.href}
-								class="group flex items-center justify-between rounded-xl px-4 py-2.5 transition-all duration-200 hover:bg-linear-to-r hover:from-sky-50 hover:to-cyan-50"
-								transition:fly={{ y: -5, duration: 150, delay: idx * 30 }}
-							>
-								<span
-									class="text-base font-medium text-slate-700 transition-colors group-hover:text-sky-600"
-									>{item.label}</span
-								>
+						{#if loadingCatalog}
+							<div class="flex items-center justify-center py-4">
 								<svg
-									class="h-4 w-4 text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-sky-400"
+									class="h-5 w-5 animate-spin text-sky-500"
+									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
-									stroke="currentColor"
 								>
+									<circle
+										class="opacity-25"
+										cx="12"
+										cy="12"
+										r="10"
+										stroke="currentColor"
+										stroke-width="4"
+									></circle>
 									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M9 5l7 7-7 7"
-									/>
+										class="opacity-75"
+										fill="currentColor"
+										d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+									></path>
 								</svg>
-							</a>
-						{/each}
+								<span class="ml-2 text-sm text-slate-500">Загрузка...</span>
+							</div>
+						{:else if catalogItems.length === 0}
+							<div class="px-4 py-3 text-center text-sm text-slate-500">
+								Нет доступных категорий
+							</div>
+						{:else}
+							{#each catalogItems as item, idx}
+								<a
+									href={item.href}
+									class="group flex items-center justify-between rounded-xl px-4 py-2.5 transition-all duration-200 hover:bg-linear-to-r hover:from-sky-50 hover:to-cyan-50"
+									transition:fly={{ y: -5, duration: 150, delay: idx * 30 }}
+								>
+									<span
+										class="text-base font-medium text-slate-700 transition-colors group-hover:text-sky-600"
+										>{item.label}</span
+									>
+									<svg
+										class="h-4 w-4 text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-sky-400"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5l7 7-7 7"
+										/>
+									</svg>
+								</a>
+							{/each}
+						{/if}
 					</div>
 				{/if}
 			</div>

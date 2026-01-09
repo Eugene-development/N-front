@@ -56,3 +56,27 @@ export async function getMebelCategories() {
     const data = await graphqlRequest(query);
     return data.mebels;
 }
+
+// ============================================
+// RUBRIC QUERIES
+// ============================================
+
+/**
+ * Get all active rubrics for catalog menu
+ * @returns {Promise<Array>}
+ */
+export async function getRubrics() {
+    const query = `
+        query GetRubrics {
+            rubrics(is_active: true) {
+                id
+                value
+                slug
+                description
+                sort_order
+            }
+        }
+    `;
+    const data = await graphqlRequest(query);
+    return data.rubrics;
+}
