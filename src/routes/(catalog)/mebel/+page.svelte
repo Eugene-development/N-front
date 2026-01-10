@@ -91,7 +91,9 @@
 					<!-- Баннер консультации -->
 					<div class="mt-8 rounded-2xl bg-linear-to-br from-sky-500 to-cyan-600 p-6 text-white">
 						<h3 class="text-lg font-semibold">Нужна помощь?</h3>
-						<p class="mt-2 text-sm text-sky-100">Получите бесплатную консультацию дизайнера</p>
+						<p class="mt-2 text-sm text-sky-100">
+							Получите бесплатную консультацию дизайнера для создания идеальной и доступной мебели
+						</p>
 						<a
 							href="/consultation"
 							class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50"
@@ -205,7 +207,7 @@
 							</div>
 							<h3 class="mt-4 text-lg font-semibold text-slate-900">Гарантия качества</h3>
 							<p class="mt-2 text-sm text-slate-600">
-								Используем только сертифицированные материалы от проверенных производителей
+								Используются только сертифицированные материалы от надёжных производителей
 							</p>
 						</div>
 
@@ -224,7 +226,7 @@
 							</div>
 							<h3 class="mt-4 text-lg font-semibold text-slate-900">Точные сроки</h3>
 							<p class="mt-2 text-sm text-slate-600">
-								Соблюдаем оговорённые сроки изготовления и доставки мебели
+								Соблюдаем оговорённые сроки изготовления, доставки и сборки мебели
 							</p>
 						</div>
 
@@ -243,7 +245,7 @@
 							</div>
 							<h3 class="mt-4 text-lg font-semibold text-slate-900">Индивидуальный дизайн</h3>
 							<p class="mt-2 text-sm text-slate-600">
-								Разрабатываем проект под ваши размеры и пожелания
+								Разрабатываем проект под ваши размеры и пожелания и с учётом нашего опыта
 							</p>
 						</div>
 					</div>
@@ -295,7 +297,7 @@
 								>1</span
 							>
 							<h3 class="mt-2 font-semibold text-slate-900">Консультация</h3>
-							<p class="mt-1 text-sm text-slate-600">Обсуждаем ваши пожелания и бюджет</p>
+							<p class="mt-1 text-sm text-slate-600">Обсуждаем ваши пожелания</p>
 						</div>
 						<div class="relative rounded-xl bg-white p-5 shadow-sm">
 							<span
@@ -319,7 +321,7 @@
 								>4</span
 							>
 							<h3 class="mt-2 font-semibold text-slate-900">Установка</h3>
-							<p class="mt-1 text-sm text-slate-600">Доставка и профессиональный монтаж</p>
+							<p class="mt-1 text-sm text-slate-600">Профессиональный монтаж</p>
 						</div>
 					</div>
 				</div>
@@ -330,7 +332,7 @@
 				>
 					<h2 class="text-2xl font-bold sm:text-3xl">Готовы начать проект?</h2>
 					<p class="mx-auto mt-3 max-w-md text-sky-100">
-						Оставьте заявку и получите бесплатный дизайн-проект вашей мебели
+						Оставьте заявку и получите бесплатный дизайн-проект вашей будущей мебели
 					</p>
 					<div class="mt-6 flex flex-wrap justify-center gap-4">
 						<a

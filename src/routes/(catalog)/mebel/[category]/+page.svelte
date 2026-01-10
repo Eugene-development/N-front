@@ -122,7 +122,9 @@
 						<!-- Баннер консультации -->
 						<div class="mt-8 rounded-2xl bg-linear-to-br from-sky-500 to-cyan-600 p-6 text-white">
 							<h3 class="text-lg font-semibold">Нужна помощь?</h3>
-							<p class="mt-2 text-sm text-sky-100">Получите бесплатную консультацию дизайнера</p>
+							<p class="mt-2 text-sm text-sky-100">
+								Получите бесплатную консультацию дизайнера для создания идеальной и доступной мебели
+							</p>
 							<a
 								href="/consultation"
 								class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50"
@@ -221,7 +223,7 @@
 						</div>
 						<div class="flex items-center gap-4">
 							<select
-								class="rounded-lg border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 shadow-sm focus:border-sky-500 focus:ring-sky-500"
+								class="rounded-lg border-slate-200 bg-white pl-4 pr-10 py-2 text-sm text-slate-700 shadow-sm focus:border-sky-500 focus:ring-sky-500"
 							>
 								<option>По популярности</option>
 								<option>Сначала дешевле</option>
@@ -443,7 +445,7 @@
 					>
 						<h2 class="text-2xl font-bold sm:text-3xl">Не нашли подходящий вариант?</h2>
 						<p class="mx-auto mt-3 max-w-md text-sky-100">
-							Мы изготовим мебель по вашему индивидуальному проекту
+							Мы изготовим мебель по вашему индивидуальному проекту и стилю
 						</p>
 						<div class="mt-6 flex flex-wrap justify-center gap-4">
 							<a
