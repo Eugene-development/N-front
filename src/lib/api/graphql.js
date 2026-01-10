@@ -33,31 +33,6 @@ export async function graphqlRequest(query, variables = {}) {
 }
 
 // ============================================
-// MEBEL QUERIES
-// ============================================
-
-/**
- * Get all active mebel categories
- * @returns {Promise<Array>}
- */
-export async function getMebelCategories() {
-    const query = `
-        query GetMebelCategories {
-            mebels(is_active: true) {
-                id
-                value
-                slug
-                description
-                bg
-                sort_order
-            }
-        }
-    `;
-    const data = await graphqlRequest(query);
-    return data.mebels;
-}
-
-// ============================================
 // RUBRIC QUERIES
 // ============================================
 
@@ -79,4 +54,83 @@ export async function getRubrics() {
     `;
     const data = await graphqlRequest(query);
     return data.rubrics;
+}
+
+/**
+ * Get categories for a specific rubric by its slug
+ * @param {string} rubricSlug - The URL slug of the rubric
+ * @returns {Promise<{rubric: object, categories: Array}>}
+ */
+export async function getCategoriesByRubricSlug(rubricSlug) {
+    const query = `
+        query GetRubricWithCategories($slug: String!) {
+            rubricBySlug(slug: $slug) {
+                id
+                value
+                slug
+                description
+                categories {
+                    id
+                    value
+                    slug
+                    description
+                    bg
+                    sort_order
+                }
+            }
+        }
+    `;
+    const data = await graphqlRequest(query, { slug: rubricSlug });
+    
+    if (!data.rubricBySlug) {
+        return { rubric: null, categories: [] };
+    }
+    
+    return {
+        rubric: data.rubricBySlug,
+        categories: data.rubricBySlug.categories || []
+    };
+}
+
+// ============================================
+// MEBEL QUERIES (convenience wrapper)
+// ============================================
+
+/**
+ * Get all active mebel categories (using rubricBySlug)
+ * @returns {Promise<Array>}
+ */
+export async function getMebelCategories() {
+    const { categories } = await getCategoriesByRubricSlug('mebel');
+    return categories;
+}
+
+// ============================================
+// CATEGORY QUERIES
+// ============================================
+
+/**
+ * Get a category by its slug
+ * @param {string} categorySlug - The URL slug of the category
+ * @returns {Promise<object|null>}
+ */
+export async function getCategoryBySlug(categorySlug) {
+    const query = `
+        query GetCategoryBySlug($slug: String!) {
+            categoryBySlug(slug: $slug) {
+                id
+                value
+                slug
+                description
+                bg
+                rubric {
+                    id
+                    value
+                    slug
+                }
+            }
+        }
+    `;
+    const data = await graphqlRequest(query, { slug: categorySlug });
+    return data.categoryBySlug;
 }

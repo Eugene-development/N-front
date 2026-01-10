@@ -1,123 +1,84 @@
 <script>
 	import { page } from '$app/stores';
-	
-	// Моковые данные категорий
-	const categoriesData = {
-		kuhni: {
-			title: 'Кухни на заказ',
-			description: 'Создаём кухни мечты по индивидуальным размерам. Современные и классические решения с использованием качественных материалов.',
-			heroImage: '/kuhni_hero.png',
-			color: 'amber',
-			products: [
-				{ id: 1, name: 'Кухня "Модерн"', price: 185000, image: 'https://zovofficial.com/image/cache/catalog/products/kuhni/2022/pemont-22/cam-1-1087x890.jpg', style: 'Современный', material: 'МДФ эмаль' },
-				{ id: 2, name: 'Кухня "Классика"', price: 245000, image: 'https://zovofficial.com/image/cache/catalog/products/kuhni/2024/fabi/cam-1-1087x890.jpg', style: 'Классический', material: 'Массив дуба' },
-				{ id: 3, name: 'Кухня "Лофт"', price: 165000, image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600', style: 'Лофт', material: 'ЛДСП + металл' },
-				{ id: 4, name: 'Кухня "Минимализм"', price: 195000, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600', style: 'Минимализм', material: 'МДФ пластик' },
-				{ id: 5, name: 'Кухня "Прованс"', price: 275000, image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600', style: 'Прованс', material: 'Массив ясеня' },
-				{ id: 6, name: 'Кухня "Скандинавия"', price: 155000, image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600', style: 'Скандинавский', material: 'МДФ эмаль' }
-			]
-		},
-		shkafy: {
-			title: 'Шкафы на заказ',
-			description: 'Встроенные и корпусные шкафы любой конфигурации. Максимальное использование пространства с учётом ваших потребностей.',
-			heroImage: 'https://aristo.expert/upload/iblock/c03/u2v1fjrt1l89bvmymd1kmrjvk06euaaj/Razdvizhnaya_-vtsroennyy-shkaf-s-razdvizhnymi-dveryami_-chernyy-matovyy.jpeg',
-			color: 'sky',
-			products: [
-				{ id: 1, name: 'Шкаф-купе "Премиум"', price: 125000, image: 'https://aristo.expert/upload/iblock/c03/u2v1fjrt1l89bvmymd1kmrjvk06euaaj/Razdvizhnaya_-vtsroennyy-shkaf-s-razdvizhnymi-dveryami_-chernyy-matovyy.jpeg', style: 'Современный', material: 'ЛДСП + зеркало' },
-				{ id: 2, name: 'Встроенный шкаф', price: 95000, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600', style: 'Минимализм', material: 'МДФ эмаль' },
-				{ id: 3, name: 'Шкаф с подсветкой', price: 145000, image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=600', style: 'Современный', material: 'ЛДСП + LED' },
-				{ id: 4, name: 'Угловой шкаф', price: 115000, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600', style: 'Классический', material: 'МДФ шпон' }
-			]
-		},
-		garderobnye: {
-			title: 'Гардеробные комнаты',
-			description: 'Проектируем и изготавливаем гардеробные системы любой сложности. Эргономичные решения для хранения одежды и аксессуаров.',
-			heroImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200',
-			color: 'violet',
-			products: [
-				{ id: 1, name: 'Гардеробная "Люкс"', price: 285000, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600', style: 'Премиум', material: 'МДФ + стекло' },
-				{ id: 2, name: 'Гардеробная система', price: 165000, image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=600', style: 'Современный', material: 'ЛДСП' },
-				{ id: 3, name: 'Угловая гардеробная', price: 195000, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600', style: 'Минимализм', material: 'МДФ эмаль' }
-			]
-		},
-		prihozhie: {
-			title: 'Прихожие на заказ',
-			description: 'Функциональные прихожие для любого пространства. Компактные решения с максимальной вместительностью.',
-			heroImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200',
-			color: 'emerald',
-			products: [
-				{ id: 1, name: 'Прихожая "Компакт"', price: 45000, image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600', style: 'Современный', material: 'ЛДСП' },
-				{ id: 2, name: 'Прихожая с зеркалом', price: 65000, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600', style: 'Классический', material: 'МДФ + зеркало' },
-				{ id: 3, name: 'Угловая прихожая', price: 75000, image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600', style: 'Минимализм', material: 'МДФ эмаль' },
-				{ id: 4, name: 'Прихожая "Премиум"', price: 95000, image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600', style: 'Премиум', material: 'Массив + кожа' }
-			]
-		},
-		detskaya: {
-			title: 'Детская мебель',
-			description: 'Безопасная и функциональная мебель для детских комнат. Яркие решения, которые растут вместе с ребёнком.',
-			heroImage: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200',
-			color: 'pink',
-			products: [
-				{ id: 1, name: 'Детская "Радуга"', price: 85000, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600', style: 'Детский', material: 'МДФ эмаль' },
-				{ id: 2, name: 'Кровать-чердак', price: 65000, image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600', style: 'Современный', material: 'ЛДСП' },
-				{ id: 3, name: 'Детский гарнитур', price: 125000, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600', style: 'Классический', material: 'Массив сосны' }
-			]
-		},
-		ofisnaya: {
-			title: 'Офисная мебель',
-			description: 'Эргономичная мебель для офиса и домашнего кабинета. Создаём комфортное рабочее пространство.',
-			heroImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200',
-			color: 'slate',
-			products: [
-				{ id: 1, name: 'Рабочий стол "Директор"', price: 75000, image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600', style: 'Классический', material: 'МДФ шпон' },
-				{ id: 2, name: 'Компьютерный стол', price: 35000, image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600', style: 'Современный', material: 'ЛДСП' },
-				{ id: 3, name: 'Офисный шкаф', price: 55000, image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=600', style: 'Минимализм', material: 'ЛДСП + стекло' },
-				{ id: 4, name: 'Стеллаж офисный', price: 45000, image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600', style: 'Современный', material: 'Металл + ЛДСП' }
-			]
-		}
-	};
+	import { getCategoryBySlug, getCategoriesByRubricSlug } from '$lib/api/graphql.js';
 
-	// Все категории для сайдбара
-	const allCategories = [
-		{ slug: 'kuhni', name: 'Кухни', color: 'amber', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
-		{ slug: 'shkafy', name: 'Шкафы', color: 'sky', icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z' },
-		{ slug: 'garderobnye', name: 'Гардеробные', color: 'violet', icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' },
-		{ slug: 'prihozhie', name: 'Прихожие', color: 'emerald', icon: 'M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z' },
-		{ slug: 'detskaya', name: 'Детская мебель', color: 'pink', icon: 'M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
-		{ slug: 'ofisnaya', name: 'Офисная мебель', color: 'slate', icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' }
+	// Rubric slug for this section
+	const RUBRIC_SLUG = 'mebel';
+
+	// State
+	let category = $state(null);
+	let allCategories = $state([]);
+	let isLoading = $state(true);
+	let error = $state(null);
+
+	// Get category slug from URL params (derived from page store)
+	let categorySlug = $derived($page.params.category);
+
+	// Mock products (will be replaced with API later)
+	const mockProducts = [
+		{ id: 1, name: 'Изделие "Модерн"', price: 185000, image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600', style: 'Современный', material: 'МДФ эмаль' },
+		{ id: 2, name: 'Изделие "Классика"', price: 245000, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600', style: 'Классический', material: 'Массив дуба' },
+		{ id: 3, name: 'Изделие "Лофт"', price: 165000, image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600', style: 'Лофт', material: 'ЛДСП + металл' },
+		{ id: 4, name: 'Изделие "Минимализм"', price: 195000, image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600', style: 'Минимализм', material: 'МДФ пластик' },
 	];
-
-	$: categorySlug = $page.params.category;
-	$: categoryData = categoriesData[categorySlug] || null;
-	$: currentCategory = allCategories.find(c => c.slug === categorySlug);
 
 	const formatPrice = (price) => {
 		return new Intl.NumberFormat('ru-RU').format(price) + ' ₽';
 	};
 
-	const getColorClasses = (color) => {
-		const colors = {
-			amber: { bg: 'from-amber-100 to-orange-100', text: 'text-amber-600', activeBg: 'from-amber-500 to-orange-500' },
-			sky: { bg: 'from-sky-100 to-blue-100', text: 'text-sky-600', activeBg: 'from-sky-500 to-blue-500' },
-			violet: { bg: 'from-violet-100 to-purple-100', text: 'text-violet-600', activeBg: 'from-violet-500 to-purple-500' },
-			emerald: { bg: 'from-emerald-100 to-teal-100', text: 'text-emerald-600', activeBg: 'from-emerald-500 to-teal-500' },
-			pink: { bg: 'from-pink-100 to-rose-100', text: 'text-pink-600', activeBg: 'from-pink-500 to-rose-500' },
-			slate: { bg: 'from-slate-100 to-gray-200', text: 'text-slate-600', activeBg: 'from-slate-500 to-gray-600' }
-		};
-		return colors[color] || colors.sky;
-	};
+	// Load category and sidebar categories
+	async function loadData(slug) {
+		isLoading = true;
+		error = null;
+		try {
+			// Load current category
+			const categoryData = await getCategoryBySlug(slug);
+			category = categoryData;
+			
+			// Load all categories for sidebar
+			const { categories } = await getCategoriesByRubricSlug(RUBRIC_SLUG);
+			allCategories = categories;
+		} catch (e) {
+			error = e.message;
+			console.error('Failed to load category:', e);
+		} finally {
+			isLoading = false;
+		}
+	}
+
+	// Effect runs on mount and whenever categorySlug changes
+	$effect(() => {
+		if (categorySlug) {
+			loadData(categorySlug);
+		}
+	});
 </script>
 
 <svelte:head>
-	{#if categoryData}
-		<title>{categoryData.title} | Компания Новострой</title>
-		<meta name="description" content={categoryData.description} />
+	{#if category}
+		<title>{category.value} | Компания Новострой</title>
+		<meta
+			name="description"
+			content={category.description || `Каталог ${category.value} от компании Новострой`}
+		/>
+	{:else if isLoading}
+		<title>Загрузка... | Новострой</title>
 	{:else}
 		<title>Категория не найдена | Новострой</title>
 	{/if}
 </svelte:head>
 
-{#if categoryData}
+{#if isLoading}
+	<!-- Loading state -->
+	<div class="min-h-screen bg-slate-50 flex items-center justify-center">
+		<div class="text-center">
+			<div
+				class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-sky-500 border-r-transparent"
+			></div>
+			<p class="mt-4 text-slate-600">Загрузка категории...</p>
+		</div>
+	</div>
+{:else if category}
 	<div class="min-h-screen bg-slate-50">
 		<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 			<div class="lg:grid lg:grid-cols-4 lg:gap-8">
@@ -129,8 +90,7 @@
 								Категории мебели
 							</h2>
 
-							{#each allCategories as cat}
-								{@const colors = getColorClasses(cat.color)}
+							{#each allCategories as cat (cat.id)}
 								<a
 									href="/mebel/{cat.slug}"
 									class="group flex items-center gap-3 rounded-xl px-4 py-3 transition-all {cat.slug ===
@@ -141,21 +101,19 @@
 									<span
 										class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {cat.slug ===
 										categorySlug
-											? colors.activeBg + ' text-white shadow-lg'
-											: colors.bg +
-												' ' +
-												colors.text} transition-all group-hover:from-sky-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg"
+											? 'from-sky-500 to-cyan-500 text-white shadow-lg'
+											: 'from-slate-100 to-gray-200 text-slate-600'} transition-all group-hover:from-sky-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg"
 									>
 										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 											<path
 												stroke-linecap="round"
 												stroke-linejoin="round"
 												stroke-width="1.5"
-												d={cat.icon}
+												d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
 											/>
 										</svg>
 									</span>
-									<span class="font-medium">{cat.name}</span>
+									<span class="font-medium">{cat.value}</span>
 								</a>
 							{/each}
 						</nav>
@@ -189,17 +147,26 @@
 						class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800"
 					>
 						<img
-							src={categoryData.heroImage}
-							alt={categoryData.title}
+							src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200"
+							alt={category.value}
 							class="absolute inset-0 h-full w-full object-cover opacity-40"
 						/>
 						<div class="relative px-8 py-20 sm:px-12 sm:py-32">
+							<!-- Breadcrumb -->
+							<nav class="mb-4 flex items-center gap-2 text-sm text-slate-400">
+								<a href="/mebel" class="hover:text-white transition-colors">Мебель</a>
+								<span>/</span>
+								<span class="text-white">{category.value}</span>
+							</nav>
+
 							<h1 class="text-3xl font-bold text-white sm:text-4xl">
-								{categoryData.title}
+								{category.value}
 							</h1>
-							<p class="mt-4 max-w-xl text-lg text-slate-300">
-								{categoryData.description}
-							</p>
+							{#if category.description}
+								<p class="mt-4 max-w-xl text-lg text-slate-300">
+									{category.description}
+								</p>
+							{/if}
 							<div class="mt-6 flex flex-wrap gap-4">
 								<a
 									href="/consultation"
@@ -229,7 +196,7 @@
 					<div class="mt-6 lg:hidden">
 						<h2 class="text-lg font-semibold text-slate-900">Категории</h2>
 						<div class="mt-4 flex gap-2 overflow-x-auto pb-2">
-							{#each allCategories as cat}
+							{#each allCategories as cat (cat.id)}
 								<a
 									href="/mebel/{cat.slug}"
 									class="flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all {cat.slug ===
@@ -237,7 +204,7 @@
 										? 'bg-sky-500 text-white'
 										: 'bg-white text-slate-700 shadow-sm hover:shadow'}"
 								>
-									{cat.name}
+									{cat.value}
 								</a>
 							{/each}
 						</div>
@@ -247,9 +214,7 @@
 					<div class="mt-8 flex flex-wrap items-center justify-between gap-4">
 						<div class="flex items-center gap-2">
 							<span class="text-sm text-slate-500">Найдено:</span>
-							<span class="font-semibold text-slate-900"
-								>{categoryData.products.length} товаров</span
-							>
+							<span class="font-semibold text-slate-900">{mockProducts.length} товаров</span>
 						</div>
 						<div class="flex items-center gap-4">
 							<select
@@ -260,41 +225,15 @@
 								<option>Сначала дороже</option>
 								<option>По названию</option>
 							</select>
-							<div class="hidden sm:flex items-center gap-1 rounded-lg bg-white p-1 shadow-sm">
-								<button aria-label="Показать сеткой" class="rounded-md bg-sky-500 p-2 text-white">
-									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
-											d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-										/>
-									</svg>
-								</button>
-								<button
-									aria-label="Показать списком"
-									class="rounded-md p-2 text-slate-400 hover:text-slate-600"
-								>
-									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
-											d="M4 6h16M4 10h16M4 14h16M4 18h16"
-										/>
-									</svg>
-								</button>
-							</div>
 						</div>
 					</div>
 
 					<!-- Сетка товаров -->
 					<div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-						{#each categoryData.products as product}
+						{#each mockProducts as product (product.id)}
 							<article
 								class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
 							>
-								<!-- Изображение -->
 								<div class="relative aspect-[4/3] overflow-hidden">
 									<img
 										src={product.image}
@@ -304,8 +243,6 @@
 									<div
 										class="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 									></div>
-
-									<!-- Быстрые действия -->
 									<div
 										class="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 transition-all duration-300 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
 									>
@@ -315,35 +252,18 @@
 										>
 											Подробнее
 										</a>
-										<button
-											aria-label="Добавить в избранное"
-											class="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-slate-600 shadow-lg transition-all hover:bg-sky-500 hover:text-white"
-										>
-											<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-												<path
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													stroke-width="2"
-													d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-												/>
-											</svg>
-										</button>
 									</div>
 								</div>
-
-								<!-- Контент -->
 								<div class="p-5">
 									<div class="flex items-center gap-2 text-xs text-slate-500">
 										<span class="rounded-full bg-slate-100 px-2 py-1">{product.style}</span>
 										<span class="rounded-full bg-slate-100 px-2 py-1">{product.material}</span>
 									</div>
-
 									<h3
 										class="mt-3 text-lg font-semibold text-slate-900 group-hover:text-sky-600 transition-colors"
 									>
 										{product.name}
 									</h3>
-
 									<div class="mt-3 flex items-center justify-between">
 										<div>
 											<span class="text-xs text-slate-500">от</span>
@@ -493,6 +413,9 @@
 			</div>
 			<h1 class="mt-6 text-2xl font-bold text-slate-900">Категория не найдена</h1>
 			<p class="mt-2 text-slate-600">К сожалению, запрашиваемая категория не существует</p>
+			{#if error}
+				<p class="mt-2 text-sm text-red-500">{error}</p>
+			{/if}
 			<a
 				href="/mebel"
 				class="mt-6 inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
