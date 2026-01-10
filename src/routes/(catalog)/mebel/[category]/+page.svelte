@@ -155,6 +155,8 @@
 						<div class="relative px-8 py-20 sm:px-12 sm:py-32">
 							<!-- Breadcrumb -->
 							<nav class="mb-4 flex items-center gap-2 text-sm text-slate-400">
+								<a href="/" class="hover:text-white transition-colors">Главная</a>
+								<span>/</span>
 								<a href="/mebel" class="hover:text-white transition-colors">Мебель</a>
 								<span>/</span>
 								<span class="text-white">{category.value}</span>

@@ -81,78 +81,6 @@
 	</div>
 {:else if project}
 	<div class="min-h-screen bg-slate-50">
-		<!-- Хлебные крошки -->
-		<div class="bg-white border-b border-slate-100">
-			<div class="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
-				<nav class="flex" aria-label="Breadcrumb">
-					<ol class="flex items-center space-x-2 text-sm flex-wrap">
-						<li>
-							<a href="/" class="text-slate-500 hover:text-sky-600 transition-colors">Главная</a>
-						</li>
-						<li class="flex items-center">
-							<svg
-								class="h-4 w-4 text-slate-400"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 5l7 7-7 7"
-								/>
-							</svg>
-						</li>
-						<li>
-							<a href="/mebel" class="text-slate-500 hover:text-sky-600 transition-colors">Мебель</a
-							>
-						</li>
-						<li class="flex items-center">
-							<svg
-								class="h-4 w-4 text-slate-400"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 5l7 7-7 7"
-								/>
-							</svg>
-						</li>
-						<li>
-							<a
-								href="/mebel/{categorySlug}"
-								class="text-slate-500 hover:text-sky-600 transition-colors"
-								>{category?.value || categorySlug}</a
-							>
-						</li>
-						<li class="flex items-center">
-							<svg
-								class="h-4 w-4 text-slate-400"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 5l7 7-7 7"
-								/>
-							</svg>
-						</li>
-						<li>
-							<span class="text-slate-900 font-medium">{project.value}</span>
-						</li>
-					</ol>
-				</nav>
-			</div>
-		</div>
-
 		<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 			<!-- Основной контент товара -->
 			<div class="lg:grid lg:grid-cols-2 lg:gap-12">
@@ -206,8 +134,23 @@
 
 				<!-- Информация о товаре -->
 				<div>
-					{#if project.short_description}
-						<p class="text-sm text-slate-500 mb-2">{project.short_description}</p>
+					<!-- Хлебные крошки -->
+					<nav class="mb-4 flex items-center gap-2 text-sm text-slate-500 flex-wrap">
+						<a href="/" class="hover:text-sky-600 transition-colors">Главная</a>
+						<span>/</span>
+						<a href="/mebel" class="hover:text-sky-600 transition-colors">Мебель</a>
+						<span>/</span>
+						<a href="/mebel/{categorySlug}" class="hover:text-sky-600 transition-colors"
+							>{category?.value || categorySlug}</a
+						>
+						<span>/</span>
+						<span class="text-slate-900 font-medium">{project.value}</span>
+					</nav>
+
+					{#if false}
+						{#if project.short_description}
+							<p class="text-sm text-slate-500 mb-2">{project.short_description}</p>
+						{/if}
 					{/if}
 
 					<h1 class="text-3xl font-bold text-slate-900 sm:text-4xl">{project.value}</h1>

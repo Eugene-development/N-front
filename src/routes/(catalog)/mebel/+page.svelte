@@ -122,6 +122,13 @@
 						class="absolute inset-0 h-full w-full object-cover opacity-40"
 					/>
 					<div class="relative px-8 py-16 sm:px-12 sm:py-20">
+						<!-- Хлебные крошки -->
+						<nav class="mb-6 flex items-center gap-2 text-sm text-slate-400">
+							<a href="/" class="hover:text-white transition-colors">Главная</a>
+							<span>/</span>
+							<span class="text-white">Мебель</span>
+						</nav>
+
 						<h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Мебель на заказ</h1>
 						<p class="mt-4 max-w-xl text-lg text-slate-300">
 							Создаём уникальную корпусную мебель по вашим размерам и дизайну. Индивидуальный подход
@@ -333,7 +340,7 @@
 							Получить консультацию
 						</a>
 						<a
-							href="tel:+74951234567"
+							href="tel:+79154000020"
 							class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
 						>
 							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
