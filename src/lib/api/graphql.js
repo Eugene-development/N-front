@@ -134,3 +134,90 @@ export async function getCategoryBySlug(categorySlug) {
     const data = await graphqlRequest(query, { slug: categorySlug });
     return data.categoryBySlug;
 }
+
+// ============================================
+// MEBEL PROJECT QUERIES
+// ============================================
+
+/**
+ * Get all active mebel projects
+ * @param {object} options - Query options (category_id, is_featured, is_new)
+ * @returns {Promise<Array>}
+ */
+export async function getMebelProjects(options = {}) {
+    const query = `
+        query GetMebelProjects($is_active: Boolean, $category_id: ID, $is_featured: Boolean, $is_new: Boolean) {
+            mebelProjects(is_active: $is_active, category_id: $category_id, is_featured: $is_featured, is_new: $is_new) {
+                id
+                key
+                category_id
+                value
+                slug
+                description
+                short_description
+                price
+                old_price
+                is_active
+                is_featured
+                is_new
+                sort_order
+                category {
+                    id
+                    value
+                    slug
+                }
+            }
+        }
+    `;
+    const data = await graphqlRequest(query, { is_active: true, ...options });
+    return data.mebelProjects;
+}
+
+/**
+ * Get mebel projects by category ID
+ * @param {string} categoryId - The ID of the category
+ * @returns {Promise<Array>}
+ */
+export async function getMebelProjectsByCategoryId(categoryId) {
+    return getMebelProjects({ category_id: categoryId });
+}
+
+/**
+ * Get a single mebel project by slug
+ * @param {string} slug - The URL slug of the project
+ * @returns {Promise<object|null>}
+ */
+export async function getMebelProjectBySlug(slug) {
+    const query = `
+        query GetMebelProjectBySlug($slug: String!) {
+            mebelProjectBySlug(slug: $slug) {
+                id
+                key
+                category_id
+                value
+                slug
+                description
+                short_description
+                price
+                old_price
+                meta
+                is_active
+                is_featured
+                is_new
+                sort_order
+                category {
+                    id
+                    value
+                    slug
+                    rubric {
+                        id
+                        value
+                        slug
+                    }
+                }
+            }
+        }
+    `;
+    const data = await graphqlRequest(query, { slug });
+    return data.mebelProjectBySlug;
+}
