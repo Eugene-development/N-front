@@ -1,73 +1,136 @@
 <script>
 	import { onMount } from 'svelte';
-	import { getCategoriesByRubricSlug } from '$lib/api/graphql.js';
+	import { getBrandsByRubricSlug } from '$lib/api/graphql.js';
 
-	// Rubric slug for this page
-	const RUBRIC_SLUG = 'bytovaya-tehnika';
-
-	// Default static categories (fallback if API fails)
-	const defaultCategories = [
-		{ value: 'Варочные панели', slug: 'varochnye-paneli', description: 'Индукционные, газовые, электрические', bg: '#fee2e2' },
-		{ value: 'Духовые шкафы', slug: 'duhovye-shkafy', description: 'Встраиваемые с конвекцией', bg: '#fef3c7' },
-		{ value: 'Вытяжки', slug: 'vytyazhki', description: 'Островные, встраиваемые, купольные', bg: '#e0f2fe' },
-		{ value: 'Холодильники', slug: 'holodilniki', description: 'Встраиваемые и отдельностоящие', bg: '#ccfbf1' },
-		{ value: 'Посудомоечные машины', slug: 'posudomoechnye', description: 'Полноразмерные и узкие', bg: '#d1fae5' },
-		{ value: 'Стиральные машины', slug: 'stiralnye', description: 'Встраиваемые и отдельностоящие', bg: '#ede9fe' },
-		{ value: 'СВЧ-печи', slug: 'mikrovolnovki', description: 'Встраиваемые микроволновые печи', bg: '#f1f5f9' },
-	];
-
-	let categories = $state(defaultCategories);
-	let rubric = $state(null);
+	// State для брендов (загружаются из API)
+	let brands = $state([]);
 	let isLoading = $state(true);
 	let error = $state(null);
 
-	// Category icons by slug
-	const categoryIcons = {
-		'varochnye-paneli': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />`,
-		'duhovye-shkafy': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />`,
-		'vytyazhki': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />`,
-		'holodilniki': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />`,
-		'posudomoechnye': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />`,
-		'stiralnye': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />`,
-		'mikrovolnovki': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`,
-		default: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />`
-	};
+	// Fallback бренды (используются если API недоступен)
+	const fallbackBrands = [
+		{ 
+			slug: 'bosch', 
+			value: 'Bosch', 
+			country: 'Германия',
+			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bosch-logo.svg/200px-Bosch-logo.svg.png',
+			description: 'Немецкое качество и инновации в каждом устройстве',
+			website: 'https://www.bosch-home.ru',
+			bg: '#e0f2fe'
+		},
+		{ 
+			slug: 'siemens', 
+			value: 'Siemens', 
+			country: 'Германия',
+			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Siemens-logo.svg/200px-Siemens-logo.svg.png',
+			description: 'Премиальная техника с интеллектуальными функциями',
+			website: 'https://www.siemens-home.ru',
+			bg: '#ccfbf1'
+		},
+		{ 
+			slug: 'electrolux', 
+			value: 'Electrolux', 
+			country: 'Швеция',
+			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Electrolux_logo.svg/200px-Electrolux_logo.svg.png',
+			description: 'Скандинавский дизайн и экологичность',
+			website: 'https://www.electrolux.ru',
+			bg: '#fef3c7'
+		},
+		{ 
+			slug: 'miele', 
+			value: 'Miele', 
+			country: 'Германия',
+			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Miele_logo.svg/200px-Miele_logo.svg.png',
+			description: 'Легендарное немецкое качество и долговечность',
+			website: 'https://www.miele.ru',
+			bg: '#fee2e2'
+		},
+		{ 
+			slug: 'samsung', 
+			value: 'Samsung', 
+			country: 'Южная Корея',
+			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/200px-Samsung_Logo.svg.png',
+			description: 'Инновационные технологии и умный дом',
+			website: 'https://www.samsung.com/ru/',
+			bg: '#e0e7ff'
+		},
+		{ 
+			slug: 'lg', 
+			value: 'LG', 
+			country: 'Южная Корея',
+			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/LG_symbol.svg/200px-LG_symbol.svg.png',
+			description: 'Жизнь хороша — надёжная техника для дома',
+			website: 'https://www.lg.com/ru',
+			bg: '#fce7f3'
+		},
+		{ 
+			slug: 'aeg', 
+			value: 'AEG', 
+			country: 'Германия',
+			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/AEG_Logo.svg/200px-AEG_Logo.svg.png',
+			description: 'Профессиональные решения для кухни',
+			website: 'https://www.aeg.ru',
+			bg: '#d1fae5'
+		},
+		{ 
+			slug: 'smeg', 
+			value: 'Smeg', 
+			country: 'Италия',
+			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Smeg_logo.svg/200px-Smeg_logo.svg.png',
+			description: 'Итальянский стиль и дизайнерская техника',
+			website: 'https://www.smeg.ru',
+			bg: '#ede9fe'
+		},
+	];
 
-	// Background color gradients by slug
-	const categoryGradients = {
-		'varochnye-paneli': { from: 'from-red-100', to: 'to-orange-100', hover: 'group-hover:from-red-500 group-hover:to-orange-500', text: 'text-red-600' },
-		'duhovye-shkafy': { from: 'from-amber-100', to: 'to-yellow-100', hover: 'group-hover:from-amber-500 group-hover:to-yellow-500', text: 'text-amber-600' },
-		'vytyazhki': { from: 'from-sky-100', to: 'to-blue-100', hover: 'group-hover:from-sky-500 group-hover:to-blue-500', text: 'text-sky-600' },
-		'holodilniki': { from: 'from-cyan-100', to: 'to-teal-100', hover: 'group-hover:from-cyan-500 group-hover:to-teal-500', text: 'text-cyan-600' },
-		'posudomoechnye': { from: 'from-emerald-100', to: 'to-green-100', hover: 'group-hover:from-emerald-500 group-hover:to-green-500', text: 'text-emerald-600' },
-		'stiralnye': { from: 'from-violet-100', to: 'to-purple-100', hover: 'group-hover:from-violet-500 group-hover:to-purple-500', text: 'text-violet-600' },
-		'mikrovolnovki': { from: 'from-slate-100', to: 'to-gray-200', hover: 'group-hover:from-slate-500 group-hover:to-gray-600', text: 'text-slate-600' },
-		default: { from: 'from-slate-100', to: 'to-gray-200', hover: 'group-hover:from-slate-500 group-hover:to-gray-600', text: 'text-slate-600' }
-	};
-
-	function getIcon(slug) {
-		return categoryIcons[slug] || categoryIcons.default;
-	}
-
-	function getGradient(slug) {
-		return categoryGradients[slug] || categoryGradients.default;
-	}
-
+	// Загрузка брендов из API
 	onMount(async () => {
 		try {
-			const data = await getCategoriesByRubricSlug(RUBRIC_SLUG);
-			if (data.rubric && data.categories.length > 0) {
-				rubric = data.rubric;
-				categories = data.categories;
+			const { brands: apiBrands } = await getBrandsByRubricSlug('bytovaya-tehnika');
+			if (apiBrands && apiBrands.length > 0) {
+				brands = apiBrands;
+			} else {
+				// Если API вернул пустой массив, используем fallback
+				brands = fallbackBrands;
 			}
 		} catch (e) {
+			console.error('Failed to load brands from API:', e);
 			error = e.message;
-			console.error('Failed to load categories:', e);
-			// Используем статические данные как fallback
+			// Используем fallback данные при ошибке
+			brands = fallbackBrands;
 		} finally {
 			isLoading = false;
 		}
 	});
+
+	// Универсальная иконка для всех брендов (шеврон вправо)
+	const brandIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />`;
+
+	// Background color gradients by slug
+	const brandGradients = {
+		'bosch': { from: 'from-sky-100', to: 'to-blue-100', hover: 'group-hover:from-sky-500 group-hover:to-blue-500', text: 'text-sky-600' },
+		'siemens': { from: 'from-teal-100', to: 'to-cyan-100', hover: 'group-hover:from-teal-500 group-hover:to-cyan-500', text: 'text-teal-600' },
+		'electrolux': { from: 'from-amber-100', to: 'to-yellow-100', hover: 'group-hover:from-amber-500 group-hover:to-yellow-500', text: 'text-amber-600' },
+		'miele': { from: 'from-red-100', to: 'to-rose-100', hover: 'group-hover:from-red-500 group-hover:to-rose-500', text: 'text-red-600' },
+		'samsung': { from: 'from-indigo-100', to: 'to-blue-100', hover: 'group-hover:from-indigo-500 group-hover:to-blue-500', text: 'text-indigo-600' },
+		'lg': { from: 'from-pink-100', to: 'to-rose-100', hover: 'group-hover:from-pink-500 group-hover:to-rose-500', text: 'text-pink-600' },
+		'aeg': { from: 'from-emerald-100', to: 'to-green-100', hover: 'group-hover:from-emerald-500 group-hover:to-green-500', text: 'text-emerald-600' },
+		'smeg': { from: 'from-violet-100', to: 'to-purple-100', hover: 'group-hover:from-violet-500 group-hover:to-purple-500', text: 'text-violet-600' },
+		default: { from: 'from-slate-100', to: 'to-gray-200', hover: 'group-hover:from-slate-500 group-hover:to-gray-600', text: 'text-slate-600' }
+	};
+
+	function getIcon(slug) {
+		return brandIcon;
+	}
+
+	function getGradient(slug) {
+		return brandGradients[slug] || brandGradients.default;
+	}
+
+	// Функция для получения имени бренда (поддержка и value и name)
+	function getBrandName(brand) {
+		return brand.value || brand.name;
+	}
 </script>
 
 <svelte:head>
@@ -81,31 +144,36 @@
 <div class="min-h-screen bg-slate-50">
 	<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 		<div class="lg:grid lg:grid-cols-4 lg:gap-8">
-			<!-- Сайдбар с категориями -->
+			<!-- Сайдбар с брендами -->
 			<aside class="hidden lg:block">
 				<div class="sticky top-24">
 					<nav class="space-y-1">
 						<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-							Категории техники
+							Бренды
 						</h2>
 
 						{#if isLoading}
-							<div class="px-4 py-3 text-slate-500">Загрузка...</div>
+							<div class="px-4 py-6 text-center">
+								<div
+									class="inline-block h-5 w-5 animate-spin rounded-full border-2 border-sky-500 border-t-transparent"
+								></div>
+								<p class="mt-2 text-xs text-slate-400">Загрузка...</p>
+							</div>
 						{:else}
-							{#each categories as category (category.id || category.slug)}
-								{@const gradient = getGradient(category.slug)}
+							{#each brands as brand (brand.slug)}
+								{@const gradient = getGradient(brand.slug)}
 								<a
-									href="/bytovaya-tehnika/{category.slug}"
+									href="/bytovaya-tehnika/{brand.slug}"
 									class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
 								>
 									<span
 										class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {gradient.from} {gradient.to} {gradient.text} transition-all {gradient.hover} group-hover:text-white group-hover:shadow-lg"
 									>
 										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											{@html getIcon(category.slug)}
+											{@html getIcon(brand.slug)}
 										</svg>
 									</span>
-									<span class="font-medium">{category.value}</span>
+									<span class="font-medium">{getBrandName(brand)}</span>
 								</a>
 							{/each}
 						{/if}
@@ -175,28 +243,35 @@
 					</div>
 				</div>
 
-				<!-- Мобильные категории -->
+				<!-- Мобильные бренды -->
 				<div class="mt-8 lg:hidden">
-					<h2 class="text-lg font-semibold text-slate-900">Категории</h2>
+					<h2 class="text-lg font-semibold text-slate-900">Бренды</h2>
 					<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
 						{#if isLoading}
-							<div class="col-span-full py-4 text-center text-slate-500">Загрузка...</div>
+							{#each [1, 2, 3, 4] as _}
+								<div
+									class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm animate-pulse"
+								>
+									<div class="h-8 w-8 rounded-lg bg-slate-200"></div>
+									<div class="h-4 w-16 bg-slate-200 rounded"></div>
+								</div>
+							{/each}
 						{:else}
-							{#each categories as category (category.id || category.slug)}
-								{@const gradient = getGradient(category.slug)}
+							{#each brands as brand (brand.slug)}
+								{@const gradient = getGradient(brand.slug)}
 								<a
-									href="/bytovaya-tehnika/{category.slug}"
+									href="/bytovaya-tehnika/{brand.slug}"
 									class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
 								>
 									<span
 										class="flex h-8 w-8 items-center justify-center rounded-lg"
-										style="background: {category.bg || '#f1f5f9'}; color: #475569;"
+										style="background: {brand.bg || '#f1f5f9'}; color: #475569;"
 									>
 										<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											{@html getIcon(category.slug)}
+											{@html getIcon(brand.slug)}
 										</svg>
 									</span>
-									<span class="text-sm font-medium text-slate-700">{category.value}</span>
+									<span class="text-sm font-medium text-slate-700">{getBrandName(brand)}</span>
 								</a>
 							{/each}
 						{/if}
@@ -207,24 +282,32 @@
 				<div class="mt-12">
 					<h2 class="text-2xl font-bold text-slate-900">Работаем с лучшими брендами</h2>
 					<div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
-						<div class="flex h-20 items-center justify-center rounded-xl bg-white p-4 shadow-sm">
-							<span class="text-lg font-bold text-slate-400">Bosch</span>
-						</div>
-						<div class="flex h-20 items-center justify-center rounded-xl bg-white p-4 shadow-sm">
-							<span class="text-lg font-bold text-slate-400">Siemens</span>
-						</div>
-						<div class="flex h-20 items-center justify-center rounded-xl bg-white p-4 shadow-sm">
-							<span class="text-lg font-bold text-slate-400">Electrolux</span>
-						</div>
-						<div class="flex h-20 items-center justify-center rounded-xl bg-white p-4 shadow-sm">
-							<span class="text-lg font-bold text-slate-400">Miele</span>
-						</div>
-						<div class="flex h-20 items-center justify-center rounded-xl bg-white p-4 shadow-sm">
-							<span class="text-lg font-bold text-slate-400">Samsung</span>
-						</div>
-						<div class="flex h-20 items-center justify-center rounded-xl bg-white p-4 shadow-sm">
-							<span class="text-lg font-bold text-slate-400">LG</span>
-						</div>
+						{#if isLoading}
+							{#each [1, 2, 3, 4, 5, 6] as _}
+								<div
+									class="flex h-20 items-center justify-center rounded-xl bg-white p-4 shadow-sm animate-pulse"
+								>
+									<div class="h-4 w-16 bg-slate-200 rounded"></div>
+								</div>
+							{/each}
+						{:else}
+							{#each brands.slice(0, 6) as brand (brand.slug)}
+								<a
+									href="/bytovaya-tehnika/{brand.slug}"
+									class="flex h-20 items-center justify-center rounded-xl bg-white p-4 shadow-sm hover:shadow-md transition-shadow"
+								>
+									{#if brand.logo}
+										<img
+											src={brand.logo}
+											alt={getBrandName(brand)}
+											class="max-h-10 max-w-full object-contain"
+										/>
+									{:else}
+										<span class="text-lg font-bold text-slate-400">{getBrandName(brand)}</span>
+									{/if}
+								</a>
+							{/each}
+						{/if}
 					</div>
 				</div>
 

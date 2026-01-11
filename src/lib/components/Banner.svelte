@@ -154,13 +154,13 @@
 	<div class="flex">
 		<a
 			href="tel:+79154000020"
-			class="font-display text-lg font-light tracking-wide text-gray-50 antialiased"
+			class="font-display text-lg font-light tracking-wide text-gray-50 antialiased bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm"
 		>
 			8 915 400-00-20
 		</a>
 	</div>
 
-	<div class="flex w-24 justify-end divide-x">
+	<div class="flex items-center w-24 justify-end divide-x">
 		<FavoriteButton />
 		<MobileButton />
 	</div>

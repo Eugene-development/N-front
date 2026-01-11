@@ -3,7 +3,10 @@
 	let isFavorite = $state(false);
 </script>
 
-<a href="/favorites" class="relative isolate z-20 px-3 focus-visible:outline-offset-[-4px]">
+<a
+	href="/favorites"
+	class="relative isolate z-20 flex items-center px-3 focus-visible:outline-offset-[-4px]"
+>
 	<span class="sr-only">Избранное</span>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"

@@ -221,3 +221,102 @@ export async function getMebelProjectBySlug(slug) {
     const data = await graphqlRequest(query, { slug });
     return data.mebelProjectBySlug;
 }
+
+// ============================================
+// BRAND QUERIES
+// ============================================
+
+/**
+ * Get all active brands
+ * @param {object} options - Query options (rubric_id)
+ * @returns {Promise<Array>}
+ */
+export async function getBrands(options = {}) {
+    const query = `
+        query GetBrands($is_active: Boolean, $rubric_id: ID) {
+            brands(is_active: $is_active, rubric_id: $rubric_id) {
+                id
+                key
+                value
+                slug
+                rubric_id
+                description
+                logo
+                country
+                website
+                is_active
+                sort_order
+                rubric {
+                    id
+                    value
+                    slug
+                }
+            }
+        }
+    `;
+    const data = await graphqlRequest(query, { is_active: true, ...options });
+    return data.brands;
+}
+
+/**
+ * Get brands by rubric slug
+ * @param {string} rubricSlug - The URL slug of the rubric
+ * @returns {Promise<{rubric: object, brands: Array}>}
+ */
+export async function getBrandsByRubricSlug(rubricSlug) {
+    // First get the rubric to find its ID
+    const query = `
+        query GetRubricBySlug($slug: String!) {
+            rubricBySlug(slug: $slug) {
+                id
+                value
+                slug
+                description
+            }
+        }
+    `;
+    const rubricData = await graphqlRequest(query, { slug: rubricSlug });
+    
+    if (!rubricData.rubricBySlug) {
+        return { rubric: null, brands: [] };
+    }
+    
+    const rubric = rubricData.rubricBySlug;
+    
+    // Now get brands for this rubric
+    const brands = await getBrands({ rubric_id: rubric.id });
+    
+    return { rubric, brands };
+}
+
+/**
+ * Get a single brand by slug
+ * @param {string} slug - The URL slug of the brand
+ * @returns {Promise<object|null>}
+ */
+export async function getBrandBySlug(slug) {
+    const query = `
+        query GetBrandBySlug($slug: String!) {
+            brandBySlug(slug: $slug) {
+                id
+                key
+                value
+                slug
+                rubric_id
+                description
+                logo
+                country
+                website
+                is_active
+                sort_order
+                rubric {
+                    id
+                    value
+                    slug
+                }
+            }
+        }
+    `;
+    const data = await graphqlRequest(query, { slug });
+    return data.brandBySlug;
+}

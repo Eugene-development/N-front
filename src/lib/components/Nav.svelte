@@ -13,6 +13,16 @@
 	let selectedCity = $state('Москва и МО');
 	let hoveredItem = $state(null);
 
+	// Статические рубрики (fallback)
+	const fallbackRubrics = [
+		{ href: '/mebel', label: 'Мебель' },
+		{ href: '/bytovaya-tehnika', label: 'Бытовая техника' },
+		{ href: '/stoleshnica', label: 'Столешницы' },
+		{ href: '/santehnika', label: 'Сантехника' },
+		{ href: '/furnitura', label: 'Фурнитура' },
+		{ href: '/aksessuary', label: 'Аксессуары' }
+	];
+
 	// Динамически загружаемые рубрики для каталога
 	let catalogItems = $state([]);
 	let loadingCatalog = $state(true);
@@ -20,14 +30,19 @@
 	onMount(async () => {
 		try {
 			const rubrics = await getRubrics();
-			catalogItems = rubrics.map(rubric => ({
-				href: `/${rubric.slug}`,
-				label: rubric.value
-			}));
+			if (rubrics && rubrics.length > 0) {
+				catalogItems = rubrics.map(rubric => ({
+					href: `/${rubric.slug}`,
+					label: rubric.value
+				}));
+			} else {
+				// Используем fallback если API вернул пустой массив
+				catalogItems = fallbackRubrics;
+			}
 		} catch (error) {
 			console.error('Failed to load rubrics:', error);
-			// Fallback к пустому массиву
-			catalogItems = [];
+			// Fallback к статическим рубрикам
+			catalogItems = fallbackRubrics;
 		} finally {
 			loadingCatalog = false;
 		}
@@ -86,7 +101,7 @@
 					onmouseleave={() => (hoveredItem = null)}
 				>
 					<span
-						class="relative z-10 text-slate-700 transition-colors duration-300 group-hover:text-sky-600"
+						class="relative z-10 text-black tracking-wide transition-colors duration-300 group-hover:text-sky-600"
 					>
 						{item.label}
 					</span>
@@ -117,7 +132,7 @@
 			>
 				<button
 					type="button"
-					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-medium text-slate-700 transition-all duration-300 hover:text-sky-600"
+					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-medium text-black tracking-wide transition-all duration-300 hover:text-sky-600"
 					aria-expanded={visibleCatalogMenu}
 				>
 					<span>Каталог</span>
@@ -188,7 +203,7 @@
 									transition:fly={{ y: -5, duration: 150, delay: idx * 30 }}
 								>
 									<span
-										class="text-base font-medium text-slate-700 transition-colors group-hover:text-sky-600"
+										class="text-base font-medium text-black tracking-wide transition-colors group-hover:text-sky-600"
 										>{item.label}</span
 									>
 									<svg
@@ -220,7 +235,7 @@
 			>
 				<button
 					type="button"
-					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-medium text-slate-700 transition-all duration-300 hover:text-sky-600"
+					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-medium text-black tracking-wide transition-all duration-300 hover:text-sky-600"
 					aria-expanded={visibleServicesMenu}
 				>
 					<span>Наши услуги</span>
@@ -351,7 +366,7 @@
 				class:active={$page.url.pathname === '/contacts'}
 			>
 				<span
-					class="relative z-10 text-slate-700 transition-colors duration-300 group-hover:text-sky-600"
+					class="relative z-10 text-black tracking-wide transition-colors duration-300 group-hover:text-sky-600"
 				>
 					Контакты
 				</span>

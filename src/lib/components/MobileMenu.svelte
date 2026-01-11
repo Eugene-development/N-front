@@ -9,6 +9,16 @@
 	let showInformationMenu = $state(false);
 	let showCatalogMenu = $state(false);
 
+	// Статические рубрики (fallback)
+	const fallbackRubrics = [
+		{ href: '/mebel', label: 'Мебель' },
+		{ href: '/bytovaya-tehnika', label: 'Бытовая техника' },
+		{ href: '/stoleshnica', label: 'Столешницы' },
+		{ href: '/santehnika', label: 'Сантехника' },
+		{ href: '/furnitura', label: 'Фурнитура' },
+		{ href: '/aksessuary', label: 'Аксессуары' }
+	];
+
 	// Динамически загружаемые рубрики для каталога
 	let catalogItems = $state([]);
 	let loadingCatalog = $state(true);
@@ -16,13 +26,17 @@
 	onMount(async () => {
 		try {
 			const rubrics = await getRubrics();
-			catalogItems = rubrics.map(rubric => ({
-				href: `/${rubric.slug}`,
-				label: rubric.value
-			}));
+			if (rubrics && rubrics.length > 0) {
+				catalogItems = rubrics.map(rubric => ({
+					href: `/${rubric.slug}`,
+					label: rubric.value
+				}));
+			} else {
+				catalogItems = fallbackRubrics;
+			}
 		} catch (error) {
 			console.error('Failed to load rubrics:', error);
-			catalogItems = [];
+			catalogItems = fallbackRubrics;
 		} finally {
 			loadingCatalog = false;
 		}
