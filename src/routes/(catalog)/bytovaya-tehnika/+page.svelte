@@ -2,102 +2,20 @@
 	import { onMount } from 'svelte';
 	import { getBrandsByRubricSlug } from '$lib/api/graphql.js';
 
-	// State для брендов (загружаются из API)
+	// State для брендов (загружаются только из API)
 	let brands = $state([]);
 	let isLoading = $state(true);
 	let error = $state(null);
 
-	// Fallback бренды (используются если API недоступен)
-	const fallbackBrands = [
-		{ 
-			slug: 'bosch', 
-			value: 'Bosch', 
-			country: 'Германия',
-			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bosch-logo.svg/200px-Bosch-logo.svg.png',
-			description: 'Немецкое качество и инновации в каждом устройстве',
-			website: 'https://www.bosch-home.ru',
-			bg: '#e0f2fe'
-		},
-		{ 
-			slug: 'siemens', 
-			value: 'Siemens', 
-			country: 'Германия',
-			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Siemens-logo.svg/200px-Siemens-logo.svg.png',
-			description: 'Премиальная техника с интеллектуальными функциями',
-			website: 'https://www.siemens-home.ru',
-			bg: '#ccfbf1'
-		},
-		{ 
-			slug: 'electrolux', 
-			value: 'Electrolux', 
-			country: 'Швеция',
-			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Electrolux_logo.svg/200px-Electrolux_logo.svg.png',
-			description: 'Скандинавский дизайн и экологичность',
-			website: 'https://www.electrolux.ru',
-			bg: '#fef3c7'
-		},
-		{ 
-			slug: 'miele', 
-			value: 'Miele', 
-			country: 'Германия',
-			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Miele_logo.svg/200px-Miele_logo.svg.png',
-			description: 'Легендарное немецкое качество и долговечность',
-			website: 'https://www.miele.ru',
-			bg: '#fee2e2'
-		},
-		{ 
-			slug: 'samsung', 
-			value: 'Samsung', 
-			country: 'Южная Корея',
-			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/200px-Samsung_Logo.svg.png',
-			description: 'Инновационные технологии и умный дом',
-			website: 'https://www.samsung.com/ru/',
-			bg: '#e0e7ff'
-		},
-		{ 
-			slug: 'lg', 
-			value: 'LG', 
-			country: 'Южная Корея',
-			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/LG_symbol.svg/200px-LG_symbol.svg.png',
-			description: 'Жизнь хороша — надёжная техника для дома',
-			website: 'https://www.lg.com/ru',
-			bg: '#fce7f3'
-		},
-		{ 
-			slug: 'aeg', 
-			value: 'AEG', 
-			country: 'Германия',
-			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/AEG_Logo.svg/200px-AEG_Logo.svg.png',
-			description: 'Профессиональные решения для кухни',
-			website: 'https://www.aeg.ru',
-			bg: '#d1fae5'
-		},
-		{ 
-			slug: 'smeg', 
-			value: 'Smeg', 
-			country: 'Италия',
-			logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Smeg_logo.svg/200px-Smeg_logo.svg.png',
-			description: 'Итальянский стиль и дизайнерская техника',
-			website: 'https://www.smeg.ru',
-			bg: '#ede9fe'
-		},
-	];
-
-	// Загрузка брендов из API
+	// Загрузка брендов из API (только из БД, без fallback)
 	onMount(async () => {
 		try {
 			const { brands: apiBrands } = await getBrandsByRubricSlug('bytovaya-tehnika');
-			if (apiBrands && apiBrands.length > 0) {
-				brands = apiBrands;
-			} else {
-				// Если API вернул пустой массив, используем fallback
-				brands = fallbackBrands;
-			}
+			brands = apiBrands || [];
 		} catch (e) {
 			console.error('Failed to load brands from API:', e);
 			error = e.message;
-			// Используем fallback данные при ошибке
-			brands = fallbackBrands;
+			brands = [];
 		} finally {
 			isLoading = false;
 		}

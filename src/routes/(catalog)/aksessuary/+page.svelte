@@ -5,18 +5,7 @@
 	// Rubric slug for this page
 	const RUBRIC_SLUG = 'aksessuary';
 
-	// Default static categories (fallback if API fails)
-	const defaultCategories = [
-		{ value: 'Рейлинги', slug: 'reylingi', description: 'Рейлинговые системы', bg: '#f1f5f9' },
-		{ value: 'Органайзеры для ящиков', slug: 'organajzery', description: 'Разделители и лотки', bg: '#e0f2fe' },
-		{ value: 'Выдвижные корзины', slug: 'korziny', description: 'Карго-системы', bg: '#fef3c7' },
-		{ value: 'Сушки для посуды', slug: 'sushki', description: 'Встраиваемые сушки', bg: '#d1fae5' },
-		{ value: 'Системы сортировки мусора', slug: 'musor', description: 'Встраиваемые вёдра', bg: '#ede9fe' },
-		{ value: 'Подсветка', slug: 'podsvetka', description: 'LED освещение', bg: '#fef3c7' },
-		{ value: 'Крючки и держатели', slug: 'kryuchki', description: 'Навесные аксессуары', bg: '#e0f2fe' },
-	];
-
-	let categories = $state(defaultCategories);
+	let categories = $state([]);
 	let rubric = $state(null);
 	let isLoading = $state(true);
 	let error = $state(null);
@@ -44,17 +33,18 @@
 		return categoryGradients[slug] || categoryGradients.default;
 	}
 
+	// Загружаем категории только из БД, без fallback
 	onMount(async () => {
 		try {
 			const data = await getCategoriesByRubricSlug(RUBRIC_SLUG);
-			if (data.rubric && data.categories.length > 0) {
+			if (data.rubric) {
 				rubric = data.rubric;
-				categories = data.categories;
 			}
+			categories = data.categories || [];
 		} catch (e) {
 			error = e.message;
 			console.error('Failed to load categories:', e);
-			// Используем статические данные как fallback
+			categories = [];
 		} finally {
 			isLoading = false;
 		}

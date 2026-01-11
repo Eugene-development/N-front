@@ -2,30 +2,19 @@
 	import { onMount } from 'svelte';
 	import { getMebelCategories } from '$lib/api/graphql.js';
 
-	// Default static categories (fallback if API fails)
-	const defaultCategories = [
-		{ value: 'Кухни', slug: 'kuhni', description: 'Кухни на заказ', bg: '#fef3c7' },
-		{ value: 'Шкафы', slug: 'shkafy', description: 'Шкафы и гардеробные', bg: '#e0f2fe' },
-		{ value: 'Гардеробные', slug: 'garderobnye', description: 'Гардеробные комнаты', bg: '#ede9fe' },
-		{ value: 'Прихожие', slug: 'prihozhie', description: 'Мебель для прихожей', bg: '#d1fae5' },
-		{ value: 'Детская мебель', slug: 'detskaya', description: 'Мебель для детской', bg: '#fce7f3' },
-		{ value: 'Офисная мебель', slug: 'ofisnaya', description: 'Офисная мебель', bg: '#f1f5f9' },
-	];
-
-	let categories = $state(defaultCategories);
+	let categories = $state([]);
 	let isLoading = $state(true);
 	let error = $state(null);
 
+	// Загружаем категории только из БД, без fallback
 	onMount(async () => {
 		try {
 			const data = await getMebelCategories();
-			if (data && data.length > 0) {
-				categories = data;
-			}
+			categories = data || [];
 		} catch (e) {
 			error = e.message;
 			console.error('Failed to load categories:', e);
-			// Используем статические данные как fallback
+			categories = [];
 		} finally {
 			isLoading = false;
 		}
