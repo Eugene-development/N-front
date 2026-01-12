@@ -8,6 +8,7 @@
 	let relatedProjects = $state([]);
 	let isLoading = $state(true);
 	let error = $state(null);
+	let selectedImageIndex = $state(0);
 
 	// Get params from URL (derived from page store)
 	let categorySlug = $derived($page.params.category);
@@ -22,6 +23,7 @@
 	async function loadData(catSlug, projSlug) {
 		isLoading = true;
 		error = null;
+		selectedImageIndex = 0;
 		try {
 			// Load project by slug
 			const projectData = await getMebelProjectBySlug(projSlug);
@@ -87,24 +89,32 @@
 				<!-- Изображение / Placeholder -->
 				<div>
 					<div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-sm">
-						<!-- Placeholder для изображения -->
-						<div
-							class="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200"
-						>
-							<svg
-								class="h-24 w-24 text-slate-300"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
+						{#if project.images && project.images.length > 0 && project.images[selectedImageIndex]?.url}
+							<img
+								src={project.images[selectedImageIndex].url}
+								alt={project.value}
+								class="h-full w-full object-cover"
+							/>
+						{:else}
+							<!-- Placeholder для изображения -->
+							<div
+								class="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200"
 							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1"
-									d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-								/>
-							</svg>
-						</div>
+								<svg
+									class="h-24 w-24 text-slate-300"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1"
+										d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+									/>
+								</svg>
+							</div>
+						{/if}
 						<!-- Метки -->
 						<div class="absolute top-4 left-4 flex gap-2">
 							{#if project.is_new}
@@ -130,6 +140,49 @@
 							{/if}
 						</div>
 					</div>
+
+					<!-- Галерея миниатюр (4 колонки, макс 8 изображений) -->
+					{#if project.images && project.images.length > 1}
+						<div class="mt-4 grid grid-cols-4 gap-2">
+							{#each project.images.slice(0, 8) as image, index (image.id)}
+								<button
+									type="button"
+									onclick={() => (selectedImageIndex = index)}
+									class="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-100 transition-all hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 {selectedImageIndex ===
+									index
+										? 'ring-2 ring-sky-500 ring-offset-2'
+										: ''}"
+								>
+									{#if image.url}
+										<img
+											src={image.url}
+											alt="{project.value} - фото {index + 1}"
+											class="h-full w-full object-cover"
+											loading="lazy"
+										/>
+									{:else}
+										<div
+											class="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200"
+										>
+											<svg
+												class="h-6 w-6 text-slate-300"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke="currentColor"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="1"
+													d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+												/>
+											</svg>
+										</div>
+									{/if}
+								</button>
+							{/each}
+						</div>
+					{/if}
 				</div>
 
 				<!-- Информация о товаре -->
@@ -298,23 +351,32 @@
 								class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
 							>
 								<div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
-									<div
-										class="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200"
-									>
-										<svg
-											class="h-12 w-12 text-slate-300"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke="currentColor"
+									{#if item.images && item.images.length > 0 && item.images[0].url}
+										<img
+											src={item.images[0].url}
+											alt={item.value}
+											class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+											loading="lazy"
+										/>
+									{:else}
+										<div
+											class="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200"
 										>
-											<path
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												stroke-width="1"
-												d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-											/>
-										</svg>
-									</div>
+											<svg
+												class="h-12 w-12 text-slate-300"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke="currentColor"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="1"
+													d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+												/>
+											</svg>
+										</div>
+									{/if}
 									<!-- Метки -->
 									<div class="absolute top-3 left-3 flex gap-1.5">
 										{#if item.is_new}

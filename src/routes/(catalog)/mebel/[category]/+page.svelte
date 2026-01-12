@@ -290,24 +290,33 @@
 									</div>
 
 									<div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
-										<!-- Placeholder если нет изображения -->
-										<div
-											class="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200"
-										>
-											<svg
-												class="h-16 w-16 text-slate-300"
-												fill="none"
-												viewBox="0 0 24 24"
-												stroke="currentColor"
+										{#if project.images && project.images.length > 0 && project.images[0].url}
+											<img
+												src={project.images[0].url}
+												alt={project.value}
+												class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+												loading="lazy"
+											/>
+										{:else}
+											<!-- Placeholder если нет изображения -->
+											<div
+												class="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200"
 											>
-												<path
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													stroke-width="1"
-													d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-												/>
-											</svg>
-										</div>
+												<svg
+													class="h-16 w-16 text-slate-300"
+													fill="none"
+													viewBox="0 0 24 24"
+													stroke="currentColor"
+												>
+													<path
+														stroke-linecap="round"
+														stroke-linejoin="round"
+														stroke-width="1"
+														d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+													/>
+												</svg>
+											</div>
+										{/if}
 										<div
 											class="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 										></div>

@@ -161,6 +161,12 @@ export async function getMebelProjects(options = {}) {
                 is_featured
                 is_new
                 sort_order
+                images {
+                    id
+                    url
+                    mime_type
+                    sort_order
+                }
                 category {
                     id
                     value
@@ -205,6 +211,12 @@ export async function getMebelProjectBySlug(slug) {
                 is_featured
                 is_new
                 sort_order
+                images {
+                    id
+                    url
+                    mime_type
+                    sort_order
+                }
                 category {
                     id
                     value
