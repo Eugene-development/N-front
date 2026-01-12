@@ -9,6 +9,7 @@
 	let isLoading = $state(true);
 	let error = $state(null);
 	let selectedImageIndex = $state(0);
+	let isLightboxOpen = $state(false);
 
 	// Get params from URL (derived from page store)
 	let categorySlug = $derived($page.params.category);
@@ -139,6 +140,30 @@
 								</div>
 							{/if}
 						</div>
+
+						<!-- Кнопка увеличения (лупа с плюсом) -->
+						{#if project.images && project.images.length > 0 && project.images[selectedImageIndex]?.url}
+							<button
+								type="button"
+								onclick={() => (isLightboxOpen = true)}
+								class="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow-lg backdrop-blur-sm transition-all hover:bg-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-sky-500"
+								aria-label="Увеличить изображение"
+							>
+								<svg
+									class="h-5 w-5"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+									/>
+								</svg>
+							</button>
+						{/if}
 					</div>
 
 					<!-- Галерея миниатюр (4 колонки, макс 8 изображений) -->
@@ -494,6 +519,116 @@
 				</svg>
 				Вернуться в каталог
 			</a>
+		</div>
+	</div>
+{/if}
+
+<!-- Lightbox модальное окно -->
+{#if isLightboxOpen && project?.images && project.images[selectedImageIndex]?.url}
+	<div
+		class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+		onclick={() => (isLightboxOpen = false)}
+		onkeydown={(e) => {
+			if (e.key === 'Escape') isLightboxOpen = false;
+			if (e.key === 'ArrowLeft' && selectedImageIndex > 0) selectedImageIndex--;
+			if (e.key === 'ArrowRight' && selectedImageIndex < project.images.length - 1)
+				selectedImageIndex++;
+		}}
+		role="dialog"
+		aria-modal="true"
+		aria-label="Просмотр изображения"
+		tabindex="-1"
+	>
+		<!-- Кнопка закрытия -->
+		<button
+			type="button"
+			onclick={(e) => {
+				e.stopPropagation();
+				isLightboxOpen = false;
+			}}
+			class="absolute top-4 right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+			aria-label="Закрыть"
+		>
+			<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+			</svg>
+		</button>
+
+		<!-- Кнопка "Предыдущее" -->
+		{#if selectedImageIndex > 0}
+			<button
+				type="button"
+				onclick={(e) => {
+					e.stopPropagation();
+					selectedImageIndex--;
+				}}
+				class="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+				aria-label="Предыдущее изображение"
+			>
+				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+				</svg>
+			</button>
+		{/if}
+
+		<!-- Кнопка "Следующее" -->
+		{#if selectedImageIndex < project.images.length - 1}
+			<button
+				type="button"
+				onclick={(e) => {
+					e.stopPropagation();
+					selectedImageIndex++;
+				}}
+				class="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+				aria-label="Следующее изображение"
+			>
+				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+				</svg>
+			</button>
+		{/if}
+
+		<!-- Основное изображение -->
+		<div
+			class="max-h-[80vh] max-w-[90vw] flex flex-col items-center"
+			onclick={(e) => e.stopPropagation()}
+			onkeydown={(e) => e.stopPropagation()}
+			role="presentation"
+		>
+			<img
+				src={project.images[selectedImageIndex].url}
+				alt="{project.value} - фото {selectedImageIndex + 1}"
+				class="max-h-[70vh] max-w-full object-contain rounded-lg shadow-2xl"
+			/>
+
+			<!-- Счётчик изображений -->
+			<div class="mt-4 text-white/80 text-sm">
+				{selectedImageIndex + 1} / {project.images.length}
+			</div>
+
+			<!-- Миниатюры в лайтбоксе -->
+			{#if project.images.length > 1}
+				<div class="mt-4 flex gap-2 overflow-x-auto max-w-[90vw] pb-2">
+					{#each project.images as image, index (image.id)}
+						<button
+							type="button"
+							onclick={() => (selectedImageIndex = index)}
+							class="flex-shrink-0 w-16 h-12 overflow-hidden rounded-md transition-all {selectedImageIndex ===
+							index
+								? 'ring-2 ring-white'
+								: 'opacity-50 hover:opacity-75'}"
+						>
+							{#if image.url}
+								<img
+									src={image.url}
+									alt="{project.value} - миниатюра {index + 1}"
+									class="h-full w-full object-cover"
+								/>
+							{/if}
+						</button>
+					{/each}
+				</div>
+			{/if}
 		</div>
 	</div>
 {/if}
