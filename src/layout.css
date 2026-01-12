@@ -13,6 +13,11 @@ body {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Шрифт для навигации */
+.font-nav {
+	font-family: 'Montserrat', system-ui, sans-serif;
+}
+
 /* Анимации для меню */
 @keyframes flip {
 	to {

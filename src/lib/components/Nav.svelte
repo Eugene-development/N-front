@@ -67,9 +67,9 @@
 	];
 </script>
 
-<header class="bg-linear-to-r from-slate-50 via-white to-slate-50">
+<header class="bg-linear-to-r from-gray-100 via-gray-50 to-gray-100">
 	<nav
-		class="max-w-9xl mx-auto hidden items-center justify-between px-6 py-3 lg:flex lg:px-8"
+		class="font-nav max-w-9xl mx-auto hidden items-center justify-between px-6 py-3 lg:flex lg:px-8"
 		aria-label="Global"
 	>
 		<!-- Логотип -->
@@ -95,7 +95,7 @@
 			{#each menuItems as item, i}
 				<a
 					href={item.href}
-					class="nav-item group relative px-4 py-2.5 text-base font-medium transition-all duration-300"
+					class="nav-item group relative px-4 py-2.5 text-base font-semibold transition-all duration-300"
 					class:active={$page.url.pathname === item.href}
 					onmouseenter={() => (hoveredItem = i)}
 					onmouseleave={() => (hoveredItem = null)}
@@ -132,7 +132,7 @@
 			>
 				<button
 					type="button"
-					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-medium text-black tracking-wide transition-all duration-300 hover:text-sky-600"
+					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-semibold text-black tracking-wide transition-all duration-300 hover:text-sky-600"
 					aria-expanded={visibleCatalogMenu}
 				>
 					<span>Каталог</span>
@@ -235,7 +235,7 @@
 			>
 				<button
 					type="button"
-					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-medium text-black tracking-wide transition-all duration-300 hover:text-sky-600"
+					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-semibold text-black tracking-wide transition-all duration-300 hover:text-sky-600"
 					aria-expanded={visibleServicesMenu}
 				>
 					<span>Наши услуги</span>
@@ -362,7 +362,7 @@
 			<!-- Контакты -->
 			<a
 				href="/contacts"
-				class="nav-item group relative px-4 py-2.5 text-base font-medium transition-all duration-300"
+				class="nav-item group relative px-4 py-2.5 text-base font-semibold transition-all duration-300"
 				class:active={$page.url.pathname === '/contacts'}
 			>
 				<span

@@ -82,7 +82,7 @@
 
 	<!-- Menu Panel -->
 	<div
-		class="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-hidden bg-white shadow-2xl"
+		class="font-nav fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-hidden bg-white shadow-2xl"
 		transition:fly={{ x: 300, duration: 300, easing: quintOut }}
 		role="dialog"
 		aria-modal="true"
