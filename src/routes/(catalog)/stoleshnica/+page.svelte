@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { getCategoriesByRubricSlug } from '$lib/api/graphql.js';
+	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
 
 	// Rubric slug for this page
 	const RUBRIC_SLUG = 'stoleshnica';
@@ -133,10 +134,7 @@
 							Точный раскрой под вашу кухню с вырезами под мойку и варочную панель.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<a
-								href="/consultation"
-								class="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600"
-							>
+							<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600">
 								Рассчитать стоимость
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path
@@ -146,7 +144,7 @@
 										d="M17 8l4 4m0 0l-4 4m4-4H3"
 									/>
 								</svg>
-							</a>
+							</ConsultationButton>
 							<a
 								href="/measurement"
 								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
@@ -476,12 +474,9 @@
 						Оставьте заявку и получите расчёт стоимости с учётом всех вырезов и монтажа
 					</p>
 					<div class="mt-6 flex flex-wrap justify-center gap-4">
-						<a
-							href="/consultation"
-							class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-amber-600 transition-all hover:bg-amber-50"
-						>
+						<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-amber-600 transition-all hover:bg-amber-50">
 							Получить расчёт
-						</a>
+						</ConsultationButton>
 						<a
 							href="tel:+74951234567"
 							class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"

@@ -1,3 +1,7 @@
+<script>
+	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+</script>
+
 <svelte:head>
 	<title>Партнёрство | Компания Новострой</title>
 	<meta name="description" content="Станьте партнёром компании Новострой. Выгодные условия для дизайнеров, ремонтных бригад, продавцов мебели и мебельных фабрик." />
@@ -24,12 +28,12 @@
 						Выгодные условия и прозрачная система вознаграждений.
 					</p>
 					<div class="mt-10 flex flex-wrap gap-4">
-						<a href="/consultation" class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl">
+						<ConsultationButton class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl">
 							Стать партнёром
 							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 							</svg>
-						</a>
+						</ConsultationButton>
 					</div>
 				</div>
 				<div class="mt-12 lg:mt-0">
@@ -258,12 +262,12 @@
 						</div>
 					</div>
 
-					<a href="/consultation" class="mt-8 inline-flex items-center gap-2 rounded-xl bg-sky-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-sky-600 hover:shadow-xl">
+					<ConsultationButton class="mt-8 inline-flex items-center gap-2 rounded-xl bg-sky-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-sky-600 hover:shadow-xl">
 						Обсудить сотрудничество
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 						</svg>
-					</a>
+					</ConsultationButton>
 				</div>
 
 				<div class="mt-12 lg:mt-0">
@@ -342,12 +346,12 @@
 				Начните зарабатывать вместе с компанией Новострой уже сегодня
 			</p>
 			<div class="mt-8 flex flex-wrap justify-center gap-4">
-				<a href="/consultation" class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl">
+				<ConsultationButton class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl">
 					Стать партнёром
 					<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 					</svg>
-				</a>
+				</ConsultationButton>
 				<a href="tel:+74951234567" class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur transition-all hover:bg-white/20">
 					<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

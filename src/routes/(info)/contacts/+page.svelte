@@ -191,11 +191,8 @@
 			<!-- MAX -->
 			<a href="https://max.ru/novostroy" target="_blank" rel="noopener noreferrer" 
 			   class="group flex items-center gap-4 rounded-2xl bg-white px-8 py-6 shadow-lg ring-1 ring-gray-200 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:ring-red-500">
-				<div class="flex size-14 items-center justify-center rounded-2xl bg-red-500 text-white transition duration-300 group-hover:scale-110">
-					<svg class="size-8" viewBox="0 0 100 100" fill="currentColor">
-						<path d="M15 20h12l13 35 13-35h12v60h-10V40L43 75h-6L25 40v40H15V20z"/>
-						<path d="M85 80h-10l-5-15H55l-5 15H40l20-60h5l20 60zM62.5 35L57 55h11l-5.5-20z"/>
-					</svg>
+				<div class="flex size-14 items-center justify-center rounded-2xl transition duration-300 group-hover:scale-110">
+					<img src="https://logo-teka.com/wp-content/uploads/2025/07/max-messenger-sign-logo.svg" alt="SVG logo Max" class="size-14" />
 				</div>
 				<div>
 					<p class="font-semibold text-gray-900">MAX</p>

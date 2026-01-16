@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { getCategoriesByRubricSlug, getBrandsByRubricSlug } from '$lib/api/graphql.js';
+	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
 
 	// Rubric slug for this page
 	const RUBRIC_SLUG = 'santehnika';
@@ -146,8 +147,7 @@
 						<p class="mt-2 text-sm text-sky-100">
 							Поможем выбрать мойку и смеситель под ваш проект
 						</p>
-						<a
-							href="/consultation"
+						<ConsultationButton
 							class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50"
 						>
 							Получить консультацию
@@ -159,7 +159,7 @@
 									d="M9 5l7 7-7 7"
 								/>
 							</svg>
-						</a>
+						</ConsultationButton>
 					</div>
 				</div>
 			</aside>
@@ -182,8 +182,7 @@
 							сочетание для вашей кухни.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<a
-								href="/consultation"
+							<ConsultationButton
 								class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
 							>
 								Подобрать комплект
@@ -195,7 +194,7 @@
 										d="M17 8l4 4m0 0l-4 4m4-4H3"
 									/>
 								</svg>
-							</a>
+							</ConsultationButton>
 							<a
 								href="/stoleshnica"
 								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
@@ -524,8 +523,7 @@
 							</ul>
 						</div>
 						<div class="mt-6 lg:mt-0">
-							<a
-								href="/consultation"
+							<ConsultationButton
 								class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
 							>
 								Собрать комплект
@@ -537,7 +535,7 @@
 										d="M17 8l4 4m0 0l-4 4m4-4H3"
 									/>
 								</svg>
-							</a>
+							</ConsultationButton>
 						</div>
 					</div>
 				</div>
@@ -551,12 +549,11 @@
 						Наши специалисты помогут подобрать сантехнику под вашу кухню и бюджет
 					</p>
 					<div class="mt-6 flex flex-wrap justify-center gap-4">
-						<a
-							href="/consultation"
+						<ConsultationButton
 							class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-sky-600 transition-all hover:bg-sky-50"
 						>
 							Получить консультацию
-						</a>
+						</ConsultationButton>
 						<a
 							href="tel:+74951234567"
 							class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"

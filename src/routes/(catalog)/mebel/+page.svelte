@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { getMebelCategories } from '$lib/api/graphql.js';
+	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
 
 	let categories = $state([]);
 	let isLoading = $state(true);
@@ -75,10 +76,7 @@
 						<p class="mt-2 text-sm text-sky-100">
 							Получите бесплатную консультацию дизайнера для создания идеальной и доступной мебели
 						</p>
-						<a
-							href="/consultation"
-							class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50"
-						>
+						<ConsultationButton class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50">
 							Записаться
 							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path
@@ -88,7 +86,7 @@
 									d="M9 5l7 7-7 7"
 								/>
 							</svg>
-						</a>
+						</ConsultationButton>
 					</div>
 				</div>
 			</aside>
@@ -118,10 +116,7 @@
 							к каждому проекту.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<a
-								href="/consultation"
-								class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
-							>
+							<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600">
 								Заказать проект
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path
@@ -131,7 +126,7 @@
 										d="M17 8l4 4m0 0l-4 4m4-4H3"
 									/>
 								</svg>
-							</a>
+							</ConsultationButton>
 							<a
 								href="/measurement"
 								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
@@ -316,12 +311,9 @@
 						Оставьте заявку и получите бесплатный дизайн-проект вашей будущей мебели
 					</p>
 					<div class="mt-6 flex flex-wrap justify-center gap-4">
-						<a
-							href="/consultation"
-							class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-sky-600 transition-all hover:bg-sky-50"
-						>
+						<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-sky-600 transition-all hover:bg-sky-50">
 							Получить консультацию
-						</a>
+						</ConsultationButton>
 						<a
 							href="tel:+79154000020"
 							class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"

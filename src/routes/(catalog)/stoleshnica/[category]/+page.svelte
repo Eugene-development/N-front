@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import { getCategoryBySlug, getCategoriesByRubricSlug } from '$lib/api/graphql.js';
+	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
 
 	// Rubric slug for this section
 	const RUBRIC_SLUG = 'stoleshnica';
@@ -399,10 +400,7 @@
 								производителя.
 							</p>
 							<div class="mt-6 flex flex-wrap gap-4">
-								<a
-									href="/consultation"
-									class="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600"
-								>
+								<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600">
 									Получить консультацию
 									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 										<path
@@ -412,7 +410,7 @@
 											d="M17 8l4 4m0 0l-4 4m4-4H3"
 										/>
 									</svg>
-								</a>
+								</ConsultationButton>
 								<a
 									href="/measurement"
 									class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
@@ -467,12 +465,9 @@
 							</svg>
 							<h3 class="mt-4 text-lg font-semibold text-slate-900">Поставщики не найдены</h3>
 							<p class="mt-2 text-slate-600">В данной категории пока нет поставщиков</p>
-							<a
-								href="/consultation"
-								class="mt-6 inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600"
-							>
+							<ConsultationButton class="mt-6 inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600">
 								Получить консультацию
-							</a>
+							</ConsultationButton>
 						</div>
 					{:else}
 						<div class="mt-6 grid gap-6 sm:grid-cols-2">
@@ -655,12 +650,9 @@
 							Поможем подобрать оптимальный материал и поставщика под ваш бюджет
 						</p>
 						<div class="mt-6 flex flex-wrap justify-center gap-4">
-							<a
-								href="/consultation"
-								class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-amber-600 transition-all hover:bg-amber-50"
-							>
+							<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-amber-600 transition-all hover:bg-amber-50">
 								Получить консультацию
-							</a>
+							</ConsultationButton>
 							<a
 								href="tel:+79154000020"
 								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"

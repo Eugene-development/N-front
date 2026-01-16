@@ -1,3 +1,7 @@
+<script>
+	import { consultationStore } from '$lib/stores/consultation.svelte.js';
+</script>
+
 <svelte:head>
 	<title>Компания Новострой – Мебель на заказ для вашего идеального интерьера</title>
 	<meta
@@ -88,12 +92,12 @@
 							/>
 						</svg>
 					</a>
-					<a
-						href="/consultation"
+					<button
+						onclick={() => consultationStore.open()}
 						class="inline-flex items-center justify-center rounded-xl border-2 border-slate-200 bg-slate-200 px-6 py-3.5 text-base font-semibold text-slate-700 transition-all duration-300 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
 					>
 						Бесплатный проект и просчёт
-					</a>
+					</button>
 				</div>
 
 				<!-- Бренды -->
@@ -684,15 +688,15 @@
 				Основное направление
 			</span>
 			<h3 class="mt-3 text-3xl font-bold text-white">Кухонные гарнитуры</h3>
-			<a
-				href="/consultation"
+			<button
+				onclick={() => consultationStore.open()}
 				class="mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition-all duration-300 hover:bg-sky-50 hover:shadow-xl"
 			>
 				Консультация
 				<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 				</svg>
-			</a>
+			</button>
 		</div>
 	</div>
 
@@ -711,15 +715,15 @@
 				Основное направление
 			</span>
 			<h3 class="mt-3 text-3xl font-bold text-white">Шкафы и гардеробы</h3>
-			<a
-				href="/consultation"
+			<button
+				onclick={() => consultationStore.open()}
 				class="mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition-all duration-300 hover:bg-sky-50 hover:shadow-xl"
 			>
 				Консультация
 				<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 				</svg>
-			</a>
+			</button>
 		</div>
 	</div>
 </section>

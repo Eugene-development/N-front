@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { getBrandsByRubricSlug } from '$lib/api/graphql.js';
+	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
 
 	// State для брендов (загружаются только из API)
 	let brands = $state([]);
@@ -101,10 +102,7 @@
 					<div class="mt-8 rounded-2xl bg-linear-to-br from-slate-800 to-slate-900 p-6 text-white">
 						<h3 class="text-lg font-semibold">Подбор техники</h3>
 						<p class="mt-2 text-sm text-slate-300">Поможем выбрать технику под ваш проект кухни</p>
-						<a
-							href="/consultation"
-							class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-800 transition-all hover:bg-slate-100"
-						>
+						<ConsultationButton class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-800 transition-all hover:bg-slate-100">
 							Получить консультацию
 							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path
@@ -114,7 +112,7 @@
 									d="M9 5l7 7-7 7"
 								/>
 							</svg>
-						</a>
+						</ConsultationButton>
 					</div>
 				</div>
 			</aside>
@@ -137,10 +135,7 @@
 							оптимальное решение для вашей кухни.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<a
-								href="/consultation"
-								class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
-							>
+							<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600">
 								Подобрать технику
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path
@@ -150,7 +145,7 @@
 										d="M17 8l4 4m0 0l-4 4m4-4H3"
 									/>
 								</svg>
-							</a>
+							</ConsultationButton>
 							<a
 								href="/mebel/kuhni"
 								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
@@ -422,12 +417,9 @@
 						Наши специалисты помогут подобрать технику под ваши задачи и бюджет
 					</p>
 					<div class="mt-6 flex flex-wrap justify-center gap-4">
-						<a
-							href="/consultation"
-							class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-slate-800 transition-all hover:bg-slate-100"
-						>
+						<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-slate-800 transition-all hover:bg-slate-100">
 							Получить консультацию
-						</a>
+						</ConsultationButton>
 						<a
 							href="tel:+74951234567"
 							class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"

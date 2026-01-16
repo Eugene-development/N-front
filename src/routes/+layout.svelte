@@ -3,6 +3,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import ConsultationIsland from '$lib/islands/ConsultationIsland.svelte';
 	import { PageTransition } from '$lib';
 	import { page } from '$app/stores';
 
@@ -24,3 +25,6 @@
 	</main>
 	<Footer />
 </div>
+
+<!-- Глобальное модальное окно консультации -->
+<ConsultationIsland />

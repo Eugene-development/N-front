@@ -33,8 +33,8 @@
 	},
 	"dependencies": {
 		"graphql-request": "^7.4.0",
-		"runed": "^0.37.1",
 		"qrcode": "^1.5.4",
+		"runed": "^0.37.1",
 		"tailwindcss-animated": "^2.0.0",
 		"ulid": "^3.0.1"
 	}

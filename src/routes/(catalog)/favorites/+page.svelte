@@ -4,6 +4,8 @@
 </svelte:head>
 
 <script>
+	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	
 	// Моковые данные избранных товаров
 	const favorites = [
 		{
@@ -192,15 +194,14 @@
 							{favorites.filter(i => i.inStock).length} из {favorites.length} товаров в наличии
 						</p>
 					</div>
-					<a 
-						href="/consultation"
+					<ConsultationButton 
 						class="inline-flex items-center gap-2 rounded-xl bg-linear-to-r from-sky-500 to-cyan-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/30"
 					>
 						Оформить заказ
 						<svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 						</svg>
-					</a>
+					</ConsultationButton>
 				</div>
 			</div>
 		{:else}

@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import { getCategoryBySlug, getCategoriesByRubricSlug, getMebelProjectsByCategoryId } from '$lib/api/graphql.js';
+	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
 
 	// Rubric slug for this section
 	const RUBRIC_SLUG = 'mebel';
@@ -125,8 +126,7 @@
 							<p class="mt-2 text-sm text-sky-100">
 								Получите бесплатную консультацию дизайнера для создания идеальной и доступной мебели
 							</p>
-							<a
-								href="/consultation"
+							<ConsultationButton
 								class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50"
 							>
 								Записаться
@@ -138,7 +138,7 @@
 										d="M9 5l7 7-7 7"
 									/>
 								</svg>
-							</a>
+							</ConsultationButton>
 						</div>
 					</div>
 				</aside>
@@ -173,8 +173,7 @@
 								</p>
 							{/if}
 							<div class="mt-6 flex flex-wrap gap-4">
-								<a
-									href="/consultation"
+								<ConsultationButton
 									class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
 								>
 									Заказать проект
@@ -186,7 +185,7 @@
 											d="M17 8l4 4m0 0l-4 4m4-4H3"
 										/>
 									</svg>
-								</a>
+								</ConsultationButton>
 								<a
 									href="/measurement"
 									class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
@@ -251,12 +250,11 @@
 							</svg>
 							<h3 class="mt-4 text-lg font-semibold text-slate-900">Товары не найдены</h3>
 							<p class="mt-2 text-slate-600">В данной категории пока нет товаров</p>
-							<a
-								href="/consultation"
+							<ConsultationButton
 								class="mt-6 inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
 							>
 								Заказать индивидуальный проект
-							</a>
+							</ConsultationButton>
 						</div>
 					{:else}
 						<div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -356,8 +354,7 @@
 													<span class="text-lg font-semibold text-slate-900">По запросу</span>
 												{/if}
 											</div>
-											<a
-												href="/consultation"
+											<ConsultationButton
 												class="inline-flex items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700"
 											>
 												Заказать
@@ -369,7 +366,7 @@
 														d="M9 5l7 7-7 7"
 													/>
 												</svg>
-											</a>
+											</ConsultationButton>
 										</div>
 									</div>
 								</article>
@@ -457,12 +454,11 @@
 							Мы изготовим мебель по вашему индивидуальному проекту и стилю
 						</p>
 						<div class="mt-6 flex flex-wrap justify-center gap-4">
-							<a
-								href="/consultation"
+							<ConsultationButton
 								class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-sky-600 transition-all hover:bg-sky-50"
 							>
 								Заказать индивидуальный проект
-							</a>
+							</ConsultationButton>
 							<a
 								href="tel:+74951234567"
 								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"

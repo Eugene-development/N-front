@@ -332,3 +332,144 @@ export async function getBrandBySlug(slug) {
     const data = await graphqlRequest(query, { slug });
     return data.brandBySlug;
 }
+
+// ============================================
+// SHOP QUERIES
+// ============================================
+
+/**
+ * Get all active shops
+ * @param {object} options - Query options (rubric_id)
+ * @returns {Promise<Array>}
+ */
+export async function getShops(options = {}) {
+    const query = `
+        query GetShops($is_active: Boolean, $rubric_id: ID) {
+            shops(is_active: $is_active, rubric_id: $rubric_id) {
+                id
+                key
+                value
+                slug
+                rubric_id
+                description
+                logo
+                website
+                phone
+                email
+                is_active
+                sort_order
+                rubric {
+                    id
+                    value
+                    slug
+                }
+                categories {
+                    id
+                    value
+                    slug
+                    is_active
+                    sort_order
+                }
+                brands {
+                    id
+                    value
+                    logo
+                    is_active
+                    sort_order
+                }
+                cities {
+                    id
+                    city_name
+                    is_active
+                    sort_order
+                }
+            }
+        }
+    `;
+    const data = await graphqlRequest(query, { is_active: true, ...options });
+    return data.shops;
+}
+
+/**
+ * Get shops by rubric slug
+ * @param {string} rubricSlug - The URL slug of the rubric
+ * @returns {Promise<{rubric: object, shops: Array}>}
+ */
+export async function getShopsByRubricSlug(rubricSlug) {
+    // First get the rubric to find its ID
+    const query = `
+        query GetRubricBySlug($slug: String!) {
+            rubricBySlug(slug: $slug) {
+                id
+                value
+                slug
+                description
+            }
+        }
+    `;
+    const rubricData = await graphqlRequest(query, { slug: rubricSlug });
+    
+    if (!rubricData.rubricBySlug) {
+        return { rubric: null, shops: [] };
+    }
+    
+    const rubric = rubricData.rubricBySlug;
+    
+    // Now get shops for this rubric
+    const shops = await getShops({ rubric_id: rubric.id });
+    
+    return { rubric, shops };
+}
+
+/**
+ * Get a single shop by slug
+ * @param {string} slug - The URL slug of the shop
+ * @returns {Promise<object|null>}
+ */
+export async function getShopBySlug(slug) {
+    const query = `
+        query GetShopBySlug($slug: String!) {
+            shopBySlug(slug: $slug) {
+                id
+                key
+                value
+                slug
+                rubric_id
+                description
+                logo
+                website
+                phone
+                email
+                is_active
+                sort_order
+                rubric {
+                    id
+                    value
+                    slug
+                }
+                categories {
+                    id
+                    value
+                    slug
+                    is_active
+                    sort_order
+                }
+                brands {
+                    id
+                    value
+                    logo
+                    is_active
+                    sort_order
+                }
+                cities {
+                    id
+                    city_name
+                    is_active
+                    sort_order
+                }
+            }
+        }
+    `;
+    const data = await graphqlRequest(query, { slug });
+    return data.shopBySlug;
+}
