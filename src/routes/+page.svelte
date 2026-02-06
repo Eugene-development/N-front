@@ -1,5 +1,7 @@
 <script>
 	import { consultationStore } from '$lib/stores/consultation.svelte.js';
+	import Hero from '$lib/components/Hero.svelte';
+	import HeroMinimal from '$lib/components/HeroMinimal.svelte';
 </script>
 
 <svelte:head>
@@ -10,172 +12,7 @@
 	/>
 </svelte:head>
 
-<!-- Hero Section -->
-<section class="relative isolate min-h-[85vh] overflow-hidden">
-	<!-- Фоновое изображение -->
-	<img
-		src="https://storage.yandexcloud.net/mine2024/novostroy/site/mainfoto.jpg"
-		alt="Кухонный гарнитур"
-		class="absolute inset-0 -z-20 hidden h-full w-full scale-x-[-1] object-cover sm:block"
-	/>
-
-	<!-- Градиентный overlay -->
-	<div
-		class="absolute inset-0 -z-10 hidden bg-linear-to-r from-black/70 via-black/50 to-black/30 sm:block"
-	></div>
-
-	<!-- Мобильный фон -->
-	<div class="absolute inset-0 -z-10 bg-linear-to-br from-slate-900 to-slate-800 sm:hidden"></div>
-
-	<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
-		<div class="mx-auto max-w-4xl">
-			<!-- Контентный блок -->
-			<div
-				class="rounded-2xl bg-white/80 p-8 text-center shadow-2xl sm:bg-gray-50/70 sm:p-10 lg:p-12"
-			>
-				<!-- Бейдж блога -->
-				<a
-					href="/blog"
-					class="group mx-auto mb-6 inline-flex items-center gap-2 rounded-full bg-slate-300 py-1.5 pl-1.5 pr-4 text-sm transition-all duration-300 hover:bg-sky-100"
-				>
-					<span
-						class="rounded-full bg-linear-to-r from-sky-500 to-cyan-500 px-3 py-1 text-xs font-medium text-white"
-					>
-						Новое
-					</span>
-					<span class="font-medium text-slate-700">Наш мебельный блог</span>
-					<svg
-						class="h-4 w-4 text-slate-400 transition-transform duration-300 group-hover:translate-x-1"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M9 5l7 7-7 7"
-						/>
-					</svg>
-				</a>
-
-				<!-- Заголовок -->
-				<h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-					Мебель и техника
-				</h1>
-
-				<!-- Описание -->
-				<p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-					Изготовим мебель по вашим размерам с бесплатным проектом от дизайнера. Согласуем проект с
-					фабрикой, подберём столешницу, технику и аксессуары. Значительно снизим затраты и
-					сэкономим ваше время.
-				</p>
-
-				<!-- Кнопки -->
-				<div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-					<a
-						href="/actions"
-						class="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-sky-500 to-cyan-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/30"
-					>
-						Наши акции
-						<svg
-							class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M17 8l4 4m0 0l-4 4m4-4H3"
-							/>
-						</svg>
-					</a>
-					<button
-						onclick={() => consultationStore.open()}
-						class="inline-flex items-center justify-center rounded-xl border-2 border-slate-200 bg-slate-200 px-6 py-3.5 text-base font-semibold text-slate-700 transition-all duration-300 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
-					>
-						Бесплатный проект и просчёт
-					</button>
-				</div>
-
-				<!-- Бренды -->
-				<div class="mt-10 border-t border-slate-200 pt-8">
-					<!-- <p class="text-sm font-medium text-slate-500">Бренды, с которыми мы работаем:</p> -->
-					<div class="mt-4 grid grid-cols-3 items-center gap-4 sm:grid-cols-6 sm:gap-6">
-						<a
-							href="https://www.hettich.com/en-gb/home"
-							target="_blank"
-							class="group flex items-center justify-center"
-						>
-							<img
-								class="h-6 w-auto opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 sm:h-8"
-								src="https://upload.wikimedia.org/wikipedia/commons/1/15/Logo_of_Hettich_%28company%29.svg"
-								alt="Hettich"
-							/>
-						</a>
-						<a
-							href="https://www.egger.com/en/?country=GB"
-							target="_blank"
-							class="group flex items-center justify-center"
-						>
-							<img
-								class="h-6 w-auto opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 sm:h-8"
-								src="https://cdn.egger.com/img/cms/ff58d5b2-cb11-41dc-ba72-5cec737f1c8a/a6b3c90f-a0ba-4379-abab-9215f9071955/ORIGINAL/gen_egger_logo_en.svg"
-								alt="Egger"
-							/>
-						</a>
-						<a
-							href="https://www.blum.com/gb/en"
-							target="_blank"
-							class="group flex items-center justify-center"
-						>
-							<img
-								class="h-6 w-auto opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 sm:h-8"
-								src="https://www.blum.com/corporate/layout/facelift/images/ci/logo.svg.svg"
-								alt="Blum"
-							/>
-						</a>
-						<a
-							href="https://www.omoikiri.com/"
-							target="_blank"
-							class="group flex items-center justify-center"
-						>
-							<img
-								class="h-6 w-auto opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 sm:h-8"
-								src="https://www.omoikiri.com/wp-content/themes/twentynineteen/img/default/logo_black.svg"
-								alt="Omoikiri"
-							/>
-						</a>
-						<a
-							href="https://www.aristo.ru"
-							target="_blank"
-							class="group flex items-center justify-center"
-						>
-							<img
-								class="h-6 w-auto opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 sm:h-8"
-								src="https://www.aristo.ru/include/logo_header.png"
-								alt="Аристо"
-							/>
-						</a>
-						<a
-							href="https://xn--80aaf1dfl.xn--p1ai/"
-							target="_blank"
-							class="group flex items-center justify-center"
-						>
-							<img
-								class="h-6 w-auto opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 sm:h-8"
-								src="https://static.tildacdn.com/tild6566-3232-4639-a231-643431313266/black2.svg"
-								alt="Avarus"
-							/>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+<Hero />
 
 <!-- О компании (Message) -->
 <section class="bg-slate-50">
@@ -940,3 +777,239 @@
 		</div>
 	</div>
 </section>
+
+<style>
+	/* Animated gradient orbs */
+	.hero-orb {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(60px);
+		opacity: 0.4;
+		animation: float 20s ease-in-out infinite;
+	}
+	
+	.hero-orb-1 {
+		width: 300px;
+		height: 300px;
+		background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+		top: 10%;
+		left: -5%;
+		animation-delay: 0s;
+	}
+	
+	.hero-orb-2 {
+		width: 250px;
+		height: 250px;
+		background: linear-gradient(135deg, #06b6d4, #14b8a6);
+		top: 60%;
+		right: -5%;
+		animation-delay: -7s;
+	}
+	
+	.hero-orb-3 {
+		width: 200px;
+		height: 200px;
+		background: linear-gradient(135deg, #0284c7, #0ea5e9);
+		bottom: 5%;
+		left: 30%;
+		animation-delay: -14s;
+	}
+	
+	@keyframes float {
+		0%, 100% {
+			transform: translate(0, 0) scale(1);
+		}
+		25% {
+			transform: translate(30px, -30px) scale(1.05);
+		}
+		50% {
+			transform: translate(-20px, 20px) scale(0.95);
+		}
+		75% {
+			transform: translate(20px, 30px) scale(1.02);
+		}
+	}
+	
+	/* Hero card with glassmorphism */
+	.hero-card {
+		position: relative;
+		border-radius: 1rem;
+	}
+	
+	.hero-card-border {
+		position: absolute;
+		inset: -2px;
+		border-radius: 1.1rem;
+		background: linear-gradient(
+			135deg,
+			rgba(14, 165, 233, 0.5),
+			rgba(6, 182, 212, 0.3),
+			rgba(255, 255, 255, 0.2),
+			rgba(6, 182, 212, 0.3),
+			rgba(14, 165, 233, 0.5)
+		);
+		background-size: 300% 300%;
+		animation: borderGlow 8s ease-in-out infinite;
+		opacity: 0.6;
+		transition: opacity 0.3s ease;
+	}
+	
+	.hero-card:hover .hero-card-border {
+		opacity: 1;
+	}
+	
+	@keyframes borderGlow {
+		0%, 100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+	
+	.hero-card-content {
+		position: relative;
+		background: rgba(255, 255, 255, 0.85);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		box-shadow: 
+			0 25px 50px -12px rgba(0, 0, 0, 0.15),
+			0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+	}
+	
+	@media (min-width: 640px) {
+		.hero-card-content {
+			background: rgba(249, 250, 251, 0.75);
+		}
+	}
+	
+	/* Primary button effects */
+	.hero-btn-primary {
+		position: relative;
+		overflow: hidden;
+		box-shadow: 
+			0 10px 25px -5px rgba(14, 165, 233, 0.4),
+			0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+	}
+	
+	.hero-btn-primary::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+	
+	.hero-btn-primary::after {
+		content: '';
+		position: absolute;
+		inset: -50%;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(255, 255, 255, 0.3),
+			transparent
+		);
+		transform: translateX(-100%) rotate(45deg);
+		transition: transform 0.6s ease;
+	}
+	
+	.hero-btn-primary:hover::before {
+		opacity: 1;
+	}
+	
+	.hero-btn-primary:hover::after {
+		transform: translateX(100%) rotate(45deg);
+	}
+	
+	.hero-btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 
+			0 20px 40px -10px rgba(14, 165, 233, 0.5),
+			0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+	}
+	
+	
+	/* Brand logo hover lift */
+	.brand-logo:hover {
+		transform: translateY(-2px);
+	}
+
+	/* Version comparison labels */
+	.hero-wrapper,
+	.original-hero-wrapper {
+		position: relative;
+	}
+
+	.version-label {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 1rem;
+		z-index: 100;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		background: rgba(15, 23, 42, 0.9);
+		backdrop-filter: blur(12px);
+		padding: 0.5rem 1rem;
+		border-radius: 9999px;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+	}
+
+	.version-label__badge {
+		font-size: 0.625rem;
+		font-weight: 700;
+		padding: 0.25rem 0.5rem;
+		border-radius: 0.25rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.version-label--v1 .version-label__badge {
+		background: linear-gradient(135deg, #0ea5e9, #0284c7); /* Sky blue */
+		color: white;
+	}
+
+	.version-label--v2 .version-label__badge {
+		background: linear-gradient(135deg, #8b5cf6, #7c3aed); /* Violet */
+		color: white;
+	}
+
+	.version-label--original .version-label__badge {
+		background: linear-gradient(135deg, #64748b, #475569); /* Slate */
+		color: white;
+	}
+
+	.version-label__text {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: white;
+	}
+
+	.comparison-divider {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		padding: 2rem 1rem;
+		background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+	}
+
+	.comparison-divider__line {
+		flex: 1;
+		max-width: 200px;
+		height: 2px;
+		background: linear-gradient(90deg, transparent, #64748b, transparent);
+	}
+
+	.comparison-divider__text {
+		font-size: 1rem;
+		font-weight: 600;
+		color: #94a3b8;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		white-space: nowrap;
+	}
+</style>
