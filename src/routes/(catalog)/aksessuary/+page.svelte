@@ -98,7 +98,9 @@
 					<!-- Баннер -->
 					<div class="mt-8 rounded-2xl bg-linear-to-br from-emerald-500 to-teal-600 p-6 text-white">
 						<h3 class="text-lg font-semibold">Организация пространства</h3>
-						<p class="mt-2 text-sm text-emerald-100">Поможем подобрать аксессуары под вашу кухню</p>
+						<p class="mt-2 text-sm text-emerald-100">
+							Поможем подобрать аксессуары под ваш кухонный гарнитур
+						</p>
 						<ConsultationButton
 							class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-emerald-600 transition-all hover:bg-emerald-50"
 						>

@@ -18,8 +18,6 @@
 </section>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
-
 	.hero-minimal {
 		position: relative;
 		width: 100%;
@@ -29,7 +27,7 @@
 		align-items: center;
 		justify-content: center;
 		overflow: hidden;
-		font-family: 'Montserrat', sans-serif;
+		font-family: 'Manrope', sans-serif;
 	}
 
 	.hero-bg {

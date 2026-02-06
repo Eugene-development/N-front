@@ -32,7 +32,7 @@
 </script>
 
 <section
-	class="relative w-full min-h-screen flex items-start justify-center pt-8 md:pt-10 overflow-hidden font-[Manrope] text-gray-900"
+	class="relative w-full min-h-screen flex items-start justify-center pt-8 md:pt-10 overflow-hidden text-gray-900"
 >
 	<!-- Фоновое изображение -->
 	<div class="absolute inset-0 z-0">
