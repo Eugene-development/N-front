@@ -71,7 +71,7 @@
 
 				<!-- Заголовок -->
 				<h1
-					class="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter text-slate-900 leading-none mb-6"
+					class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 leading-none mb-6"
 				>
 					Мебель и Техника
 				</h1>
@@ -80,9 +80,9 @@
 				<p
 					class="text-lg md:text-lg text-slate-800 leading-relaxed max-w-2xl mx-auto mb-12 font-medium"
 				>
-					Изготовим мебель по вашим размерам с бесплатным проектом от дизайнера. Согласуем проект с
-					фабрикой, подберём столешницу, технику и аксессуары. Значительно снизим затраты и
-					сэкономим ваше время.
+					Мебель по вашим размерам с бесплатным проектом от дизайнера. Согласуем проект с фабрикой,
+					подберём столешницу, технику и аксессуары. Значительно снизим затраты и сэкономим ваше
+					время.
 				</p>
 
 				<!-- Кнопки -->
