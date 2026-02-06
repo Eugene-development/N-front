@@ -4,6 +4,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import ConsultationIsland from '$lib/islands/ConsultationIsland.svelte';
+	import ServiceOrderIsland from '$lib/islands/ServiceOrderIsland.svelte';
 	import { PageTransition } from '$lib';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
@@ -68,3 +69,6 @@
 
 <!-- Глобальное модальное окно консультации -->
 <ConsultationIsland />
+
+<!-- Глобальное модальное окно заказа услуги -->
+<ServiceOrderIsland />

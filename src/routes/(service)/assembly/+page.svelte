@@ -1,3 +1,7 @@
+<script>
+	import ServiceOrderButton from '$lib/components/ServiceOrderButton.svelte';
+</script>
+
 <svelte:head>
 	<title>Сборка мебели | Новострой</title>
 	<meta name="description" content="Профессиональная сборка и установка мебели" />
@@ -24,16 +28,16 @@
 				<h1
 					class="mt-4 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
 				>
-					Сборка мебели
+					Сборка и установка мебели
 				</h1>
 				<p class="mt-6 text-lg/8 text-gray-300">
 					Профессиональная сборка и установка мебели любой сложности. Быстро, аккуратно и с
 					гарантией качества.
 				</p>
 				<div class="mt-10 flex flex-wrap gap-4">
-					<a
-						href="/contacts"
-						class="inline-flex items-center gap-2 rounded-lg bg-rose-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-rose-400"
+					<ServiceOrderButton
+						serviceType="assembly"
+						class="inline-flex items-center gap-2 rounded-lg bg-rose-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-rose-400 cursor-pointer"
 					>
 						Заказать сборку
 						<svg
@@ -45,7 +49,7 @@
 						>
 							<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 						</svg>
-					</a>
+					</ServiceOrderButton>
 					<a
 						href="tel:+79154000020"
 						class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-6 py-3 text-sm font-semibold text-white transition hover:border-gray-400"
@@ -73,9 +77,9 @@
 				<div class="absolute -inset-4 rounded-2xl bg-sky-500/20 blur-3xl"></div>
 				<div class="relative overflow-hidden rounded-2xl shadow-2xl">
 					<img
-						src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
+						src="/kitchen_assembly_modern.png"
 						alt="Сборка мебели"
-						class="aspect-4/3 w-full object-cover"
+						class="aspect-square w-full object-cover"
 					/>
 				</div>
 			</div>
@@ -393,15 +397,15 @@
 			Оставьте заявку и мы соберём вашу мебель быстро и качественно
 		</p>
 		<div class="mt-10">
-			<a
-				href="/contacts"
-				class="inline-flex items-center gap-2 rounded-lg bg-rose-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-rose-500/30 transition duration-300 hover:-translate-y-1 hover:bg-rose-400 hover:shadow-xl hover:shadow-rose-500/40"
+			<ServiceOrderButton
+				serviceType="assembly"
+				class="inline-flex items-center gap-2 rounded-lg bg-rose-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-rose-500/30 transition duration-300 hover:-translate-y-1 hover:bg-rose-400 hover:shadow-xl hover:shadow-rose-500/40 cursor-pointer"
 			>
 				Заказать сборку
 				<svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 				</svg>
-			</a>
+			</ServiceOrderButton>
 		</div>
 		<p class="mt-8 text-sm text-gray-500">
 			Или позвоните: <a href="tel:+79154000020" class="text-rose-400 transition hover:text-rose-300"

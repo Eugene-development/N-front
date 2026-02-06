@@ -31,23 +31,13 @@
 	];
 </script>
 
-<svelte:head>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-		rel="stylesheet"
-	/>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
-</svelte:head>
-
 <section
 	class="relative w-full min-h-screen flex items-start justify-center pt-8 md:pt-10 overflow-hidden font-[Manrope] text-gray-900"
 >
 	<!-- Фоновое изображение -->
 	<div class="absolute inset-0 z-0">
 		<img
-			src="/modern_kitchen_hero_wide.png"
+			src="https://storage.yandexcloud.net/novostroy/bg/hero-2.jpg"
 			alt="Modern minimal kitchen interior with marble countertops and sage green cabinets"
 			class="w-full h-full object-cover"
 		/>
@@ -132,19 +122,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Боковая кнопка чата -->
-	<div class="fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
-		<button
-			type="button"
-			class="group bg-slate-700 text-white border-none py-6 px-3 rounded-l-2xl shadow-xl flex flex-col items-center gap-3 cursor-pointer transition-all duration-300 hover:bg-slate-600 hover:px-4"
-		>
-			<span class="vertical-text text-sm font-semibold tracking-wide whitespace-nowrap"
-				>Напишите нам</span
-			>
-			<span class="material-icons-round text-2xl -rotate-90">chat_bubble_outline</span>
-		</button>
-	</div>
 </section>
 
 <style>
@@ -157,12 +134,5 @@
 		);
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
-	}
-
-	/* Вертикальный текст для кнопки чата */
-	.vertical-text {
-		writing-mode: vertical-rl;
-		text-orientation: mixed;
-		transform: rotate(180deg);
 	}
 </style>

@@ -1,3 +1,7 @@
+<script>
+	import ServiceOrderButton from '$lib/components/ServiceOrderButton.svelte';
+</script>
+
 <svelte:head>
 	<title>Проект мебели | Новострой</title>
 	<meta name="description" content="Индивидуальный проект мебели под ваш интерьер" />
@@ -24,16 +28,16 @@
 				<h1
 					class="mt-4 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
 				>
-					Проект мебели
+					Проектирование мебели
 				</h1>
 				<p class="mt-6 text-lg/8 text-gray-300">
 					Индивидуальная мебель, спроектированная под ваше пространство. От эскиза до рабочих
 					чертежей для производства.
 				</p>
 				<div class="mt-10 flex flex-wrap gap-4">
-					<a
-						href="/contacts"
-						class="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-orange-400"
+					<ServiceOrderButton
+						serviceType="furniture-project"
+						class="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-orange-400 cursor-pointer"
 					>
 						Заказать проект
 						<svg
@@ -45,7 +49,7 @@
 						>
 							<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 						</svg>
-					</a>
+					</ServiceOrderButton>
 					<a
 						href="tel:+79154000020"
 						class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-6 py-3 text-sm font-semibold text-white transition hover:border-gray-400"
@@ -73,9 +77,9 @@
 				<div class="absolute -inset-4 rounded-2xl bg-sky-500/20 blur-3xl"></div>
 				<div class="relative overflow-hidden rounded-2xl shadow-2xl">
 					<img
-						src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80"
+						src="/wardrobe_project_no_text.png"
 						alt="Проект мебели"
-						class="aspect-4/3 w-full object-cover"
+						class="aspect-square w-full object-cover"
 					/>
 				</div>
 			</div>
@@ -388,15 +392,15 @@
 			Закажите проект мебели и получите изделие, идеально подходящее под ваш интерьер
 		</p>
 		<div class="mt-10">
-			<a
-				href="/contacts"
-				class="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-orange-500/30 transition duration-300 hover:-translate-y-1 hover:bg-orange-400 hover:shadow-xl hover:shadow-orange-500/40"
+			<ServiceOrderButton
+				serviceType="furniture-project"
+				class="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-orange-500/30 transition duration-300 hover:-translate-y-1 hover:bg-orange-400 hover:shadow-xl hover:shadow-orange-500/40 cursor-pointer"
 			>
 				Заказать проект мебели
 				<svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 				</svg>
-			</a>
+			</ServiceOrderButton>
 		</div>
 		<p class="mt-8 text-sm text-gray-500">
 			Или позвоните: <a
