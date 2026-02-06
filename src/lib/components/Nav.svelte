@@ -95,13 +95,13 @@
 			{#each menuItems as item, i}
 				<a
 					href={item.href}
-					class="nav-item group relative px-4 py-2.5 text-base font-semibold transition-all duration-300"
+					class="nav-item group relative px-4 py-2.5 text-base font-semibold tracking-wider transition-all duration-300 antialiased"
 					class:active={$page.url.pathname === item.href}
 					onmouseenter={() => (hoveredItem = i)}
 					onmouseleave={() => (hoveredItem = null)}
 				>
 					<span
-						class="relative z-10 text-black tracking-wide transition-colors duration-300 group-hover:text-sky-600"
+						class="relative z-10 text-black transition-colors duration-300 group-hover:text-sky-600"
 					>
 						{item.label}
 					</span>
@@ -132,7 +132,7 @@
 			>
 				<button
 					type="button"
-					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-semibold text-black tracking-wide transition-all duration-300 hover:text-sky-600"
+					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-semibold text-black tracking-wider transition-all duration-300 hover:text-sky-600"
 					aria-expanded={visibleCatalogMenu}
 				>
 					<span>Каталог</span>
@@ -235,7 +235,7 @@
 			>
 				<button
 					type="button"
-					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-semibold text-black tracking-wide transition-all duration-300 hover:text-sky-600"
+					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-semibold text-black tracking-wider transition-all duration-300 hover:text-sky-600"
 					aria-expanded={visibleServicesMenu}
 				>
 					<span>Наши услуги</span>
