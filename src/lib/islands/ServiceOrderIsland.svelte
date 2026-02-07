@@ -176,7 +176,7 @@
 
 <!-- Slide-in Panel -->
 <div
-	class="fixed bottom-0 right-0 top-24 z-50 w-full max-w-md transform bg-white shadow-2xl transition-transform duration-300 ease-out sm:top-28 {serviceOrderStore.isOpen
+	class="fixed inset-y-0 right-0 z-50 w-full max-w-md transform bg-white shadow-2xl transition-transform duration-300 ease-out {serviceOrderStore.isOpen
 		? 'translate-x-0'
 		: 'translate-x-full'}"
 	role="dialog"

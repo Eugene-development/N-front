@@ -86,7 +86,7 @@
 
 <!-- Slide-in Panel -->
 <div
-	class="fixed bottom-0 right-0 top-24 z-50 w-full max-w-md transform bg-white shadow-2xl transition-transform duration-300 ease-out sm:top-28 {consultationStore.isOpen
+	class="fixed inset-y-0 right-0 z-50 w-full max-w-md transform bg-white shadow-2xl transition-transform duration-300 ease-out {consultationStore.isOpen
 		? 'translate-x-0'
 		: 'translate-x-full'}"
 	role="dialog"
@@ -104,7 +104,12 @@
 			aria-label="Закрыть"
 		>
 			<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M6 18L18 6M6 6l12 12"
+				/>
 			</svg>
 		</button>
 	</div>
@@ -116,7 +121,12 @@
 			<div class="flex h-full flex-col items-center justify-center text-center">
 				<div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
 					<svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M5 13l4 4L19 7"
+						/>
 					</svg>
 				</div>
 				<h3 class="text-xl font-semibold text-slate-900">Заявка отправлена!</h3>
@@ -131,7 +141,8 @@
 		{:else}
 			<!-- Form -->
 			<p class="mb-6 text-slate-600">
-				Оставьте заявку и наш дизайнер свяжется с вами для бесплатной консультации и создания проекта
+				Оставьте заявку и наш дизайнер свяжется с вами для бесплатной консультации и создания
+				проекта
 			</p>
 
 			<form onsubmit={handleSubmit} class="space-y-4">
@@ -187,8 +198,20 @@
 					{#if isSubmitting}
 						<span class="flex items-center justify-center gap-2">
 							<svg class="h-5 w-5 animate-spin" viewBox="0 0 24 24">
-								<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" />
-								<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+								<circle
+									class="opacity-25"
+									cx="12"
+									cy="12"
+									r="10"
+									stroke="currentColor"
+									stroke-width="4"
+									fill="none"
+								/>
+								<path
+									class="opacity-75"
+									fill="currentColor"
+									d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+								/>
 							</svg>
 							Отправка...
 						</span>

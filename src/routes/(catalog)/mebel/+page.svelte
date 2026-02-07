@@ -58,8 +58,8 @@
 									class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
 								>
 									<span
-										class="flex h-10 w-10 items-center justify-center rounded-lg transition-all group-hover:shadow-lg"
-										style="background: {category.bg || '#f1f5f9'}; color: #475569;"
+										class="flex h-10 w-10 items-center justify-center rounded-lg transition-all"
+										style="color: #475569;"
 									>
 										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 											{@html getIcon(category.slug)}
@@ -142,7 +142,7 @@
 								>
 									<span
 										class="flex h-8 w-8 items-center justify-center rounded-lg"
-										style="background: {category.bg || '#f1f5f9'}; color: #475569;"
+										style="color: #475569;"
 									>
 										<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 											{@html getIcon(category.slug)}

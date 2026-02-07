@@ -3,6 +3,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import MobileMenu from '$lib/components/MobileMenu.svelte';
 	import ConsultationIsland from '$lib/islands/ConsultationIsland.svelte';
 	import ServiceOrderIsland from '$lib/islands/ServiceOrderIsland.svelte';
 	import { PageTransition } from '$lib';
@@ -66,6 +67,9 @@
 	</main>
 	<Footer />
 </div>
+
+<!-- Глобальное мобильное меню -->
+<MobileMenu />
 
 <!-- Глобальное модальное окно консультации -->
 <ConsultationIsland />

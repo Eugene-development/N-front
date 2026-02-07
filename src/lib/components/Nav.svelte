@@ -5,7 +5,7 @@
 	import { cubicOut, elasticOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import { getRubrics } from '$lib/api/graphql.js';
-	import MobileMenu from './MobileMenu.svelte';
+
 
 	let visibleServicesMenu = $state(false);
 	let visibleCatalogMenu = $state(false);
@@ -67,7 +67,7 @@
 	];
 </script>
 
-<header class="bg-linear-to-r from-gray-100 via-gray-50 to-gray-100">
+<header class="bg-gradient-to-r from-gray-100/80 via-gray-50/85 to-gray-100/80 backdrop-blur-md">
 	<nav
 		class="font-nav max-w-9xl mx-auto hidden items-center justify-between px-6 py-3 lg:flex lg:px-8"
 		aria-label="Global"
@@ -492,8 +492,6 @@
 			</div>
 		</div>
 	</nav>
-
-	<MobileMenu />
 </header>
 
 <style>

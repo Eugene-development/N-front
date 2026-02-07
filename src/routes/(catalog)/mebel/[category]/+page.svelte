@@ -54,6 +54,18 @@
 			loadData(categorySlug);
 		}
 	});
+	// Category specific hero images
+	const categoryImages = {
+		'kuhonnye-garnitury': '/kuhni_hero.png',
+		'kuhni': '/kuhni_hero.png',
+		'shkafy': '/wardrobe_project_no_text.png', 
+		'shkafy-kupe': '/wardrobe_project_no_text.png',
+		'garderobnye': '/dressing_room_hero.png'
+	};
+
+	function getHeroImage(slug) {
+		return categoryImages[slug] || 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200';
+	}
 </script>
 
 <svelte:head>
@@ -150,7 +162,7 @@
 						class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800"
 					>
 						<img
-							src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200"
+							src={getHeroImage(categorySlug)}
 							alt={category.value}
 							class="absolute inset-0 h-full w-full object-cover opacity-40"
 						/>

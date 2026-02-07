@@ -115,15 +115,15 @@
 					class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800"
 				>
 					<img
-						src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200"
+						src="/appliances_hero.png"
 						alt="Бытовая техника для кухни"
-						class="absolute inset-0 h-full w-full object-cover opacity-30"
+						class="absolute inset-0 h-full w-full object-cover opacity-40"
 					/>
 					<div class="relative px-8 py-16 sm:px-12 sm:py-20">
 						<h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Бытовая техника</h1>
 						<p class="mt-4 max-w-xl text-lg text-slate-300">
 							Встраиваемая и отдельностоящая техника от ведущих мировых производителей. Подберём
-							оптимальное решение для вашей кухни.
+							оптимальное решение с учётом ваших пожеланий и бюджета.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
 							<ConsultationButton

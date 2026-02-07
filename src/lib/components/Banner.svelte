@@ -5,7 +5,7 @@
 </script>
 
 <!-- Desktop Banner -->
-<div class="sticky top-0 z-40 hidden items-center bg-gray-950 px-4 sm:px-3.5 md:flex">
+<div class="z-40 hidden items-center bg-gray-950/90 backdrop-blur-sm px-4 sm:px-3.5 md:flex">
 	<div class="hidden flex-1 justify-start lg:flex">
 		<div class="flex items-center justify-center space-x-3.5 tracking-wide">
 			<a
@@ -140,7 +140,7 @@
 
 <!-- Mobile Banner -->
 <div
-	class="sticky top-0 z-50 flex items-center justify-between bg-gray-900 px-1.5 py-2 opacity-95 lg:hidden"
+	class="z-50 flex items-center justify-between bg-gray-900/90 backdrop-blur-md px-1.5 py-2 lg:hidden"
 >
 	<a href="/" class="w-24">
 		<span class="sr-only">Логотип</span>

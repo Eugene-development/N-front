@@ -3,11 +3,21 @@
 	import { cubicOut, quintOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import { getRubrics } from '$lib/api/graphql.js';
+	import { mobileMenuStore } from '$lib/stores/mobileMenu.svelte.js';
 
 	let visibleMobileMenu = $state(false);
 	let showServiceMenu = $state(false);
 	let showInformationMenu = $state(false);
 	let showCatalogMenu = $state(false);
+
+	// Subscribe to the store
+	$effect(() => {
+		const unsubscribe = mobileMenuStore.subscribe(value => {
+			visibleMobileMenu = value;
+		});
+		return unsubscribe;
+	});
+
 
 	// Статические рубрики (fallback)
 	const fallbackRubrics = [
@@ -60,21 +70,17 @@
 	];
 
 	function closeMenu() {
-		visibleMobileMenu = false;
+		mobileMenuStore.close();
 		showServiceMenu = false;
 		showInformationMenu = false;
 		showCatalogMenu = false;
-	}
-
-	export function open() {
-		visibleMobileMenu = true;
 	}
 </script>
 
 {#if visibleMobileMenu}
 	<!-- Backdrop -->
 	<div
-		class="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-sm"
+		class="fixed inset-0 z-[60] bg-slate-900/60 backdrop-blur-sm"
 		transition:fade={{ duration: 200 }}
 		onclick={closeMenu}
 		role="presentation"
@@ -82,7 +88,7 @@
 
 	<!-- Menu Panel -->
 	<div
-		class="font-nav fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-hidden bg-white shadow-2xl"
+		class="font-nav fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-hidden bg-white shadow-2xl"
 		transition:fly={{ x: 300, duration: 300, easing: quintOut }}
 		role="dialog"
 		aria-modal="true"

@@ -109,9 +109,9 @@
 					class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800"
 				>
 					<img
-						src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200"
+						src="/countertops_hero.png"
 						alt="Столешницы для кухни"
-						class="absolute inset-0 h-full w-full object-cover opacity-30"
+						class="absolute inset-0 h-full w-full object-cover opacity-40"
 					/>
 					<div class="relative px-8 py-16 sm:px-12 sm:py-20">
 						<h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Столешницы</h1>
