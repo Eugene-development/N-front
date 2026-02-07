@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { getShopsByRubricSlug } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
 
 	// Rubric slug for this page
 	const RUBRIC_SLUG = 'furnitura';
@@ -96,21 +97,11 @@
 					</nav>
 
 					<!-- Баннер -->
-					<div class="mt-8 rounded-2xl bg-linear-to-br from-slate-700 to-slate-900 p-6 text-white">
-						<h3 class="text-lg font-semibold">Премиум фурнитура</h3>
-						<p class="mt-2 text-sm text-slate-300">Blum, Hettich, Grass — официальные дилеры</p>
-						<ConsultationButton class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-800 transition-all hover:bg-slate-100">
-							Узнать цены
-							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 5l7 7-7 7"
-								/>
-							</svg>
-						</ConsultationButton>
-					</div>
+					<SidebarConsultationBanner
+						title="Премиум фурнитура"
+						description="Blum, Hettich, Grass — официальные дилеры"
+						color="slate"
+					/>
 				</div>
 			</aside>
 
@@ -132,7 +123,9 @@
 							системы хранения от проверенных продавцов.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600">
+							<ConsultationButton
+								class="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600"
+							>
 								Подобрать фурнитуру
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path
@@ -401,7 +394,9 @@
 						Поможем выбрать оптимальное решение с учётом бюджета и требований к мебели
 					</p>
 					<div class="mt-6 flex flex-wrap justify-center gap-4">
-						<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600">
+						<ConsultationButton
+							class="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600"
+						>
 							Получить консультацию
 						</ConsultationButton>
 						<a

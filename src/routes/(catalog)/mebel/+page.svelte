@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { getMebelCategories } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
 
 	let categories = $state([]);
 	let isLoading = $state(true);
@@ -71,23 +72,11 @@
 					</nav>
 
 					<!-- Баннер консультации -->
-					<div class="mt-8 rounded-2xl bg-linear-to-br from-sky-500 to-cyan-600 p-6 text-white">
-						<h3 class="text-lg font-semibold">Нужна помощь?</h3>
-						<p class="mt-2 text-sm text-sky-100">
-							Получите бесплатную консультацию дизайнера для создания идеальной и доступной мебели
-						</p>
-						<ConsultationButton class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50">
-							Записаться
-							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 5l7 7-7 7"
-								/>
-							</svg>
-						</ConsultationButton>
-					</div>
+					<SidebarConsultationBanner
+						title="Нужна помощь?"
+						description="Получите бесплатную консультацию дизайнера для создания идеальной и доступной мебели"
+						color="sky"
+					/>
 				</div>
 			</aside>
 
@@ -116,7 +105,9 @@
 							к каждому проекту.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600">
+							<ConsultationButton
+								class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
+							>
 								Заказать проект
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path
@@ -311,7 +302,9 @@
 						Оставьте заявку и получите бесплатный дизайн-проект вашей будущей мебели
 					</p>
 					<div class="mt-6 flex flex-wrap justify-center gap-4">
-						<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-sky-600 transition-all hover:bg-sky-50">
+						<ConsultationButton
+							class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-sky-600 transition-all hover:bg-sky-50"
+						>
 							Получить консультацию
 						</ConsultationButton>
 						<a

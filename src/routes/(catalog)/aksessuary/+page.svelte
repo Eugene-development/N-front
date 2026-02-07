@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { getShopsByRubricSlug } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
 
 	// Rubric slug for this page
 	const RUBRIC_SLUG = 'aksessuary';
@@ -96,25 +97,11 @@
 					</nav>
 
 					<!-- Баннер -->
-					<div class="mt-8 rounded-2xl bg-linear-to-br from-emerald-500 to-teal-600 p-6 text-white">
-						<h3 class="text-lg font-semibold">Организация пространства</h3>
-						<p class="mt-2 text-sm text-emerald-100">
-							Поможем подобрать аксессуары под ваш кухонный гарнитур
-						</p>
-						<ConsultationButton
-							class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-emerald-600 transition-all hover:bg-emerald-50"
-						>
-							Получить консультацию
-							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 5l7 7-7 7"
-								/>
-							</svg>
-						</ConsultationButton>
-					</div>
+					<SidebarConsultationBanner
+						title="Организация пространства"
+						description="Поможем подобрать аксессуары под ваш кухонный гарнитур"
+						color="emerald"
+					/>
 				</div>
 			</aside>
 

@@ -285,8 +285,10 @@
 							<p class="mt-2 text-sm text-slate-300">
 								Поможем выбрать технику под ваш проект кухни
 							</p>
-							<ConsultationButton class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-800 transition-all hover:bg-slate-100">
-								Получить консультацию
+							<ConsultationButton
+								class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-800 transition-all hover:bg-slate-100"
+							>
+								Бесплатная консультация
 								<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path
 										stroke-linecap="round"
@@ -498,7 +500,9 @@
 							Наши специалисты помогут подобрать технику под ваши задачи и бюджет
 						</p>
 						<div class="mt-6 flex flex-wrap justify-center gap-4">
-							<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-slate-800 transition-all hover:bg-slate-100">
+							<ConsultationButton
+								class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-slate-800 transition-all hover:bg-slate-100"
+							>
 								Получить консультацию
 							</ConsultationButton>
 							<a

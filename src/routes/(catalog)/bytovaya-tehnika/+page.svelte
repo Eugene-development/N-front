@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { getBrandsByRubricSlug } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
 
 	// State для брендов (загружаются только из API)
 	let brands = $state([]);
@@ -99,21 +100,11 @@
 					</nav>
 
 					<!-- Баннер консультации -->
-					<div class="mt-8 rounded-2xl bg-linear-to-br from-slate-800 to-slate-900 p-6 text-white">
-						<h3 class="text-lg font-semibold">Подбор техники</h3>
-						<p class="mt-2 text-sm text-slate-300">Поможем выбрать технику под ваш проект кухни</p>
-						<ConsultationButton class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-800 transition-all hover:bg-slate-100">
-							Получить консультацию
-							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 5l7 7-7 7"
-								/>
-							</svg>
-						</ConsultationButton>
-					</div>
+					<SidebarConsultationBanner
+						title="Подбор техники"
+						description="Поможем выбрать технику под ваш проект кухни"
+						color="slate"
+					/>
 				</div>
 			</aside>
 
@@ -135,7 +126,9 @@
 							оптимальное решение для вашей кухни.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600">
+							<ConsultationButton
+								class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
+							>
 								Подобрать технику
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path
@@ -417,7 +410,9 @@
 						Наши специалисты помогут подобрать технику под ваши задачи и бюджет
 					</p>
 					<div class="mt-6 flex flex-wrap justify-center gap-4">
-						<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-slate-800 transition-all hover:bg-slate-100">
+						<ConsultationButton
+							class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-slate-800 transition-all hover:bg-slate-100"
+						>
 							Получить консультацию
 						</ConsultationButton>
 						<a

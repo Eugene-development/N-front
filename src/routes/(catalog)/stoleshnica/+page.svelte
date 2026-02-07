@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { getCategoriesByRubricSlug } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
 
 	// Rubric slug for this page
 	const RUBRIC_SLUG = 'stoleshnica';
@@ -93,26 +94,11 @@
 					</nav>
 
 					<!-- Баннер -->
-					<div class="mt-8 rounded-2xl bg-linear-to-br from-amber-500 to-orange-600 p-6 text-white">
-						<h3 class="text-lg font-semibold">Бесплатный замер</h3>
-						<p class="mt-2 text-sm text-amber-100">
-							Выезд специалиста для точного расчёта столешницы
-						</p>
-						<a
-							href="/measurement"
-							class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-amber-600 transition-all hover:bg-amber-50"
-						>
-							Заказать замер
-							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 5l7 7-7 7"
-								/>
-							</svg>
-						</a>
-					</div>
+					<SidebarConsultationBanner
+						title="Подбор столешницы"
+						description="Поможем выбрать материал и рассчитать стоимость"
+						color="amber"
+					/>
 				</div>
 			</aside>
 
@@ -134,7 +120,9 @@
 							Точный раскрой под вашу кухню с вырезами под мойку и варочную панель.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600">
+							<ConsultationButton
+								class="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-medium text-white transition-all hover:bg-amber-600"
+							>
 								Рассчитать стоимость
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path
@@ -474,7 +462,9 @@
 						Оставьте заявку и получите расчёт стоимости с учётом всех вырезов и монтажа
 					</p>
 					<div class="mt-6 flex flex-wrap justify-center gap-4">
-						<ConsultationButton class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-amber-600 transition-all hover:bg-amber-50">
+						<ConsultationButton
+							class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-amber-600 transition-all hover:bg-amber-50"
+						>
 							Получить расчёт
 						</ConsultationButton>
 						<a

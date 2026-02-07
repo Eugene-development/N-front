@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { getCategoriesByRubricSlug, getBrandsByRubricSlug } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
 
 	// Rubric slug for this page
 	const RUBRIC_SLUG = 'santehnika';
@@ -142,25 +143,11 @@
 					</nav>
 
 					<!-- Баннер -->
-					<div class="mt-8 rounded-2xl bg-linear-to-br from-sky-500 to-cyan-600 p-6 text-white">
-						<h3 class="text-lg font-semibold">Подбор под столешницу</h3>
-						<p class="mt-2 text-sm text-sky-100">
-							Поможем выбрать мойку и смеситель под ваш проект
-						</p>
-						<ConsultationButton
-							class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50"
-						>
-							Получить консультацию
-							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 5l7 7-7 7"
-								/>
-							</svg>
-						</ConsultationButton>
-					</div>
+					<SidebarConsultationBanner
+						title="Подбор под столешницу"
+						description="Поможем выбрать мойку и смеситель под ваш проект"
+						color="sky"
+					/>
 				</div>
 			</aside>
 
