@@ -1,18 +1,14 @@
 <script>
-	import { onMount } from 'svelte';
-	import { getCategoriesByRubricSlug, getBrandsByRubricSlug } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
 	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
 
-	// Rubric slug for this page
-	const RUBRIC_SLUG = 'santehnika';
-
-	let categories = $state([]);
-	let brands = $state([]);
-	let rubric = $state(null);
-	let isLoading = $state(true);
-	let isBrandsLoading = $state(true);
-	let error = $state(null);
+	// Данные загружаются на сервере в +page.server.js
+	let { data } = $props();
+	
+	// Категории и бренды уже загружены на сервере
+	let categories = $derived(data.categories || []);
+	let brands = $derived(data.brands || []);
+	let rubric = $derived(data.rubric);
 
 	// Универсальная иконка для всех категорий (шеврон вправо)
 	const categoryIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />`;
@@ -40,34 +36,6 @@
 	function getBrandName(brand) {
 		return brand?.value || brand?.name || '';
 	}
-
-	onMount(async () => {
-		// Загружаем категории (только из БД, без fallback)
-		try {
-			const data = await getCategoriesByRubricSlug(RUBRIC_SLUG);
-			if (data.rubric) {
-				rubric = data.rubric;
-			}
-			categories = data.categories || [];
-		} catch (e) {
-			error = e.message;
-			console.error('Failed to load categories:', e);
-			categories = [];
-		} finally {
-			isLoading = false;
-		}
-
-		// Загружаем бренды (только из БД, без fallback)
-		try {
-			const { brands: apiBrands } = await getBrandsByRubricSlug(RUBRIC_SLUG);
-			brands = apiBrands || [];
-		} catch (e) {
-			console.error('Failed to load brands:', e);
-			brands = [];
-		} finally {
-			isBrandsLoading = false;
-		}
-	});
 </script>
 
 <svelte:head>
@@ -84,62 +52,50 @@
 			<!-- Сайдбар с категориями -->
 			<aside class="hidden lg:block">
 				<div class="sticky top-24">
-					<nav class="space-y-1">
+					<!-- <nav class="space-y-1">
 						<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
 							Категории сантехники
 						</h2>
 
-						{#if isLoading}
-							<div class="px-4 py-3 text-slate-500">Загрузка...</div>
-						{:else}
-							{#each categories as category (category.id || category.slug)}
-								{@const gradient = getGradient(category.slug)}
-								<a
-									href="/santehnika/{category.slug}"
-									class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
+						{#each categories as category (category.id || category.slug)}
+							{@const gradient = getGradient(category.slug)}
+							<a
+								href="/santehnika/{category.slug}"
+								class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
+							>
+								<span
+									class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {gradient.from} {gradient.to} {gradient.text} transition-all {gradient.hover} group-hover:text-white group-hover:shadow-lg"
 								>
-									<span
-										class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {gradient.from} {gradient.to} {gradient.text} transition-all {gradient.hover} group-hover:text-white group-hover:shadow-lg"
-									>
-										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											{@html getIcon(category.slug)}
-										</svg>
-									</span>
-									<span class="font-medium">{category.value}</span>
-								</a>
-							{/each}
-						{/if}
-					</nav>
+									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										{@html getIcon(category.slug)}
+									</svg>
+								</span>
+								<span class="font-medium">{category.value}</span>
+							</a>
+						{/each}
+					</nav> -->
 
 					<!-- Бренды -->
-					<nav class="mt-6 space-y-1">
+					<nav class=" space-y-1">
 						<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
 							Бренды
 						</h2>
 
-						{#if isBrandsLoading}
-							<div class="px-4 py-3 text-center">
-								<div
-									class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-sky-500 border-t-transparent"
-								></div>
-							</div>
-						{:else}
-							{#each brands as brand (brand.id || brand.slug)}
-								<a
-									href="/santehnika/{brand.slug}"
-									class="group flex items-center gap-3 rounded-xl px-4 py-2 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
+						{#each brands as brand (brand.id || brand.slug)}
+							<a
+								href="/santehnika/{brand.slug}"
+								class="group flex items-center gap-3 rounded-xl px-4 py-2 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
+							>
+								<span
+									class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition-all group-hover:bg-sky-500 group-hover:text-white group-hover:shadow-lg"
 								>
-									<span
-										class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition-all group-hover:bg-sky-500 group-hover:text-white group-hover:shadow-lg"
-									>
-										<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											{@html categoryIcon}
-										</svg>
-									</span>
-									<span class="font-medium text-sm">{getBrandName(brand)}</span>
-								</a>
-							{/each}
-						{/if}
+									<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										{@html categoryIcon}
+									</svg>
+								</span>
+								<span class="font-medium text-sm">{getBrandName(brand)}</span>
+							</a>
+						{/each}
 					</nav>
 
 					<!-- Баннер -->
@@ -196,26 +152,22 @@
 				<div class="mt-8 lg:hidden">
 					<h2 class="text-lg font-semibold text-slate-900">Категории</h2>
 					<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-						{#if isLoading}
-							<div class="col-span-full py-4 text-center text-slate-500">Загрузка...</div>
-						{:else}
-							{#each categories as category (category.id || category.slug)}
-								<a
-									href="/santehnika/{category.slug}"
-									class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
+						{#each categories as category (category.id || category.slug)}
+							<a
+								href="/santehnika/{category.slug}"
+								class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
+							>
+								<span
+									class="flex h-8 w-8 items-center justify-center rounded-lg"
+									style="background: {category.bg || '#f1f5f9'}; color: #475569;"
 								>
-									<span
-										class="flex h-8 w-8 items-center justify-center rounded-lg"
-										style="background: {category.bg || '#f1f5f9'}; color: #475569;"
-									>
-										<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											{@html getIcon(category.slug)}
-										</svg>
-									</span>
-									<span class="text-sm font-medium text-slate-700">{category.value}</span>
-								</a>
-							{/each}
-						{/if}
+									<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										{@html getIcon(category.slug)}
+									</svg>
+								</span>
+								<span class="text-sm font-medium text-slate-700">{category.value}</span>
+							</a>
+						{/each}
 					</div>
 				</div>
 
@@ -223,32 +175,21 @@
 				<div class="mt-6 lg:hidden">
 					<h2 class="text-lg font-semibold text-slate-900">Бренды</h2>
 					<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-						{#if isBrandsLoading}
-							{#each [1, 2, 3, 4] as _}
-								<div
-									class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm animate-pulse"
+						{#each brands as brand (brand.id || brand.slug)}
+							<a
+								href="/santehnika/{brand.slug}"
+								class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
+							>
+								<span
+									class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500"
 								>
-									<div class="h-8 w-8 rounded-lg bg-slate-200"></div>
-									<div class="h-4 w-16 bg-slate-200 rounded"></div>
-								</div>
-							{/each}
-						{:else}
-							{#each brands as brand (brand.id || brand.slug)}
-								<a
-									href="/santehnika/{brand.slug}"
-									class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
-								>
-									<span
-										class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500"
-									>
-										<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											{@html categoryIcon}
-										</svg>
-									</span>
-									<span class="text-sm font-medium text-slate-700">{getBrandName(brand)}</span>
-								</a>
-							{/each}
-						{/if}
+									<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										{@html categoryIcon}
+									</svg>
+								</span>
+								<span class="text-sm font-medium text-slate-700">{getBrandName(brand)}</span>
+							</a>
+						{/each}
 					</div>
 				</div>
 
@@ -256,32 +197,22 @@
 				<div class="mt-12">
 					<h2 class="text-2xl font-bold text-slate-900">Бренды сантехники</h2>
 					<div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
-						{#if isBrandsLoading}
-							{#each [1, 2, 3, 4, 5, 6] as _}
-								<div
-									class="flex h-20 items-center justify-center rounded-xl bg-white p-4 shadow-sm animate-pulse"
-								>
-									<div class="h-4 w-16 bg-slate-200 rounded"></div>
-								</div>
-							{/each}
-						{:else}
-							{#each brands.slice(0, 6) as brand (brand.id || brand.slug)}
-								<a
-									href="/santehnika/{brand.slug}"
-									class="flex h-20 items-center justify-center rounded-xl bg-white p-4 shadow-sm hover:shadow-md transition-shadow"
-								>
-									{#if brand.logo}
-										<img
-											src={brand.logo}
-											alt={getBrandName(brand)}
-											class="max-h-10 max-w-full object-contain"
-										/>
-									{:else}
-										<span class="text-lg font-bold text-slate-400">{getBrandName(brand)}</span>
-									{/if}
-								</a>
-							{/each}
-						{/if}
+						{#each brands.slice(0, 6) as brand (brand.id || brand.slug)}
+							<a
+								href="/santehnika/{brand.slug}"
+								class="flex h-20 items-center justify-center rounded-xl bg-white p-4 shadow-sm hover:shadow-md transition-shadow"
+							>
+								{#if brand.logo}
+									<img
+										src={brand.logo}
+										alt={getBrandName(brand)}
+										class="max-h-10 max-w-full object-contain"
+									/>
+								{:else}
+									<span class="text-lg font-bold text-slate-400">{getBrandName(brand)}</span>
+								{/if}
+							</a>
+						{/each}
 					</div>
 				</div>
 

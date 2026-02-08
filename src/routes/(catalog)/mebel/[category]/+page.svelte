@@ -1,59 +1,22 @@
 <script>
 	import { page } from '$app/stores';
-	import { getCategoryBySlug, getCategoriesByRubricSlug, getMebelProjectsByCategoryId } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import ProductFavoriteButton from '$lib/components/ProductFavoriteButton.svelte';
 
-	// Rubric slug for this section
-	const RUBRIC_SLUG = 'mebel';
-
-	// State
-	let category = $state(null);
-	let allCategories = $state([]);
-	let projects = $state([]);
-	let isLoading = $state(true);
-	let error = $state(null);
-
-	// Get category slug from URL params (derived from page store)
-	let categorySlug = $derived($page.params.category);
+	// Данные загружаются на сервере в +page.server.js
+	let { data } = $props();
+	
+	// Данные из сервера
+	let category = $derived(data.category);
+	let allCategories = $derived(data.allCategories || []);
+	let projects = $derived(data.projects || []);
+	let categorySlug = $derived(data.categorySlug);
+	let error = $derived(data.error);
 
 	const formatPrice = (price) => {
 		if (!price) return 'По запросу';
 		return new Intl.NumberFormat('ru-RU').format(price) + ' ₽';
 	};
-
-	// Load category, sidebar categories, and projects
-	async function loadData(slug) {
-		isLoading = true;
-		error = null;
-		try {
-			// Load current category
-			const categoryData = await getCategoryBySlug(slug);
-			category = categoryData;
-			
-			// Load all categories for sidebar
-			const { categories } = await getCategoriesByRubricSlug(RUBRIC_SLUG);
-			allCategories = categories;
-
-			// Load projects for this category
-			if (categoryData?.id) {
-				projects = await getMebelProjectsByCategoryId(categoryData.id);
-			} else {
-				projects = [];
-			}
-		} catch (e) {
-			error = e.message;
-			console.error('Failed to load category:', e);
-		} finally {
-			isLoading = false;
-		}
-	}
-
-	// Effect runs on mount and whenever categorySlug changes
-	$effect(() => {
-		if (categorySlug) {
-			loadData(categorySlug);
-		}
-	});
 	// Category specific hero images
 	const categoryImages = {
 		'kuhonnye-garnitury': '/kuhni_hero.png',
@@ -75,24 +38,12 @@
 			name="description"
 			content={category.description || `Каталог ${category.value} от компании Новострой`}
 		/>
-	{:else if isLoading}
-		<title>Загрузка... | Новострой</title>
 	{:else}
 		<title>Категория не найдена | Новострой</title>
 	{/if}
 </svelte:head>
 
-{#if isLoading}
-	<!-- Loading state -->
-	<div class="min-h-screen bg-slate-50 flex items-center justify-center">
-		<div class="text-center">
-			<div
-				class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-sky-500 border-r-transparent"
-			></div>
-			<p class="mt-4 text-slate-600">Загрузка категории...</p>
-		</div>
-	</div>
-{:else if category}
+{#if category}
 	<div class="min-h-screen bg-slate-50">
 		<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 			<div class="lg:grid lg:grid-cols-4 lg:gap-8">
@@ -297,6 +248,11 @@
 												-{Math.round((1 - project.price / project.old_price) * 100)}%
 											</span>
 										{/if}
+									</div>
+
+									<!-- Кнопка избранного -->
+									<div class="absolute right-3 top-3 z-10">
+										<ProductFavoriteButton product={project} />
 									</div>
 
 									<div class="relative aspect-[4/3] overflow-hidden bg-slate-100">

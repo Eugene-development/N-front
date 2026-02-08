@@ -1,16 +1,14 @@
 <script>
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
-	import { getBrandBySlug, getBrands } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
 
-	// State
-	let brand = $state(null);
-	let allBrands = $state([]);
-	let isLoading = $state(true);
-
-	// Get brand slug from URL params (derived from page store)
-	let brandSlug = $derived($page.params.category);
+	// Данные загружаются на сервере в +page.server.js
+	let { data } = $props();
+	
+	// Данные из сервера
+	let brand = $derived(data.brand);
+	let allBrands = $derived(data.allBrands || []);
+	let brandSlug = $derived(data.brandSlug);
 
 	// Fallback данные для брендов (используются если API не вернул данные)
 	const fallbackBrandsData = {
@@ -112,7 +110,7 @@
 		}
 	};
 
-	// Fallback список брендов
+	// Fallback список брендов (если сервер не вернул данные)
 	const fallbackBrandsList = [
 		{ slug: 'bosch', value: 'Bosch' },
 		{ slug: 'siemens', value: 'Siemens' },
@@ -123,6 +121,34 @@
 		{ slug: 'aeg', value: 'AEG' },
 		{ slug: 'smeg', value: 'Smeg' },
 	];
+
+	// Объединяем данные из API с fallback данными
+	let displayBrand = $derived(() => {
+		if (!brand) {
+			// Если API не вернул бренд, пробуем fallback
+			if (fallbackBrandsData[brandSlug]) {
+				return {
+					...fallbackBrandsData[brandSlug],
+					name: fallbackBrandsData[brandSlug].value
+				};
+			}
+			return null;
+		}
+		
+		const fallback = fallbackBrandsData[brandSlug] || {};
+		return {
+			...fallback,
+			...brand,
+			name: brand.value || fallback.value || fallback.name,
+			founded: fallback.founded,
+			fullDescription: brand.description || fallback.fullDescription || fallback.description,
+			features: fallback.features || [],
+			categories: fallback.categories || []
+		};
+	});
+
+	// Используем серверные бренды или fallback
+	let displayBrands = $derived(allBrands.length > 0 ? allBrands : fallbackBrandsList);
 
 	// Универсальная иконка (шеврон вправо)
 	const brandIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />`;
@@ -148,96 +174,22 @@
 	function getBrandName(b) {
 		return b?.value || b?.name || '';
 	}
-
-	// Load brand data from API
-	async function loadData(slug) {
-		isLoading = true;
-		
-		try {
-			// Загружаем все бренды для сайдбара
-			const brandsFromApi = await getBrands();
-			if (brandsFromApi && brandsFromApi.length > 0) {
-				allBrands = brandsFromApi;
-			} else {
-				allBrands = fallbackBrandsList;
-			}
-			
-			// Загружаем конкретный бренд
-			const brandFromApi = await getBrandBySlug(slug);
-			
-			if (brandFromApi) {
-				// Объединяем данные из API с fallback данными для дополнительных полей
-				const fallback = fallbackBrandsData[slug] || {};
-				brand = {
-					...fallback,
-					...brandFromApi,
-					// Используем value как name для обратной совместимости
-					name: brandFromApi.value || fallback.value || fallback.name,
-					// Сохраняем дополнительные поля из fallback, если их нет в API
-					founded: fallback.founded,
-					fullDescription: brandFromApi.description || fallback.fullDescription || fallback.description,
-					features: fallback.features || [],
-					categories: fallback.categories || []
-				};
-			} else if (fallbackBrandsData[slug]) {
-				// Если API не вернул бренд, используем fallback
-				brand = {
-					...fallbackBrandsData[slug],
-					name: fallbackBrandsData[slug].value
-				};
-			} else {
-				brand = null;
-			}
-		} catch (e) {
-			console.error('Failed to load brand from API:', e);
-			// При ошибке используем fallback данные
-			allBrands = fallbackBrandsList;
-			if (fallbackBrandsData[slug]) {
-				brand = {
-					...fallbackBrandsData[slug],
-					name: fallbackBrandsData[slug].value
-				};
-			} else {
-				brand = null;
-			}
-		} finally {
-			isLoading = false;
-		}
-	}
-
-	// Effect runs on mount and whenever brandSlug changes
-	$effect(() => {
-		if (brandSlug) {
-			loadData(brandSlug);
-		}
-	});
 </script>
 
 <svelte:head>
-	{#if brand}
-		<title>{brand.name} – Бытовая техника | Компания Новострой</title>
+	{#if displayBrand()}
+		<title>{displayBrand().name} – Бытовая техника | Компания Новострой</title>
 		<meta
 			name="description"
-			content={`Бытовая техника ${brand.name} (${brand.country}). ${brand.description}`}
+			content={`Бытовая техника ${displayBrand().name} (${displayBrand().country}). ${displayBrand().description}`}
 		/>
-	{:else if isLoading}
-		<title>Загрузка... | Новострой</title>
 	{:else}
 		<title>Бренд не найден | Новострой</title>
 	{/if}
 </svelte:head>
 
-{#if isLoading}
-	<!-- Loading state -->
-	<div class="min-h-screen bg-slate-50 flex items-center justify-center">
-		<div class="text-center">
-			<div
-				class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-sky-500 border-r-transparent"
-			></div>
-			<p class="mt-4 text-slate-600">Загрузка информации о бренде...</p>
-		</div>
-	</div>
-{:else if brand}
+{#if displayBrand()}
+	{@const currentBrand = displayBrand()}
 	<div class="min-h-screen bg-slate-50">
 		<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 			<div class="lg:grid lg:grid-cols-4 lg:gap-8">
@@ -249,7 +201,7 @@
 								Бренды
 							</h2>
 
-							{#each allBrands as b (b.slug)}
+							{#each displayBrands as b (b.slug)}
 								{@const gradient = getGradient(b.slug)}
 								<a
 									href="/bytovaya-tehnika/{b.slug}"
@@ -318,7 +270,7 @@
 									>Бытовая техника</a
 								>
 								<span>/</span>
-								<span class="text-white">{brand.name}</span>
+								<span class="text-white">{currentBrand.name}</span>
 							</nav>
 
 							<div class="flex flex-col md:flex-row md:items-center gap-8">
@@ -328,8 +280,8 @@
 										class="w-40 h-40 rounded-2xl bg-white p-6 flex items-center justify-center shadow-xl"
 									>
 										<img
-											src={brand.logo}
-											alt={brand.name}
+											src={currentBrand.logo}
+											alt={currentBrand.name}
 											class="max-w-full max-h-full object-contain"
 										/>
 									</div>
@@ -338,7 +290,7 @@
 								<!-- Информация о бренде -->
 								<div class="flex-1">
 									<h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-										{brand.name}
+										{currentBrand.name}
 									</h1>
 
 									<div class="mt-4 flex flex-wrap items-center gap-4">
@@ -354,7 +306,7 @@
 													d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 												/>
 											</svg>
-											<span class="font-medium">{brand.country}</span>
+											<span class="font-medium">{currentBrand.country}</span>
 										</div>
 
 										<!-- Год основания -->
@@ -369,17 +321,17 @@
 													d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
 												/>
 											</svg>
-											<span class="font-medium">С {brand.founded} года</span>
+											<span class="font-medium">С {currentBrand.founded} года</span>
 										</div>
 									</div>
 
 									<p class="mt-4 max-w-xl text-lg text-slate-300">
-										{brand.description}
+										{currentBrand.description}
 									</p>
 
 									<div class="mt-6 flex flex-wrap gap-4">
 										<a
-											href={brand.website}
+											href={currentBrand.website}
 											target="_blank"
 											rel="noopener noreferrer"
 											class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
@@ -409,7 +361,7 @@
 					<div class="mt-6 lg:hidden">
 						<h2 class="text-lg font-semibold text-slate-900">Другие бренды</h2>
 						<div class="mt-4 flex gap-2 overflow-x-auto pb-2">
-							{#each allBrands as b (b.slug)}
+							{#each displayBrands as b (b.slug)}
 								<a
 									href="/bytovaya-tehnika/{b.slug}"
 									class="flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all {b.slug ===
@@ -425,17 +377,17 @@
 
 					<!-- Подробная информация о бренде -->
 					<div class="mt-8 rounded-2xl bg-white p-8 shadow-sm">
-						<h2 class="text-2xl font-bold text-slate-900">О бренде {brand.name}</h2>
+						<h2 class="text-2xl font-bold text-slate-900">О бренде {currentBrand.name}</h2>
 						<p class="mt-4 text-slate-600 leading-relaxed">
-							{brand.fullDescription}
+							{currentBrand.fullDescription}
 						</p>
 					</div>
 
 					<!-- Особенности бренда -->
 					<div class="mt-8">
-						<h2 class="text-2xl font-bold text-slate-900">Преимущества {brand.name}</h2>
+						<h2 class="text-2xl font-bold text-slate-900">Преимущества {currentBrand.name}</h2>
 						<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-							{#each brand.features as feature, index}
+							{#each currentBrand.features as feature, index}
 								{@const colors = [
 									'bg-sky-100 text-sky-600',
 									'bg-emerald-100 text-emerald-600',
@@ -465,9 +417,9 @@
 
 					<!-- Категории техники бренда -->
 					<div class="mt-8">
-						<h2 class="text-2xl font-bold text-slate-900">Техника {brand.name}</h2>
+						<h2 class="text-2xl font-bold text-slate-900">Техника {currentBrand.name}</h2>
 						<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-							{#each brand.categories as category}
+							{#each currentBrand.categories as category}
 								<div class="rounded-xl bg-white p-5 shadow-sm transition-all hover:shadow-md">
 									<div class="flex items-center gap-3">
 										<div
@@ -494,7 +446,7 @@
 						class="mt-12 rounded-2xl bg-linear-to-r from-slate-800 to-slate-900 p-8 text-center text-white sm:p-12"
 					>
 						<h2 class="text-2xl font-bold sm:text-3xl">
-							Нужна помощь с выбором техники {brand.name}?
+							Нужна помощь с выбором техники {currentBrand.name}?
 						</h2>
 						<p class="mx-auto mt-3 max-w-md text-slate-300">
 							Наши специалисты помогут подобрать технику под ваши задачи и бюджет

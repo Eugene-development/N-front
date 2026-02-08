@@ -1,16 +1,12 @@
 <script>
-	import { onMount } from 'svelte';
-	import { getShopsByRubricSlug } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
-	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
+	import CatalogSidebar from '$lib/components/CatalogSidebar.svelte';
 
-	// Rubric slug for this page
-	const RUBRIC_SLUG = 'furnitura';
-
-	let shops = $state([]);
-	let rubric = $state(null);
-	let isLoading = $state(true);
-	let error = $state(null);
+	// Данные загружаются на сервере в +page.server.js
+	let { data } = $props();
+	
+	// Магазины уже загружены на сервере
+	let shops = $derived(data.shops || []);
 
 	// Background color gradients для магазинов
 	const shopGradients = [
@@ -25,23 +21,6 @@
 	function getGradient(index) {
 		return shopGradients[index % shopGradients.length];
 	}
-
-	// Загружаем магазины из БД
-	onMount(async () => {
-		try {
-			const data = await getShopsByRubricSlug(RUBRIC_SLUG);
-			if (data.rubric) {
-				rubric = data.rubric;
-			}
-			shops = data.shops || [];
-		} catch (e) {
-			error = e.message;
-			console.error('Failed to load shops:', e);
-			shops = [];
-		} finally {
-			isLoading = false;
-		}
-	});
 </script>
 
 <svelte:head>
@@ -55,55 +34,20 @@
 <div class="min-h-screen bg-slate-50">
 	<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 		<div class="lg:grid lg:grid-cols-4 lg:gap-8">
+			
 			<!-- Сайдбар с магазинами -->
-			<aside class="hidden lg:block">
-				<div class="sticky top-24">
-					<nav class="space-y-1">
-						<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-							Магазины фурнитуры
-						</h2>
-
-						{#if isLoading}
-							<div class="px-4 py-3 text-slate-500">Загрузка...</div>
-						{:else}
-							{#each shops as shop, index (shop.id || shop.slug)}
-								{@const gradient = getGradient(index)}
-								<a
-									href={shop.website}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
-								>
-									<span
-										class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {gradient.from} {gradient.to} {gradient.text} transition-all {gradient.hover} group-hover:text-white group-hover:shadow-lg"
-									>
-										{#if shop.logo}
-											<img src={shop.logo} alt={shop.value} class="h-6 w-6 object-contain" />
-										{:else}
-											<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-												<path
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													stroke-width="2"
-													d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-												/>
-											</svg>
-										{/if}
-									</span>
-									<span class="font-medium">{shop.value}</span>
-								</a>
-							{/each}
-						{/if}
-					</nav>
-
-					<!-- Баннер -->
-					<SidebarConsultationBanner
-						title="Премиум фурнитура"
-						description="Blum, Hettich, Grass — официальные дилеры"
-						color="slate"
-					/>
-				</div>
-			</aside>
+			<CatalogSidebar
+				items={shops}
+				rubricSlug="furnitura"
+				title="Магазины фурнитуры"
+				itemType="shop"
+				externalLinks={true}
+				banner={{
+					title: 'Премиум фурнитура',
+					description: 'Blum, Hettich, Grass — официальные дилеры',
+					color: 'slate'
+				}}
+			/>
 
 			<!-- Основной контент -->
 			<main class="lg:col-span-3">
@@ -150,37 +94,33 @@
 				<div class="mt-8 lg:hidden">
 					<h2 class="text-lg font-semibold text-slate-900">Магазины</h2>
 					<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-						{#if isLoading}
-							<div class="col-span-full py-4 text-center text-slate-500">Загрузка...</div>
-						{:else}
-							{#each shops as shop, index (shop.id || shop.slug)}
-								{@const gradient = getGradient(index)}
-								<a
-									href={shop.website}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
+						{#each shops as shop, index (shop.id || shop.slug)}
+							{@const gradient = getGradient(index)}
+							<a
+								href={shop.website}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
+							>
+								<span
+									class="flex h-8 w-8 items-center justify-center rounded-lg {gradient.bg} text-white"
 								>
-									<span
-										class="flex h-8 w-8 items-center justify-center rounded-lg {gradient.bg} text-white"
-									>
-										{#if shop.logo}
-											<img src={shop.logo} alt={shop.value} class="h-5 w-5 object-contain" />
-										{:else}
-											<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-												<path
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													stroke-width="2"
-													d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-												/>
-											</svg>
-										{/if}
-									</span>
-									<span class="text-sm font-medium text-slate-700">{shop.value}</span>
-								</a>
-							{/each}
-						{/if}
+									{#if shop.logo}
+										<img src={shop.logo} alt={shop.value} class="h-5 w-5 object-contain" />
+									{:else}
+										<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												stroke-width="2"
+												d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+											/>
+										</svg>
+									{/if}
+								</span>
+								<span class="text-sm font-medium text-slate-700">{shop.value}</span>
+							</a>
+						{/each}
 					</div>
 				</div>
 
@@ -188,21 +128,7 @@
 				<div class="mt-12">
 					<h2 class="text-2xl font-bold text-slate-900">Магазины и поставщики</h2>
 
-					{#if isLoading}
-						<div class="mt-6 grid gap-6 sm:grid-cols-2">
-							{#each [1, 2, 3, 4] as _}
-								<div class="rounded-xl bg-white p-6 shadow-sm animate-pulse">
-									<div class="flex items-center gap-4">
-										<div class="h-16 w-16 rounded-xl bg-slate-200"></div>
-										<div class="flex-1">
-											<div class="h-5 w-32 bg-slate-200 rounded"></div>
-											<div class="mt-2 h-4 w-48 bg-slate-200 rounded"></div>
-										</div>
-									</div>
-								</div>
-							{/each}
-						</div>
-					{:else if shops.length === 0}
+					{#if shops.length === 0}
 						<div class="mt-6 rounded-xl bg-white p-12 text-center shadow-sm">
 							<svg
 								class="mx-auto h-12 w-12 text-slate-300"

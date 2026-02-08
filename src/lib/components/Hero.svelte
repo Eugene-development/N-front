@@ -15,7 +15,7 @@
 		},
 		{
 			name: 'Blum',
-			logo: 'https://www.blum.com/corporate/layout/facelift/images/ci/logo.svg.svg',
+			logo: 'https://www.blum.com/corporate/layout/facelift/images/ci/logo.svg',
 			url: 'https://www.blum.com/gb/en'
 		},
 		{
@@ -55,24 +55,26 @@
 				class="px-6 py-12 md:px-12 md:py-14 text-center max-w-3xl mx-auto flex flex-col items-center"
 			>
 				<!-- Название компании -->
-				<span class="text-sm font-semibold text-slate-600 uppercase tracking-[0.5em] mb-6">
+				<span
+					class="md:text-sm text-xs font-semibold text-slate-600 uppercase tracking-[0.5em] mb-6"
+				>
 					Компания «Новострой»
 				</span>
 
 				<!-- Заголовок -->
 				<h1
-					class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 leading-none mb-6"
+					class="text-3xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 leading-none mb-6"
 				>
 					Мебель и Техника
 				</h1>
 
 				<!-- Описание -->
 				<p
-					class="text-lg md:text-lg text-slate-800 leading-relaxed max-w-2xl mx-auto mb-12 font-medium"
+					class="text-sm md:text-base text-slate-800 leading-relaxed max-w-2xl mx-auto mb-12 font-medium"
 				>
-					Мебель по вашим размерам с бесплатным проектом от дизайнера. Согласуем проект с фабрикой,
-					подберём столешницу, технику и аксессуары. Значительно снизим затраты и сэкономим ваше
-					время.
+					Мебель по вашим размерам с бесплатным проектом от дизайнера. <br />
+					Согласуем проект с фабрикой,подберём столешницу, технику и аксессуары. <br />
+					Значительно снизим затраты и сэкономим ваше время.
 				</p>
 
 				<!-- Кнопки -->
@@ -95,20 +97,25 @@
 			</div>
 
 			<!-- Секция брендов -->
-			<div class="w-full px-6 pb-8 md:px-12 md:pb-12 pt-8 flex justify-center">
+			<div class="w-full flex px-6 pb-8 md:px-12 md:pb-12 pt-8 justify-center">
 				<div class="w-full flex flex-col items-center">
-					<p class="text-xs text-slate-700 mb-8 font-semibold uppercase tracking-widest">
+					<p
+						class="hidden md:block text-xs text-slate-700 mb-8 font-semibold uppercase tracking-widest"
+					>
 						РАБОТАЕМ С ЛУЧШИМИ БРЕНДАМИ:
 					</p>
 					<div
-						class="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-12 items-center justify-items-center"
+						class="w-full flex flex-row justify-center gap-6 md:grid md:grid-cols-5 md:gap-12 items-center"
 					>
-						{#each brands as brand}
+						{#each brands as brand, i}
 							<a
 								href={brand.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="group w-full h-10 flex items-center justify-center opacity-90 transition-all duration-300 hover:opacity-100 hover:-translate-y-0.5"
+								class="group h-8 md:h-10 flex items-center justify-center opacity-90 transition-all duration-300 hover:opacity-100 hover:-translate-y-0.5 {i >=
+								4
+									? 'hidden md:flex'
+									: ''}"
 							>
 								<img
 									class="max-w-full max-h-full object-contain transition-all duration-300"

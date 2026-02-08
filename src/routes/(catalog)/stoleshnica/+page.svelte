@@ -1,16 +1,13 @@
 <script>
-	import { onMount } from 'svelte';
-	import { getCategoriesByRubricSlug } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
 	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
 
-	// Rubric slug for this page
-	const RUBRIC_SLUG = 'stoleshnica';
-
-	let categories = $state([]);
-	let rubric = $state(null);
-	let isLoading = $state(true);
-	let error = $state(null);
+	// Данные загружаются на сервере в +page.server.js
+	let { data } = $props();
+	
+	// Категории уже загружены на сервере
+	let categories = $derived(data.categories || []);
+	let rubric = $derived(data.rubric);
 
 	// Универсальная иконка для всех категорий (шеврон вправо)
 	const categoryIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />`;
@@ -33,23 +30,6 @@
 	function getGradient(slug) {
 		return categoryGradients[slug] || categoryGradients.default;
 	}
-
-	// Загружаем категории только из БД, без fallback
-	onMount(async () => {
-		try {
-			const data = await getCategoriesByRubricSlug(RUBRIC_SLUG);
-			if (data.rubric) {
-				rubric = data.rubric;
-			}
-			categories = data.categories || [];
-		} catch (e) {
-			error = e.message;
-			console.error('Failed to load categories:', e);
-			categories = [];
-		} finally {
-			isLoading = false;
-		}
-	});
 </script>
 
 <svelte:head>
@@ -71,26 +51,22 @@
 							Материалы столешниц
 						</h2>
 
-						{#if isLoading}
-							<div class="px-4 py-3 text-slate-500">Загрузка...</div>
-						{:else}
-							{#each categories as category (category.id || category.slug)}
-								{@const gradient = getGradient(category.slug)}
-								<a
-									href="/stoleshnica/{category.slug}"
-									class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
+						{#each categories as category (category.id || category.slug)}
+							{@const gradient = getGradient(category.slug)}
+							<a
+								href="/stoleshnica/{category.slug}"
+								class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
+							>
+								<span
+									class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {gradient.from} {gradient.to} {gradient.text} transition-all {gradient.hover} group-hover:text-white group-hover:shadow-lg"
 								>
-									<span
-										class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {gradient.from} {gradient.to} {gradient.text} transition-all {gradient.hover} group-hover:text-white group-hover:shadow-lg"
-									>
-										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											{@html getIcon(category.slug)}
-										</svg>
-									</span>
-									<span class="font-medium">{category.value}</span>
-								</a>
-							{/each}
-						{/if}
+									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										{@html getIcon(category.slug)}
+									</svg>
+								</span>
+								<span class="font-medium">{category.value}</span>
+							</a>
+						{/each}
 					</nav>
 
 					<!-- Баннер -->
@@ -147,26 +123,22 @@
 				<div class="mt-8 lg:hidden">
 					<h2 class="text-lg font-semibold text-slate-900">Материалы</h2>
 					<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-						{#if isLoading}
-							<div class="col-span-full py-4 text-center text-slate-500">Загрузка...</div>
-						{:else}
-							{#each categories as category (category.id || category.slug)}
-								<a
-									href="/stoleshnica/{category.slug}"
-									class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
+						{#each categories as category (category.id || category.slug)}
+							<a
+								href="/stoleshnica/{category.slug}"
+								class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
+							>
+								<span
+									class="flex h-8 w-8 items-center justify-center rounded-lg"
+									style="background: {category.bg || '#f1f5f9'}; color: #475569;"
 								>
-									<span
-										class="flex h-8 w-8 items-center justify-center rounded-lg"
-										style="background: {category.bg || '#f1f5f9'}; color: #475569;"
-									>
-										<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											{@html getIcon(category.slug)}
-										</svg>
-									</span>
-									<span class="text-sm font-medium text-slate-700">{category.value}</span>
-								</a>
-							{/each}
-						{/if}
+									<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										{@html getIcon(category.slug)}
+									</svg>
+								</span>
+								<span class="text-sm font-medium text-slate-700">{category.value}</span>
+							</a>
+						{/each}
 					</div>
 				</div>
 

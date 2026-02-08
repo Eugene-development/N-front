@@ -1,62 +1,26 @@
 <script>
 	import { page } from '$app/stores';
-	import { getMebelProjectBySlug, getMebelProjects, getCategoryBySlug } from '$lib/api/graphql.js';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import ProductFavoriteButton from '$lib/components/ProductFavoriteButton.svelte';
 
-	// State
-	let project = $state(null);
-	let category = $state(null);
-	let relatedProjects = $state([]);
-	let isLoading = $state(true);
-	let error = $state(null);
+	// Данные загружаются на сервере в +page.server.js
+	let { data } = $props();
+	
+	// Данные из сервера
+	let project = $derived(data.project);
+	let category = $derived(data.category);
+	let relatedProjects = $derived(data.relatedProjects || []);
+	let categorySlug = $derived(data.categorySlug);
+	let error = $derived(data.error);
+	
+	// Локальное состояние для галереи
 	let selectedImageIndex = $state(0);
 	let isLightboxOpen = $state(false);
-
-	// Get params from URL (derived from page store)
-	let categorySlug = $derived($page.params.category);
-	let projectSlug = $derived($page.params.slug);
 
 	const formatPrice = (price) => {
 		if (!price) return 'По запросу';
 		return new Intl.NumberFormat('ru-RU').format(price) + ' ₽';
 	};
-
-	// Load project data
-	async function loadData(catSlug, projSlug) {
-		isLoading = true;
-		error = null;
-		selectedImageIndex = 0;
-		try {
-			// Load project by slug
-			const projectData = await getMebelProjectBySlug(projSlug);
-			project = projectData;
-
-			// Load category info
-			if (projectData?.category) {
-				category = projectData.category;
-			} else {
-				category = await getCategoryBySlug(catSlug);
-			}
-
-			// Load related projects from same category
-			if (projectData?.category_id) {
-				const allProjects = await getMebelProjects({ category_id: projectData.category_id });
-				relatedProjects = allProjects.filter(p => p.id !== projectData.id).slice(0, 3);
-			}
-		} catch (e) {
-			error = e.message;
-			console.error('Failed to load project:', e);
-		} finally {
-			isLoading = false;
-		}
-	}
-
-	// Effect runs on mount and whenever params change
-	$effect(() => {
-		if (categorySlug && projectSlug) {
-			loadData(categorySlug, projectSlug);
-		}
-	});
 </script>
 
 <svelte:head>
@@ -66,24 +30,12 @@
 			name="description"
 			content={project.description || `${project.value} от компании Новострой`}
 		/>
-	{:else if isLoading}
-		<title>Загрузка... | Новострой</title>
 	{:else}
 		<title>Товар не найден | Новострой</title>
 	{/if}
 </svelte:head>
 
-{#if isLoading}
-	<!-- Loading state -->
-	<div class="min-h-screen bg-slate-50 flex items-center justify-center">
-		<div class="text-center">
-			<div
-				class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-sky-500 border-r-transparent"
-			></div>
-			<p class="mt-4 text-slate-600">Загрузка...</p>
-		</div>
-	</div>
-{:else if project}
+{#if project}
 	<div class="min-h-screen bg-slate-50">
 		<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 			<!-- Основной контент товара -->
@@ -140,6 +92,11 @@
 									-{Math.round((1 - project.price / project.old_price) * 100)}%
 								</div>
 							{/if}
+						</div>
+
+						<!-- Кнопка избранного -->
+						<div class="absolute right-4 top-4 z-10">
+							<ProductFavoriteButton product={project} size="lg" />
 						</div>
 
 						<!-- Кнопка увеличения (лупа с плюсом) -->
@@ -258,7 +215,9 @@
 
 					<!-- Кнопки действий -->
 					<div class="mt-8 flex flex-col gap-4 sm:flex-row">
-						<ConsultationButton class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-sky-600 hover:shadow-xl">
+						<ConsultationButton
+							class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-sky-600 hover:shadow-xl"
+						>
 							Заказать расчёт
 							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path
@@ -416,6 +375,10 @@
 											</span>
 										{/if}
 									</div>
+									<!-- Кнопка избранного -->
+									<div class="absolute right-3 top-3">
+										<ProductFavoriteButton product={item} />
+									</div>
 								</div>
 								<div class="p-5">
 									<h3
@@ -452,7 +415,9 @@
 					Оставьте заявку и получите бесплатный расчёт стоимости с учётом ваших размеров
 				</p>
 				<div class="mt-6 flex flex-wrap justify-center gap-4">
-					<ConsultationButton class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl">
+					<ConsultationButton
+						class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl"
+					>
 						Заказать расчёт
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path
