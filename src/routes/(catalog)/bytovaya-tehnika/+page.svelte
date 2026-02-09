@@ -1,6 +1,8 @@
 <script>
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
 	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
+	import ServiceOrderIsland from '$lib/islands/ServiceOrderIsland.svelte';
+	import { serviceOrderStore } from '$lib/stores/serviceOrder.svelte.js';
 
 	// Данные загружаются на сервере в +page.server.js
 	let { data } = $props();
@@ -338,11 +340,11 @@
 							</ul>
 						</div>
 						<div class="mt-6 lg:mt-0">
-							<a
-								href="/furniture-project"
+							<button
+								onclick={() => serviceOrderStore.open('furniture-project')}
 								class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
 							>
-								Заказать проект
+								Заказать проект мебели
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path
 										stroke-linecap="round"
@@ -351,7 +353,7 @@
 										d="M17 8l4 4m0 0l-4 4m4-4H3"
 									/>
 								</svg>
-							</a>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -390,3 +392,6 @@
 		</div>
 	</div>
 </div>
+
+<!-- Модальная форма заказа услуги -->
+<ServiceOrderIsland />

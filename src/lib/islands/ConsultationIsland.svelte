@@ -179,7 +179,7 @@
 						id="message"
 						bind:value={message}
 						rows="3"
-						placeholder="Опишите ваш проект или задайте вопрос"
+						placeholder="Опишите вашу задачу или задайте вопрос"
 						class="w-full resize-none rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 transition-colors focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
 					></textarea>
 				</div>

@@ -1,5 +1,6 @@
 <script>
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import ServiceOrderButton from '$lib/components/ServiceOrderButton.svelte';
 	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
 
 	// Данные загружаются на сервере в +page.server.js
@@ -109,12 +110,12 @@
 									/>
 								</svg>
 							</ConsultationButton>
-							<a
-								href="/measurement"
-								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
+							<ServiceOrderButton
+								serviceType="measurement"
+								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20 cursor-pointer"
 							>
 								Вызвать замерщика
-							</a>
+							</ServiceOrderButton>
 						</div>
 					</div>
 				</div>

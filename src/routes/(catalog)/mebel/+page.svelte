@@ -1,19 +1,13 @@
 <script>
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
-	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
+	import ServiceOrderButton from '$lib/components/ServiceOrderButton.svelte';
+	import CatalogSidebar from '$lib/components/CatalogSidebar.svelte';
 
 	// Данные загружаются на сервере в +page.server.js
 	let { data } = $props();
 	
 	// Категории уже загружены на сервере
 	let categories = $derived(data.categories || []);
-
-	// Универсальная иконка для всех категорий (шеврон вправо)
-	const categoryIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />`;
-
-	function getIcon(value) {
-		return categoryIcon;
-	}
 </script>
 
 <svelte:head>
@@ -28,39 +22,17 @@
 	<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 		<div class="lg:grid lg:grid-cols-4 lg:gap-8">
 			<!-- Сайдбар с категориями -->
-			<aside class="hidden lg:block">
-				<div class="sticky top-24">
-					<nav class="space-y-1">
-						<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-							Категории мебели
-						</h2>
-
-						{#each categories as category (category.id || category.slug)}
-							<a
-								href="/mebel/{category.slug}"
-								class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
-							>
-								<span
-									class="flex h-10 w-10 items-center justify-center rounded-lg transition-all"
-									style="color: #475569;"
-								>
-									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										{@html getIcon(category.slug)}
-									</svg>
-								</span>
-								<span class="font-medium">{category.value}</span>
-							</a>
-						{/each}
-					</nav>
-
-					<!-- Баннер консультации -->
-					<SidebarConsultationBanner
-						title="Нужна помощь?"
-						description="Получите бесплатную консультацию дизайнера для создания идеальной и доступной мебели"
-						color="sky"
-					/>
-				</div>
-			</aside>
+			<CatalogSidebar
+				items={categories}
+				rubricSlug="mebel"
+				title="Категории мебели"
+				banner={{
+					title: 'Нужна помощь?',
+					description:
+						'Получите бесплатную консультацию дизайнера для создания идеальной и доступной мебели',
+					color: 'sky'
+				}}
+			/>
 
 			<!-- Основной контент -->
 			<main class="lg:col-span-3">
@@ -87,8 +59,9 @@
 							к каждому проекту.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<ConsultationButton
-								class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
+							<ServiceOrderButton
+								serviceType="furniture-project"
+								class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600 cursor-pointer"
 							>
 								Заказать проект
 								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -99,13 +72,13 @@
 										d="M17 8l4 4m0 0l-4 4m4-4H3"
 									/>
 								</svg>
-							</ConsultationButton>
-							<a
-								href="/measurement"
-								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
+							</ServiceOrderButton>
+							<ServiceOrderButton
+								serviceType="measurement"
+								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20 cursor-pointer"
 							>
 								Бесплатный замер
-							</a>
+							</ServiceOrderButton>
 						</div>
 					</div>
 				</div>
@@ -119,12 +92,14 @@
 								href="/mebel/{category.slug}"
 								class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
 							>
-								<span
-									class="flex h-8 w-8 items-center justify-center rounded-lg"
-									style="color: #475569;"
-								>
+								<span class="flex h-8 w-8 items-center justify-center rounded-lg text-slate-600">
 									<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										{@html getIcon(category.slug)}
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5l7 7-7 7"
+										/>
 									</svg>
 								</span>
 								<span class="text-sm font-medium text-slate-700">{category.value}</span>

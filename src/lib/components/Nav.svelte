@@ -62,7 +62,7 @@
 		{ href: '/consultation', label: 'Бесплатная консультация', icon: 'chat', desc: 'Поможем с выбором' },
 		{ href: '/design-project', label: 'Дизайн интерьера', icon: 'design', desc: '3D визуализация' },
 		{ href: '/measurement', label: 'Замер помещения', icon: 'ruler', desc: 'Выезд бесплатно' },
-		{ href: '/furniture-project', label: 'Проектирование мебели', icon: 'project', desc: 'Индивидуальный подход' },
+		{ href: '/furniture-project', label: 'Проект мебели', icon: 'project', desc: 'Индивидуальный подход' },
 		{ href: '/assembly', label: 'Сборка и установка', icon: 'tools', desc: 'Профессиональный монтаж' }
 	];
 </script>

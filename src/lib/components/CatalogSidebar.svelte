@@ -11,6 +11,7 @@
 	 * @prop {string} itemType - Тип элементов: 'category', 'brand', 'shop'
 	 * @prop {boolean} externalLinks - Открывать ссылки в новом окне (для магазинов)
 	 * @prop {object} banner - Настройки баннера консультации
+	 * @prop {string} activeSlug - Slug активной категории для выделения
 	 */
 	let {
 		items = [],
@@ -18,12 +19,18 @@
 		title = 'Категории',
 		itemType = 'category',
 		externalLinks = false,
+		activeSlug = '',
 		banner = {
 			title: 'Нужна помощь?',
 			description: 'Получите бесплатную консультацию',
 			color: 'sky'
 		}
 	} = $props();
+	
+	// Проверка активности элемента
+	function isActive(item) {
+		return activeSlug && item.slug === activeSlug;
+	}
 
 	// Универсальная иконка (шеврон вправо)
 	const defaultIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />`;
@@ -74,14 +81,19 @@
 
 				{#each items as item, index (item.id || item.slug)}
 					{@const gradient = getGradient(index)}
+					{@const active = isActive(item)}
 					<a
 						href={getItemLink(item)}
 						target={externalLinks ? '_blank' : undefined}
 						rel={externalLinks ? 'noopener noreferrer' : undefined}
-						class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
+						class="group flex items-center gap-3 rounded-xl px-4 py-3 transition-all {active
+							? 'bg-white shadow-md text-sky-600'
+							: 'text-slate-700 hover:bg-white hover:shadow-md hover:text-sky-600'}"
 					>
 						<span
-							class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {gradient.from} {gradient.to} {gradient.text} transition-all {gradient.hover} group-hover:text-white group-hover:shadow-lg"
+							class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br transition-all {active
+								? 'from-sky-500 to-cyan-500 text-white shadow-lg'
+								: `${gradient.from} ${gradient.to} ${gradient.text} ${gradient.hover} group-hover:text-white group-hover:shadow-lg`}"
 						>
 							{#if item.logo}
 								<img src={item.logo} alt={getItemName(item)} class="h-6 w-6 object-contain" />

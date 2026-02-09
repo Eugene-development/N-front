@@ -56,7 +56,7 @@
 		{ href: '/consultation', label: 'Бесплатная консультация' },
 		{ href: '/design-project', label: 'Дизайн интерьера' },
 		{ href: '/measurement', label: 'Замер помещения' },
-		{ href: '/furniture-project', label: 'Проектирование мебели' },
+		{ href: '/furniture-project', label: 'Проект мебели' },
 		{ href: '/assembly', label: 'Сборка и установка' }
 	];
 
@@ -101,7 +101,6 @@
 					src="https://storage.yandexcloud.net/brand-logo/novostroy/logomain.png"
 					alt="Логотип компании Новострой"
 				/>
-				<span class="text-lg font-semibold text-slate-900">Новострой</span>
 			</a>
 			<button
 				onclick={closeMenu}

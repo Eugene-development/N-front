@@ -1,7 +1,9 @@
 <script>
 	import { page } from '$app/stores';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import ServiceOrderButton from '$lib/components/ServiceOrderButton.svelte';
 	import ProductFavoriteButton from '$lib/components/ProductFavoriteButton.svelte';
+	import CatalogSidebar from '$lib/components/CatalogSidebar.svelte';
 
 	// Данные загружаются на сервере в +page.server.js
 	let { data } = $props();
@@ -48,63 +50,18 @@
 		<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 			<div class="lg:grid lg:grid-cols-4 lg:gap-8">
 				<!-- Сайдбар с категориями -->
-				<aside class="hidden lg:block">
-					<div class="sticky top-24">
-						<nav class="space-y-1">
-							<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-								Категории мебели
-							</h2>
-
-							{#each allCategories as cat (cat.id)}
-								<a
-									href="/mebel/{cat.slug}"
-									class="group flex items-center gap-3 rounded-xl px-4 py-3 transition-all {cat.slug ===
-									categorySlug
-										? 'bg-white shadow-md text-sky-600'
-										: 'text-slate-700 hover:bg-white hover:shadow-md hover:text-sky-600'}"
-								>
-									<span
-										class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {cat.slug ===
-										categorySlug
-											? 'from-sky-500 to-cyan-500 text-white shadow-lg'
-											: 'from-slate-100 to-gray-200 text-slate-600'} transition-all group-hover:from-sky-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg"
-									>
-										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												stroke-width="2"
-												d="M9 5l7 7-7 7"
-											/>
-										</svg>
-									</span>
-									<span class="font-medium">{cat.value}</span>
-								</a>
-							{/each}
-						</nav>
-
-						<!-- Баннер консультации -->
-						<div class="mt-8 rounded-2xl bg-linear-to-br from-sky-500 to-cyan-600 p-6 text-white">
-							<h3 class="text-lg font-semibold">Нужна помощь?</h3>
-							<p class="mt-2 text-sm text-sky-100">
-								Получите бесплатную консультацию дизайнера для создания идеальной и доступной мебели
-							</p>
-							<ConsultationButton
-								class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50"
-							>
-								Бесплатная консультация
-								<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M9 5l7 7-7 7"
-									/>
-								</svg>
-							</ConsultationButton>
-						</div>
-					</div>
-				</aside>
+				<CatalogSidebar
+					items={allCategories}
+					rubricSlug="mebel"
+					title="Категории мебели"
+					activeSlug={categorySlug}
+					banner={{
+						title: 'Нужна помощь?',
+						description:
+							'Получите бесплатную консультацию дизайнера для создания идеальной и доступной мебели',
+						color: 'sky'
+					}}
+				/>
 
 				<!-- Основной контент -->
 				<main class="lg:col-span-3">
@@ -136,8 +93,9 @@
 								</p>
 							{/if}
 							<div class="mt-6 flex flex-wrap gap-4">
-								<ConsultationButton
-									class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
+								<ServiceOrderButton
+									serviceType="furniture-project"
+									class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600 cursor-pointer"
 								>
 									Заказать проект
 									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -148,13 +106,13 @@
 											d="M17 8l4 4m0 0l-4 4m4-4H3"
 										/>
 									</svg>
-								</ConsultationButton>
-								<a
-									href="/measurement"
-									class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
+								</ServiceOrderButton>
+								<ServiceOrderButton
+									serviceType="measurement"
+									class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20 cursor-pointer"
 								>
 									Бесплатный замер
-								</a>
+								</ServiceOrderButton>
 							</div>
 						</div>
 					</div>
