@@ -39,7 +39,7 @@
 						serviceType="design-project"
 						class="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-emerald-400 cursor-pointer"
 					>
-						Заказать проект
+						Заказать дизайн-проект
 						<svg
 							class="size-4"
 							fill="none"

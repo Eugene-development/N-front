@@ -39,7 +39,7 @@
 						serviceType="consultation"
 						class="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 text-sm font-semibold text-gray-900 shadow-lg transition hover:bg-amber-400 cursor-pointer"
 					>
-						Заказать
+						Заказать консультацию
 						<svg
 							class="size-4"
 							fill="none"

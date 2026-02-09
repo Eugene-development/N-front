@@ -199,47 +199,69 @@
 						<div class="mt-6 grid gap-6 sm:grid-cols-2">
 							{#each suppliers as supplier (supplier.id)}
 								<a
-									href={supplier.website}
+									href={supplier.website || '#'}
 									target="_blank"
 									rel="noopener noreferrer"
 									class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
 								>
 									<!-- Метка страны -->
-									<div class="absolute right-3 top-3 z-10">
-										<span
-											class="rounded-full bg-slate-900/60 px-3 py-1 text-xs font-medium text-white backdrop-blur"
-										>
-											{supplier.country}
-										</span>
-									</div>
+									{#if supplier.country}
+										<div class="absolute right-3 top-3 z-10">
+											<span
+												class="rounded-full bg-slate-900/60 px-3 py-1 text-xs font-medium text-white backdrop-blur"
+											>
+												{supplier.country}
+											</span>
+										</div>
+									{/if}
 
 									<!-- Иконка внешней ссылки -->
-									<div
-										class="absolute right-3 bottom-3 z-10 opacity-0 transition-opacity group-hover:opacity-100"
-									>
-										<span
-											class="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 text-white shadow-lg"
+									{#if supplier.website}
+										<div
+											class="absolute right-3 bottom-3 z-10 opacity-0 transition-opacity group-hover:opacity-100"
 										>
-											<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-												<path
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													stroke-width="2"
-													d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-												/>
-											</svg>
-										</span>
-									</div>
+											<span
+												class="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 text-white shadow-lg"
+											>
+												<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+													<path
+														stroke-linecap="round"
+														stroke-linejoin="round"
+														stroke-width="2"
+														d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+													/>
+												</svg>
+											</span>
+										</div>
+									{/if}
 
 									<!-- Логотип компании -->
 									<div
-										class="relative h-40 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200"
+										class="relative h-40 overflow-hidden bg-slate-50 flex items-center justify-center"
 									>
-										<img
-											src={supplier.logo}
-											alt={supplier.name}
-											class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-										/>
+										{#if supplier.logo}
+											<img
+												src={supplier.logo}
+												alt={supplier.name}
+												class="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+											/>
+										{:else}
+											<div class="flex h-full w-full items-center justify-center">
+												<svg
+													class="h-16 w-16 text-slate-300"
+													fill="none"
+													viewBox="0 0 24 24"
+													stroke="currentColor"
+												>
+													<path
+														stroke-linecap="round"
+														stroke-linejoin="round"
+														stroke-width="1.5"
+														d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+													/>
+												</svg>
+											</div>
+										{/if}
 										<div
 											class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"
 										></div>
@@ -251,45 +273,95 @@
 										>
 											{supplier.name}
 										</h3>
-										<p class="mt-2 text-sm text-slate-600 line-clamp-2">
-											{supplier.description}
-										</p>
+										{#if supplier.description}
+											<p class="mt-2 text-sm text-slate-600 line-clamp-2">
+												{supplier.description}
+											</p>
+										{/if}
 
 										<!-- Ценовой диапазон -->
-										<div class="mt-4 flex items-center gap-2">
-											<span class="text-lg font-bold text-amber-600">{supplier.priceRange}</span>
-										</div>
+										{#if supplier.priceRange}
+											<div class="mt-4 flex items-center gap-2">
+												<span class="text-lg font-bold text-amber-600">{supplier.priceRange}</span>
+											</div>
+										{/if}
 
-										<!-- Особенности -->
-										<div class="mt-4 flex flex-wrap gap-2">
-											{#each supplier.features as feature}
-												<span
-													class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700"
-												>
-													{feature}
-												</span>
-											{/each}
-										</div>
+										<!-- Контактная информация -->
+										{#if supplier.phone || supplier.email}
+											<div class="mt-4 flex flex-wrap gap-3">
+												{#if supplier.phone}
+													<span class="inline-flex items-center gap-1 text-sm text-slate-600">
+														<svg
+															class="h-4 w-4"
+															fill="none"
+															viewBox="0 0 24 24"
+															stroke="currentColor"
+														>
+															<path
+																stroke-linecap="round"
+																stroke-linejoin="round"
+																stroke-width="2"
+																d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+															/>
+														</svg>
+														{supplier.phone}
+													</span>
+												{/if}
+												{#if supplier.email}
+													<span class="inline-flex items-center gap-1 text-sm text-slate-600">
+														<svg
+															class="h-4 w-4"
+															fill="none"
+															viewBox="0 0 24 24"
+															stroke="currentColor"
+														>
+															<path
+																stroke-linecap="round"
+																stroke-linejoin="round"
+																stroke-width="2"
+																d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+															/>
+														</svg>
+														{supplier.email}
+													</span>
+												{/if}
+											</div>
+										{/if}
+
+										<!-- Особенности (для mock данных) -->
+										{#if supplier.features && supplier.features.length > 0}
+											<div class="mt-4 flex flex-wrap gap-2">
+												{#each supplier.features as feature}
+													<span
+														class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700"
+													>
+														{feature}
+													</span>
+												{/each}
+											</div>
+										{/if}
 
 										<!-- CTA -->
-										<div
-											class="mt-4 flex items-center gap-2 text-sm font-medium text-amber-600 group-hover:text-amber-700"
-										>
-											<span>Перейти на сайт</span>
-											<svg
-												class="h-4 w-4 transition-transform group-hover:translate-x-1"
-												fill="none"
-												viewBox="0 0 24 24"
-												stroke="currentColor"
+										{#if supplier.website}
+											<div
+												class="mt-4 flex items-center gap-2 text-sm font-medium text-amber-600 group-hover:text-amber-700"
 											>
-												<path
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													stroke-width="2"
-													d="M17 8l4 4m0 0l-4 4m4-4H3"
-												/>
-											</svg>
-										</div>
+												<span>Перейти на сайт</span>
+												<svg
+													class="h-4 w-4 transition-transform group-hover:translate-x-1"
+													fill="none"
+													viewBox="0 0 24 24"
+													stroke="currentColor"
+												>
+													<path
+														stroke-linecap="round"
+														stroke-linejoin="round"
+														stroke-width="2"
+														d="M17 8l4 4m0 0l-4 4m4-4H3"
+													/>
+												</svg>
+											</div>
+										{/if}
 									</div>
 								</a>
 							{/each}

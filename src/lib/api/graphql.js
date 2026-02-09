@@ -81,11 +81,11 @@ export async function getCategoriesByRubricSlug(rubricSlug) {
         }
     `;
     const data = await graphqlRequest(query, { slug: rubricSlug });
-    
+
     if (!data.rubricBySlug) {
         return { rubric: null, categories: [] };
     }
-    
+
     return {
         rubric: data.rubricBySlug,
         categories: data.rubricBySlug.categories || []
@@ -288,16 +288,16 @@ export async function getBrandsByRubricSlug(rubricSlug) {
         }
     `;
     const rubricData = await graphqlRequest(query, { slug: rubricSlug });
-    
+
     if (!rubricData.rubricBySlug) {
         return { rubric: null, brands: [] };
     }
-    
+
     const rubric = rubricData.rubricBySlug;
-    
+
     // Now get brands for this rubric
     const brands = await getBrands({ rubric_id: rubric.id });
-    
+
     return { rubric, brands };
 }
 
@@ -408,16 +408,16 @@ export async function getShopsByRubricSlug(rubricSlug) {
         }
     `;
     const rubricData = await graphqlRequest(query, { slug: rubricSlug });
-    
+
     if (!rubricData.rubricBySlug) {
         return { rubric: null, shops: [] };
     }
-    
+
     const rubric = rubricData.rubricBySlug;
-    
+
     // Now get shops for this rubric
     const shops = await getShops({ rubric_id: rubric.id });
-    
+
     return { rubric, shops };
 }
 
@@ -472,4 +472,106 @@ export async function getShopBySlug(slug) {
     `;
     const data = await graphqlRequest(query, { slug });
     return data.shopBySlug;
+}
+
+// ============================================
+// COUNTERTOP MANUFACTURER QUERIES
+// ============================================
+
+/**
+ * Get all active countertop manufacturers
+ * @param {object} options - Query options (category_id)
+ * @returns {Promise<Array>}
+ */
+export async function getCountertopManufacturers(options = {}) {
+    const query = `
+        query GetCountertopManufacturers($is_active: Boolean, $category_id: ID) {
+            countertopManufacturers(is_active: $is_active, category_id: $category_id) {
+                id
+                key
+                category_id
+                value
+                slug
+                description
+                logo
+                website
+                phone
+                email
+                country
+                is_active
+                sort_order
+                category {
+                    id
+                    value
+                    slug
+                }
+            }
+        }
+    `;
+    const data = await graphqlRequest(query, { is_active: true, ...options });
+    return data.countertopManufacturers;
+}
+
+/**
+ * Get countertop manufacturers by category ID
+ * @param {string} categoryId - The ID of the category
+ * @returns {Promise<Array>}
+ */
+export async function getCountertopManufacturersByCategoryId(categoryId) {
+    return getCountertopManufacturers({ category_id: categoryId });
+}
+
+/**
+ * Get countertop manufacturers by category slug
+ * @param {string} categorySlug - The URL slug of the category
+ * @returns {Promise<Array>}
+ */
+export async function getCountertopManufacturersByCategorySlug(categorySlug) {
+    // First get the category to find its ID
+    const category = await getCategoryBySlug(categorySlug);
+
+    if (!category) {
+        return [];
+    }
+
+    return getCountertopManufacturers({ category_id: category.id });
+}
+
+/**
+ * Get a single countertop manufacturer by slug
+ * @param {string} slug - The URL slug of the manufacturer
+ * @returns {Promise<object|null>}
+ */
+export async function getCountertopManufacturerBySlug(slug) {
+    const query = `
+        query GetCountertopManufacturerBySlug($slug: String!) {
+            countertopManufacturerBySlug(slug: $slug) {
+                id
+                key
+                category_id
+                value
+                slug
+                description
+                logo
+                website
+                phone
+                email
+                country
+                is_active
+                sort_order
+                category {
+                    id
+                    value
+                    slug
+                    rubric {
+                        id
+                        value
+                        slug
+                    }
+                }
+            }
+        }
+    `;
+    const data = await graphqlRequest(query, { slug });
+    return data.countertopManufacturerBySlug;
 }

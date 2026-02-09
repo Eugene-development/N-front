@@ -34,7 +34,6 @@
 <div class="min-h-screen bg-slate-50">
 	<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 		<div class="lg:grid lg:grid-cols-4 lg:gap-8">
-			
 			<!-- Сайдбар с магазинами -->
 			<CatalogSidebar
 				items={shops}
@@ -154,10 +153,12 @@
 									<!-- Заголовок магазина -->
 									<div class="flex items-start gap-4">
 										<div
-											class="flex h-16 w-16 items-center justify-center rounded-xl bg-linear-to-br {gradient.from} {gradient.to}"
+											class="flex h-16 w-16 items-center justify-center rounded-xl {shop.logo
+												? ''
+												: 'bg-linear-to-br ' + gradient.from + ' ' + gradient.to}"
 										>
 											{#if shop.logo}
-												<img src={shop.logo} alt={shop.value} class="h-10 w-10 object-contain" />
+												<img src={shop.logo} alt={shop.value} class="h-14 w-14 object-contain" />
 											{:else}
 												<span class="text-2xl font-bold {gradient.text}"
 													>{shop.value.charAt(0)}</span
@@ -246,7 +247,7 @@
 											{#if shop.phone}
 												<a
 													href="tel:{shop.phone}"
-													class="text-sm text-slate-500 hover:text-slate-700"
+													class="flex items-center gap-1.5 text-sm text-slate-600 hover:text-amber-600 transition-colors"
 													aria-label="Позвонить в {shop.value}"
 												>
 													<svg
@@ -262,6 +263,7 @@
 															d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
 														/>
 													</svg>
+													<span class="font-medium">{shop.phone}</span>
 												</a>
 											{/if}
 											{#if shop.email}

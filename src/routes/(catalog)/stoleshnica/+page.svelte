@@ -16,10 +16,10 @@
 	const categoryGradients = {
 		'kvarc': { from: 'from-slate-100', to: 'to-gray-200', hover: 'group-hover:from-slate-500 group-hover:to-gray-600', text: 'text-slate-600' },
 		'akril': { from: 'from-sky-100', to: 'to-cyan-100', hover: 'group-hover:from-sky-500 group-hover:to-cyan-500', text: 'text-sky-600' },
-		'dsp': { from: 'from-amber-100', to: 'to-yellow-100', hover: 'group-hover:from-amber-500 group-hover:to-yellow-500', text: 'text-amber-600' },
+		'hpl-plastik': { from: 'from-violet-100', to: 'to-violet-100', hover: 'group-hover:from-violet-500 group-hover:to-violet-500', text: 'text-violet-600' },
 		'massiv': { from: 'from-orange-100', to: 'to-amber-100', hover: 'group-hover:from-orange-500 group-hover:to-amber-500', text: 'text-orange-600' },
-		'kompakt': { from: 'from-violet-100', to: 'to-purple-100', hover: 'group-hover:from-violet-500 group-hover:to-purple-500', text: 'text-violet-600' },
-		'keramika': { from: 'from-emerald-100', to: 'to-teal-100', hover: 'group-hover:from-emerald-500 group-hover:to-teal-500', text: 'text-emerald-600' },
+		'kompakt-plita': { from: 'from-emerald-100', to: 'to-emerald-100', hover: 'group-hover:from-emerald-500 group-hover:to-emerald-500', text: 'text-emerald-600' },
+		'keramika': { from: 'from-pink-100', to: 'to-pink-100', hover: 'group-hover:from-pink-500 group-hover:to-pink-500', text: 'text-pink-600' },
 		default: { from: 'from-slate-100', to: 'to-gray-200', hover: 'group-hover:from-slate-500 group-hover:to-gray-600', text: 'text-slate-600' }
 	};
 
