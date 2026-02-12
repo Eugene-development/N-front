@@ -139,7 +139,7 @@
 					<div class="mt-8 flex flex-wrap items-center justify-between gap-4">
 						<div class="flex items-center gap-2">
 							<span class="text-sm text-slate-500">Найдено:</span>
-							<span class="font-semibold text-slate-900">{projects.length} товаров</span>
+							<span class="font-semibold text-slate-900">{projects.length}</span>
 						</div>
 						<div class="flex items-center gap-4">
 							<select
@@ -153,7 +153,7 @@
 						</div>
 					</div>
 
-					<!-- Сетка товаров -->
+					<!-- Сетка проектов -->
 					{#if projects.length === 0}
 						<div class="mt-6 rounded-2xl bg-white p-12 text-center shadow-sm">
 							<svg
@@ -169,8 +169,8 @@
 									d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
 								/>
 							</svg>
-							<h3 class="mt-4 text-lg font-semibold text-slate-900">Товары не найдены</h3>
-							<p class="mt-2 text-slate-600">В данной категории пока нет товаров</p>
+							<h3 class="mt-4 text-lg font-semibold text-slate-900">Проектов не найдено</h3>
+							<p class="mt-2 text-slate-600">В данной категории пока нет проектов</p>
 							<ConsultationButton
 								class="mt-6 inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600"
 							>

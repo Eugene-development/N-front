@@ -54,8 +54,8 @@
 						<h3 class="text-sm/6 font-semibold text-white">Услуги</h3>
 						<ul role="list" class="mt-6 space-y-4">
 							<li>
-								<ConsultationButton class="text-sm/6 text-gray-400 hover:text-white"
-									>Консультация</ConsultationButton
+								<a href="/consultation" class="text-sm/6 text-gray-400 hover:text-white"
+									>Консультация</a
 								>
 							</li>
 							<li>

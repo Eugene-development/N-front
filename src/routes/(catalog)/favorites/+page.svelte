@@ -67,7 +67,7 @@
 
 <svelte:head>
 	<title>Избранное | Новострой</title>
-	<meta name="description" content="Ваши избранные товары" />
+	<meta name="description" content="Ваши избранные проекты" />
 </svelte:head>
 
 <!-- Hero секция -->
@@ -98,7 +98,7 @@
 					</div>
 					<div>
 						<h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Избранное</h1>
-						<p class="mt-1 text-slate-500">{favorites.length} товаров</p>
+						<p class="mt-1 text-slate-500">{favorites.length}</p>
 					</div>
 				</div>
 			</div>
@@ -237,7 +237,7 @@
 								{#if item.slug}
 									<a
 										href="/mebel/{item.slug}"
-										aria-label="Подробнее о товаре"
+										aria-label="Подробнее о проекте"
 										class="flex size-11 items-center justify-center rounded-xl border-2 border-slate-200 text-slate-500 transition-all duration-300 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-600"
 									>
 										<svg
@@ -260,35 +260,6 @@
 					</div>
 				{/each}
 			</div>
-
-			<!-- Итого -->
-			<div class="mt-12 rounded-2xl bg-slate-50 p-6 sm:p-8">
-				<div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-					<div>
-						<p class="text-sm text-slate-500">Общая стоимость избранных товаров</p>
-						<p class="mt-1 text-3xl font-bold text-slate-900">
-							{formatPrice(totalPrice)} ₽
-						</p>
-						<p class="mt-1 text-sm text-slate-500">
-							{inStockCount} из {favorites.length} товаров в наличии
-						</p>
-					</div>
-					<ConsultationButton
-						class="inline-flex items-center gap-2 rounded-xl bg-linear-to-r from-sky-500 to-cyan-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/30"
-					>
-						Оформить заказ
-						<svg
-							class="size-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2"
-						>
-							<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-						</svg>
-					</ConsultationButton>
-				</div>
-			</div>
 		{:else}
 			<!-- Пустое состояние -->
 			<div class="py-16 text-center">
@@ -308,7 +279,7 @@
 					</svg>
 				</div>
 				<h3 class="mt-6 text-xl font-semibold text-slate-900">В избранном пока пусто</h3>
-				<p class="mt-2 text-slate-500">Добавляйте понравившиеся товары, чтобы не потерять их</p>
+				<p class="mt-2 text-slate-500">Добавляйте понравившиеся проекты, чтобы не потерять их</p>
 				<a
 					href="/mebel"
 					class="mt-8 inline-flex items-center gap-2 rounded-xl bg-linear-to-r from-sky-500 to-cyan-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/30"

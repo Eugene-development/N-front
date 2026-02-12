@@ -21,6 +21,11 @@
 		if (!price) return 'По запросу';
 		return new Intl.NumberFormat('ru-RU').format(price) + ' ₽';
 	};
+
+	const stripHtml = (html) => {
+		if (!html) return '';
+		return html.replace(/<[^>]*>/g, '');
+	};
 </script>
 
 <svelte:head>
@@ -28,17 +33,17 @@
 		<title>{project.value} | {category?.value || 'Мебель'} | Новострой</title>
 		<meta
 			name="description"
-			content={project.description || `${project.value} от компании Новострой`}
+			content={stripHtml(project.description) || `${project.value} от компании Новострой`}
 		/>
 	{:else}
-		<title>Товар не найден | Новострой</title>
+		<title>проект не найден | Новострой</title>
 	{/if}
 </svelte:head>
 
 {#if project}
 	<div class="min-h-screen bg-slate-50">
 		<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-			<!-- Основной контент товара -->
+			<!-- Основной контент проекта -->
 			<div class="lg:grid lg:grid-cols-2 lg:gap-12">
 				<!-- Изображение / Placeholder -->
 				<div>
@@ -168,7 +173,7 @@
 					{/if}
 				</div>
 
-				<!-- Информация о товаре -->
+				<!-- Информация о проекте -->
 				<div>
 					<!-- Хлебные крошки -->
 					<nav class="mb-4 flex items-center gap-2 text-sm text-slate-500 flex-wrap">
@@ -205,14 +210,6 @@
 						{/if}
 					</div>
 
-					<!-- Описание -->
-					{#if project.description}
-						<div class="mt-6">
-							<h2 class="text-lg font-semibold text-slate-900">Описание</h2>
-							<p class="mt-2 text-slate-600 leading-relaxed">{project.description}</p>
-						</div>
-					{/if}
-
 					<!-- Кнопки действий -->
 					<div class="mt-8 flex flex-col gap-4 sm:flex-row">
 						<ConsultationButton
@@ -245,7 +242,7 @@
 					</div>
 
 					<!-- Преимущества -->
-					<div class="mt-8 grid grid-cols-2 gap-4">
+					<div class="mt-10 grid grid-cols-2 gap-4">
 						<div class="flex items-center gap-3 rounded-xl bg-white p-4 shadow-sm">
 							<div
 								class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600"
@@ -322,10 +319,20 @@
 				</div>
 			</div>
 
-			<!-- Похожие товары -->
+			<!-- Описание (на всю ширину) -->
+			{#if project.description}
+				<div class="mt-16">
+					<h2 class="text-2xl font-bold text-slate-900">Описание</h2>
+					<div class="prose prose-slate mt-6 max-w-none text-slate-600 leading-relaxed">
+						{@html project.description}
+					</div>
+				</div>
+			{/if}
+
+			<!-- Похожие проекты -->
 			{#if relatedProjects.length > 0}
 				<div class="mt-16">
-					<h2 class="text-2xl font-bold text-slate-900">Похожие товары</h2>
+					<h2 class="text-2xl font-bold text-slate-900">Похожие проекты</h2>
 					<div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 						{#each relatedProjects as item (item.id)}
 							<a
@@ -447,7 +454,7 @@
 		</div>
 	</div>
 {:else}
-	<!-- Товар не найден -->
+	<!-- проект не найден -->
 	<div class="min-h-screen bg-slate-50 flex items-center justify-center">
 		<div class="text-center px-4">
 			<div class="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-slate-100">
@@ -460,8 +467,8 @@
 					/>
 				</svg>
 			</div>
-			<h1 class="mt-6 text-2xl font-bold text-slate-900">Товар не найден</h1>
-			<p class="mt-2 text-slate-600">К сожалению, запрашиваемый товар не существует</p>
+			<h1 class="mt-6 text-2xl font-bold text-slate-900">проект не найден</h1>
+			<p class="mt-2 text-slate-600">К сожалению, запрашиваемый проект не существует</p>
 			{#if error}
 				<p class="mt-2 text-sm text-red-500">{error}</p>
 			{/if}

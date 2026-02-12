@@ -171,11 +171,11 @@
 										</div>
 									</div>
 
-									<!-- Категории товаров -->
+									<!-- Категории -->
 									{#if shop.categories && shop.categories.length > 0}
 										<div class="mt-4">
 											<p class="text-xs font-medium text-slate-400 uppercase tracking-wider">
-												Категории товаров
+												Категории
 											</p>
 											<div class="mt-2 flex flex-wrap gap-2">
 												{#each shop.categories.filter((c) => c.is_active) as category}
