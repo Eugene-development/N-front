@@ -138,10 +138,10 @@
 					<!-- Фильтры и сортировка -->
 					<div class="mt-8 flex flex-wrap items-center justify-between gap-4">
 						<div class="flex items-center gap-2">
-							<span class="text-sm text-slate-500">Найдено:</span>
+							<span class="text-sm text-slate-500">Всего проектов:</span>
 							<span class="font-semibold text-slate-900">{projects.length}</span>
 						</div>
-						<div class="flex items-center gap-4">
+						<!-- <div class="flex items-center gap-4">
 							<select
 								class="rounded-lg border-slate-200 bg-white pl-4 pr-10 py-2 text-sm text-slate-700 shadow-sm focus:border-sky-500 focus:ring-sky-500"
 							>
@@ -150,7 +150,7 @@
 								<option>Сначала дороже</option>
 								<option>По названию</option>
 							</select>
-						</div>
+						</div> -->
 					</div>
 
 					<!-- Сетка проектов -->
@@ -260,7 +260,7 @@
 											<p class="text-xs text-slate-500 line-clamp-1">{project.short_description}</p>
 										{/if}
 										<h3
-											class="mt-2 text-lg font-semibold text-slate-900 group-hover:text-sky-600 transition-colors line-clamp-2"
+											class="mt-2 text-xl font-semibold text-slate-900 group-hover:text-sky-600 transition-colors line-clamp-2"
 										>
 											{project.value}
 										</h3>
@@ -271,19 +271,21 @@
 													<span class="ml-1 text-xl font-bold text-slate-900"
 														>{formatPrice(project.price)}</span
 													>
-													{#if project.old_price && project.old_price > project.price}
-														<span class="ml-2 text-sm text-slate-400 line-through"
+													<!-- {#if project.old_price && project.old_price > project.price}
+														<span class="ml-1 text-sm text-slate-400 line-through"
 															>{formatPrice(project.old_price)}</span
 														>
-													{/if}
+													{/if} -->
 												{:else}
-													<span class="text-lg font-semibold text-slate-900">По запросу</span>
+													<span class="text-sm font-semibold text-slate-900">Цена по запросу</span>
 												{/if}
 											</div>
-											<ConsultationButton
+											<ServiceOrderButton
+												serviceType="furniture-project"
+												data={{ projectName: project.value }}
 												class="inline-flex items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700"
 											>
-												Заказать
+												Заказать проект
 												<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 													<path
 														stroke-linecap="round"
@@ -292,7 +294,7 @@
 														d="M9 5l7 7-7 7"
 													/>
 												</svg>
-											</ConsultationButton>
+											</ServiceOrderButton>
 										</div>
 									</div>
 								</article>

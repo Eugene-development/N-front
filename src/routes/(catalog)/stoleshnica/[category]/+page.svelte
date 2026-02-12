@@ -166,7 +166,7 @@
 					<!-- Информация о количестве поставщиков -->
 					<div class="mt-8 flex flex-wrap items-center justify-between gap-4">
 						<div class="flex items-center gap-2">
-							<span class="text-sm text-slate-500">Найдено:</span>
+							<span class="text-sm text-slate-500">Всего:</span>
 							<span class="font-semibold text-slate-900">{suppliers.length} поставщиков</span>
 						</div>
 					</div>

@@ -14,6 +14,13 @@
 	let isSuccess = $state(false);
 	let error = $state('');
 
+	// Автоматическое заполнение сообщения при открытии с данными
+	$effect(() => {
+		if (serviceOrderStore.isOpen && serviceOrderStore.data?.projectName) {
+			message = `Здравствуйте, меня интересует проект: ${serviceOrderStore.data.projectName}`;
+		}
+	});
+
 	// Закрытие модального окна
 	function close() {
 		serviceOrderStore.close();

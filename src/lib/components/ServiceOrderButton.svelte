@@ -13,13 +13,14 @@
 	/**
 	 * @type {{
 	 *   serviceType: 'consultation' | 'design-project' | 'furniture-project' | 'assembly' | 'measurement',
+	 *   data?: Object,
 	 *   class?: string,
 	 *   children: import('svelte').Snippet
 	 * }}
 	 */
-	let { serviceType, class: className = '', children } = $props();
+	let { serviceType, data = null, class: className = '', children } = $props();
 </script>
 
-<button type="button" onclick={() => serviceOrderStore.open(serviceType)} class={className}>
+<button type="button" onclick={() => serviceOrderStore.open(serviceType, data)} class={className}>
 	{@render children()}
 </button>

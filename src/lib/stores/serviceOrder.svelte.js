@@ -41,6 +41,7 @@ export const serviceConfig = {
 let isOpen = $state(false);
 /** @type {ServiceType | null} */
 let serviceType = $state(null);
+let data = $state(null);
 
 export const serviceOrderStore = {
 	get isOpen() {
@@ -49,15 +50,20 @@ export const serviceOrderStore = {
 	get serviceType() {
 		return serviceType;
 	},
+	get data() {
+		return data;
+	},
 	get config() {
 		return serviceType ? serviceConfig[serviceType] : null;
 	},
 	/**
 	 * Открыть модальное окно для конкретной услуги
 	 * @param {ServiceType} type
+	 * @param {Object} [payload] - Дополнительные данные (например, название проекта)
 	 */
-	open(type) {
+	open(type, payload = null) {
 		serviceType = type;
+		data = payload;
 		isOpen = true;
 	},
 	close() {
@@ -65,6 +71,7 @@ export const serviceOrderStore = {
 		// Сброс типа после закрытия анимации
 		setTimeout(() => {
 			serviceType = null;
+			data = null;
 		}, 300);
 	}
 };
