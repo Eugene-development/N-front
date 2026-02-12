@@ -42,7 +42,7 @@
 
 {#if project}
 	<div class="min-h-screen bg-slate-50">
-		<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+		<div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
 			<!-- Основной контент проекта -->
 			<div class="lg:grid lg:grid-cols-2 lg:gap-12">
 				<!-- Изображение / Placeholder -->
@@ -199,14 +199,14 @@
 					<!-- Цена -->
 					<div class="mt-6 flex items-baseline gap-4">
 						{#if project.price}
-							<span class="text-4xl font-bold text-slate-900">{formatPrice(project.price)}</span>
+							<span class="text-xl font-bold text-slate-900">{formatPrice(project.price)}</span>
 							{#if project.old_price && project.old_price > project.price}
 								<span class="text-xl text-slate-400 line-through"
 									>{formatPrice(project.old_price)}</span
 								>
 							{/if}
 						{:else}
-							<span class="text-3xl font-bold text-slate-900">Цена по запросу</span>
+							<span class="text-xl font-bold text-slate-900">Цена по запросу</span>
 						{/if}
 					</div>
 
