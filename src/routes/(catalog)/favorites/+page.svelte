@@ -1,5 +1,7 @@
 <script>
-	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import { goto } from '$app/navigation';
+	import { fade, scale } from 'svelte/transition';
+	import ServiceOrderButton from '$lib/components/ServiceOrderButton.svelte';
 	import ProductFavoriteButton from '$lib/components/ProductFavoriteButton.svelte';
 	import { favoritesState, removeFromFavorites, clearFavorites } from '$lib/stores/favorites.svelte.js';
 	
@@ -15,9 +17,22 @@
 		removeFromFavorites(id);
 	}
 
+	let isClearModalOpen = $state(false);
+
 	function handleClearAll() {
-		if (confirm('Вы уверены, что хотите очистить всё избранное?')) {
-			clearFavorites();
+		isClearModalOpen = true;
+	}
+
+	function confirmClear() {
+		clearFavorites();
+		isClearModalOpen = false;
+	}
+
+	function goBack() {
+		if (window.history.length > 1) {
+			window.history.back();
+		} else {
+			goto('/mebel');
 		}
 	}
 
@@ -98,12 +113,12 @@
 					</div>
 					<div>
 						<h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Избранное</h1>
-						<p class="mt-1 text-slate-500">{favorites.length}</p>
+						<!-- <p class="mt-1 text-slate-500">Всего: {favorites.length}</p> -->
 					</div>
 				</div>
 			</div>
 
-			<div class="flex gap-3">
+			<div class="flex gap-6">
 				{#if favorites.length > 0}
 					<button
 						onclick={handleClearAll}
@@ -125,9 +140,9 @@
 						Очистить всё
 					</button>
 				{/if}
-				<a
-					href="/mebel"
-					class="group inline-flex items-center gap-2 text-sm font-medium text-sky-600 transition hover:text-sky-700"
+				<button
+					onclick={goBack}
+					class="group inline-flex items-center gap-2 text-sm font-medium text-sky-600 transition hover:text-sky-700 cursor-pointer"
 				>
 					<svg
 						class="size-4 rotate-180 transition-transform group-hover:-translate-x-1"
@@ -138,8 +153,8 @@
 					>
 						<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 					</svg>
-					Продолжить покупки
-				</a>
+					Вернуться назад
+				</button>
 			</div>
 		</div>
 	</div>
@@ -209,7 +224,11 @@
 						<!-- Контент -->
 						<div class="p-5">
 							{#if item.category}
-								<p class="text-xs font-medium text-sky-600">{item.category}</p>
+								<p class="text-xs font-medium text-sky-600">
+									{typeof item.category === 'object'
+										? item.category.value || item.category.name || ''
+										: item.category}
+								</p>
 							{/if}
 							<h3 class="mt-1 text-lg font-semibold text-slate-900 line-clamp-2">{item.name}</h3>
 
@@ -229,14 +248,16 @@
 
 							<!-- Кнопки -->
 							<div class="mt-4 flex gap-2">
-								<ConsultationButton
+								<ServiceOrderButton
+									serviceType="furniture-project"
+									data={{ productName: item.name, productPrice: item.price }}
 									class="flex-1 rounded-xl bg-linear-to-r from-sky-500 to-cyan-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/30 disabled:cursor-not-allowed disabled:opacity-50"
 								>
-									{item.inStock !== false ? 'Заказать' : 'Уточнить наличие'}
-								</ConsultationButton>
+									{item.inStock !== false ? 'Заказать проект' : 'Уточнить наличие'}
+								</ServiceOrderButton>
 								{#if item.slug}
 									<a
-										href="/mebel/{item.slug}"
+										href="/mebel/{item.categorySlug || 'mebel'}/{item.slug}"
 										aria-label="Подробнее о проекте"
 										class="flex size-11 items-center justify-center rounded-xl border-2 border-slate-200 text-slate-500 transition-all duration-300 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-600"
 									>
@@ -346,3 +367,66 @@
 		</div>
 	</div>
 </section>
+
+<!-- Модальное окно подтверждения очистки -->
+{#if isClearModalOpen}
+	<div
+		class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4"
+		transition:fade={{ duration: 200 }}
+		role="dialog"
+		aria-modal="true"
+	>
+		<div
+			class="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-xl ring-1 ring-slate-900/5"
+			transition:scale={{ duration: 200, start: 0.95 }}
+		>
+			<div class="p-6">
+				<div class="flex items-start gap-4">
+					<div
+						class="flex-shrink-0 flex items-center justify-center size-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10"
+					>
+						<svg
+							class="size-6 text-red-600"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+							/>
+						</svg>
+					</div>
+					<div>
+						<h3 class="text-lg font-bold leading-6 text-slate-900">Очистить избранное</h3>
+						<div class="mt-2">
+							<p class="text-sm text-slate-500">
+								Вы уверены, что хотите удалить все товары из избранного? Это действие нельзя будет
+								отменить.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bg-slate-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 gap-3">
+				<button
+					type="button"
+					class="inline-flex w-full justify-center rounded-xl bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 transition-colors sm:w-auto"
+					onclick={confirmClear}
+				>
+					Очистить
+				</button>
+				<button
+					type="button"
+					class="mt-3 inline-flex w-full justify-center rounded-xl bg-white px-3.5 py-2.5 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50 transition-colors sm:mt-0 sm:w-auto"
+					onclick={() => (isClearModalOpen = false)}
+				>
+					Отмена
+				</button>
+			</div>
+		</div>
+	</div>
+{/if}

@@ -101,7 +101,7 @@
 
 						<!-- Кнопка избранного -->
 						<div class="absolute right-4 top-4 z-10">
-							<ProductFavoriteButton product={project} size="lg" />
+							<ProductFavoriteButton product={{ ...project, categorySlug }} size="lg" />
 						</div>
 
 						<!-- Кнопка увеличения (лупа с плюсом) -->
@@ -384,7 +384,7 @@
 									</div>
 									<!-- Кнопка избранного -->
 									<div class="absolute right-3 top-3">
-										<ProductFavoriteButton product={item} />
+										<ProductFavoriteButton product={{ ...item, categorySlug }} />
 									</div>
 								</div>
 								<div class="p-5">
@@ -493,7 +493,7 @@
 <!-- Lightbox модальное окно -->
 {#if isLightboxOpen && project?.images && project.images[selectedImageIndex]?.url}
 	<div
-		class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+		class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
 		onclick={() => (isLightboxOpen = false)}
 		onkeydown={(e) => {
 			if (e.key === 'Escape') isLightboxOpen = false;
@@ -513,7 +513,7 @@
 				e.stopPropagation();
 				isLightboxOpen = false;
 			}}
-			class="absolute top-4 right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+			class="absolute top-5 right-5 z-[110] flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900/50 text-white backdrop-blur-md transition-all hover:bg-neutral-900/75 focus:outline-none focus:ring-2 focus:ring-white/50"
 			aria-label="Закрыть"
 		>
 			<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

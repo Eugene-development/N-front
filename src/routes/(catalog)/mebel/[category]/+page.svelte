@@ -210,7 +210,7 @@
 
 									<!-- Кнопка избранного -->
 									<div class="absolute right-3 top-3 z-10">
-										<ProductFavoriteButton product={project} />
+										<ProductFavoriteButton product={{ ...project, categorySlug }} />
 									</div>
 
 									<div class="relative aspect-[4/3] overflow-hidden bg-slate-100">

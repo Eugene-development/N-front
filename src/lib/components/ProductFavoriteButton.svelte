@@ -43,8 +43,11 @@
 			image: product.images?.[0]?.url || product.image || '',
 			price: product.price || null,
 			oldPrice: product.old_price || product.oldPrice || null,
-			category: product.category || product.short_description || '',
+			category: typeof product.category === 'object' 
+				? (product.category?.value || product.category?.name || '') 
+				: (product.category || product.short_description || ''),
 			slug: product.slug || '',
+			categorySlug: product.categorySlug || product.category?.slug || '',
 			inStock: product.inStock !== false
 		};
 		
