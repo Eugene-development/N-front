@@ -11,7 +11,7 @@
 	let visibleCatalogMenu = $state(false);
 	let visibleCityMenu = $state(false);
 	let selectedCity = $state('Москва и МО');
-	let hoveredItem = $state(null);
+
 
 	// Статические рубрики (fallback)
 	const fallbackRubrics = [
@@ -69,7 +69,7 @@
 
 <header class="bg-gradient-to-r from-gray-100/80 via-gray-50/85 to-gray-100/80 backdrop-blur-md">
 	<nav
-		class="font-nav max-w-9xl mx-auto hidden items-center justify-between px-6 py-3 lg:flex lg:px-8"
+		class="font-nav max-w-9xl mx-auto hidden items-center justify-between px-6 py-2 lg:flex lg:px-8"
 		aria-label="Global"
 	>
 		<!-- Логотип -->
@@ -91,55 +91,49 @@
 		</div>
 
 		<!-- Навигация -->
-		<div class="flex items-center gap-x-1">
+		<div class="flex items-center gap-x-4">
 			{#each menuItems as item, i}
 				<a
 					href={item.href}
-					class="nav-item group relative px-4 py-2.5 text-base font-semibold tracking-wider transition-all duration-300 antialiased"
+					class="nav-item group relative flex items-center px-3 py-4 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300"
 					class:active={$page.url.pathname === item.href}
-					onmouseenter={() => (hoveredItem = i)}
-					onmouseleave={() => (hoveredItem = null)}
 				>
 					<span
-						class="relative z-10 text-black transition-colors duration-300 group-hover:text-sky-600"
+						class="transition-colors duration-300 group-hover:text-sky-600 {$page.url.pathname ===
+						item.href
+							? 'text-sky-600'
+							: 'text-slate-700'}"
 					>
 						{item.label}
 					</span>
 
-					<!-- Hover эффект -->
-					{#if hoveredItem === i}
-						<span
-							class="absolute inset-0 -z-10 rounded-xl bg-linear-to-r from-sky-50 to-cyan-50"
-							transition:scale={{ duration: 200, easing: cubicOut, start: 0.95 }}
-						></span>
-					{/if}
-
-					<!-- Активный индикатор -->
-					{#if $page.url.pathname === item.href}
-						<span
-							class="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-linear-to-r from-sky-500 to-cyan-500"
-						></span>
-					{/if}
+					<!-- Animated Underline -->
+					<span
+						class="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-sky-500 transition-transform duration-300 group-hover:scale-x-100"
+						class:scale-x-100={$page.url.pathname === item.href}
+					></span>
 				</a>
 			{/each}
 
 			<!-- Dropdown каталог -->
 			<div
-				class="relative"
+				class="relative h-full flex items-center"
 				role="navigation"
 				onmouseenter={() => (visibleCatalogMenu = true)}
 				onmouseleave={() => (visibleCatalogMenu = false)}
 			>
 				<button
 					type="button"
-					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-semibold text-black tracking-wider transition-all duration-300 hover:text-sky-600"
+					class="nav-item group relative flex items-center gap-x-1 px-3 py-4 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300 hover:text-sky-600 {visibleCatalogMenu
+						? 'text-sky-600'
+						: 'text-slate-700'}"
 					aria-expanded={visibleCatalogMenu}
 				>
 					<span>Каталог</span>
-					<svg
-						class="h-4 w-4 transition-transform duration-300 {visibleCatalogMenu
+					<!-- <svg
+						class="h-3.5 w-3.5 transition-transform duration-300 {visibleCatalogMenu
 							? 'rotate-180 text-sky-500'
-							: ''}"
+							: 'text-slate-400 group-hover:text-sky-500'}"
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
@@ -150,7 +144,13 @@
 							stroke-width="2"
 							d="M19 9l-7 7-7-7"
 						/>
-					</svg>
+					</svg> -->
+
+					<!-- Animated Underline -->
+					<span
+						class="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-sky-500 transition-transform duration-300 group-hover:scale-x-100"
+						class:scale-x-100={visibleCatalogMenu}
+					></span>
 				</button>
 
 				{#if visibleCatalogMenu}
@@ -228,21 +228,23 @@
 
 			<!-- Dropdown услуги -->
 			<div
-				class="relative"
+				class="relative h-full flex items-center"
 				role="navigation"
 				onmouseenter={() => (visibleServicesMenu = true)}
 				onmouseleave={() => (visibleServicesMenu = false)}
 			>
 				<button
 					type="button"
-					class="nav-item group flex items-center gap-x-1.5 px-4 py-2.5 text-base font-semibold text-black tracking-wider transition-all duration-300 hover:text-sky-600"
+					class="nav-item group relative flex items-center gap-x-1 px-3 py-4 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300 hover:text-sky-600 {visibleServicesMenu
+						? 'text-sky-600'
+						: 'text-slate-700'}"
 					aria-expanded={visibleServicesMenu}
 				>
-					<span>Наши услуги</span>
-					<svg
-						class="h-4 w-4 transition-transform duration-300 {visibleServicesMenu
+					<span>Услуги</span>
+					<!-- <svg
+						class="h-3.5 w-3.5 transition-transform duration-300 {visibleServicesMenu
 							? 'rotate-180 text-sky-500'
-							: ''}"
+							: 'text-slate-400 group-hover:text-sky-500'}"
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
@@ -253,7 +255,13 @@
 							stroke-width="2"
 							d="M19 9l-7 7-7-7"
 						/>
-					</svg>
+					</svg> -->
+
+					<!-- Animated Underline -->
+					<span
+						class="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-sky-500 transition-transform duration-300 group-hover:scale-x-100"
+						class:scale-x-100={visibleServicesMenu}
+					></span>
 				</button>
 
 				{#if visibleServicesMenu}
@@ -362,19 +370,23 @@
 			<!-- Контакты -->
 			<a
 				href="/contacts"
-				class="nav-item group relative px-4 py-2.5 text-base font-semibold transition-all duration-300"
+				class="nav-item group relative flex items-center px-3 py-4 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300"
 				class:active={$page.url.pathname === '/contacts'}
 			>
 				<span
-					class="relative z-10 text-black tracking-wide transition-colors duration-300 group-hover:text-sky-600"
+					class="transition-colors duration-300 group-hover:text-sky-600 {$page.url.pathname ===
+					'/contacts'
+						? 'text-sky-600'
+						: 'text-slate-700'}"
 				>
 					Контакты
 				</span>
-				{#if $page.url.pathname === '/contacts'}
-					<span
-						class="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-linear-to-r from-sky-500 to-cyan-500"
-					></span>
-				{/if}
+
+				<!-- Animated Underline -->
+				<span
+					class="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-sky-500 transition-transform duration-300 group-hover:scale-x-100"
+					class:scale-x-100={$page.url.pathname === '/contacts'}
+				></span>
 			</a>
 		</div>
 

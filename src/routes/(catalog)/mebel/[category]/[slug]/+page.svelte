@@ -493,7 +493,7 @@
 <!-- Lightbox модальное окно -->
 {#if isLightboxOpen && project?.images && project.images[selectedImageIndex]?.url}
 	<div
-		class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+		class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md"
 		onclick={() => (isLightboxOpen = false)}
 		onkeydown={(e) => {
 			if (e.key === 'Escape') isLightboxOpen = false;
@@ -506,58 +506,9 @@
 		aria-label="Просмотр изображения"
 		tabindex="-1"
 	>
-		<!-- Кнопка закрытия -->
-		<button
-			type="button"
-			onclick={(e) => {
-				e.stopPropagation();
-				isLightboxOpen = false;
-			}}
-			class="absolute top-5 right-5 z-[110] flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900/50 text-white backdrop-blur-md transition-all hover:bg-neutral-900/75 focus:outline-none focus:ring-2 focus:ring-white/50"
-			aria-label="Закрыть"
-		>
-			<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-			</svg>
-		</button>
-
-		<!-- Кнопка "Предыдущее" -->
-		{#if selectedImageIndex > 0}
-			<button
-				type="button"
-				onclick={(e) => {
-					e.stopPropagation();
-					selectedImageIndex--;
-				}}
-				class="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
-				aria-label="Предыдущее изображение"
-			>
-				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-				</svg>
-			</button>
-		{/if}
-
-		<!-- Кнопка "Следующее" -->
-		{#if selectedImageIndex < project.images.length - 1}
-			<button
-				type="button"
-				onclick={(e) => {
-					e.stopPropagation();
-					selectedImageIndex++;
-				}}
-				class="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
-				aria-label="Следующее изображение"
-			>
-				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-				</svg>
-			</button>
-		{/if}
-
 		<!-- Основное изображение -->
 		<div
-			class="max-h-[80vh] max-w-[90vw] flex flex-col items-center"
+			class="relative flex h-full w-full flex-col items-center justify-center outline-none"
 			onclick={(e) => e.stopPropagation()}
 			onkeydown={(e) => e.stopPropagation()}
 			role="presentation"
@@ -565,25 +516,29 @@
 			<img
 				src={project.images[selectedImageIndex].url}
 				alt="{project.value} - фото {selectedImageIndex + 1}"
-				class="max-h-[70vh] max-w-full object-contain rounded-lg shadow-2xl"
+				class="max-h-full max-w-full object-contain rounded-lg shadow-2xl bg-black"
 			/>
 
 			<!-- Счётчик изображений -->
-			<div class="mt-4 text-white/80 text-sm">
+			<div
+				class="mt-4 rounded-full bg-black/50 px-4 py-1 text-sm font-medium text-white backdrop-blur-sm absolute bottom-4 left-1/2 -translate-x-1/2 z-20"
+			>
 				{selectedImageIndex + 1} / {project.images.length}
 			</div>
 
-			<!-- Миниатюры в лайтбоксе -->
+			<!-- Миниатюры в лайтбоксе (скрыты на очень маленьких экранах, чтобы не перекрывать) -->
 			{#if project.images.length > 1}
-				<div class="mt-4 flex gap-2 overflow-x-auto max-w-[90vw] pb-2">
+				<div
+					class="absolute bottom-16 left-0 right-0 hidden justify-center sm:flex gap-2 overflow-x-auto pb-2 scrollbar-hide px-4 z-20"
+				>
 					{#each project.images as image, index (image.id)}
 						<button
 							type="button"
 							onclick={() => (selectedImageIndex = index)}
-							class="flex-shrink-0 w-16 h-12 overflow-hidden rounded-md transition-all {selectedImageIndex ===
+							class="flex-shrink-0 w-16 h-12 overflow-hidden rounded-md transition-all border border-white/20 {selectedImageIndex ===
 							index
-								? 'ring-2 ring-white'
-								: 'opacity-50 hover:opacity-75'}"
+								? 'ring-2 ring-sky-500 ring-offset-2 ring-offset-black opacity-100'
+								: 'opacity-50 hover:opacity-100 hover:scale-105'}"
 						>
 							{#if image.url}
 								<img
@@ -597,5 +552,72 @@
 				</div>
 			{/if}
 		</div>
+
+		<!-- Кнопка "Предыдущее" -->
+		{#if selectedImageIndex > 0}
+			<button
+				type="button"
+				onclick={(e) => {
+					e.stopPropagation();
+					selectedImageIndex--;
+				}}
+				class="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-[2147483647] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-neutral-900/50 text-white backdrop-blur-md transition-all hover:bg-neutral-900/80 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-white/30"
+				aria-label="Предыдущее изображение"
+			>
+				<svg
+					class="h-8 w-8"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2.5"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+				</svg>
+			</button>
+		{/if}
+
+		<!-- Кнопка "Следующее" -->
+		{#if selectedImageIndex < project.images.length - 1}
+			<button
+				type="button"
+				onclick={(e) => {
+					e.stopPropagation();
+					selectedImageIndex++;
+				}}
+				class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-[2147483647] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-neutral-900/50 text-white backdrop-blur-md transition-all hover:bg-neutral-900/80 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-white/30"
+				aria-label="Следующее изображение"
+			>
+				<svg
+					class="h-8 w-8"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2.5"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+				</svg>
+			</button>
+		{/if}
+
+		<!-- Кнопка закрытия -->
+		<button
+			type="button"
+			onclick={(e) => {
+				e.stopPropagation();
+				isLightboxOpen = false;
+			}}
+			class="absolute top-4 right-4 sm:top-8 sm:right-8 z-[2147483647] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-black text-white backdrop-blur-xl transition-all hover:bg-neutral-800 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-lg border border-white/10"
+			aria-label="Закрыть"
+		>
+			<svg
+				class="h-6 w-6 sm:h-8 sm:w-8"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+				stroke-width="2.5"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+			</svg>
+		</button>
 	</div>
 {/if}

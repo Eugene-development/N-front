@@ -2,9 +2,9 @@
 <section class="relative isolate overflow-hidden py-24 sm:py-32">
 	<!-- Фоновое изображение -->
 	<img
-		src="https://www.aristo.ru/upload/iblock/fde/z7l9t7wd13bsaqo3dzm2fwxv89ff3rh1/Aristo_SHkaf_kupe_CHernyi_-kashemir-4.jpg"
-		alt="Шкаф-купе"
-		class="absolute inset-0 -z-20 h-full w-full scale-x-[-1] object-cover"
+		src="/incentives/kitchen_main.png"
+		alt="Интерьер с мебелью"
+		class="absolute inset-0 -z-20 h-full w-full object-cover"
 	/>
 	<div class="absolute inset-0 -z-10 bg-black/50"></div>
 
