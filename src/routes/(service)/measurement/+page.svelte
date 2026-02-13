@@ -77,7 +77,7 @@
 				<div class="absolute -inset-4 rounded-2xl bg-sky-500/20 blur-3xl"></div>
 				<div class="relative overflow-hidden rounded-2xl shadow-2xl">
 					<img
-						src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"
+						src="/measurement_hero.png"
 						alt="Проектный замер помещения"
 						class="aspect-square w-full object-cover"
 					/>
@@ -322,7 +322,7 @@
 					class="relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105"
 				>
 					<img
-						src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
+						src="/measurement_process.png"
 						alt="Замер помещения"
 						class="aspect-square w-full object-cover"
 					/>

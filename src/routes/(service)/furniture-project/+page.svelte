@@ -321,7 +321,7 @@
 					class="relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105"
 				>
 					<img
-						src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80"
+						src="/furniture_design_process.png"
 						alt="Мебель на заказ"
 						class="aspect-square w-full object-cover"
 					/>

@@ -322,7 +322,7 @@
 					class="relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105"
 				>
 					<img
-						src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=800&q=80"
+						src="/furniture_assembly_process.png"
 						alt="Сборка мебели"
 						class="aspect-square w-full object-cover"
 					/>
