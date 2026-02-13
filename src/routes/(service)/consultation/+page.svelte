@@ -24,7 +24,7 @@
 		<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
 			<!-- Текст -->
 			<div>
-				<p class="text-base/7 font-semibold text-amber-400">Услуга</p>
+				<p class="text-base/7 font-semibold text-amber-400">Услуга компании</p>
 				<h1
 					class="mt-4 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
 				>
@@ -73,11 +73,11 @@
 			</div>
 
 			<!-- Изображение -->
-			<div class="relative">
+			<div class="relative lg:scale-[1.15]">
 				<div class="absolute -inset-4 rounded-2xl bg-sky-500/20 blur-3xl"></div>
 				<div class="relative overflow-hidden rounded-2xl shadow-2xl">
 					<img
-						src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80"
+						src="/consultation_hero.png"
 						alt="Консультация дизайнера"
 						class="aspect-square w-full object-cover"
 					/>
@@ -220,7 +220,7 @@
 					class="relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105"
 				>
 					<img
-						src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80"
+						src="/consultation_process.png"
 						alt="Дизайн интерьера"
 						class="aspect-square w-full object-cover"
 					/>

@@ -65,11 +65,21 @@
 		{ href: '/furniture-project', label: 'Проект мебели', icon: 'project', desc: 'Индивидуальный подход' },
 		{ href: '/assembly', label: 'Сборка и установка', icon: 'tools', desc: 'Профессиональный монтаж' }
 	];
+	/* Вычисляемые свойства для подсветки активных разделов */
+	let isServicesActive = $derived(
+		visibleServicesMenu ||
+			serviceItems.some((item) => $page.url.pathname === item.href)
+	);
+
+	let isCatalogActive = $derived(
+		visibleCatalogMenu ||
+			catalogItems.some((item) => $page.url.pathname.startsWith(item.href))
+	);
 </script>
 
 <header class="bg-gradient-to-r from-gray-100/80 via-gray-50/85 to-gray-100/80 backdrop-blur-md">
 	<nav
-		class="font-nav max-w-9xl mx-auto hidden items-center justify-between px-6 py-2 lg:flex lg:px-8"
+		class="font-nav max-w-9xl mx-auto hidden items-center justify-between px-6 py-2.5 lg:flex lg:px-8"
 		aria-label="Global"
 	>
 		<!-- Логотип -->
@@ -95,7 +105,7 @@
 			{#each menuItems as item, i}
 				<a
 					href={item.href}
-					class="nav-item group relative flex items-center px-3 py-4 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300"
+					class="nav-item group relative flex items-center px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300"
 					class:active={$page.url.pathname === item.href}
 				>
 					<span
@@ -124,7 +134,7 @@
 			>
 				<button
 					type="button"
-					class="nav-item group relative flex items-center gap-x-1 px-3 py-4 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300 hover:text-sky-600 {visibleCatalogMenu
+					class="nav-item group relative flex items-center gap-x-1 px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300 hover:text-sky-600 {isCatalogActive
 						? 'text-sky-600'
 						: 'text-slate-700'}"
 					aria-expanded={visibleCatalogMenu}
@@ -149,7 +159,7 @@
 					<!-- Animated Underline -->
 					<span
 						class="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-sky-500 transition-transform duration-300 group-hover:scale-x-100"
-						class:scale-x-100={visibleCatalogMenu}
+						class:scale-x-100={isCatalogActive}
 					></span>
 				</button>
 
@@ -235,7 +245,7 @@
 			>
 				<button
 					type="button"
-					class="nav-item group relative flex items-center gap-x-1 px-3 py-4 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300 hover:text-sky-600 {visibleServicesMenu
+					class="nav-item group relative flex items-center gap-x-1 px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300 hover:text-sky-600 {isServicesActive
 						? 'text-sky-600'
 						: 'text-slate-700'}"
 					aria-expanded={visibleServicesMenu}
@@ -260,7 +270,7 @@
 					<!-- Animated Underline -->
 					<span
 						class="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-sky-500 transition-transform duration-300 group-hover:scale-x-100"
-						class:scale-x-100={visibleServicesMenu}
+						class:scale-x-100={isServicesActive}
 					></span>
 				</button>
 
@@ -370,7 +380,7 @@
 			<!-- Контакты -->
 			<a
 				href="/contacts"
-				class="nav-item group relative flex items-center px-3 py-4 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300"
+				class="nav-item group relative flex items-center px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300"
 				class:active={$page.url.pathname === '/contacts'}
 			>
 				<span

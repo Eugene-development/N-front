@@ -24,7 +24,7 @@
 		<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
 			<!-- Текст -->
 			<div>
-				<p class="text-base/7 font-semibold text-orange-400">Услуга</p>
+				<p class="text-base/7 font-semibold text-orange-400">Услуга компании</p>
 				<h1
 					class="mt-4 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
 				>
@@ -77,7 +77,7 @@
 			</div>
 
 			<!-- Изображение -->
-			<div class="relative">
+			<div class="relative lg:scale-[1.15]">
 				<div class="absolute -inset-4 rounded-2xl bg-sky-500/20 blur-3xl"></div>
 				<div class="relative overflow-hidden rounded-2xl shadow-2xl">
 					<img
