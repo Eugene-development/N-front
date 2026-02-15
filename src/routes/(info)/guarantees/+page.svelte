@@ -49,9 +49,9 @@
 	</div>
 
 	<!-- Основные гарантии -->
-	<div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+	<div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
 		<div class="text-center">
-			<h2 class="text-3xl font-bold text-slate-900">Сроки гарантии</h2>
+			<h2 class="text-4xl font-bold text-slate-900">Сроки гарантии</h2>
 			<p class="mx-auto mt-4 max-w-2xl text-slate-600">
 				Официальная гарантия от производителей на все категории
 			</p>
@@ -82,8 +82,10 @@
 						<span class="text-4xl font-bold text-slate-900">3+</span>
 						<span class="ml-1 text-lg text-slate-500">лет</span>
 					</div>
-					<h3 class="mt-2 text-lg font-semibold text-slate-900">Фасады из массива</h3>
-					<p class="mt-1 text-sm text-slate-500">Натуральное дерево с защитным покрытием</p>
+					<h3 class="mt-2 text-lg font-semibold text-slate-900">Фасады из дерева</h3>
+					<p class="mt-1 text-sm text-slate-500">
+						Натуральное дерево или шпон с защитным покрытием
+					</p>
 				</div>
 			</div>
 
@@ -112,7 +114,9 @@
 						<span class="ml-1 text-lg text-slate-500">лет</span>
 					</div>
 					<h3 class="mt-2 text-lg font-semibold text-slate-900">Каркасы мебели</h3>
-					<p class="mt-1 text-sm text-slate-500">ЛДСП и МДФ высокого качества</p>
+					<p class="mt-1 text-sm text-slate-500">
+						ЛДСП и МДФ с двусторонним покрытием высокого качества
+					</p>
 				</div>
 			</div>
 
@@ -141,7 +145,7 @@
 						<span class="ml-1 text-lg text-slate-500">лет</span>
 					</div>
 					<h3 class="mt-2 text-lg font-semibold text-slate-900">Столешницы</h3>
-					<p class="mt-1 text-sm text-slate-500">Кварц, акрил и стеновые панели</p>
+					<p class="mt-1 text-sm text-slate-500">Вариант из кварца, акрила и компакт-плиты</p>
 				</div>
 			</div>
 
@@ -166,7 +170,7 @@
 						</svg>
 					</div>
 					<div class="mt-4">
-						<span class="text-4xl font-bold text-slate-900">10</span>
+						<span class="text-4xl font-bold text-slate-900">5</span>
 						<span class="ml-1 text-lg text-slate-500">лет</span>
 					</div>
 					<h3 class="mt-2 text-lg font-semibold text-slate-900">Бытовая техника</h3>
@@ -202,7 +206,9 @@
 						<span class="ml-1 text-lg text-slate-500">лет</span>
 					</div>
 					<h3 class="mt-2 text-lg font-semibold text-slate-900">Алюминиевый профиль</h3>
-					<p class="mt-1 text-sm text-slate-500">Фасады с алюминиевой рамкой</p>
+					<p class="mt-1 text-sm text-slate-500">
+						Фасады с алюминиевой рамкой со стелом и без него
+					</p>
 				</div>
 			</div>
 
@@ -227,11 +233,11 @@
 						</svg>
 					</div>
 					<div class="mt-4">
-						<span class="text-4xl font-bold text-slate-900">25</span>
+						<span class="text-4xl font-bold text-slate-900">5</span>
 						<span class="ml-1 text-lg text-slate-500">лет</span>
 					</div>
-					<h3 class="mt-2 text-lg font-semibold text-slate-900">Фурнитура Blum</h3>
-					<p class="mt-1 text-sm text-slate-500">Петли и направляющие премиум-класса</p>
+					<h3 class="mt-2 text-lg font-semibold text-slate-900">Фурнитура</h3>
+					<p class="mt-1 text-sm text-slate-500">Петли, направляющие и навесы премиум-класса</p>
 				</div>
 			</div>
 
@@ -260,7 +266,7 @@
 						<span class="ml-1 text-lg text-slate-500">лет</span>
 					</div>
 					<h3 class="mt-2 text-lg font-semibold text-slate-900">Мойки</h3>
-					<p class="mt-1 text-sm text-slate-500">Нержавеющая сталь и гранит</p>
+					<p class="mt-1 text-sm text-slate-500">Нержавеющая сталь PVD и композитный камень</p>
 				</div>
 			</div>
 
@@ -285,18 +291,20 @@
 						</svg>
 					</div>
 					<div class="mt-4">
-						<span class="text-4xl font-bold text-slate-900">10</span>
+						<span class="text-4xl font-bold text-slate-900">7</span>
 						<span class="ml-1 text-lg text-slate-500">лет</span>
 					</div>
 					<h3 class="mt-2 text-lg font-semibold text-slate-900">Стекло и зеркала</h3>
-					<p class="mt-1 text-sm text-slate-500">Закалённое стекло и зеркальные фасады</p>
+					<p class="mt-1 text-sm text-slate-500">
+						Закалённое стекло и зеркальные фасады с рисунком и без него
+					</p>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<!-- Что покрывает гарантия -->
-	<div class="bg-white py-16">
+	<div class="bg-white py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
 				<div>
@@ -408,7 +416,7 @@
 	</div>
 
 	<!-- Процесс обращения -->
-	<div class="bg-slate-50 py-16">
+	<div class="bg-slate-50 py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="text-center">
 				<h2 class="text-3xl font-bold text-slate-900">Как обратиться по гарантии</h2>
@@ -478,7 +486,7 @@
 	</div>
 
 	<!-- CTA секция -->
-	<div class="bg-linear-to-r from-slate-800 to-slate-900 py-16">
+	<div class="bg-linear-to-r from-slate-800 to-slate-900 py-24">
 		<div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
 			<div
 				class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur"
@@ -511,7 +519,7 @@
 					</svg>
 				</ConsultationButton>
 				<a
-					href="tel:+74951234567"
+					href="tel:+79154000020"
 					class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur transition-all hover:bg-white/20"
 				>
 					<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

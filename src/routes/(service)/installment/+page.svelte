@@ -70,7 +70,7 @@
 	<!-- Программы рассрочки -->
 	<div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
 		<div class="text-center">
-			<h2 class="text-3xl font-bold text-slate-900">Программы рассрочки</h2>
+			<h2 class="text-4xl font-bold text-slate-900">Программы рассрочки</h2>
 			<p class="mx-auto mt-4 max-w-2xl text-slate-600">Выберите удобный срок и условия оплаты</p>
 		</div>
 
@@ -379,7 +379,7 @@
 	</div>
 
 	<!-- Требования -->
-	<div class="bg-white py-16">
+	<div class="bg-white py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="text-center">
 				<h2 class="text-3xl font-bold text-slate-900">Что нужно для оформления</h2>
@@ -448,7 +448,7 @@
 	</div>
 
 	<!-- Как это работает -->
-	<div class="bg-slate-50 py-16">
+	<div class="bg-slate-50 py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="text-center">
 				<h2 class="text-3xl font-bold text-slate-900">Как оформить рассрочку</h2>
@@ -463,7 +463,9 @@
 						1
 					</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Выберите проект</h3>
-					<p class="mt-2 text-sm text-slate-500">Подберите мебель или технику в нашем каталоге</p>
+					<p class="mt-2 text-sm text-slate-500">
+						Подберите мебель или технику в нашем каталоге на сайте
+					</p>
 					<div
 						class="absolute right-0 top-8 hidden h-0.5 w-full bg-linear-to-r from-violet-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"
 					></div>
@@ -476,7 +478,9 @@
 						2
 					</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Оставьте заявку</h3>
-					<p class="mt-2 text-sm text-slate-500">Заполните анкету онлайн или в салоне</p>
+					<p class="mt-2 text-sm text-slate-500">
+						Заполните анкету онлайн или в салоне нашего партнёра
+					</p>
 					<div
 						class="absolute right-0 top-8 hidden h-0.5 w-full bg-linear-to-r from-violet-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"
 					></div>
@@ -489,7 +493,9 @@
 						3
 					</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Получите решение</h3>
-					<p class="mt-2 text-sm text-slate-500">Одобрение за 15 минут от банков-партнёров</p>
+					<p class="mt-2 text-sm text-slate-500">
+						Одобрение как правило в течение 15 минут от банка
+					</p>
 					<div
 						class="absolute right-0 top-8 hidden h-0.5 w-full bg-linear-to-r from-violet-200 to-transparent lg:block lg:w-1/2 lg:translate-x-1/2"
 					></div>
@@ -502,14 +508,16 @@
 						✓
 					</div>
 					<h3 class="mt-6 text-lg font-semibold text-slate-900">Заберите покупку</h3>
-					<p class="mt-2 text-sm text-slate-500">Подпишите договор и получите проект</p>
+					<p class="mt-2 text-sm text-slate-500">
+						Подпишите договор и пользуйтесь новой мебелью или техникой
+					</p>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<!-- Банки-партнёры -->
-	<div class="bg-white py-16">
+	<div class="bg-white py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="text-center">
 				<h2 class="text-3xl font-bold text-slate-900">Банки-партнёры</h2>
@@ -536,7 +544,7 @@
 	</div>
 
 	<!-- FAQ -->
-	<div class="bg-slate-50 py-16">
+	<div class="bg-slate-50 py-24">
 		<div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
 			<div class="text-center">
 				<h2 class="text-3xl font-bold text-slate-900">Частые вопросы</h2>
@@ -555,7 +563,7 @@
 				<div class="rounded-2xl bg-white p-6 shadow-sm">
 					<h3 class="text-lg font-semibold text-slate-900">Какой минимальный первый взнос?</h3>
 					<p class="mt-2 text-slate-600">
-						Минимальный первый взнос зависит от программы — от 0% до 20% от стоимости заказа.
+						Первый взнос зависит от программы — от 0% до 20% от стоимости заказа.
 					</p>
 				</div>
 
@@ -575,7 +583,7 @@
 	</div>
 
 	<!-- CTA секция -->
-	<div class="bg-linear-to-r from-violet-600 to-purple-700 py-16">
+	<div class="bg-linear-to-r from-violet-600 to-purple-700 py-24">
 		<div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
 			<div
 				class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur"
@@ -591,13 +599,13 @@
 			</div>
 			<h2 class="text-3xl font-bold text-white sm:text-4xl">Оформите рассрочку сегодня</h2>
 			<p class="mx-auto mt-4 max-w-xl text-lg text-purple-100">
-				Получите мебель мечты прямо сейчас — платите комфортными частями
+				Получите мебель и технику не откладывая покупку — платите комфортными частями
 			</p>
 			<div class="mt-8 flex flex-wrap justify-center gap-4">
 				<ConsultationButton
 					class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-purple-600 shadow-lg transition-all hover:bg-purple-50 hover:shadow-xl"
 				>
-					Оформить рассрочку
+					Консультация
 					<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path
 							stroke-linecap="round"
@@ -608,7 +616,7 @@
 					</svg>
 				</ConsultationButton>
 				<a
-					href="tel:+74951234567"
+					href="tel:+79154000020"
 					class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur transition-all hover:bg-white/20"
 				>
 					<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

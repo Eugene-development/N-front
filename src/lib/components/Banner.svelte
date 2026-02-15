@@ -76,21 +76,21 @@
 			>
 				Гарантии
 			</a>
-			<svg
+			<!-- <svg
 				viewBox="0 0 2 2"
 				class="inline h-0.5 w-0.5 fill-current text-sky-500"
 				aria-hidden="true"
 			>
 				<circle cx={1} cy={1} r={1} />
-			</svg>
-			<a
+			</svg> -->
+			<!-- <a
 				href="/blog"
 				class={$page.url.pathname === '/blog'
 					? 'whitespace-nowrap text-xs text-sky-500'
 					: 'whitespace-nowrap text-xs text-gray-50 hover:text-sky-500'}
 			>
 				Блог
-			</a>
+			</a> -->
 		</div>
 	</div>
 

@@ -325,7 +325,7 @@
 							Получить консультацию
 						</ConsultationButton>
 						<a
-							href="tel:+74951234567"
+							href="tel:+79154000020"
 							class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
 						>
 							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
