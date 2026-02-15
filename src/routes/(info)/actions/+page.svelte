@@ -1,3 +1,7 @@
+<script>
+	import ServiceOrderButton from '$lib/components/ServiceOrderButton.svelte';
+</script>
+
 <svelte:head>
 	<title>Акции | Новострой</title>
 	<meta name="description" content="Акции, скидки и подарки от компании Новострой" />
@@ -421,15 +425,15 @@
 			Свяжитесь с нами и мы расскажем обо всех актуальных предложениях
 		</p>
 		<div class="mt-10">
-			<a
-				href="/contacts"
-				class="inline-flex items-center gap-2 rounded-lg bg-red-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-red-500/30 transition duration-300 hover:-translate-y-1 hover:bg-red-400 hover:shadow-xl hover:shadow-red-500/40"
+			<ServiceOrderButton
+				serviceType="consultation"
+				class="inline-flex items-center gap-2 rounded-lg bg-red-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-red-500/30 transition duration-300 hover:-translate-y-1 hover:bg-red-400 hover:shadow-xl hover:shadow-red-500/40 cursor-pointer"
 			>
 				Связаться с нами
 				<svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 				</svg>
-			</a>
+			</ServiceOrderButton>
 		</div>
 		<p class="mt-8 text-sm text-gray-500">
 			Или позвоните: <a href="tel:+79154000020" class="text-red-500 transition hover:text-red-400"
