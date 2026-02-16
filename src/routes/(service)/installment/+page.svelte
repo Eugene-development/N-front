@@ -531,7 +531,7 @@
 					<span class="text-xl font-bold text-slate-400">Сбербанк</span>
 				</div>
 				<div class="flex h-24 items-center justify-center rounded-xl bg-slate-50 p-6">
-					<span class="text-xl font-bold text-slate-400">Тинькофф</span>
+					<span class="text-xl font-bold text-slate-400">Т-банк</span>
 				</div>
 				<div class="flex h-24 items-center justify-center rounded-xl bg-slate-50 p-6">
 					<span class="text-xl font-bold text-slate-400">Альфа-Банк</span>
