@@ -43,7 +43,7 @@
 					<ConsultationButton
 						class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-purple-600 shadow-lg transition-all hover:bg-purple-50 hover:shadow-xl"
 					>
-						Оформить рассрочку
+						Консультация по рассрочке
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path
 								stroke-linecap="round"

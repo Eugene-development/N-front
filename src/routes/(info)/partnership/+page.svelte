@@ -42,7 +42,7 @@
 						<ConsultationButton
 							class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl"
 						>
-							Стать партнёром
+							Консультация по партнёрству
 							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path
 									stroke-linecap="round"
@@ -355,12 +355,12 @@
 					<div
 						class="inline-flex items-center rounded-full bg-sky-500/10 px-4 py-2 text-sm font-medium text-sky-400"
 					>
-						Для производителей
+						Для производителей и поставщиков
 					</div>
-					<h2 class="mt-6 text-3xl font-bold text-white sm:text-4xl">Вы мебельная фабрика?</h2>
+					<h2 class="mt-6 text-3xl font-bold text-white sm:text-4xl">Вы организация?</h2>
 					<p class="mt-6 text-lg text-slate-300">
 						Мы готовы предложить уникальные возможности для совместного развития. Наш опыт и
-						современные технологии интернет-маркетинга помогут привлечь новых лояльных клиентов.
+						современные технологии маркетинга помогут привлечь новых лояльных клиентов.
 					</p>
 
 					<div class="mt-8 space-y-4">
@@ -394,7 +394,7 @@
 									d="M5 13l4 4L19 7"
 								/>
 							</svg>
-							Готовая клиентская база
+							Широкая клиентская база
 						</div>
 						<div class="flex items-center gap-3 text-slate-300">
 							<svg
@@ -410,7 +410,7 @@
 									d="M5 13l4 4L19 7"
 								/>
 							</svg>
-							Профессиональная презентация
+							Профессиональные кураторы
 						</div>
 						<div class="flex items-center gap-3 text-slate-300">
 							<svg
@@ -462,6 +462,14 @@
 						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
 							<div class="text-4xl font-bold text-white">90%</div>
 							<div class="mt-2 text-slate-400">конверсия</div>
+						</div>
+						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
+							<div class="text-4xl font-bold text-white">24/7</div>
+							<div class="mt-2 text-slate-400">поддержка</div>
+						</div>
+						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
+							<div class="text-4xl font-bold text-white">100%</div>
+							<div class="mt-2 text-slate-400">успех</div>
 						</div>
 					</div>
 				</div>
@@ -555,7 +563,7 @@
 				<ConsultationButton
 					class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl"
 				>
-					Стать партнёром
+					Консультация по партнёрству
 					<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path
 							stroke-linecap="round"

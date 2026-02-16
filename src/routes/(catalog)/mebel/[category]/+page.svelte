@@ -97,7 +97,7 @@
 									serviceType="furniture-project"
 									class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600 cursor-pointer"
 								>
-									Заказать проект
+									Разработать проект
 									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 										<path
 											stroke-linecap="round"
@@ -213,7 +213,7 @@
 										<ProductFavoriteButton product={{ ...project, categorySlug }} />
 									</div>
 
-									<div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+									<a href="/mebel/{categorySlug}/{project.slug}" class="relative block aspect-[4/3] overflow-hidden bg-slate-100">
 										{#if project.images && project.images.length > 0 && project.images[0].url}
 											<img
 												src={project.images[0].url}
@@ -247,14 +247,13 @@
 										<div
 											class="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 transition-all duration-300 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
 										>
-											<a
-												href="/mebel/{categorySlug}/{project.slug}"
+											<span
 												class="flex-1 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-lg transition-all hover:bg-sky-500 hover:text-white text-center"
 											>
 												Подробнее
-											</a>
+											</span>
 										</div>
-									</div>
+									</a>
 									<div class="p-5">
 										{#if project.short_description}
 											<p class="text-xs text-slate-500 line-clamp-1">{project.short_description}</p>
@@ -285,7 +284,7 @@
 												data={{ projectName: project.value }}
 												class="inline-flex items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700"
 											>
-												Заказать проект
+												Разработать проект
 												<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 													<path
 														stroke-linecap="round"
