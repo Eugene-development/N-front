@@ -17,6 +17,15 @@
 	let selectedImageIndex = $state(0);
 	let isLightboxOpen = $state(false);
 
+	// Скрываем header когда lightbox открыт
+	$effect(() => {
+		if (isLightboxOpen) {
+			document.body.classList.add('lightbox-open');
+		} else {
+			document.body.classList.remove('lightbox-open');
+		}
+	});
+
 	const formatPrice = (price) => {
 		if (!price) return 'По запросу';
 		return new Intl.NumberFormat('ru-RU').format(price) + ' ₽';
@@ -516,7 +525,7 @@
 			<img
 				src={project.images[selectedImageIndex].url}
 				alt="{project.value} - фото {selectedImageIndex + 1}"
-				class="max-h-full max-w-full object-contain rounded-lg shadow-2xl bg-black"
+				class="w-[90vw] h-[80vh] object-contain rounded-lg shadow-2xl bg-black"
 			/>
 
 			<!-- Счётчик изображений -->
@@ -561,7 +570,7 @@
 					e.stopPropagation();
 					selectedImageIndex--;
 				}}
-				class="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-[2147483647] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-neutral-900/50 text-white backdrop-blur-md transition-all hover:bg-neutral-900/80 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-white/30"
+				class="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-[10000] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-neutral-900/50 text-white backdrop-blur-md transition-all hover:bg-neutral-900/80 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-white/30"
 				aria-label="Предыдущее изображение"
 			>
 				<svg
@@ -584,7 +593,7 @@
 					e.stopPropagation();
 					selectedImageIndex++;
 				}}
-				class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-[2147483647] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-neutral-900/50 text-white backdrop-blur-md transition-all hover:bg-neutral-900/80 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-white/30"
+				class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-[10000] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-neutral-900/50 text-white backdrop-blur-md transition-all hover:bg-neutral-900/80 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-white/30"
 				aria-label="Следующее изображение"
 			>
 				<svg
@@ -606,7 +615,7 @@
 				e.stopPropagation();
 				isLightboxOpen = false;
 			}}
-			class="absolute top-4 right-4 sm:top-8 sm:right-8 z-[2147483647] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-black text-white backdrop-blur-xl transition-all hover:bg-neutral-800 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-lg border border-white/10"
+			class="absolute top-4 right-4 sm:top-8 sm:right-8 z-[10000] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-black text-white backdrop-blur-xl transition-all hover:bg-neutral-800 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-lg border border-white/10"
 			aria-label="Закрыть"
 		>
 			<svg
@@ -621,3 +630,14 @@
 		</button>
 	</div>
 {/if}
+
+
+<style>
+	:global(body.lightbox-open header) {
+		display: none !important;
+	}
+	
+	:global(body.lightbox-open) {
+		overflow: hidden;
+	}
+</style>
