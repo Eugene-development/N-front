@@ -52,19 +52,56 @@
 		isSubmitting = true;
 
 		try {
-			// TODO: Заменить на реальный API endpoint
-			const response = await fetch('/api/consultation', {
+			const sourceUrl = typeof window !== 'undefined' ? window.location.href : '';
+
+			// Подготовка данных для отправки
+			const requestData = {
+				service_type: 'consultation',
+				name: name.trim(),
+				phone: phone.trim(),
+				message: message.trim() || null,
+				source_url: sourceUrl
+			};
+
+			// Сохраняем заявку в БД через GraphQL API
+			const graphqlUrl = import.meta.env.VITE_GRAPHQL_API_URL;
+			const graphqlMutation = `
+				mutation CreateServiceRequest($input: CreateServiceRequestInput!) {
+					createServiceRequest(input: $input) {
+						id
+						service_type
+						name
+						phone
+						status
+						created_at
+					}
+				}
+			`;
+
+			const graphqlResponse = await fetch(graphqlUrl, {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ name, phone, message })
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
+				},
+				body: JSON.stringify({
+					query: graphqlMutation,
+					variables: {
+						input: requestData
+					}
+				})
 			});
 
-			if (!response.ok) {
-				throw new Error('Ошибка отправки');
+			const graphqlResult = await graphqlResponse.json();
+
+			if (graphqlResult.errors) {
+				console.error('GraphQL error:', graphqlResult.errors);
+				throw new Error('Ошибка сохранения заявки');
 			}
 
 			isSuccess = true;
 		} catch (err) {
+			console.error('Consultation request error:', err);
 			error = 'Не удалось отправить заявку. Попробуйте позже.';
 		} finally {
 			isSubmitting = false;
