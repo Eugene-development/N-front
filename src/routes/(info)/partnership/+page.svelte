@@ -204,10 +204,141 @@
 							/>
 						</svg>
 					</div>
-					<h3 class="mt-6 text-xl font-bold text-slate-900">Самозанятые</h3>
+					<h3 class="mt-6 text-xl font-bold text-slate-900">Физ. лица</h3>
 					<p class="mt-3 text-slate-600">
-						Дополнительный доход без привязки к офису. Ищите клиентов. Работайте в удобное время.
+						Рекомендуйте нас друзьям и знакомым. Получайте вознаграждение 5% от суммы каждого
+						заказа.
 					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Для фабрик -->
+	<div class="bg-linear-to-br from-slate-800 to-slate-900 py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+				<div>
+					<div
+						class="inline-flex items-center rounded-full bg-sky-500/10 px-4 py-2 text-sm font-medium text-sky-400"
+					>
+						Для производителей и поставщиков
+					</div>
+					<h2 class="mt-6 text-3xl font-bold text-white sm:text-4xl">Вы организация?</h2>
+					<p class="mt-6 text-lg text-slate-300">
+						Мы готовы предложить уникальные возможности для совместного развития. Наш опыт и
+						современные технологии маркетинга помогут привлечь новых лояльных клиентов.
+					</p>
+
+					<div class="mt-8 space-y-4">
+						<div class="flex items-center gap-3 text-slate-300">
+							<svg
+								class="h-6 w-6 text-sky-400"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M5 13l4 4L19 7"
+								/>
+							</svg>
+							Продвижение вашей продукции
+						</div>
+						<div class="flex items-center gap-3 text-slate-300">
+							<svg
+								class="h-6 w-6 text-sky-400"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M5 13l4 4L19 7"
+								/>
+							</svg>
+							Широкая клиентская база
+						</div>
+						<div class="flex items-center gap-3 text-slate-300">
+							<svg
+								class="h-6 w-6 text-sky-400"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M5 13l4 4L19 7"
+								/>
+							</svg>
+							Профессиональные кураторы
+						</div>
+						<div class="flex items-center gap-3 text-slate-300">
+							<svg
+								class="h-6 w-6 text-sky-400"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M5 13l4 4L19 7"
+								/>
+							</svg>
+							Маркетинговая поддержка
+						</div>
+					</div>
+
+					<ConsultationButton
+						class="mt-8 inline-flex items-center gap-2 rounded-xl bg-sky-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-sky-600 hover:shadow-xl"
+					>
+						Обсудить сотрудничество
+						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M17 8l4 4m0 0l-4 4m4-4H3"
+							/>
+						</svg>
+					</ConsultationButton>
+				</div>
+
+				<div class="mt-12 lg:mt-0">
+					<div class="grid grid-cols-2 gap-4">
+						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
+							<div class="text-4xl font-bold text-white">500+</div>
+							<div class="mt-2 text-slate-400">агентов</div>
+						</div>
+						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
+							<div class="text-4xl font-bold text-white">20+</div>
+							<div class="mt-2 text-slate-400">лет опыта</div>
+						</div>
+						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
+							<div class="text-4xl font-bold text-white">140+</div>
+							<div class="mt-2 text-slate-400">партнёров</div>
+						</div>
+						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
+							<div class="text-4xl font-bold text-white">90%</div>
+							<div class="mt-2 text-slate-400">конверсия</div>
+						</div>
+						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
+							<div class="text-4xl font-bold text-white">24/7</div>
+							<div class="mt-2 text-slate-400">поддержка</div>
+						</div>
+						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
+							<div class="text-4xl font-bold text-white">100%</div>
+							<div class="mt-2 text-slate-400">успех</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -347,136 +478,6 @@
 		</div>
 	</div>
 
-	<!-- Для фабрик -->
-	<div class="bg-linear-to-br from-slate-800 to-slate-900 py-24">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
-				<div>
-					<div
-						class="inline-flex items-center rounded-full bg-sky-500/10 px-4 py-2 text-sm font-medium text-sky-400"
-					>
-						Для производителей и поставщиков
-					</div>
-					<h2 class="mt-6 text-3xl font-bold text-white sm:text-4xl">Вы организация?</h2>
-					<p class="mt-6 text-lg text-slate-300">
-						Мы готовы предложить уникальные возможности для совместного развития. Наш опыт и
-						современные технологии маркетинга помогут привлечь новых лояльных клиентов.
-					</p>
-
-					<div class="mt-8 space-y-4">
-						<div class="flex items-center gap-3 text-slate-300">
-							<svg
-								class="h-6 w-6 text-sky-400"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M5 13l4 4L19 7"
-								/>
-							</svg>
-							Продвижение вашей продукции
-						</div>
-						<div class="flex items-center gap-3 text-slate-300">
-							<svg
-								class="h-6 w-6 text-sky-400"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M5 13l4 4L19 7"
-								/>
-							</svg>
-							Широкая клиентская база
-						</div>
-						<div class="flex items-center gap-3 text-slate-300">
-							<svg
-								class="h-6 w-6 text-sky-400"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M5 13l4 4L19 7"
-								/>
-							</svg>
-							Профессиональные кураторы
-						</div>
-						<div class="flex items-center gap-3 text-slate-300">
-							<svg
-								class="h-6 w-6 text-sky-400"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M5 13l4 4L19 7"
-								/>
-							</svg>
-							Маркетинговая поддержка
-						</div>
-					</div>
-
-					<ConsultationButton
-						class="mt-8 inline-flex items-center gap-2 rounded-xl bg-sky-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-sky-600 hover:shadow-xl"
-					>
-						Обсудить сотрудничество
-						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M17 8l4 4m0 0l-4 4m4-4H3"
-							/>
-						</svg>
-					</ConsultationButton>
-				</div>
-
-				<div class="mt-12 lg:mt-0">
-					<div class="grid grid-cols-2 gap-4">
-						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
-							<div class="text-4xl font-bold text-white">500+</div>
-							<div class="mt-2 text-slate-400">агентов</div>
-						</div>
-						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
-							<div class="text-4xl font-bold text-white">20+</div>
-							<div class="mt-2 text-slate-400">лет опыта</div>
-						</div>
-						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
-							<div class="text-4xl font-bold text-white">140+</div>
-							<div class="mt-2 text-slate-400">партнёров</div>
-						</div>
-						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
-							<div class="text-4xl font-bold text-white">90%</div>
-							<div class="mt-2 text-slate-400">конверсия</div>
-						</div>
-						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
-							<div class="text-4xl font-bold text-white">24/7</div>
-							<div class="mt-2 text-slate-400">поддержка</div>
-						</div>
-						<div class="rounded-2xl bg-white/5 p-6 backdrop-blur">
-							<div class="text-4xl font-bold text-white">100%</div>
-							<div class="mt-2 text-slate-400">успех</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<!-- Как начать -->
 	<div class="bg-slate-50 py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -557,7 +558,7 @@
 			</div>
 			<h2 class="text-3xl font-bold text-white sm:text-4xl">Присоединяйтесь к нам</h2>
 			<p class="mx-auto mt-4 max-w-xl text-lg text-sky-100">
-				Начните работать вместе с нашей компанией уже сегодня
+				Начните работать вместе с нашей платформой уже сегодня
 			</p>
 			<div class="mt-8 flex flex-wrap justify-center gap-4">
 				<ConsultationButton
