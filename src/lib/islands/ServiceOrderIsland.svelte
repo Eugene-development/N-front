@@ -5,10 +5,12 @@
 	 */
 
 	import { serviceOrderStore } from '$lib/stores/serviceOrder.svelte.js';
+	import PhoneInput from '$lib/components/PhoneInput.svelte';
+	import { normalizePhone, isPhoneComplete } from '$lib/utils/phone.js';
 
 	// Состояние формы
 	let name = $state('');
-	let phone = $state('');
+	let phoneDigits = $state('');
 	let message = $state('');
 	let isSubmitting = $state(false);
 	let isSuccess = $state(false);
@@ -27,7 +29,7 @@
 		// Сброс формы после закрытия
 		setTimeout(() => {
 			name = '';
-			phone = '';
+			phoneDigits = '';
 			message = '';
 			isSuccess = false;
 			error = '';
@@ -51,8 +53,8 @@
 			error = 'Введите ваше имя';
 			return;
 		}
-		if (!phone.trim()) {
-			error = 'Введите номер телефона';
+		if (!isPhoneComplete(phoneDigits)) {
+			error = 'Введите полный номер телефона';
 			return;
 		}
 
@@ -66,7 +68,7 @@
 			const requestData = {
 				service_type: serviceType,
 				name: name.trim(),
-				phone: phone.trim(),
+				phone: normalizePhone(phoneDigits),
 				message: message.trim() || null,
 				source_url: sourceUrl
 			};
@@ -268,12 +270,10 @@
 					<label for="service-order-phone" class="mb-1 block text-sm font-medium text-slate-700"
 						>Телефон</label
 					>
-					<input
-						type="tel"
+					<PhoneInput
 						id="service-order-phone"
-						bind:value={phone}
-						placeholder="+7 (999) 123-45-67"
-						class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 transition-colors focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500/20"
+						bind:digits={phoneDigits}
+						inputClass="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 transition-colors focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500/20"
 					/>
 				</div>
 

@@ -5,10 +5,12 @@
 	 */
 
 	import { consultationStore } from '$lib/stores/consultation.svelte.js';
+	import PhoneInput from '$lib/components/PhoneInput.svelte';
+	import { normalizePhone, isPhoneComplete } from '$lib/utils/phone.js';
 
 	// Состояние формы
 	let name = $state('');
-	let phone = $state('');
+	let phoneDigits = $state('');
 	let message = $state('');
 	let isSubmitting = $state(false);
 	let isSuccess = $state(false);
@@ -20,7 +22,7 @@
 		// Сброс формы после закрытия
 		setTimeout(() => {
 			name = '';
-			phone = '';
+			phoneDigits = '';
 			message = '';
 			isSuccess = false;
 			error = '';
@@ -44,8 +46,8 @@
 			error = 'Введите ваше имя';
 			return;
 		}
-		if (!phone.trim()) {
-			error = 'Введите номер телефона';
+		if (!isPhoneComplete(phoneDigits)) {
+			error = 'Введите полный номер телефона';
 			return;
 		}
 
@@ -58,7 +60,7 @@
 			const requestData = {
 				service_type: 'consultation',
 				name: name.trim(),
-				phone: phone.trim(),
+				phone: normalizePhone(phoneDigits),
 				message: message.trim() || null,
 				source_url: sourceUrl
 			};
@@ -98,6 +100,20 @@
 				console.error('GraphQL error:', graphqlResult.errors);
 				throw new Error('Ошибка сохранения заявки');
 			}
+
+			// Отправляем email-уведомление через Auth API (асинхронно, не блокируем пользователя)
+			const authApiUrl = import.meta.env.VITE_AUTH_API_URL;
+			fetch(`${authApiUrl}/notify/service-request`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
+				},
+				body: JSON.stringify(requestData)
+			}).catch((emailError) => {
+				// Логируем ошибку, но не показываем пользователю
+				console.warn('Email notification failed:', emailError);
+			});
 
 			isSuccess = true;
 		} catch (err) {
@@ -198,12 +214,10 @@
 				<!-- Phone -->
 				<div>
 					<label for="phone" class="mb-1 block text-sm font-medium text-slate-700">Телефон</label>
-					<input
-						type="tel"
+					<PhoneInput
 						id="phone"
-						bind:value={phone}
-						placeholder="+7 (999) 123-45-67"
-						class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 transition-colors focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
+						bind:digits={phoneDigits}
+						inputClass="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 transition-colors focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
 					/>
 				</div>
 
