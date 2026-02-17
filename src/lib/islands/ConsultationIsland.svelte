@@ -7,6 +7,7 @@
 	import { consultationStore } from '$lib/stores/consultation.svelte.js';
 	import PhoneInput from '$lib/components/PhoneInput.svelte';
 	import { normalizePhone, isPhoneComplete } from '$lib/utils/phone.js';
+	import { getGraphqlApiUrl, getAuthApiUrl } from '$lib/utils/config.js';
 
 	// Состояние формы
 	let name = $state('');
@@ -66,7 +67,7 @@
 			};
 
 			// Сохраняем заявку в БД через GraphQL API
-			const graphqlUrl = import.meta.env.VITE_GRAPHQL_API_URL;
+			const graphqlUrl = getGraphqlApiUrl();
 			const graphqlMutation = `
 				mutation CreateServiceRequest($input: CreateServiceRequestInput!) {
 					createServiceRequest(input: $input) {
@@ -102,7 +103,7 @@
 			}
 
 			// Отправляем email-уведомление через Auth API (асинхронно, не блокируем пользователя)
-			const authApiUrl = import.meta.env.VITE_AUTH_API_URL;
+			const authApiUrl = getAuthApiUrl();
 			fetch(`${authApiUrl}/notify/service-request`, {
 				method: 'POST',
 				headers: {
