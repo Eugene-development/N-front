@@ -212,6 +212,25 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="mt-12 text-center">
+			<a
+				href="https://rubonus.pro"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center gap-2 rounded-xl bg-linear-to-r from-sky-500 to-cyan-600 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5"
+			>
+				Перейти на платформу RUBONUS
+				<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+					/>
+				</svg>
+			</a>
+		</div>
 	</div>
 
 	<!-- Для фабрик -->

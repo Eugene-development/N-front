@@ -25,7 +25,7 @@
 					/>
 				</div>
 				<div class="p-8">
-					<h3 class="text-xl font-bold text-slate-900 transition-colors group-hover:text-blue-600">
+					<h3 class="text-xl font-bold text-slate-900 transition-colors group-hover:text-sky-600">
 						Столешницы и стеновые панели
 					</h3>
 					<p class="mt-3 text-base leading-relaxed text-slate-600">
@@ -47,7 +47,7 @@
 					/>
 				</div>
 				<div class="p-8">
-					<h3 class="text-xl font-bold text-slate-900 transition-colors group-hover:text-blue-600">
+					<h3 class="text-xl font-bold text-slate-900 transition-colors group-hover:text-sky-600">
 						Системы выдвижения
 					</h3>
 					<p class="mt-3 text-base leading-relaxed text-slate-600">
@@ -69,7 +69,7 @@
 					/>
 				</div>
 				<div class="p-6">
-					<h3 class="text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-600">
+					<h3 class="text-lg font-bold text-slate-900 transition-colors group-hover:text-sky-600">
 						Бытовая техника
 					</h3>
 					<p class="mt-2 text-sm leading-relaxed text-slate-600">
@@ -90,7 +90,7 @@
 					/>
 				</div>
 				<div class="p-6">
-					<h3 class="text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-600">
+					<h3 class="text-lg font-bold text-slate-900 transition-colors group-hover:text-sky-600">
 						Мойки и смесители
 					</h3>
 					<p class="mt-2 text-sm leading-relaxed text-slate-600">
@@ -112,7 +112,7 @@
 					/>
 				</div>
 				<div class="p-6">
-					<h3 class="text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-600">
+					<h3 class="text-lg font-bold text-slate-900 transition-colors group-hover:text-sky-600">
 						Зональное освещение
 					</h3>
 					<p class="mt-2 text-sm leading-relaxed text-slate-600">

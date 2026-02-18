@@ -134,9 +134,9 @@
 			class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between"
 		>
 			<div>
-				<h3 class="text-sm/6 font-semibold text-white">Получите дополнительный процент скидки</h3>
+				<h3 class="text-sm/6 font-semibold text-white">Подписка на новости</h3>
 				<p class="mt-2 text-sm/6 text-gray-300">
-					Отправьте нам свою почту и мы согласуем дополнительную скидку на мебель к будущему заказу.
+					Подпишитесь на новости и будьте в курсе всех новинок и акций.
 				</p>
 			</div>
 			{#if formSubmitted}
