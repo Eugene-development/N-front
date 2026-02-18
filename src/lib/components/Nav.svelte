@@ -11,6 +11,7 @@
 	let visibleCatalogMenu = $state(false);
 	let visibleCityMenu = $state(false);
 	let selectedCity = $state('Москва и МО');
+	let hoveredItem = $state(null); // Отслеживание наведения курсора
 
 
 	// Статические рубрики (fallback)
@@ -67,14 +68,19 @@
 	];
 	/* Вычисляемые свойства для подсветки активных разделов */
 	let isServicesActive = $derived(
-		visibleServicesMenu ||
-			serviceItems.some((item) => $page.url.pathname === item.href)
+		hoveredItem === 'services' || 
+		(hoveredItem === null && (visibleServicesMenu || serviceItems.some((item) => $page.url.pathname === item.href)))
 	);
 
 	let isCatalogActive = $derived(
-		visibleCatalogMenu ||
-			catalogItems.some((item) => $page.url.pathname.startsWith(item.href))
+		hoveredItem === 'catalog' || 
+		(hoveredItem === null && (visibleCatalogMenu || catalogItems.some((item) => $page.url.pathname.startsWith(item.href))))
 	);
+	
+	// Функция для проверки активности обычного пункта меню
+	function isMenuItemActive(href) {
+		return hoveredItem === href || (hoveredItem === null && $page.url.pathname === href);
+	}
 </script>
 
 <header class="bg-gradient-to-r from-gray-100/80 via-gray-50/85 to-gray-100/80 backdrop-blur-md">
@@ -106,11 +112,12 @@
 				<a
 					href={item.href}
 					class="nav-item group relative flex items-center px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300"
-					class:active={$page.url.pathname === item.href}
+					class:active={isMenuItemActive(item.href)}
+					onmouseenter={() => hoveredItem = item.href}
+					onmouseleave={() => hoveredItem = null}
 				>
 					<span
-						class="transition-colors duration-300 group-hover:text-sky-600 {$page.url.pathname ===
-						item.href
+						class="transition-colors duration-300 group-hover:text-sky-600 {isMenuItemActive(item.href)
 							? 'text-sky-600'
 							: 'text-slate-700'}"
 					>
@@ -120,7 +127,7 @@
 					<!-- Animated Underline -->
 					<span
 						class="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-sky-500 transition-transform duration-300 group-hover:scale-x-100"
-						class:scale-x-100={$page.url.pathname === item.href}
+						class:scale-x-100={isMenuItemActive(item.href)}
 					></span>
 				</a>
 			{/each}
@@ -129,8 +136,14 @@
 			<div
 				class="relative h-full flex items-center"
 				role="navigation"
-				onmouseenter={() => (visibleCatalogMenu = true)}
-				onmouseleave={() => (visibleCatalogMenu = false)}
+				onmouseenter={() => {
+					visibleCatalogMenu = true;
+					hoveredItem = 'catalog';
+				}}
+				onmouseleave={() => {
+					visibleCatalogMenu = false;
+					hoveredItem = null;
+				}}
 			>
 				<button
 					type="button"
@@ -240,8 +253,14 @@
 			<div
 				class="relative h-full flex items-center"
 				role="navigation"
-				onmouseenter={() => (visibleServicesMenu = true)}
-				onmouseleave={() => (visibleServicesMenu = false)}
+				onmouseenter={() => {
+					visibleServicesMenu = true;
+					hoveredItem = 'services';
+				}}
+				onmouseleave={() => {
+					visibleServicesMenu = false;
+					hoveredItem = null;
+				}}
 			>
 				<button
 					type="button"
@@ -381,11 +400,12 @@
 			<a
 				href="/contacts"
 				class="nav-item group relative flex items-center px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300"
-				class:active={$page.url.pathname === '/contacts'}
+				class:active={isMenuItemActive('/contacts')}
+				onmouseenter={() => hoveredItem = '/contacts'}
+				onmouseleave={() => hoveredItem = null}
 			>
 				<span
-					class="transition-colors duration-300 group-hover:text-sky-600 {$page.url.pathname ===
-					'/contacts'
+					class="transition-colors duration-300 group-hover:text-sky-600 {isMenuItemActive('/contacts')
 						? 'text-sky-600'
 						: 'text-slate-700'}"
 				>
@@ -395,7 +415,7 @@
 				<!-- Animated Underline -->
 				<span
 					class="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-sky-500 transition-transform duration-300 group-hover:scale-x-100"
-					class:scale-x-100={$page.url.pathname === '/contacts'}
+					class:scale-x-100={isMenuItemActive('/contacts')}
 				></span>
 			</a>
 		</div>
