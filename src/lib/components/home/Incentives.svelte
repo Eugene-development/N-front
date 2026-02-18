@@ -29,40 +29,43 @@
 
 				<div class="mt-8 space-y-2 text-base leading-7 text-slate-600">
 					<p>
-						Помогаем клиентам сделать правильный выбор материалов, цвета и производителя мебели. Это
-						позволит <span class="font-semibold text-sky-600"
-							>сэкономить время и материальные затраты!</span
+						Помогаем клиентам сделать правильный выбор фурнитуры, материалов, комбинации цвета и
+						производителя мебели. Это позволит <span class="font-semibold text-sky-600"
+							>сэкономить время и ваши материальные затраты!</span
 						>
 					</p>
 					<p>
 						Опыт и знание рынка позволяют предложить решения, которые максимально соответствуют
-						вашему стилю, бюджету и требованиям к качеству.
+						вашему стилю, бюджету и требованиям к высокому качеству.
 					</p>
 					<p>
 						К кухонным гарнитурам подбирается качественная фурнитура, стильная столешница, техника и
-						мойка со смесителем для функционального и красивого дизайна.
+						мойка со смесителем для функционального и красивого дизайна интерьера.
 					</p>
 					<p>
 						Работая со шкафами и гардеробами, уделяем особое внимание удобству и функциональности,
-						продумывая эргономику, освещение и системы хранения.
+						продумывая эргономику, зональное освещение и системы хранения.
 					</p>
 				</div>
 
+				<!-- Разделительная линия -->
+				<div class="mt-8 h-px w-24 bg-gradient-to-r from-sky-300 to-cyan-300"></div>
+
 				<!-- Статистика -->
-				<dl class="mt-12 grid grid-cols-3 gap-8 border-t border-slate-100 pt-10 sm:grid-cols-3">
+				<!-- <dl class="mt-12 grid grid-cols-3 gap-8 border-t border-slate-100 pt-10 sm:grid-cols-3">
 					<div class="flex flex-col gap-y-1">
 						<dt class="text-sm leading-6 text-slate-500">лет опыта</dt>
-						<dd class="text-3xl font-bold tracking-tight text-sky-600">20+</dd>
+						<dd class="text-5xl font-bold tracking-tight text-sky-600">20+</dd>
 					</div>
 					<div class="flex flex-col gap-y-1">
 						<dt class="text-sm leading-6 text-slate-500">проектов</dt>
-						<dd class="text-3xl font-bold tracking-tight text-sky-600">500+</dd>
+						<dd class="text-5xl font-bold tracking-tight text-sky-600">800+</dd>
 					</div>
 					<div class="flex flex-col gap-y-1">
 						<dt class="text-sm leading-6 text-slate-500">гарантия</dt>
-						<dd class="text-3xl font-bold tracking-tight text-sky-600">5 лет</dd>
+						<dd class="text-5xl font-bold tracking-tight text-sky-600">5+</dd>
 					</div>
-				</dl>
+				</dl> -->
 			</div>
 
 			<!-- Галерея -->
