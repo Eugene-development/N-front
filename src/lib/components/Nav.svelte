@@ -113,11 +113,13 @@
 					href={item.href}
 					class="nav-item group relative flex items-center px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300"
 					class:active={isMenuItemActive(item.href)}
-					onmouseenter={() => hoveredItem = item.href}
-					onmouseleave={() => hoveredItem = null}
+					onmouseenter={() => (hoveredItem = item.href)}
+					onmouseleave={() => (hoveredItem = null)}
 				>
 					<span
-						class="transition-colors duration-300 group-hover:text-sky-600 {isMenuItemActive(item.href)
+						class="transition-colors duration-300 group-hover:text-sky-600 {isMenuItemActive(
+							item.href
+						)
 							? 'text-sky-600'
 							: 'text-slate-700'}"
 					>
@@ -401,11 +403,13 @@
 				href="/contacts"
 				class="nav-item group relative flex items-center px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300"
 				class:active={isMenuItemActive('/contacts')}
-				onmouseenter={() => hoveredItem = '/contacts'}
-				onmouseleave={() => hoveredItem = null}
+				onmouseenter={() => (hoveredItem = '/contacts')}
+				onmouseleave={() => (hoveredItem = null)}
 			>
 				<span
-					class="transition-colors duration-300 group-hover:text-sky-600 {isMenuItemActive('/contacts')
+					class="transition-colors duration-300 group-hover:text-sky-600 {isMenuItemActive(
+						'/contacts'
+					)
 						? 'text-sky-600'
 						: 'text-slate-700'}"
 				>
