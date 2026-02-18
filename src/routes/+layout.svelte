@@ -5,6 +5,7 @@
 	import MobileMenu from '$lib/components/MobileMenu.svelte';
 	import ConsultationIsland from '$lib/islands/ConsultationIsland.svelte';
 	import ServiceOrderIsland from '$lib/islands/ServiceOrderIsland.svelte';
+	import PartnershipIsland from '$lib/islands/PartnershipIsland.svelte';
 	import { PageTransition } from '$lib';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
@@ -71,3 +72,6 @@
 
 <!-- Глобальное модальное окно заказа услуги -->
 <ServiceOrderIsland />
+
+<!-- Глобальное модальное окно партнёрства -->
+<PartnershipIsland />

@@ -1,5 +1,5 @@
 <script>
-	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import PartnershipButton from '$lib/components/PartnershipButton.svelte';
 </script>
 
 <svelte:head>
@@ -39,10 +39,10 @@
 						прозрачная система вознаграждений.
 					</p>
 					<div class="mt-10 flex flex-wrap gap-4">
-						<ConsultationButton
+						<PartnershipButton
 							class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl"
 						>
-							Консультация по партнёрству
+							Обсудить сотрудничество
 							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path
 									stroke-linecap="round"
@@ -51,7 +51,7 @@
 									d="M17 8l4 4m0 0l-4 4m4-4H3"
 								/>
 							</svg>
-						</ConsultationButton>
+						</PartnershipButton>
 					</div>
 				</div>
 				<div class="mt-12 lg:mt-0">
@@ -316,7 +316,7 @@
 						</div>
 					</div>
 
-					<ConsultationButton
+					<PartnershipButton
 						class="mt-8 inline-flex items-center gap-2 rounded-xl bg-sky-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-sky-600 hover:shadow-xl"
 					>
 						Обсудить сотрудничество
@@ -328,7 +328,7 @@
 								d="M17 8l4 4m0 0l-4 4m4-4H3"
 							/>
 						</svg>
-					</ConsultationButton>
+					</PartnershipButton>
 				</div>
 
 				<div class="mt-12 lg:mt-0">
@@ -580,10 +580,10 @@
 				Начните работать вместе с нашей платформой уже сегодня
 			</p>
 			<div class="mt-8 flex flex-wrap justify-center gap-4">
-				<ConsultationButton
+				<PartnershipButton
 					class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl"
 				>
-					Консультация по партнёрству
+					Обсудить сотрудничество
 					<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path
 							stroke-linecap="round"
@@ -592,7 +592,7 @@
 							d="M17 8l4 4m0 0l-4 4m4-4H3"
 						/>
 					</svg>
-				</ConsultationButton>
+				</PartnershipButton>
 				<a
 					href="tel:+79154000020"
 					class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur transition-all hover:bg-white/20"
