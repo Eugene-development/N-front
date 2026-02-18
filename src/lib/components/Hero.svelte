@@ -5,27 +5,28 @@
 	const brands = [
 		{
 			name: 'Hettich',
-			logo: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Logo_of_Hettich_%28company%29.svg',
+			logo: 'https://storage.yandexcloud.net/novostroy/logo/hettich-Logo.png',
 			url: 'https://www.hettich.com/en-gb/home'
 		},
 		{
 			name: 'Egger',
-			logo: 'https://cdn.egger.com/img/cms/ff58d5b2-cb11-41dc-ba72-5cec737f1c8a/a6b3c90f-a0ba-4379-abab-9215f9071955/ORIGINAL/gen_egger_logo_en.svg',
+			logo: 'https://storage.yandexcloud.net/novostroy/logo/egger-Logo.png',
 			url: 'https://www.egger.com/en/?country=GB'
 		},
-		{
-			name: 'Blum',
-			logo: 'https://www.blum.com/corporate/layout/facelift/images/ci/logo.svg',
-			url: 'https://www.blum.com/gb/en'
-		},
+		
 		{
 			name: 'Аристо',
-			logo: 'https://www.aristo.ru/include/logo_header.png',
+			logo: 'https://storage.yandexcloud.net/novostroy/logo/aristo-Logo.png',
 			url: 'https://www.aristo.ru'
 		},
 		{
+			name: 'Blum',
+			logo: 'https://storage.yandexcloud.net/novostroy/logo/blum-Logo.png',
+			url: 'https://www.blum.com/gb/en'
+		},
+		{
 			name: 'Avarus',
-			logo: 'https://static.tildacdn.com/tild6566-3232-4639-a231-643431313266/black2.svg',
+			logo: 'https://storage.yandexcloud.net/novostroy/logo/avarus-Logo.svg',
 			url: 'https://xn--80aaf1dfl.xn--p1ai/'
 		}
 	];
@@ -112,7 +113,7 @@
 								href={brand.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="group h-8 md:h-10 flex items-center justify-center opacity-90 transition-all duration-300 hover:opacity-100 hover:-translate-y-0.5 {i >=
+								class="group h-10 flex items-center justify-center opacity-90 transition-all duration-300 hover:opacity-100 hover:-translate-y-0.5 {i >=
 								4
 									? 'hidden md:flex'
 									: ''}"

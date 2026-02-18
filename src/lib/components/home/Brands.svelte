@@ -19,8 +19,8 @@
 			>
 				<div class="flex items-center gap-4">
 					<img
-						class="h-12 w-auto"
-						src="https://avatars.mds.yandex.net/i?id=1d1d8921520f354e5488f26d3015ec591ed887c4-5031604-images-thumbs&n=13"
+						class="h-8 w-auto"
+						src="https://storage.yandexcloud.net/novostroy/logo/blum-Logo.png"
 						alt="BLUM"
 					/>
 					<div>
@@ -38,8 +38,8 @@
 			>
 				<div class="flex items-center gap-4">
 					<img
-						class="h-12 w-auto"
-						src="https://avatars.mds.yandex.net/i?id=3121a17134e862686c9e9adeba4322bbdd7745de-5231861-images-thumbs&n=13"
+						class="h-8 w-auto"
+						src="https://storage.yandexcloud.net/novostroy/logo/hettich-Logo.png"
 						alt="Hettich"
 					/>
 					<div>
@@ -57,8 +57,8 @@
 			>
 				<div class="flex items-center gap-4">
 					<img
-						class="h-12 w-auto"
-						src="https://avatars.mds.yandex.net/i?id=d8338ae7f892f1b8478da83c4e8d535a_sr-7106899-images-thumbs&n=13"
+						class="h-8 w-auto"
+						src="https://storage.yandexcloud.net/novostroy/logo/FGV-Logo.png"
 						alt="FGV"
 					/>
 					<div>
@@ -76,8 +76,8 @@
 			>
 				<div class="flex items-center gap-4">
 					<img
-						class="h-12 w-auto"
-						src="https://logos-world.net/wp-content/uploads/2022/07/Egger-Logo-700x394.png"
+						class="h-6 w-auto"
+						src="https://storage.yandexcloud.net/novostroy/logo/egger-Logo.png"
 						alt="Egger"
 					/>
 					<div>
@@ -95,8 +95,8 @@
 			>
 				<div class="flex items-center gap-4">
 					<img
-						class="h-8 w-auto"
-						src="https://www.renolit.com/typo3conf/ext/renolit/Resources/Public/Svg/RENOLIT_Rely_on_it.svg"
+						class="h-10 w-auto"
+						src="https://storage.yandexcloud.net/novostroy/logo/Renolit_logo.svg.png"
 						alt="Renolit"
 					/>
 					<div>
@@ -114,8 +114,8 @@
 			>
 				<div class="flex items-center gap-4">
 					<img
-						class="h-12 w-auto"
-						src="https://avatars.mds.yandex.net/i?id=a03767dd6a932bb1ef750ad2ee69b774_l-10136504-images-thumbs&n=13"
+						class="h-8 w-auto"
+						src="https://storage.yandexcloud.net/novostroy/logo/GTV-Logo.png"
 						alt="GTV"
 					/>
 					<div>
