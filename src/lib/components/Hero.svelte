@@ -71,14 +71,11 @@
 
 				<!-- Описание -->
 				<p
-					class="text-sm md:text-base text-slate-800 leading-relaxed max-w-2xl mx-auto mb-12 font-medium"
+					class="text-sm md:text-lg text-slate-800 max-w-2xl mx-auto mb-12 font-medium hero-description"
 				>
-					Мебель по вашим размерам с бесплатным проектом от дизайнера. <span class="hidden md:block"
-						><br /></span
-					>
-					Согласуем проект с фабрикой,подберём столешницу, технику и аксессуары.
-					<span class="hidden md:block"><br /></span>
-					Значительно снизим затраты и сэкономим ваше время.
+					Мебель по вашим размерам с бесплатным проектом от дизайнера. Согласуем проект с фабрикой,
+					подберём столешницу, технику и аксессуары.
+					<span class="hidden md:inline">Значительно снизим затраты и сэкономим ваше время.</span>
 				</p>
 
 				<!-- Кнопки -->
@@ -145,5 +142,16 @@
 		);
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
+	}
+
+	/* Описание с правильным межстрочным интервалом */
+	.hero-description {
+		line-height: 1.6;
+	}
+
+	@media (min-width: 768px) {
+		.hero-description {
+			line-height: 1.8;
+		}
 	}
 </style>

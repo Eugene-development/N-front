@@ -34,7 +34,7 @@
 	<!-- Шкафы и гардеробы -->
 	<div class="group relative flex min-h-[25rem] overflow-hidden">
 		<img
-			src="https://www.aristo.ru/upload/iblock/a5d/8ug9lv7q11uwb6mjqtg4114d68ts1vxr/aristo_Stilnaya-prikhozhaya-VERTA-_-INTU.jpg"
+			src="https://storage.yandexcloud.net/novostroy/bg/prih.jpg"
 			alt="Шкафы и гардеробы"
 			class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
 		/>

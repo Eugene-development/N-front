@@ -92,7 +92,7 @@
 		<div class="flex items-center lg:flex-1">
 			<a
 				href="/"
-				class="group relative -m-1.5 -mb-10 rounded-b-2xl bg-white p-3 shadow-lg ring-1 ring-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 z-30"
+				class="group relative -m-1.5 -mb-10 rounded-b-2xl bg-gray-100 p-3 shadow-lg ring-1 ring-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 z-30"
 			>
 				<span class="sr-only">Компания Новострой</span>
 				<img
@@ -435,7 +435,7 @@
 			>
 				<button
 					type="button"
-					class="city-selector group relative flex items-center gap-2 overflow-hidden rounded-full bg-linear-to-r from-slate-100 to-slate-50 px-5 py-2.5 text-base font-medium text-slate-700 ring-1 ring-slate-200/50 transition-all duration-300 hover:ring-sky-200 hover:shadow-lg hover:shadow-sky-500/10"
+					class="city-selector group relative flex items-center gap-2 overflow-hidden rounded-xl bg-linear-to-r from-slate-100/20 to-slate-50/80 px-5 py-2.5 text-base font-medium text-slate-700 ring-1 ring-slate-200/50 transition-all duration-300 hover:ring-sky-200 hover:shadow-lg hover:shadow-sky-500/10"
 					aria-expanded={visibleCityMenu}
 				>
 					<!-- Анимированный фон -->
