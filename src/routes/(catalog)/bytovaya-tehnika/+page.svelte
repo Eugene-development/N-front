@@ -80,7 +80,7 @@
 					<!-- Баннер консультации -->
 					<SidebarConsultationBanner
 						title="Подбор техники"
-						description="Поможем выбрать технику под ваш проект кухни"
+						description="Поможем выбрать бытовую технику под ваш проект мебели"
 						color="slate"
 					/>
 				</div>
@@ -193,7 +193,7 @@
 							</div>
 							<h3 class="mt-4 text-lg font-semibold text-slate-900">Официальная гарантия</h3>
 							<p class="mt-2 text-sm text-slate-600">
-								Вся техника с официальной гарантией производителя от 1 до 5 лет
+								Вся техника с официальной гарантией производителя от до 5 лет
 							</p>
 						</div>
 
@@ -212,7 +212,7 @@
 							</div>
 							<h3 class="mt-4 text-lg font-semibold text-slate-900">Выгодные цены</h3>
 							<p class="mt-2 text-sm text-slate-600">
-								Прямые поставки от производителей без посредников
+								Прямые поставки техники от производителей без посредников
 							</p>
 						</div>
 
@@ -246,9 +246,9 @@
 							class="group relative overflow-hidden rounded-2xl"
 						>
 							<img
-								src="https://images.unsplash.com/photo-1585515320310-259814833e62?w=800"
+								src="https://storage.yandexcloud.net/novostroy/bg/varochna.jpg"
 								alt="Варочные панели"
-								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+								class="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
 							<div
 								class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"
@@ -264,9 +264,9 @@
 							class="group relative overflow-hidden rounded-2xl"
 						>
 							<img
-								src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=800"
+								src="https://storage.yandexcloud.net/novostroy/bg/duhshkaf.jpg"
 								alt="Духовые шкафы"
-								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+								class="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
 							<div
 								class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"

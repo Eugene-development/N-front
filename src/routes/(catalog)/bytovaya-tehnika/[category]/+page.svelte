@@ -235,7 +235,7 @@
 						>
 							<h3 class="text-lg font-semibold">Подбор техники</h3>
 							<p class="mt-2 text-sm text-slate-300">
-								Поможем выбрать технику под ваш проект кухни
+								Поможем выбрать бытовую технику под ваш проект мебели
 							</p>
 							<ConsultationButton
 								class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-800 transition-all hover:bg-slate-100"

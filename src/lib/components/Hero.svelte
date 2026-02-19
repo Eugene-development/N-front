@@ -73,8 +73,11 @@
 				<p
 					class="text-sm md:text-base text-slate-800 leading-relaxed max-w-2xl mx-auto mb-12 font-medium"
 				>
-					Мебель по вашим размерам с бесплатным проектом от дизайнера. <br />
-					Согласуем проект с фабрикой,подберём столешницу, технику и аксессуары. <br />
+					Мебель по вашим размерам с бесплатным проектом от дизайнера. <span class="hidden md:block"
+						><br /></span
+					>
+					Согласуем проект с фабрикой,подберём столешницу, технику и аксессуары.
+					<span class="hidden md:block"><br /></span>
 					Значительно снизим затраты и сэкономим ваше время.
 				</p>
 
@@ -113,7 +116,7 @@
 								href={brand.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="group h-10 flex items-center justify-center opacity-90 transition-all duration-300 hover:opacity-100 hover:-translate-y-0.5 {i >=
+								class="group px-2 h-10 flex items-center justify-center opacity-90 transition-all duration-300 hover:opacity-100 hover:-translate-y-0.5 {i >=
 								4
 									? 'hidden md:flex'
 									: ''}"
