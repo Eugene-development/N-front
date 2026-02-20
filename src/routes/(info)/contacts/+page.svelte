@@ -308,16 +308,16 @@
 		<div class="text-center">
 			<p class="text-base/7 font-semibold text-sky-600">Социальные сети</p>
 			<h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
-				Мы в мессенджерах
+				Мы в Телеграм
 			</h2>
 			<p class="mx-auto mt-6 max-w-2xl text-lg/8 text-gray-600">
-				Выберите удобный способ связи — мы ответим в течение нескольких минут
+				Нипишите нам и мы ответим в течение нескольких минут
 			</p>
 		</div>
 
 		<div class="mt-16 flex flex-wrap justify-center gap-6">
 			<!-- MAX -->
-			<a
+			<!-- <a
 				href="https://max.ru/novostroy"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -336,11 +336,11 @@
 					<p class="font-semibold text-gray-900">MAX</p>
 					<p class="text-sm text-gray-500">Быстрые ответы</p>
 				</div>
-			</a>
+			</a> -->
 
 			<!-- Telegram -->
 			<a
-				href="https://t.me/novostroy"
+				href="https://t.me/michurinskiyev"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="group flex items-center gap-4 rounded-2xl bg-white px-8 py-6 shadow-lg ring-1 ring-gray-200 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:ring-sky-500"
@@ -361,7 +361,7 @@
 			</a>
 
 			<!-- VK -->
-			<a
+			<!-- <a
 				href="https://vk.com/novostroy"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -380,7 +380,7 @@
 					<p class="font-semibold text-gray-900">ВКонтакте</p>
 					<p class="text-sm text-gray-500">Сообщество</p>
 				</div>
-			</a>
+			</a> -->
 		</div>
 	</div>
 </section>

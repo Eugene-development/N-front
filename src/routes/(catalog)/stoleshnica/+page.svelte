@@ -110,12 +110,12 @@
 									/>
 								</svg>
 							</ConsultationButton>
-							<ServiceOrderButton
+							<!-- <ServiceOrderButton
 								serviceType="measurement"
 								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20 cursor-pointer"
 							>
 								Вызвать замерщика
-							</ServiceOrderButton>
+							</ServiceOrderButton> -->
 						</div>
 					</div>
 				</div>

@@ -117,12 +117,12 @@
 									/>
 								</svg>
 							</ConsultationButton>
-							<a
+							<!-- <a
 								href="/mebel/kuhni"
 								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
 							>
 								Кухни под технику
-							</a>
+							</a> -->
 						</div>
 					</div>
 				</div>

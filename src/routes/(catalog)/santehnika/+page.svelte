@@ -121,8 +121,8 @@
 					<div class="relative px-8 py-16 sm:px-12 sm:py-20">
 						<h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Сантехника</h1>
 						<p class="mt-4 max-w-xl text-lg text-slate-300">
-							Кухонные мойки, смесители и аксессуары от ведущих производителей. Подберём идеальное
-							сочетание для вашей кухни.
+							Кухонные мойки, смесители, измельчители и аксессуары от ведущих производителей.
+							Подберём идеальное сочетание цвета и формы для вашей кухни.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
 							<ConsultationButton
@@ -138,12 +138,12 @@
 									/>
 								</svg>
 							</ConsultationButton>
-							<a
+							<!-- <a
 								href="/stoleshnica"
 								class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
 							>
 								Столешницы
-							</a>
+							</a> -->
 						</div>
 					</div>
 				</div>
