@@ -1,6 +1,6 @@
 <script>
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
-	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
+	import CatalogSidebar from '$lib/components/CatalogSidebar.svelte';
 	import ServiceOrderIsland from '$lib/islands/ServiceOrderIsland.svelte';
 	import { serviceOrderStore } from '$lib/stores/serviceOrder.svelte.js';
 
@@ -9,30 +9,6 @@
 	
 	// Бренды уже загружены на сервере
 	let brands = $derived(data.brands || []);
-
-	// Универсальная иконка для всех брендов (шеврон вправо)
-	const brandIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />`;
-
-	// Background color gradients by slug
-	const brandGradients = {
-		'bosch': { from: 'from-sky-100', to: 'to-blue-100', hover: 'group-hover:from-sky-500 group-hover:to-blue-500', text: 'text-sky-600' },
-		'siemens': { from: 'from-teal-100', to: 'to-cyan-100', hover: 'group-hover:from-teal-500 group-hover:to-cyan-500', text: 'text-teal-600' },
-		'electrolux': { from: 'from-amber-100', to: 'to-yellow-100', hover: 'group-hover:from-amber-500 group-hover:to-yellow-500', text: 'text-amber-600' },
-		'miele': { from: 'from-red-100', to: 'to-rose-100', hover: 'group-hover:from-red-500 group-hover:to-rose-500', text: 'text-red-600' },
-		'samsung': { from: 'from-indigo-100', to: 'to-blue-100', hover: 'group-hover:from-indigo-500 group-hover:to-blue-500', text: 'text-indigo-600' },
-		'lg': { from: 'from-pink-100', to: 'to-rose-100', hover: 'group-hover:from-pink-500 group-hover:to-rose-500', text: 'text-pink-600' },
-		'aeg': { from: 'from-emerald-100', to: 'to-green-100', hover: 'group-hover:from-emerald-500 group-hover:to-green-500', text: 'text-emerald-600' },
-		'smeg': { from: 'from-violet-100', to: 'to-purple-100', hover: 'group-hover:from-violet-500 group-hover:to-purple-500', text: 'text-violet-600' },
-		default: { from: 'from-slate-100', to: 'to-gray-200', hover: 'group-hover:from-slate-500 group-hover:to-gray-600', text: 'text-slate-600' }
-	};
-
-	function getIcon(slug) {
-		return brandIcon;
-	}
-
-	function getGradient(slug) {
-		return brandGradients[slug] || brandGradients.default;
-	}
 
 	// Функция для получения имени бренда (поддержка и value и name)
 	function getBrandName(brand) {
@@ -52,39 +28,16 @@
 	<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 		<div class="lg:grid lg:grid-cols-4 lg:gap-8">
 			<!-- Сайдбар с брендами -->
-			<aside class="hidden lg:block">
-				<div class="sticky top-24">
-					<nav class="space-y-1">
-						<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-							Бренды
-						</h2>
-
-						{#each brands as brand (brand.slug)}
-							{@const gradient = getGradient(brand.slug)}
-							<a
-								href="/bytovaya-tehnika/{brand.slug}"
-								class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
-							>
-								<span
-									class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {gradient.from} {gradient.to} {gradient.text} transition-all {gradient.hover} group-hover:text-white group-hover:shadow-lg"
-								>
-									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										{@html getIcon(brand.slug)}
-									</svg>
-								</span>
-								<span class="font-medium">{getBrandName(brand)}</span>
-							</a>
-						{/each}
-					</nav>
-
-					<!-- Баннер консультации -->
-					<SidebarConsultationBanner
-						title="Подбор техники"
-						description="Поможем выбрать бытовую технику под ваш проект мебели"
-						color="slate"
-					/>
-				</div>
-			</aside>
+			<CatalogSidebar
+				items={brands}
+				rubricSlug="bytovaya-tehnika"
+				title="Бренды"
+				banner={{
+					title: 'Подбор техники',
+					description: 'Поможем выбрать бытовую технику под ваш проект мебели',
+					color: 'sky'
+				}}
+			/>
 
 			<!-- Основной контент -->
 			<main class="lg:col-span-3">
@@ -132,7 +85,6 @@
 					<h2 class="text-lg font-semibold text-slate-900">Бренды</h2>
 					<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
 						{#each brands as brand (brand.slug)}
-							{@const gradient = getGradient(brand.slug)}
 							<a
 								href="/bytovaya-tehnika/{brand.slug}"
 								class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
@@ -142,7 +94,12 @@
 									style="background: {brand.bg || '#f1f5f9'}; color: #475569;"
 								>
 									<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										{@html getIcon(brand.slug)}
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5l7 7-7 7"
+										/>
 									</svg>
 								</span>
 								<span class="text-sm font-medium text-slate-700">{getBrandName(brand)}</span>

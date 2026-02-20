@@ -1,6 +1,6 @@
 <script>
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
-	import SidebarConsultationBanner from '$lib/components/SidebarConsultationBanner.svelte';
+	import CatalogSidebar from '$lib/components/CatalogSidebar.svelte';
 
 	// Данные загружаются на сервере в +page.server.js
 	let { data } = $props();
@@ -9,28 +9,6 @@
 	let categories = $derived(data.categories || []);
 	let brands = $derived(data.brands || []);
 	let rubric = $derived(data.rubric);
-
-	// Универсальная иконка для всех категорий (шеврон вправо)
-	const categoryIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />`;
-
-	// Background color gradients by slug
-	const categoryGradients = {
-		'moyki': { from: 'from-sky-100', to: 'to-blue-100', hover: 'group-hover:from-sky-500 group-hover:to-blue-500', text: 'text-sky-600' },
-		'smesiteli': { from: 'from-cyan-100', to: 'to-teal-100', hover: 'group-hover:from-cyan-500 group-hover:to-teal-500', text: 'text-cyan-600' },
-		'izmelchiteli': { from: 'from-emerald-100', to: 'to-green-100', hover: 'group-hover:from-emerald-500 group-hover:to-green-500', text: 'text-emerald-600' },
-		'dispensery': { from: 'from-violet-100', to: 'to-purple-100', hover: 'group-hover:from-violet-500 group-hover:to-purple-500', text: 'text-violet-600' },
-		'filtry': { from: 'from-blue-100', to: 'to-indigo-100', hover: 'group-hover:from-blue-500 group-hover:to-indigo-500', text: 'text-blue-600' },
-		'aksessuary': { from: 'from-slate-100', to: 'to-gray-200', hover: 'group-hover:from-slate-500 group-hover:to-gray-600', text: 'text-slate-600' },
-		default: { from: 'from-slate-100', to: 'to-gray-200', hover: 'group-hover:from-slate-500 group-hover:to-gray-600', text: 'text-slate-600' }
-	};
-
-	function getIcon(slug) {
-		return categoryIcon;
-	}
-
-	function getGradient(slug) {
-		return categoryGradients[slug] || categoryGradients.default;
-	}
 
 	// Получение имени бренда (поддержка value и name)
 	function getBrandName(brand) {
@@ -49,63 +27,17 @@
 <div class="min-h-screen bg-slate-50">
 	<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 		<div class="lg:grid lg:grid-cols-4 lg:gap-8">
-			<!-- Сайдбар с категориями -->
-			<aside class="hidden lg:block">
-				<div class="sticky top-24">
-					<!-- <nav class="space-y-1">
-						<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-							Категории сантехники
-						</h2>
-
-						{#each categories as category (category.id || category.slug)}
-							{@const gradient = getGradient(category.slug)}
-							<a
-								href="/santehnika/{category.slug}"
-								class="group flex items-center gap-3 rounded-xl px-4 py-3 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
-							>
-								<span
-									class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {gradient.from} {gradient.to} {gradient.text} transition-all {gradient.hover} group-hover:text-white group-hover:shadow-lg"
-								>
-									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										{@html getIcon(category.slug)}
-									</svg>
-								</span>
-								<span class="font-medium">{category.value}</span>
-							</a>
-						{/each}
-					</nav> -->
-
-					<!-- Бренды -->
-					<nav class=" space-y-1">
-						<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-							Бренды
-						</h2>
-
-						{#each brands as brand (brand.id || brand.slug)}
-							<a
-								href="/santehnika/{brand.slug}"
-								class="group flex items-center gap-3 rounded-xl px-4 py-2 text-slate-700 transition-all hover:bg-white hover:shadow-md hover:text-sky-600"
-							>
-								<span
-									class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition-all group-hover:bg-sky-500 group-hover:text-white group-hover:shadow-lg"
-								>
-									<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										{@html categoryIcon}
-									</svg>
-								</span>
-								<span class="font-medium text-sm">{getBrandName(brand)}</span>
-							</a>
-						{/each}
-					</nav>
-
-					<!-- Баннер -->
-					<SidebarConsultationBanner
-						title="Подбор под столешницу"
-						description="Поможем выбрать мойку и смеситель под ваш проект"
-						color="sky"
-					/>
-				</div>
-			</aside>
+			<!-- Сайдбар с брендами -->
+			<CatalogSidebar
+				items={brands}
+				rubricSlug="santehnika"
+				title="Бренды"
+				banner={{
+					title: 'Подбор под столешницу',
+					description: 'Поможем выбрать мойку и смеситель под ваш проект',
+					color: 'sky'
+				}}
+			/>
 
 			<!-- Основной контент -->
 			<main class="lg:col-span-3">
@@ -162,7 +94,12 @@
 									style="background: {category.bg || '#f1f5f9'}; color: #475569;"
 								>
 									<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										{@html getIcon(category.slug)}
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5l7 7-7 7"
+										/>
 									</svg>
 								</span>
 								<span class="text-sm font-medium text-slate-700">{category.value}</span>
@@ -184,7 +121,12 @@
 									class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500"
 								>
 									<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										{@html categoryIcon}
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5l7 7-7 7"
+										/>
 									</svg>
 								</span>
 								<span class="text-sm font-medium text-slate-700">{getBrandName(brand)}</span>

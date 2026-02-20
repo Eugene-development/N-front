@@ -189,7 +189,7 @@
 						transition:fly={{ y: -10, duration: 200, easing: cubicOut }}
 						role="menu"
 						tabindex="0"
-						class="absolute left-1/2 top-full z-40 mt-3 w-56 -translate-x-1/2 overflow-hidden rounded-2xl bg-white p-2 shadow-xl ring-1 ring-slate-900/5"
+						class="absolute left-1/2 top-full z-40 mt-3 w-72 -translate-x-1/2 overflow-hidden rounded-2xl bg-white p-3 shadow-xl ring-1 ring-slate-900/5"
 					>
 						<!-- Декоративный градиент сверху -->
 						<div

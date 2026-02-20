@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+	import CatalogSidebar from '$lib/components/CatalogSidebar.svelte';
 
 	// Данные загружаются на сервере в +page.server.js
 	let { data } = $props();
@@ -11,13 +12,6 @@
 	let suppliers = $derived(data.suppliers || []);
 	let categorySlug = $derived(data.categorySlug);
 	let error = $derived(data.error);
-
-	// Универсальная иконка для всех категорий (шеврон вправо)
-	const categoryIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />`;
-
-	function getIcon(slug) {
-		return categoryIcon;
-	}
 </script>
 
 <svelte:head>
@@ -37,61 +31,17 @@
 		<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
 			<div class="lg:grid lg:grid-cols-4 lg:gap-8">
 				<!-- Сайдбар с категориями -->
-				<aside class="hidden lg:block">
-					<div class="sticky top-24">
-						<nav class="space-y-1">
-							<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-								Материалы столешниц
-							</h2>
-
-							{#each allCategories as cat (cat.id)}
-								<a
-									href="/stoleshnica/{cat.slug}"
-									class="group flex items-center gap-3 rounded-xl px-4 py-3 transition-all {cat.slug ===
-									categorySlug
-										? 'bg-white shadow-md text-amber-600'
-										: 'text-slate-700 hover:bg-white hover:shadow-md hover:text-amber-600'}"
-								>
-									<span
-										class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br {cat.slug ===
-										categorySlug
-											? 'from-amber-500 to-orange-500 text-white shadow-lg'
-											: 'from-slate-100 to-gray-200 text-slate-600'} transition-all group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white group-hover:shadow-lg"
-									>
-										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											{@html getIcon(cat.slug)}
-										</svg>
-									</span>
-									<span class="font-medium">{cat.value}</span>
-								</a>
-							{/each}
-						</nav>
-
-						<!-- Баннер консультации -->
-						<div
-							class="mt-8 rounded-2xl bg-linear-to-br from-amber-500 to-orange-600 p-6 text-white"
-						>
-							<h3 class="text-lg font-semibold">Бесплатный замер</h3>
-							<p class="mt-2 text-sm text-amber-100">
-								Выезд специалиста для точного расчёта столешницы
-							</p>
-							<a
-								href="/measurement"
-								class="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-amber-600 transition-all hover:bg-amber-50"
-							>
-								Заказать замер
-								<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M9 5l7 7-7 7"
-									/>
-								</svg>
-							</a>
-						</div>
-					</div>
-				</aside>
+				<CatalogSidebar
+					items={allCategories}
+					rubricSlug="stoleshnica"
+					title="Материалы столешниц"
+					activeSlug={categorySlug}
+					banner={{
+						title: 'Бесплатный замер',
+						description: 'Выезд специалиста для точного расчёта столешницы',
+						color: 'sky'
+					}}
+				/>
 
 				<!-- Основной контент -->
 				<main class="lg:col-span-3">
