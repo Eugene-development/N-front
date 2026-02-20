@@ -27,6 +27,7 @@
 		{ href: '/stoleshnica', label: 'Столешницы' },
 		{ href: '/santehnika', label: 'Сантехника' },
 		{ href: '/furnitura', label: 'Фурнитура' },
+		{ href: '/osveschenie', label: 'Освещение' },
 		{ href: '/aksessuary', label: 'Аксессуары' }
 	];
 
