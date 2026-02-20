@@ -44,7 +44,7 @@
 	}
 
 	function getItemLink(item) {
-		if (itemType === 'shop' && item.website) {
+		if (externalLinks && item.website) {
 			return item.website;
 		}
 		return `/${rubricSlug}/${item.slug}`;
@@ -56,7 +56,7 @@
 		<!-- Элементы -->
 		{#if items.length > 0}
 			<nav class="space-y-1 rounded-2xl bg-white p-3 shadow-sm">
-				<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+				<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
 					{title}
 				</h2>
 
@@ -67,15 +67,15 @@
 						target={externalLinks ? '_blank' : undefined}
 						rel={externalLinks ? 'noopener noreferrer' : undefined}
 						class="group flex items-center gap-3 rounded-xl px-4 py-2 transition-all {active
-							? 'bg-sky-50 text-sky-600'
-							: 'text-slate-700 hover:bg-sky-50 hover:text-sky-600'}"
+							? 'bg-gray-50 text-gray-600'
+							: 'text-slate-700 hover:bg-gray-50 hover:text-gray-600 hover:scale-[1.02]'}"
 					>
 						<span
 							class="flex h-10 w-10 items-center justify-center rounded-lg transition-all {active
-								? 'text-sky-500'
-								: 'text-slate-400 group-hover:text-sky-500'}"
+								? 'text-gray-500'
+								: 'text-slate-400 group-hover:text-gray-500'}"
 						>
-							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								{@html getIcon(item)}
 							</svg>
 						</span>
