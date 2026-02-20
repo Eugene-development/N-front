@@ -5,12 +5,12 @@
 	import { cubicOut, elasticOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import { getRubrics } from '$lib/api/graphql.js';
+	import { cityStore } from '$lib/stores/city.svelte.js';
 
 
 	let visibleServicesMenu = $state(false);
 	let visibleCatalogMenu = $state(false);
 	let visibleCityMenu = $state(false);
-	let selectedCity = $state('Москва и МО');
 	let hoveredItem = $state(null); // Отслеживание наведения курсора
 
 
@@ -470,7 +470,8 @@
 						</svg>
 					</span>
 
-					<span class="transition-colors duration-300 group-hover:text-sky-600">{selectedCity}</span
+					<span class="transition-colors duration-300 group-hover:text-sky-600"
+						>{cityStore.city}</span
 					>
 
 					<!-- Стрелка -->
@@ -508,19 +509,19 @@
 							<button
 								type="button"
 								onclick={() => {
-									selectedCity = city.label;
+									cityStore.set(city.label);
 									visibleCityMenu = false;
 								}}
 								class="group flex w-full items-center justify-between rounded-xl px-4 py-2.5 text-left transition-all duration-200 hover:bg-linear-to-r hover:from-sky-50 hover:to-cyan-50"
-								class:bg-sky-50={selectedCity === city.label}
+								class:bg-sky-50={cityStore.city === city.label}
 								transition:fly={{ y: -5, duration: 150, delay: idx * 30 }}
 							>
 								<span
-									class="text-sm font-medium transition-colors {selectedCity === city.label
+									class="text-sm font-medium transition-colors {cityStore.city === city.label
 										? 'text-sky-600'
 										: 'text-slate-700'} group-hover:text-sky-600">{city.label}</span
 								>
-								{#if selectedCity === city.label}
+								{#if cityStore.city === city.label}
 									<svg
 										class="h-4 w-4 text-sky-500"
 										fill="none"

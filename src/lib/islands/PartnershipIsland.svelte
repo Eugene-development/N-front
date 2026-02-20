@@ -8,6 +8,7 @@
 	import PhoneInput from '$lib/components/PhoneInput.svelte';
 	import { normalizePhone, isPhoneComplete } from '$lib/utils/phone.js';
 	import { getGraphqlApiUrl, getAuthApiUrl } from '$lib/utils/config.js';
+	import { cityStore } from '$lib/stores/city.svelte.js';
 
 	// Состояние формы
 	let name = $state('');
@@ -87,7 +88,8 @@
 				name: name.trim(),
 				phone: normalizePhone(phoneDigits),
 				message: fullMessage || null,
-				source_url: sourceUrl
+				source_url: sourceUrl,
+				city: cityStore.city
 			};
 
 			// Сохраняем заявку в БД через GraphQL API

@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { getRubrics } from '$lib/api/graphql.js';
 	import { mobileMenuStore } from '$lib/stores/mobileMenu.svelte.js';
+	import { cityStore } from '$lib/stores/city.svelte.js';
 
 	let visibleMobileMenu = $state(false);
 	let showServiceMenu = $state(false);
@@ -148,7 +149,7 @@
 					</div>
 					<div>
 						<p class="text-xs text-slate-500">Ваш город</p>
-						<p class="font-medium text-slate-900">Москва и МО</p>
+						<p class="font-medium text-slate-900">{cityStore.city}</p>
 					</div>
 				</div>
 				<svg class="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
