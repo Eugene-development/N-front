@@ -54,12 +54,12 @@
 								/>
 							</svg>
 						</ConsultationButton>
-						<a
+						<!-- <a
 							href="/portfolio"
 							class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur transition-all hover:bg-white/20"
 						>
 							Наши работы
-						</a>
+						</a> -->
 					</div>
 				</div>
 				<div class="mt-12 lg:mt-0">
@@ -403,9 +403,7 @@
 						</svg>
 					</div>
 					<h3 class="mt-4 text-lg font-semibold text-white">Бесплатный проект</h3>
-					<p class="mt-2 text-sm text-slate-400">
-						Дизайнерская 3D-визуализация вашей будущей мебели
-					</p>
+					<p class="mt-2 text-sm text-slate-400">Дизайнерская 3D-визуализация вашей мебели</p>
 				</div>
 
 				<div class="rounded-2xl bg-white/5 p-6 backdrop-blur transition-all hover:bg-white/10">
