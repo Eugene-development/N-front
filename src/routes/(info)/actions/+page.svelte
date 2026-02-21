@@ -8,7 +8,7 @@
 </svelte:head>
 
 <!-- Hero секция -->
-<section class="relative overflow-hidden bg-linear-to-br from-slate-50 to-white py-24 sm:py-32">
+<section class="relative overflow-hidden bg-linear-to-br from-slate-50 to-white py-24 sm:py-28">
 	<!-- Диагональный декор -->
 	<div class="absolute inset-0">
 		<div
@@ -34,7 +34,7 @@
 </section>
 
 <!-- Карточки акций -->
-<section class="bg-white py-24 sm:py-32">
+<section class="bg-white py-24 sm:py-24">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 			<!-- Карточка 1 -->

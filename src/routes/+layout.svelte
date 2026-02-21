@@ -65,9 +65,7 @@
 			</PageTransition>
 		{/key}
 	</main>
-	{#if !isPromoPage}
-		<Footer />
-	{/if}
+	<Footer />
 </div>
 
 {#if !isPromoPage}
@@ -79,7 +77,7 @@
 
 	<!-- Глобальное модальное окно заказа услуги -->
 	<ServiceOrderIsland />
-
-	<!-- Глобальное модальное окно партнёрства -->
-	<PartnershipIsland />
 {/if}
+
+<!-- Глобальное модальное окно партнёрства -->
+<PartnershipIsland />

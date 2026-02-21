@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import PartnershipButton from '$lib/components/PartnershipButton.svelte';
 	
 	// Action for revealing elements on scroll
 	function reveal(node) {
@@ -43,23 +44,27 @@
 			: 'bg-transparent py-6'}"
 	>
 		<div class="container mx-auto px-6 flex justify-between items-center">
-			<a href="/" class="text-2xl font-bold tracking-tighter text-white flex gap-2 items-center">
-				<div
-					class="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-500 to-indigo-500 flex items-center justify-center"
+			<div class="flex items-center">
+				<a
+					href="/"
+					class="group relative transition-transform duration-300 hover:scale-105 z-30 flex items-center"
 				>
-					<span class="text-white text-lg font-black shrink-0 leading-none">N</span>
-				</div>
-				Новострой
-			</a>
-			<a
-				href="#join"
+					<span class="sr-only">Компания Новострой</span>
+					<img
+						class="h-24 w-auto"
+						src="https://storage.yandexcloud.net/brand-logo/novostroy/logomain.png"
+						alt="Логотип компании Новострой"
+					/>
+				</a>
+			</div>
+			<PartnershipButton
 				class="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors border border-white/10 relative overflow-hidden group"
 			>
 				<span class="relative z-10">Стать партнёром</span>
 				<div
 					class="absolute inset-0 bg-gradient-to-r from-sky-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity"
 				></div>
-			</a>
+			</PartnershipButton>
 		</div>
 	</header>
 
@@ -80,7 +85,7 @@
 			></div>
 		</div>
 
-		<div class="container mx-auto relative z-10 max-w-5xl text-center">
+		<div class="container mx-auto relative z-10 max-w-6xl text-center">
 			<div
 				class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-sm font-semibold mb-8 animate-fade-down"
 			>
@@ -89,12 +94,12 @@
 			</div>
 
 			<h1
-				class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 animate-fade-down"
+				class="text-5xl md:text-7xl font-bold tracking-wide tracking-tight mb-8 leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 animate-fade-down"
 				style="animation-delay: 100ms;"
 			>
-				Превратите каждую<br class="hidden md:block" /> рекомендацию в
+				Клиенты для вашего <br class="hidden md:block" />
 				<span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400"
-					>стабильный доход</span
+					>бизнеса</span
 				>
 			</h1>
 
@@ -102,8 +107,8 @@
 				class="text-xl md:text-2xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-up"
 				style="animation-delay: 200ms;"
 			>
-				В сложный экономический кризис важно держаться вместе и находить выгоду в сотрудничестве.
-				Рекомендуйте наши услуги клиентам и получайте гарантированный процент.
+				В сложный экономический кризис важно держаться вместе и находить выгоду в сотрудничестве. Мы
+				предлагаем клиентуру для ващего производства или магазина.
 			</p>
 
 			<div
@@ -114,7 +119,7 @@
 					href="#how-it-works"
 					class="px-8 py-4 rounded-full bg-white text-slate-950 font-bold hover:bg-sky-50 transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(56,189,248,0.3)]"
 				>
-					Как это работает
+					Подробнее
 				</a>
 				<!-- <a
 					href="#join"
@@ -127,13 +132,13 @@
 	</section>
 
 	<!-- Workflow Section -->
-	<section id="how-it-works" class="py-24 relative z-10 bg-slate-950">
+	<section id="how-it-works" class="scroll-mt-24 py-24 relative z-10 bg-slate-950">
 		<div class="container mx-auto px-6 max-w-6xl">
 			<div class="text-center mb-24" use:reveal>
 				<h2 class="text-3xl md:text-5xl font-bold mb-6">Как это работает</h2>
 				<p class="text-slate-400 text-lg max-w-2xl mx-auto">
-					Мы создали надёжную систему, в которой выигрывают все. Плавный процесс конвертации вашей
-					рекомендации в оплату.
+					Мы создали надёжную систему, в которой выигрывают все. Плавный процесс конвертации
+					рекомендации в продажу.
 				</p>
 			</div>
 
@@ -152,10 +157,10 @@
 						<div
 							class="w-full md:w-5/12 text-left md:text-right md:pr-16 pl-24 md:pl-0 order-2 md:order-1 relative"
 						>
-							<h3 class="text-4xl font-bold mb-3 text-sky-400">Рекомендация</h3>
+							<h3 class="text-4xl font-bold mb-3 text-sky-400">Заявка</h3>
 							<p class="text-slate-400 leading-relaxed text-lg">
-								Сотни рекомендаций на изготовление мебели от ремонтных бригад, дизайнеров интерьеров
-								и продавцов регистрируются на нашей платформе.
+								Заявки на изготовление мебели от ремонтных бригад, дизайнеров и продавцов мебели
+								регистрируются на нашей платформе и обрабатываются нашими кураторами.
 							</p>
 						</div>
 						<div
@@ -209,7 +214,7 @@
 												>
 													<div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div>
 												</div>
-												Продавцы товаров
+												Продавцы и консультанты
 											</li>
 										</ul>
 									</div>
@@ -228,8 +233,8 @@
 						>
 							<h3 class="text-4xl font-bold mb-3 text-indigo-400">Проект</h3>
 							<p class="text-slate-400 leading-relaxed text-lg">
-								Наши профессиональные кураторы бережно обрабатывают каждую заявку. Они связываются,
-								уточняют все детали и формируют чёткое ТЗ.
+								Наши кураторы обрабатывают каждую заявку и создают комплексный проект. Они
+								связываются с клиентом, уточняют все детали и формируют чёткое техническое задание.
 							</p>
 						</div>
 						<div
@@ -259,8 +264,8 @@
 								></div>
 								<div class="relative">
 									<p class="text-slate-300 italic">
-										"Мы берём на себя всю черновую работу — коммуникацию и расчёты, экономя ваше
-										драгоценное время."
+										"Мы берём на себя всю важную работу — коммуникацию с клиентом и подготовку ТЗ,
+										экономя ваше время и ресурсы."
 									</p>
 									<p class="text-sm text-indigo-400 font-bold mt-4 tracking-wide">
 										— Отдел кураторов
@@ -280,8 +285,8 @@
 						>
 							<h3 class="text-4xl font-bold mb-3 text-emerald-400">Просчёт</h3>
 							<p class="text-slate-400 leading-relaxed text-lg mb-6">
-								Обработанные заказы распределяются между проверенными производственными цехами и
-								фабриками, зарегистрированными на платформе.
+								Техническое задание передаётся вам на просчёт. Все нюансы обсуждаются с нашим
+								куратором проекта
 							</p>
 
 							<div class="inline-flex flex-col items-start md:items-end w-full">
@@ -291,10 +296,7 @@
 								<div
 									class="bg-gradient-to-r from-emerald-500/10 to-emerald-500/5 border border-emerald-500/20 px-5 py-4 rounded-xl shadow-lg border-l-4 border-l-emerald-500 text-left md:text-right"
 								>
-									Особое предпочтение адресно отдаётся <br /><span
-										class="text-white font-bold text-lg mt-1 block"
-										>Мебельной фабрике Новострой</span
-									>
+									Мы ожидаем адекватную цену, качественное выполнение работ и разуумные сроки
 								</div>
 							</div>
 						</div>
@@ -311,7 +313,7 @@
 										stroke-linecap="round"
 										stroke-linejoin="round"
 										stroke-width="2"
-										d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+										d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
 									></path></svg
 								>
 							</div>
@@ -324,17 +326,20 @@
 								<div
 									class="absolute inset-0 bg-gradient-to-br from-emerald-900/60 to-slate-900 text-center flex flex-col items-center justify-center p-6 z-10"
 								>
-									<div
+									<!-- <div
 										class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-teal-500/10 flex items-center justify-center mb-6 shadow-inner border border-emerald-500/20"
 									>
 										<span class="text-emerald-400 font-black text-4xl">N</span>
-									</div>
+									</div> -->
 									<h4
 										class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-white tracking-widest uppercase"
 									>
-										Новострой
+										Важно
 									</h4>
-									<p class="text-emerald-400 mt-2 font-medium tracking-wide">Мебельная фабрика</p>
+									<p class="text-emerald-400 mt-2 font-medium tracking-wide">
+										Если озвученный вами бюджет и прочие условия на изготовление проекта устраивает
+										клиента, то мы незамедлительно передаём его вам.
+									</p>
 								</div>
 								<div
 									class="absolute inset-0 bg-white/5 opacity-50 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"
@@ -353,8 +358,8 @@
 						>
 							<h3 class="text-4xl font-bold mb-3 text-amber-400">Клиент</h3>
 							<p class="text-slate-400 leading-relaxed text-lg">
-								После согласования проекта и стоимости, клиент оформляет договор с производством. Мы
-								обеспечиваем полную прозрачность всех этапов сделки до её завершения.
+								После финального согласования проекта и его стоимости, клиент приобретает у вас
+								мебель или технику.
 							</p>
 						</div>
 						<div
@@ -399,7 +404,7 @@
 									<div>
 										<h4 class="font-bold text-white mb-1">Сделка заключена</h4>
 										<p class="text-sm text-slate-400">
-											Гарантия результата и подписанный контракт.
+											В этот момент мы подразумеваем, что наша работа выполнена.
 										</p>
 									</div>
 								</div>
@@ -417,8 +422,8 @@
 						>
 							<h3 class="text-4xl font-bold mb-3 text-violet-400">Выплата</h3>
 							<p class="text-slate-400 leading-relaxed text-lg">
-								Как только производство выполнено, платформа фиксирует успешное завершение, и вы
-								моментально получаете партнерскую комиссию.
+								После заключения договора вами с клиентом мы ожидаем выплату оговоренных ранее
+								процентов за сделку.
 							</p>
 						</div>
 						<div
@@ -448,22 +453,22 @@
 										class="w-1.5 rounded-full bg-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.8)]"
 									></div>
 									<div class="w-full">
-										<h4 class="font-semibold text-white mb-3">Удобные способы вывода:</h4>
+										<h4 class="font-semibold text-white mb-3">Далее мы сами выплачиваем:</h4>
 										<div class="grid grid-cols-2 gap-3">
 											<div
 												class="bg-slate-800 border border-slate-700 rounded-lg p-2 text-center text-xs text-slate-300 font-medium"
 											>
-												На карту
+												Агентам
 											</div>
 											<div
 												class="bg-slate-800 border border-slate-700 rounded-lg p-2 text-center text-xs text-slate-300 font-medium"
 											>
-												СБП
+												Дизайнерам
 											</div>
 											<div
 												class="bg-slate-800 border border-slate-700 rounded-lg p-2 text-center text-xs text-slate-300 font-medium col-span-2"
 											>
-												Официальный договор
+												Кураторам
 											</div>
 										</div>
 									</div>
@@ -488,10 +493,10 @@
 
 		<div class="container mx-auto px-6 relative z-10 text-center">
 			<div use:reveal>
-				<h2 class="text-3xl md:text-5xl font-bold mb-6">Финансовая схема без скрытых условий</h2>
-				<p class="text-lg text-slate-400 mb-20 max-w-2xl mx-auto">
-					Никаких подводных камней. Прозрачное распределение комиссии между вами и платформой.
-				</p>
+				<h2 class="text-3xl md:text-7xl font-bold mb-6">Финансовая схема</h2>
+				<!-- <p class="text-lg text-slate-400 mb-20 max-w-2xl mx-auto">
+					Фиксированные условия сотрудничества с чётким распределением комиссии на каждом этапе.
+				</p> -->
 			</div>
 
 			<div
@@ -514,12 +519,12 @@
 							></path></svg
 						>
 					</div>
-					<h3 class="text-xl font-bold mb-3 text-white">Выплата фабрикой</h3>
-					<p class="text-slate-400 text-sm">Фабрика оплачивает комиссию за полученный заказ.</p>
+					<h3 class="text-lg font-bold text-white mb-2">Выплата</h3>
+					<p class="text-slate-400 text-sm">Вы оплачиваете нам комиссию за полученный заказ</p>
 					<div
 						class="mt-6 font-mono font-bold text-2xl text-emerald-400/80 bg-slate-900/50 py-2 rounded-xl border border-slate-700"
 					>
-						10-15%
+						Выплата
 					</div>
 				</div>
 
@@ -533,19 +538,18 @@
 
 				<!-- Split Box -->
 				<div
-					class="w-full lg:w-[60%] flex flex-col md:flex-row bg-slate-800 rounded-[2rem] border border-white/5 shadow-2xl overflow-hidden relative"
+					class="w-full lg:w-[60%] grid grid-cols-2 bg-slate-800 rounded-[2rem] border border-white/5 shadow-2xl overflow-hidden relative"
 				>
 					<div
 						class="absolute right-0 top-0 w-64 h-64 bg-sky-500/5 rounded-full blur-[80px] pointer-events-none"
 					></div>
 
-					<!-- Platform Share -->
+					<!-- Реклама -->
 					<div
-						class="flex-1 p-8 border-b md:border-b-0 md:border-r border-slate-700/50 flex flex-col justify-center relative"
+						class="p-8 border-b border-r border-slate-700/50 flex flex-col justify-center relative"
 					>
-						<h3 class="text-lg font-bold mb-3 text-white">Агент</h3>
 						<p class="text-slate-400 text-sm mb-6 flex-1">
-							Часть оплачивается нами за регистрацию рекомендации нашим партнёрам.
+							Мы продвигаем ваш бизнес через нашу клиентскую базу и рекомендательную сеть
 						</p>
 						<div class="space-y-3 mt-auto">
 							<div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden shadow-inner">
@@ -554,34 +558,66 @@
 								></div>
 							</div>
 							<div
-								class="font-mono text-xl text-indigo-400 font-bold bg-indigo-500/10 border border-indigo-500/20 py-2 rounded-xl w-full text-center"
+								class="font-mono text-xl text-indigo-300 font-bold bg-indigo-500/10 border border-indigo-500/20 py-2 rounded-xl w-full text-center"
 							>
-								5-10%
+								Реклама
 							</div>
 						</div>
 					</div>
 
-					<!-- Partner Share -->
-					<div
-						class="flex-[1.4] p-8 flex flex-col justify-center bg-gradient-to-br from-sky-500/5 to-transparent relative z-10"
-					>
-						<div
-							class="absolute -right-4 -top-4 w-24 h-24 bg-sky-500/10 rounded-full blur-2xl"
-						></div>
-						<h3 class="text-2xl font-black mb-3 text-white drop-shadow-md">Платформа</h3>
-						<p class="text-sky-200/70 text-sm mb-6 flex-1 pr-6">
-							Часть остаётся в платформе для оплаты работы кураторов и развития сервиса
+					<!-- Комиссия -->
+					<div class="p-8 border-b border-slate-700/50 flex flex-col justify-center relative">
+						<p class="text-slate-400 text-sm mb-6 flex-1">
+							Платим вознаграждение за каждую сделку, поступившую на нашу платформу
 						</p>
 						<div class="space-y-3 mt-auto">
-							<div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden shadow-inner flex">
+							<div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden shadow-inner">
 								<div
-									class="bg-gradient-to-r from-sky-400 to-sky-500 h-full w-[80%] rounded-full shadow-[0_0_20px_rgba(56,189,248,0.6)]"
+									class="bg-indigo-500/80 h-full w-[20%] rounded-full shadow-[0_0_10px_rgba(99,102,241,0.5)]"
 								></div>
 							</div>
 							<div
-								class="font-mono text-2xl text-sky-400 font-black tracking-wider bg-sky-500/10 border border-sky-500/20 py-3 rounded-xl w-full text-center shadow-[0_0_15px_rgba(56,189,248,0.1)]"
+								class="font-mono text-xl text-indigo-300 font-bold bg-indigo-500/10 border border-indigo-500/20 py-2 rounded-xl w-full text-center"
 							>
-								Львиная доля
+								Комиссия
+							</div>
+						</div>
+					</div>
+
+					<!-- Блок 3 -->
+					<div class="p-8 border-r border-slate-700/50 flex flex-col justify-center relative">
+						<p class="text-slate-400 text-sm mb-6 flex-1">
+							Часть остаётся в платформе для оплаты работы кураторов и поддержки сервиса
+						</p>
+						<div class="space-y-3 mt-auto">
+							<div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden shadow-inner">
+								<div
+									class="bg-indigo-500/80 h-full w-[20%] rounded-full shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+								></div>
+							</div>
+							<div
+								class="font-mono text-xl text-indigo-300 font-bold bg-indigo-500/10 border border-indigo-500/20 py-2 rounded-xl w-full text-center"
+							>
+								Платформа
+							</div>
+						</div>
+					</div>
+
+					<!-- Блок 4 -->
+					<div class="p-8 flex flex-col justify-center relative">
+						<p class="text-slate-400 text-sm mb-6 flex-1">
+							Инвестируем в развитие системы, новые инструменты и расширение партнёрской сети
+						</p>
+						<div class="space-y-3 mt-auto">
+							<div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden shadow-inner">
+								<div
+									class="bg-indigo-500/80 h-full w-[20%] rounded-full shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+								></div>
+							</div>
+							<div
+								class="font-mono text-xl text-indigo-300 font-bold bg-indigo-500/10 border border-indigo-500/20 py-2 rounded-xl w-full text-center"
+							>
+								Развитие
 							</div>
 						</div>
 					</div>
@@ -591,7 +627,7 @@
 	</section>
 
 	<!-- Call to Action -->
-	<section id="join" class="py-24 md:py-32 relative overflow-hidden bg-slate-950">
+	<section id="join" class="scroll-mt-24 py-24 md:py-32 relative overflow-hidden bg-slate-950">
 		<div class="container mx-auto px-6 text-center">
 			<div
 				class="max-w-4xl mx-auto bg-slate-900 border border-white/10 rounded-[2.5rem] p-10 md:p-20 shadow-2xl relative overflow-hidden"
@@ -608,17 +644,16 @@
 				<h2
 					class="text-4xl md:text-5xl font-extrabold mb-8 text-white relative z-10 tracking-tight leading-tight"
 				>
-					Ваша репутация работает на вас<br />даже в кризисный момент
+					Для начала сотрудничества<br />оставьте заявку
 				</h2>
 				<p
 					class="text-xl md:text-2xl text-slate-300 md:leading-relaxed mb-12 relative z-10 font-light max-w-2xl mx-auto"
 				>
-					Станьте частью надежной экосистемы Новострой и получайте доход, рекомендуя качество.
+					После отправки заявки наш менеджер свяжется с вами и расскажет подробнее о сотрудничестве.
 				</p>
 
 				<div class="flex flex-col sm:flex-row gap-5 justify-center relative z-10">
-					<a
-						href="/partnership"
+					<PartnershipButton
 						class="px-10 py-5 rounded-full bg-white text-slate-950 font-bold hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all hover:scale-105 group flex items-center justify-center gap-3 text-lg"
 					>
 						Оставить заявку
@@ -634,41 +669,11 @@
 								d="M14 5l7 7m0 0l-7 7m7-7H3"
 							></path></svg
 						>
-					</a>
+					</PartnershipButton>
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<!-- Minimal Footer -->
-	<footer class="py-12 border-t border-white/5 bg-slate-950 shrink-0">
-		<div class="container mx-auto px-6 flex flex-col items-center justify-center">
-			<a
-				href="/"
-				class="text-2xl font-bold tracking-tighter text-white flex gap-2 items-center mb-8 opacity-50 hover:opacity-100 transition-opacity"
-			>
-				<div
-					class="w-6 h-6 rounded bg-slate-800 flex items-center justify-center border border-white/10"
-				>
-					<span class="text-white text-xs font-black shrink-0">N</span>
-				</div>
-				Новострой
-			</a>
-
-			<div
-				class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-slate-500 text-sm font-medium mb-8"
-			>
-				<a href="/" class="hover:text-white transition-colors">Перейти на сайт</a>
-				<a href="/catalog" class="hover:text-white transition-colors">Каталог</a>
-				<a href="/contacts" class="hover:text-white transition-colors">Контакты</a>
-			</div>
-
-			<p class="text-slate-600 text-xs text-center">
-				&copy; {new Date().getFullYear()} ООО "Новострой". Все права защищены. <br />Предложение не
-				является публичной офертой.
-			</p>
-		</div>
-	</footer>
 </div>
 
 <style>
