@@ -12,6 +12,8 @@
 
 	let { children } = $props();
 
+	let isPromoPage = $derived($page.url.pathname === '/promo' || $page.url.pathname.startsWith('/promo/'));
+
 	// Глобальный обработчик ошибок загрузки изображений
 	// Это предотвращает бесконечную загрузку страницы из-за недоступных внешних изображений
 	onMount(() => {
@@ -53,7 +55,9 @@
 </script>
 
 <div class="flex min-h-screen flex-col">
-	<Header />
+	{#if !isPromoPage}
+		<Header />
+	{/if}
 	<main class="flex-1">
 		{#key $page.url.pathname}
 			<PageTransition type="fade" duration={500}>
@@ -61,17 +65,21 @@
 			</PageTransition>
 		{/key}
 	</main>
-	<Footer />
+	{#if !isPromoPage}
+		<Footer />
+	{/if}
 </div>
 
-<!-- Глобальное мобильное меню -->
-<MobileMenu />
+{#if !isPromoPage}
+	<!-- Глобальное мобильное меню -->
+	<MobileMenu />
 
-<!-- Глобальное модальное окно консультации -->
-<ConsultationIsland />
+	<!-- Глобальное модальное окно консультации -->
+	<ConsultationIsland />
 
-<!-- Глобальное модальное окно заказа услуги -->
-<ServiceOrderIsland />
+	<!-- Глобальное модальное окно заказа услуги -->
+	<ServiceOrderIsland />
 
-<!-- Глобальное модальное окно партнёрства -->
-<PartnershipIsland />
+	<!-- Глобальное модальное окно партнёрства -->
+	<PartnershipIsland />
+{/if}
