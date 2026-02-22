@@ -200,7 +200,7 @@
 					rubricSlug="bytovaya-tehnika"
 					title="Бренды"
 					activeSlug={brandSlug}
-					externalLinks={true}
+					externalLinks={false}
 					banner={{
 						title: 'Подбор техники',
 						description: 'Поможем выбрать бытовую технику под ваш проект мебели',

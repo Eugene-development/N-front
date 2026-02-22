@@ -122,7 +122,7 @@
 								<tbody class="divide-y divide-slate-100">
 									<tr>
 										<td class="px-4 py-3 font-medium text-slate-900">Кварцевый агломерат</td>
-										<td class="px-4 py-3 text-slate-600">от 15 000 ₽/м²</td>
+										<td class="px-4 py-3 text-slate-600">Высокая</td>
 										<td class="px-4 py-3"
 											><span
 												class="rounded-full bg-emerald-100 px-2 py-1 text-xs font-medium text-emerald-700"
@@ -138,7 +138,7 @@
 									</tr>
 									<tr>
 										<td class="px-4 py-3 font-medium text-slate-900">Акриловый камень</td>
-										<td class="px-4 py-3 text-slate-600">от 12 000 ₽/м²</td>
+										<td class="px-4 py-3 text-slate-600">Средняя</td>
 										<td class="px-4 py-3"
 											><span
 												class="rounded-full bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700"
@@ -154,7 +154,7 @@
 									</tr>
 									<tr>
 										<td class="px-4 py-3 font-medium text-slate-900">ДСП / Постформинг</td>
-										<td class="px-4 py-3 text-slate-600">от 3 000 ₽/м²</td>
+										<td class="px-4 py-3 text-slate-600">Низкая</td>
 										<td class="px-4 py-3"
 											><span
 												class="rounded-full bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700"
@@ -170,11 +170,11 @@
 									</tr>
 									<tr>
 										<td class="px-4 py-3 font-medium text-slate-900">Массив дерева</td>
-										<td class="px-4 py-3 text-slate-600">от 8 000 ₽/м²</td>
+										<td class="px-4 py-3 text-slate-600">Высокая</td>
 										<td class="px-4 py-3"
 											><span
-												class="rounded-full bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700"
-												>Средняя</span
+												class="rounded-full bg-sky-100 px-2 py-1 text-xs font-medium text-sky-700"
+												>Низкая</span
 											></td
 										>
 										<td class="px-4 py-3"
@@ -186,7 +186,7 @@
 									</tr>
 									<tr>
 										<td class="px-4 py-3 font-medium text-slate-900">Керамика</td>
-										<td class="px-4 py-3 text-slate-600">от 25 000 ₽/м²</td>
+										<td class="px-4 py-3 text-slate-600">Высокая</td>
 										<td class="px-4 py-3"
 											><span
 												class="rounded-full bg-emerald-100 px-2 py-1 text-xs font-medium text-emerald-700"
@@ -261,8 +261,10 @@
 									/>
 								</svg>
 							</div>
-							<h3 class="mt-4 text-lg font-semibold text-slate-900">Гарантия 2 года</h3>
-							<p class="mt-2 text-sm text-slate-600">Гарантия на материал и работы по установке</p>
+							<h3 class="mt-4 text-lg font-semibold text-slate-900">Гарантия 2-10 лет</h3>
+							<p class="mt-2 text-sm text-slate-600">
+								Гарантия на материал и работы по установке вашего изделия
+							</p>
 						</div>
 					</div>
 				</div>
@@ -273,7 +275,7 @@
 					<div class="mt-6 grid gap-6 sm:grid-cols-2">
 						<a href="/stoleshnica/kvarc" class="group relative overflow-hidden rounded-2xl">
 							<img
-								src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800"
+								src="/stoleshnica_popular_kvarc.png"
 								alt="Кварцевые столешницы"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
@@ -290,7 +292,7 @@
 
 						<a href="/stoleshnica/akril" class="group relative overflow-hidden rounded-2xl">
 							<img
-								src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800"
+								src="/stoleshnica_popular_akril.png"
 								alt="Акриловые столешницы"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>

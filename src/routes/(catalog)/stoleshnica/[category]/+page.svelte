@@ -12,6 +12,19 @@
 	let suppliers = $derived(data.suppliers || []);
 	let categorySlug = $derived(data.categorySlug);
 	let error = $derived(data.error);
+
+	const categoryImages = {
+		'hpl-plastik': '/hpl_plastik_hero.png',
+		'akril': '/akril_stoleshnica_hero.png',
+		'kvarc': '/kvarc_stoleshnica_hero.png',
+		'kompakt-plita': '/kompakt_plita_hero.png',
+		'massiv': '/massiv_stoleshnica_hero.png',
+		'keramika': '/keramika_stoleshnica_hero.png'
+	};
+
+	function getHeroImage(slug) {
+		return categoryImages[slug] || 'https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200';
+	}
 </script>
 
 <svelte:head>
@@ -50,7 +63,7 @@
 						class="relative overflow-hidden rounded-2xl bg-linear-to-r from-slate-900 to-slate-800"
 					>
 						<img
-							src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200"
+							src={getHeroImage(categorySlug)}
 							alt={category.value}
 							class="absolute inset-0 h-full w-full object-cover opacity-40"
 						/>
@@ -85,12 +98,6 @@
 										/>
 									</svg>
 								</ConsultationButton>
-								<a
-									href="/measurement"
-									class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20"
-								>
-									Вызвать замерщика
-								</a>
 							</div>
 						</div>
 					</div>
@@ -352,7 +359,9 @@
 									</svg>
 								</div>
 								<h3 class="mt-3 font-semibold text-slate-900">Лучшие цены</h3>
-								<p class="mt-1 text-sm text-slate-600">Дилерские скидки от производителей</p>
+								<p class="mt-1 text-sm text-slate-600">
+									Для вас самые низкие цены на рынке столешниц
+								</p>
 							</div>
 							<div class="rounded-xl bg-white p-5 shadow-sm">
 								<div
@@ -368,7 +377,9 @@
 									</svg>
 								</div>
 								<h3 class="mt-3 font-semibold text-slate-900">Монтаж под ключ</h3>
-								<p class="mt-1 text-sm text-slate-600">Профессиональная установка</p>
+								<p class="mt-1 text-sm text-slate-600">
+									Профессиональная установка столешниц с техникой
+								</p>
 							</div>
 							<div class="rounded-xl bg-white p-5 shadow-sm">
 								<div
@@ -383,8 +394,10 @@
 										/>
 									</svg>
 								</div>
-								<h3 class="mt-3 font-semibold text-slate-900">Поддержка 24/7</h3>
-								<p class="mt-1 text-sm text-slate-600">Консультация на всех этапах</p>
+								<h3 class="mt-3 font-semibold text-slate-900">Гарантии</h3>
+								<p class="mt-1 text-sm text-slate-600">
+									Повышенная гарантия на качество и сроки выполнения
+								</p>
 							</div>
 						</div>
 					</div>

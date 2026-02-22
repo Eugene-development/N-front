@@ -22,10 +22,12 @@
 	// Category specific hero images
 	const categoryImages = {
 		'kuhonnye-garnitury': '/kuhni_hero.png',
-		'kuhni': '/kuhni_hero.png',
 		'shkafy': '/wardrobe_project_no_text.png', 
-		'shkafy-kupe': '/wardrobe_project_no_text.png',
-		'garderobnye': '/dressing_room_hero.png'
+		// 'shkafy-kupe': '/wardrobe_project_no_text.png',
+		'garderobnye': '/dressing_room_hero.png',
+		'myagkaya-mebel': '/myagkaya_mebel_hero.png',
+		'stoly-i-stulya': '/stoly_i_stulya_hero.png',
+		'ofisnaya-mebel': '/ofisnaya_mebel_hero.png'
 	};
 
 	function getHeroImage(slug) {
@@ -97,7 +99,7 @@
 									serviceType="furniture-project"
 									class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 font-medium text-white transition-all hover:bg-sky-600 cursor-pointer"
 								>
-									Разработать проект
+									Создать проект
 									<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 										<path
 											stroke-linecap="round"
@@ -107,12 +109,12 @@
 										/>
 									</svg>
 								</ServiceOrderButton>
-								<ServiceOrderButton
+								<!-- <ServiceOrderButton
 									serviceType="measurement"
 									class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition-all hover:bg-white/20 cursor-pointer"
 								>
 									Бесплатный замер
-								</ServiceOrderButton>
+								</ServiceOrderButton> -->
 							</div>
 						</div>
 					</div>
@@ -213,7 +215,10 @@
 										<ProductFavoriteButton product={{ ...project, categorySlug }} />
 									</div>
 
-									<a href="/mebel/{categorySlug}/{project.slug}" class="relative block aspect-[4/3] overflow-hidden bg-slate-100">
+									<a
+										href="/mebel/{categorySlug}/{project.slug}"
+										class="relative block aspect-[4/3] overflow-hidden bg-slate-100"
+									>
 										{#if project.images && project.images.length > 0 && project.images[0].url}
 											<img
 												src={project.images[0].url}
@@ -318,7 +323,7 @@
 										/>
 									</svg>
 								</div>
-								<h3 class="mt-3 font-semibold text-slate-900">Гарантия 5 лет</h3>
+								<h3 class="mt-3 font-semibold text-slate-900">Гарантия до 5 лет</h3>
 								<p class="mt-1 text-sm text-slate-600">На все изделия</p>
 							</div>
 							<div class="rounded-xl bg-white p-5 shadow-sm">
