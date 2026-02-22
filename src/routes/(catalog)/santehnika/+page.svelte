@@ -226,9 +226,9 @@
 				<div class="mt-12">
 					<h2 class="text-2xl font-bold text-slate-900">Популярные категории</h2>
 					<div class="mt-6 grid gap-6 sm:grid-cols-2">
-						<a href="/santehnika/moyki" class="group relative overflow-hidden rounded-2xl">
+						<div class="group relative overflow-hidden rounded-2xl">
 							<img
-								src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800"
+								src="/kitchen_sink.png"
 								alt="Кухонные мойки"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
@@ -239,11 +239,11 @@
 								<h3 class="text-xl font-bold text-white">Кухонные мойки</h3>
 								<p class="mt-1 text-sm text-slate-300">Врезные, накладные, интегрированные</p>
 							</div>
-						</a>
+						</div>
 
-						<a href="/santehnika/smesiteli" class="group relative overflow-hidden rounded-2xl">
+						<div class="group relative overflow-hidden rounded-2xl">
 							<img
-								src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800"
+								src="/kitchen_faucet.png"
 								alt="Смесители"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
@@ -256,7 +256,7 @@
 									С выдвижным изливом, сенсорные, классические
 								</p>
 							</div>
-						</a>
+						</div>
 					</div>
 				</div>
 

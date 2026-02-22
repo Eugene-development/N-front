@@ -199,10 +199,7 @@
 				<div class="mt-12">
 					<h2 class="text-2xl font-bold text-slate-900">Популярные категории</h2>
 					<div class="mt-6 grid gap-6 sm:grid-cols-2">
-						<a
-							href="/bytovaya-tehnika/varochnye-paneli"
-							class="group relative overflow-hidden rounded-2xl"
-						>
+						<div class="group relative overflow-hidden rounded-2xl">
 							<img
 								src="https://storage.yandexcloud.net/novostroy/bg/varochna.jpg"
 								alt="Варочные панели"
@@ -215,12 +212,9 @@
 								<h3 class="text-xl font-bold text-white">Варочные панели</h3>
 								<p class="mt-1 text-sm text-slate-300">Индукционные, газовые, электрические</p>
 							</div>
-						</a>
+						</div>
 
-						<a
-							href="/bytovaya-tehnika/duhovye-shkafy"
-							class="group relative overflow-hidden rounded-2xl"
-						>
+						<div class="group relative overflow-hidden rounded-2xl">
 							<img
 								src="https://storage.yandexcloud.net/novostroy/bg/duhshkaf.jpg"
 								alt="Духовые шкафы"
@@ -233,7 +227,7 @@
 								<h3 class="text-xl font-bold text-white">Духовые шкафы</h3>
 								<p class="mt-1 text-sm text-slate-300">Встраиваемые с конвекцией и грилем</p>
 							</div>
-						</a>
+						</div>
 					</div>
 				</div>
 

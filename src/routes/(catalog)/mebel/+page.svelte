@@ -175,35 +175,35 @@
 				<div class="mt-12">
 					<h2 class="text-2xl font-bold text-slate-900">Популярные решения</h2>
 					<div class="mt-6 grid gap-6 sm:grid-cols-2">
-						<a href="/mebel/kuhni" class="group relative overflow-hidden rounded-2xl">
+						<div class="group relative overflow-hidden rounded-2xl">
 							<img
-								src="https://zovofficial.com/image/cache/catalog/products/kuhni/2022/pemont-22/cam-1-1087x890.jpg"
-								alt="Кухни на заказ"
+								src="/custom_kitchens.png"
+								alt="Кухонные гарнитуры"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
 							<div
 								class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"
 							></div>
 							<div class="absolute bottom-0 left-0 right-0 p-6">
-								<h3 class="text-xl font-bold text-white">Кухни на заказ</h3>
+								<h3 class="text-xl font-bold text-white">Кухонные гарнитуры</h3>
 								<p class="mt-1 text-sm text-slate-300">От классики до современного минимализма</p>
 							</div>
-						</a>
+						</div>
 
-						<a href="/mebel/shkafy" class="group relative overflow-hidden rounded-2xl">
+						<div class="group relative overflow-hidden rounded-2xl">
 							<img
-								src="https://aristo.expert/upload/iblock/c03/u2v1fjrt1l89bvmymd1kmrjvk06euaaj/Razdvizhnaya_-vtsroennyy-shkaf-s-razdvizhnymi-dveryami_-chernyy-matovyy.jpeg"
-								alt="Шкафы и гардеробные"
+								src="/custom_wardrobes.png"
+								alt="Шкафы"
 								class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
 							<div
 								class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent"
 							></div>
 							<div class="absolute bottom-0 left-0 right-0 p-6">
-								<h3 class="text-xl font-bold text-white">Шкафы и гардеробные</h3>
+								<h3 class="text-xl font-bold text-white">Шкафы</h3>
 								<p class="mt-1 text-sm text-slate-300">Максимум функциональности и стиля</p>
 							</div>
-						</a>
+						</div>
 					</div>
 				</div>
 
