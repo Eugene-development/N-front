@@ -13,7 +13,7 @@
 export const serviceConfig = {
 	consultation: {
 		title: 'Консультация',
-		description: 'Оставьте заявку и наш специалист свяжется с вами для бесплатной консультации',
+		description: 'Оставьте заявку и наш специалист свяжется с вами в ближайшее время',
 		accentColor: 'amber'
 	},
 	'design-project': {

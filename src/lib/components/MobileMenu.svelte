@@ -11,6 +11,17 @@
 	let showInformationMenu = $state(false);
 	let showCatalogMenu = $state(false);
 
+	let showCityMenu = $state(false);
+
+	const cities = [
+		{ label: 'Москва и МО' },
+		{ label: 'Санкт-Петербург' },
+		{ label: 'Новосибирск' },
+		{ label: 'Екатеринбург' },
+		{ label: 'Казань' },
+		{ label: 'Нижний Новгород' }
+	];
+
 	// Subscribe to the store
 	$effect(() => {
 		const unsubscribe = mobileMenuStore.subscribe(value => {
@@ -67,8 +78,7 @@
 		{ href: '/partnership', label: 'Партнёрство' },
 		{ href: '/testimonials', label: 'Отзывы' },
 		{ href: '/installment', label: 'Рассрочка' },
-		{ href: '/guarantees', label: 'Гарантии' },
-		{ href: '/contacts', label: 'Контакты' }
+		{ href: '/guarantees', label: 'Гарантии' }
 	];
 
 	function closeMenu() {
@@ -76,6 +86,7 @@
 		showServiceMenu = false;
 		showInformationMenu = false;
 		showCatalogMenu = false;
+		showCityMenu = false;
 	}
 </script>
 
@@ -124,12 +135,18 @@
 		<!-- City Selector -->
 		<div class="border-b border-slate-100 px-6 py-4">
 			<button
-				class="flex w-full items-center justify-between rounded-xl bg-linear-to-r from-pink-50 to-rose-50 px-4 py-3 text-left"
+				onclick={() => (showCityMenu = !showCityMenu)}
+				class="city-selector group relative flex w-full items-center justify-between overflow-hidden rounded-xl bg-linear-to-r from-slate-100/20 to-slate-50/80 px-4 py-3 text-left ring-1 ring-slate-200/50 transition-all duration-300 hover:ring-sky-200 hover:shadow-lg hover:shadow-sky-500/10"
+				aria-expanded={showCityMenu}
 			>
+				<!-- Анимированный фон как на десктопе -->
+				<span
+					class="absolute inset-0 -z-10 bg-linear-to-r from-sky-500 to-cyan-500 opacity-0 transition-opacity duration-300 group-hover:opacity-10"
+				></span>
 				<div class="flex items-center gap-3">
-					<div class="flex h-8 w-8 items-center justify-center rounded-full bg-pink-100">
+					<div class="flex items-center justify-center">
 						<svg
-							class="h-4 w-4 text-pink-600"
+							class="h-5 w-5 text-sky-500 transition-transform duration-300 group-hover:scale-110"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -150,73 +167,68 @@
 					</div>
 					<div>
 						<p class="text-xs text-slate-500">Ваш город</p>
-						<p class="font-medium text-slate-900">{cityStore.city}</p>
+						<p
+							class="font-medium text-slate-900 transition-colors duration-300 group-hover:text-sky-600"
+						>
+							{cityStore.city}
+						</p>
 					</div>
 				</div>
-				<svg class="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<svg
+					class="h-5 w-5 text-slate-400 transition-all duration-300 group-hover:text-sky-500 {showCityMenu
+						? 'rotate-180'
+						: ''}"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 				</svg>
 			</button>
+			{#if showCityMenu}
+				<div
+					class="mt-2 overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-900/5"
+					transition:slide={{ duration: 200, easing: cubicOut }}
+				>
+					{#each cities as city, i}
+						<button
+							type="button"
+							onclick={() => {
+								cityStore.set(city.label);
+								showCityMenu = false;
+							}}
+							class="group flex w-full items-center justify-between px-4 py-2.5 text-left text-sm transition-all duration-200 hover:bg-linear-to-r hover:from-sky-50 hover:to-cyan-50"
+							class:bg-sky-50={cityStore.city === city.label}
+						>
+							<span
+								class="font-medium transition-colors {cityStore.city === city.label
+									? 'text-sky-600'
+									: 'text-slate-700'} group-hover:text-sky-600">{city.label}</span
+							>
+							{#if cityStore.city === city.label}
+								<svg
+									class="h-4 w-4 text-sky-500"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M5 13l4 4L19 7"
+									/>
+								</svg>
+							{/if}
+						</button>
+					{/each}
+				</div>
+			{/if}
 		</div>
 
 		<!-- Navigation -->
 		<div class="flex-1 overflow-y-auto px-4 py-4">
 			<nav class="space-y-1">
-				<!-- Услуги -->
-				<div class="overflow-hidden rounded-xl">
-					<button
-						onclick={() => (showServiceMenu = !showServiceMenu)}
-						type="button"
-						class="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left transition-colors duration-200 hover:bg-slate-50"
-					>
-						<div class="flex items-center gap-3">
-							<div
-								class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-pink-100 to-rose-100 text-pink-600"
-							>
-								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="1.5"
-										d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-									/>
-								</svg>
-							</div>
-							<span class="text-base font-semibold text-slate-900">Услуги</span>
-						</div>
-						<svg
-							class="h-5 w-5 text-slate-400 transition-transform duration-300 {showServiceMenu
-								? 'rotate-180 text-pink-500'
-								: ''}"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M19 9l-7 7-7-7"
-							/>
-						</svg>
-					</button>
-					{#if showServiceMenu}
-						<div class="pb-2 pl-4" transition:slide={{ duration: 200, easing: cubicOut }}>
-							{#each serviceItems as item, i}
-								<a
-									href={item.href}
-									onclick={closeMenu}
-									class="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm text-slate-600 transition-all duration-200 hover:bg-pink-50 hover:text-pink-600"
-									transition:fly={{ x: -10, duration: 150, delay: i * 30 }}
-								>
-									<span class="h-1.5 w-1.5 rounded-full bg-pink-300"></span>
-									{item.label}
-								</a>
-							{/each}
-						</div>
-					{/if}
-				</div>
-
 				<!-- Каталог -->
 				<div class="overflow-hidden rounded-xl">
 					<button
@@ -296,6 +308,61 @@
 									</a>
 								{/each}
 							{/if}
+						</div>
+					{/if}
+				</div>
+
+				<!-- Услуги -->
+				<div class="overflow-hidden rounded-xl">
+					<button
+						onclick={() => (showServiceMenu = !showServiceMenu)}
+						type="button"
+						class="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left transition-colors duration-200 hover:bg-slate-50"
+					>
+						<div class="flex items-center gap-3">
+							<div
+								class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-pink-100 to-rose-100 text-pink-600"
+							>
+								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+									/>
+								</svg>
+							</div>
+							<span class="text-base font-semibold text-slate-900">Услуги</span>
+						</div>
+						<svg
+							class="h-5 w-5 text-slate-400 transition-transform duration-300 {showServiceMenu
+								? 'rotate-180 text-pink-500'
+								: ''}"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M19 9l-7 7-7-7"
+							/>
+						</svg>
+					</button>
+					{#if showServiceMenu}
+						<div class="pb-2 pl-4" transition:slide={{ duration: 200, easing: cubicOut }}>
+							{#each serviceItems as item, i}
+								<a
+									href={item.href}
+									onclick={closeMenu}
+									class="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm text-slate-600 transition-all duration-200 hover:bg-pink-50 hover:text-pink-600"
+									transition:fly={{ x: -10, duration: 150, delay: i * 30 }}
+								>
+									<span class="h-1.5 w-1.5 rounded-full bg-pink-300"></span>
+									{item.label}
+								</a>
+							{/each}
 						</div>
 					{/if}
 				</div>
@@ -382,23 +449,29 @@
 					</a>
 
 					<a
-						href="/blog"
+						href="/contacts"
 						onclick={closeMenu}
-						class="flex items-center gap-3 rounded-xl px-4 py-3 transition-colors duration-200 hover:bg-emerald-50"
+						class="flex items-center gap-3 rounded-xl px-4 py-3 transition-colors duration-200 hover:bg-teal-50"
 					>
 						<div
-							class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-emerald-100 to-green-100 text-emerald-600"
+							class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-teal-100 to-emerald-100 text-teal-600"
 						>
 							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path
 									stroke-linecap="round"
 									stroke-linejoin="round"
 									stroke-width="1.5"
-									d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+									d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+								/>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="1.5"
+									d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
 								/>
 							</svg>
 						</div>
-						<span class="text-base font-semibold text-slate-900">Блог</span>
+						<span class="text-base font-semibold text-slate-900">Контакты</span>
 					</a>
 				</div>
 			</nav>
@@ -423,3 +496,32 @@
 		</div>
 	</div>
 {/if}
+
+<style>
+	.city-selector::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 0.75rem; /* rounded-xl */
+		padding: 1px;
+		background: linear-gradient(135deg, transparent 40%, #7dd3fc 50%, transparent 60%);
+		-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+		mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
+		opacity: 0;
+		transition: opacity 0.3s;
+		pointer-events: none;
+	}
+	
+	.city-selector:hover::before {
+		opacity: 1;
+		animation: border-spin 3s linear infinite;
+	}
+	
+	@keyframes border-spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+</style>

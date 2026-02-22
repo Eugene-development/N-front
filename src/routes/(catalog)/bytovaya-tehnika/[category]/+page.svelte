@@ -231,7 +231,7 @@
 								<!-- Логотип бренда -->
 								<div class="flex-shrink-0">
 									<div
-										class="w-40 h-40 rounded-2xl bg-white p-6 flex items-center justify-center shadow-xl"
+										class="w-44 h-44 rounded-2xl bg-white p-6 flex items-center justify-center shadow-xl"
 									>
 										<img
 											src={currentBrand.logo}
@@ -278,10 +278,6 @@
 											<span class="font-medium">С {currentBrand.founded} года</span>
 										</div>
 									</div>
-
-									<p class="mt-4 max-w-xl text-lg text-slate-300">
-										{currentBrand.description}
-									</p>
 
 									<div class="mt-6 flex flex-wrap gap-4">
 										<a
@@ -338,7 +334,7 @@
 					</div>
 
 					<!-- Особенности бренда -->
-					<div class="mt-8">
+					<!-- <div class="mt-8">
 						<h2 class="text-2xl font-bold text-slate-900">Преимущества {currentBrand.name}</h2>
 						<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 							{#each currentBrand.features as feature, index}
@@ -367,10 +363,10 @@
 								</div>
 							{/each}
 						</div>
-					</div>
+					</div> -->
 
 					<!-- Категории техники бренда -->
-					<div class="mt-8">
+					<!-- <div class="mt-8">
 						<h2 class="text-2xl font-bold text-slate-900">Техника {currentBrand.name}</h2>
 						<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 							{#each currentBrand.categories as category}
@@ -393,7 +389,7 @@
 								</div>
 							{/each}
 						</div>
-					</div>
+					</div> -->
 
 					<!-- CTA секция -->
 					<div

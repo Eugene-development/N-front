@@ -1,3 +1,7 @@
+<script>
+	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
+</script>
+
 <svelte:head>
 	<title>Контакты | Новострой</title>
 	<meta name="description" content="Свяжитесь с нами — телефон, почта, адрес" />
@@ -184,15 +188,23 @@
 				>
 					Личная консультация
 				</h2>
-				<p class="mt-6 text-lg/8 text-gray-600">
-					Для обсуждения деталей мы можем организовать с вами встречу в салоне наших партнёров или
-					на вашем объекте.
+				<p class="mt-6 text-base/7 md:text-lg/8 text-gray-600">
+					Для обсуждения деталей мы можем организовать с вами встречу в одном из салонов наших
+					партнёров или на вашем объекте
 				</p>
+
+				<div class="mt-8">
+					<ConsultationButton
+						class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-sky-500/30 transition duration-300 hover:-translate-y-1 hover:bg-sky-400 hover:shadow-xl hover:shadow-sky-500/40"
+					>
+						Консультация при встрече
+					</ConsultationButton>
+				</div>
 
 				<dl class="mt-10 space-y-6">
 					<div class="flex gap-4">
 						<dt
-							class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-sky-500 text-white"
+							class="flex size-14 shrink-0 items-center justify-center rounded-xl bg-sky-500 text-white"
 						>
 							<svg
 								class="size-6"
@@ -218,12 +230,12 @@
 							<p class="mt-1 text-base/7 text-gray-600">
 								На карте вы можете выбрать удобный вам адрес
 							</p>
-							<p class="mt-1 text-base/7 text-gray-600">Рекомендуем согласовать салон заранее</p>
+							<!-- <p class="mt-1 text-base/7 text-gray-600">Рекомендуем согласовать салон заранее</p> -->
 						</dd>
 					</div>
 					<div class="flex gap-4">
 						<dt
-							class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-sky-500 text-white"
+							class="flex size-14 shrink-0 items-center justify-center rounded-xl bg-sky-500 text-white"
 						>
 							<svg
 								class="size-6"
@@ -241,13 +253,12 @@
 						</dt>
 						<dd>
 							<p class="font-semibold text-gray-900">По записи</p>
-							<p class="mt-1 text-base/7 text-gray-600">Пн–Сб: 12:00 – 19:00</p>
-							<p class="text-base/7 text-gray-600">Вс: выходной</p>
+							<p class="mt-1 text-base/7 text-gray-600">Пн–Вс: 12:00 – 19:00</p>
 						</dd>
 					</div>
 					<div class="flex gap-4">
 						<dt
-							class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-sky-500 text-white"
+							class="flex size-14 shrink-0 items-center justify-center rounded-xl bg-sky-500 text-white"
 						>
 							<svg
 								class="size-6"
