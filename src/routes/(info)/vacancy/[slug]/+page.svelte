@@ -354,7 +354,7 @@
 
 				<!-- Сайдбар -->
 				<div class="mt-8 lg:mt-0">
-					<div class="sticky top-24 space-y-6">
+					<div class="sticky top-44 space-y-6">
 						<!-- Карточка зарплаты -->
 						<div class="rounded-2xl bg-linear-to-br {colors.gradient} p-6 text-white shadow-lg">
 							<div class="text-sm opacity-80">Заработная плата</div>

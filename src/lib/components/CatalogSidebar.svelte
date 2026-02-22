@@ -52,11 +52,11 @@
 </script>
 
 <aside class="hidden lg:block">
-	<div class="sticky top-24">
+	<div class="sticky top-40">
 		<!-- Элементы -->
 		{#if items.length > 0}
 			<nav class="space-y-1 rounded-2xl bg-white p-3 shadow-sm">
-				<h2 class="px-4 py-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
+				<h2 class="px-4 py-4 text-xs font-semibold uppercase tracking-widest text-slate-500">
 					{title}
 				</h2>
 

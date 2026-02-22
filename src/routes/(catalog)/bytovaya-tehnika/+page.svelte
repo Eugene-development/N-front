@@ -25,7 +25,7 @@
 </svelte:head>
 
 <div class="min-h-screen bg-slate-50">
-	<div class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
+	<div class="mx-auto max-w-screen-2xl px-4 py-14 sm:px-6 lg:px-8">
 		<div class="lg:grid lg:grid-cols-4 lg:gap-8">
 			<!-- Сайдбар с брендами -->
 			<CatalogSidebar
