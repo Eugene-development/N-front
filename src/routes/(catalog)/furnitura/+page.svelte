@@ -89,39 +89,6 @@
 					</div>
 				</div>
 
-				<!-- Мобильные магазины -->
-				<div class="mt-8 lg:hidden">
-					<h2 class="text-lg font-semibold text-slate-900">Магазины</h2>
-					<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-						{#each shops as shop, index (shop.id || shop.slug)}
-							{@const gradient = getGradient(index)}
-							<a
-								href={shop.website}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
-							>
-								<span
-									class="flex h-8 w-8 items-center justify-center rounded-lg {gradient.bg} text-white"
-								>
-									{#if shop.logo}
-										<img src={shop.logo} alt={shop.value} class="h-5 w-5 object-contain" />
-									{:else}
-										<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												stroke-width="2"
-												d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-											/>
-										</svg>
-									{/if}
-								</span>
-								<span class="text-sm font-medium text-slate-700">{shop.value}</span>
-							</a>
-						{/each}
-					</div>
-				</div>
 
 				<!-- Карточки магазинов -->
 				<div class="mt-12">

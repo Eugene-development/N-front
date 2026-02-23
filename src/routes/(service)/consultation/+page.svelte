@@ -24,9 +24,9 @@
 		<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
 			<!-- Текст -->
 			<div>
-				<p class="text-base/7 font-semibold text-amber-400">Услуга компании</p>
+				<p class="text-base/7 font-semibold tracking-wide text-amber-400">Услуга компании</p>
 				<h1
-					class="mt-4 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
+					class="mt-4 text-pretty text-4xl font-semibold tracking-wide text-white sm:text-5xl lg:text-6xl"
 				>
 					Консультация дизайнера
 				</h1>
@@ -73,7 +73,7 @@
 			</div>
 
 			<!-- Изображение -->
-			<div class="relative lg:scale-[1.15]">
+			<div class="relative hidden lg:block lg:scale-[1.15]">
 				<div class="absolute -inset-4 rounded-2xl bg-sky-500/20 blur-3xl"></div>
 				<div class="relative overflow-hidden rounded-2xl shadow-2xl">
 					<img
@@ -92,7 +92,7 @@
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="max-w-2xl">
 			<p class="text-base/7 font-semibold text-amber-600">Что вы получите</p>
-			<h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+			<h2 class="mt-2 text-pretty text-3xl font-semibold tracking-wide text-gray-900 sm:text-4xl">
 				Комплексный подход к вашему интерьеру
 			</h2>
 		</div>

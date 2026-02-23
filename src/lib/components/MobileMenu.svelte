@@ -5,6 +5,8 @@
 	import { getRubrics } from '$lib/api/graphql.js';
 	import { mobileMenuStore } from '$lib/stores/mobileMenu.svelte.js';
 	import { cityStore } from '$lib/stores/city.svelte.js';
+	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 
 	let visibleMobileMenu = $state(false);
 	let showServiceMenu = $state(false);
@@ -28,6 +30,39 @@
 			visibleMobileMenu = value;
 		});
 		return unsubscribe;
+	});
+
+	// Блокировка скролла при открытии меню (оптимизировано для мобильных)
+	$effect(() => {
+		if (typeof window === 'undefined') return;
+
+		if (visibleMobileMenu) {
+			// Сохраняем текущую позицию скролла
+			const scrollY = window.scrollY;
+			
+			// Блокируем скролл через position: fixed вместо overflow: hidden
+			// Это предотвращает моргание на мобильных устройствах
+			document.body.style.position = 'fixed';
+			document.body.style.top = `-${scrollY}px`;
+			document.body.style.width = '100%';
+			document.body.style.left = '0';
+			document.body.style.right = '0';
+			
+			return () => {
+				// Восстанавливаем скролл
+				const scrollY = document.body.style.top;
+				document.body.style.position = '';
+				document.body.style.top = '';
+				document.body.style.width = '';
+				document.body.style.left = '';
+				document.body.style.right = '';
+				
+				// Используем requestAnimationFrame для плавного восстановления
+				requestAnimationFrame(() => {
+					window.scrollTo(0, parseInt(scrollY || '0') * -1);
+				});
+			};
+		}
 	});
 
 
@@ -88,12 +123,32 @@
 		showCatalogMenu = false;
 		showCityMenu = false;
 	}
+
+	// Обработчик навигации с проверкой текущей страницы
+	function handleNavigation(event, href) {
+		event.preventDefault();
+		
+		// Если это текущая страница, просто закрываем меню
+		if ($page.url.pathname === href) {
+			closeMenu();
+			return;
+		}
+		
+		// Сначала закрываем меню, потом навигация
+		closeMenu();
+		
+		// Небольшая задержка для завершения анимации закрытия
+		setTimeout(() => {
+			goto(href);
+		}, 100);
+	}
 </script>
 
 {#if visibleMobileMenu}
 	<!-- Backdrop -->
 	<div
 		class="fixed inset-0 z-[60] bg-slate-900/60 backdrop-blur-sm"
+		style="will-change: opacity;"
 		transition:fade={{ duration: 200 }}
 		onclick={closeMenu}
 		role="presentation"
@@ -102,13 +157,14 @@
 	<!-- Menu Panel -->
 	<div
 		class="font-nav fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-hidden bg-white shadow-2xl"
+		style="will-change: transform;"
 		transition:fly={{ x: 300, duration: 300, easing: quintOut }}
 		role="dialog"
 		aria-modal="true"
 	>
 		<!-- Header -->
 		<div class="flex items-center justify-between border-b border-slate-100 px-6 py-4">
-			<a href="/" onclick={closeMenu} class="flex items-center gap-3">
+			<a href="/" onclick={(e) => handleNavigation(e, '/')} class="flex items-center gap-3">
 				<img
 					class="h-10 w-auto"
 					src="https://storage.yandexcloud.net/brand-logo/novostroy/logomain.png"
@@ -299,7 +355,7 @@
 								{#each catalogItems as item, i}
 									<a
 										href={item.href}
-										onclick={closeMenu}
+										onclick={(e) => handleNavigation(e, item.href)}
 										class="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm text-slate-600 transition-all duration-200 hover:bg-violet-50 hover:text-violet-600"
 										transition:fly={{ x: -10, duration: 150, delay: i * 30 }}
 									>
@@ -355,7 +411,7 @@
 							{#each serviceItems as item, i}
 								<a
 									href={item.href}
-									onclick={closeMenu}
+									onclick={(e) => handleNavigation(e, item.href)}
 									class="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm text-slate-600 transition-all duration-200 hover:bg-pink-50 hover:text-pink-600"
 									transition:fly={{ x: -10, duration: 150, delay: i * 30 }}
 								>
@@ -410,7 +466,7 @@
 							{#each infoItems as item, i}
 								<a
 									href={item.href}
-									onclick={closeMenu}
+									onclick={(e) => handleNavigation(e, item.href)}
 									class="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm text-slate-600 transition-all duration-200 hover:bg-sky-50 hover:text-sky-600"
 									transition:fly={{ x: -10, duration: 150, delay: i * 30 }}
 								>
@@ -426,7 +482,7 @@
 				<div class="mt-4 border-t border-slate-100 pt-4">
 					<a
 						href="/actions"
-						onclick={closeMenu}
+						onclick={(e) => handleNavigation(e, '/actions')}
 						class="flex items-center gap-3 rounded-xl px-4 py-3 transition-colors duration-200 hover:bg-amber-50"
 					>
 						<div
@@ -450,7 +506,7 @@
 
 					<a
 						href="/contacts"
-						onclick={closeMenu}
+						onclick={(e) => handleNavigation(e, '/contacts')}
 						class="flex items-center gap-3 rounded-xl px-4 py-3 transition-colors duration-200 hover:bg-teal-50"
 					>
 						<div

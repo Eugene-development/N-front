@@ -12,7 +12,6 @@
 </script>
 
 <header class="sticky top-0 z-50 shadow-md">
-	<DevBanner />
 	<div
 		class="transition-all duration-300 ease-out overflow-hidden"
 		class:max-h-0={bannerStore.isHidden}
@@ -21,5 +20,7 @@
 	>
 		<Banner />
 	</div>
+	<DevBanner />
+
 	<Nav />
 </header>

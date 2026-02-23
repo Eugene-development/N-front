@@ -1,4 +1,7 @@
 <script>
+	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
+
 	/**
 	 * Компонент для плавных переходов между страницами
 	 * @param {string} type - Тип анимации: 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'zoom'
@@ -9,6 +12,22 @@
 		duration = 300,
 		children 
 	} = $props();
+
+	// Определяем, является ли устройство мобильным
+	let isMobile = $state(false);
+
+	onMount(() => {
+		// Проверяем ширину экрана (мобильные устройства обычно < 768px)
+		isMobile = window.innerWidth < 768;
+		
+		// Обновляем при изменении размера окна
+		const handleResize = () => {
+			isMobile = window.innerWidth < 768;
+		};
+		
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	});
 
 	// Маппинг типов анимации на CSS классы tailwindcss-animated
 	const animationClasses = {
@@ -30,13 +49,13 @@
 		1000: 'animate-duration-1000'
 	};
 
-	// Получаем класс анимации
-	const animationClass = $derived(animationClasses[type] || animationClasses['fade']);
+	// Получаем класс анимации (отключаем для мобильных)
+	const animationClass = $derived(!isMobile ? (animationClasses[type] || animationClasses['fade']) : '');
 	
-	// Получаем класс длительности (ближайшее значение)
-	const durationClass = $derived(durationClasses[duration] || 'animate-duration-300');
+	// Получаем класс длительности (отключаем для мобильных)
+	const durationClass = $derived(!isMobile ? (durationClasses[duration] || 'animate-duration-300') : '');
 </script>
 
-<div class="{animationClass} {durationClass} animate-ease-in-out">
+<div class="{animationClass} {durationClass} {!isMobile ? 'animate-ease-in-out' : ''}">
 	{@render children?.()}
 </div>

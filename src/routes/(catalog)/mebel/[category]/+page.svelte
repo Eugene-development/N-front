@@ -21,7 +21,7 @@
 	};
 	// Category specific hero images
 	const categoryImages = {
-		'kuhonnye-garnitury': '/kuhni_hero.png',
+		'kuhni': '/kuhni_hero.png',
 		'shkafy': '/wardrobe_project_no_text.png', 
 		// 'shkafy-kupe': '/wardrobe_project_no_text.png',
 		'garderobnye': '/dressing_room_hero.png',

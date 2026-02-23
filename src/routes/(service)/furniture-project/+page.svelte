@@ -24,9 +24,9 @@
 		<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
 			<!-- Текст -->
 			<div>
-				<p class="text-base/7 font-semibold text-orange-400">Услуга компании</p>
+				<p class="text-base/7 font-semibold tracking-wide text-orange-400">Услуга компании</p>
 				<h1
-					class="mt-4 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
+					class="mt-4 text-pretty text-4xl font-semibold tracking-wide text-white sm:text-5xl lg:text-6xl"
 				>
 					Проектирование мебели
 				</h1>
@@ -34,10 +34,10 @@
 					Индивидуальная мебель, спроектированная под ваше пространство с учётом ваших пожеланий. От
 					стартового эскиза до рабочих чертежей для производства.
 				</p>
-				<p class="mt-6 text-lg/8 text-gray-300">
+				<!-- <p class="mt-6 text-lg/8 text-gray-300">
 					Индивидуальная мебель, спроектированная под ваше пространство с учётом ваших пожеланий. От
 					стартового эскиза до рабочих чертежей для производства.
-				</p>
+				</p> -->
 				<div class="mt-10 flex flex-wrap gap-4">
 					<ServiceOrderButton
 						serviceType="furniture-project"
@@ -77,7 +77,7 @@
 			</div>
 
 			<!-- Изображение -->
-			<div class="relative lg:scale-[1.15]">
+			<div class="relative hidden lg:block lg:scale-[1.15]">
 				<div class="absolute -inset-4 rounded-2xl bg-sky-500/20 blur-3xl"></div>
 				<div class="relative overflow-hidden rounded-2xl shadow-2xl">
 					<img

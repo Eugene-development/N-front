@@ -33,12 +33,18 @@
 						О компании
 					</div>
 					<h1 class="mt-6 text-4xl font-bold text-white sm:text-5xl lg:text-6xl">Новострой</h1>
+					<div class="mt-6 h-1 w-20 rounded-full bg-sky-500"></div>
 					<p class="mt-6 text-xl text-sky-100">
-						Более 24 лет создаём уникальные пространства и индивидуальные интерьерные решения
+						Более 20 лет помогаем создавать уникальные пространства и индивидуальные интерьерные
+						решения
 					</p>
 					<p class="mt-4 text-lg text-slate-300">
 						Наша команда профессионалов специализируется на дизайне мебели и интерьеров, объединяя
 						функциональность, эстетику и современные тренды.
+					</p>
+					<p class="mt-4 text-lg text-slate-300">
+						По итогу наши клиенты получают качественную мебель, оптимально подобранную технику и
+						фурнитуру за разумные бюджеты и приемлемые сроки.
 					</p>
 					<div class="mt-10 flex flex-wrap gap-4">
 						<ConsultationButton
@@ -67,31 +73,31 @@
 						<div class="space-y-4">
 							<div class="overflow-hidden rounded-2xl shadow-xl">
 								<img
-									src="https://static.tildacdn.com/tild3861-3333-4362-b232-623135646332/50631092_l.jpg"
-									alt="Интерьер кухни"
+									src="/img/about/kitchen_interior.png"
+									alt="Кухонный гарнитур"
 									class="h-48 w-full object-cover"
 								/>
 							</div>
 							<div class="overflow-hidden rounded-2xl shadow-xl">
 								<img
-									src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?w=400"
-									alt="Дизайн интерьера"
-									class="h-32 w-full object-cover"
+									src="/img/about/wardrobe_interior.png"
+									alt="Шкаф-купе"
+									class="h-48 w-full object-cover"
 								/>
 							</div>
 						</div>
 						<div class="space-y-4 pt-8">
 							<div class="overflow-hidden rounded-2xl shadow-xl">
 								<img
-									src="https://www.campus-des-ecoles.fr/uploads/2022/07/cde-formation-deco-interieur-bachelor-768x768.png"
-									alt="Работа дизайнера"
-									class="h-32 w-full object-cover"
+									src="/img/about/kids_room_interior.png"
+									alt="Детская комната"
+									class="h-48 w-full object-cover"
 								/>
 							</div>
 							<div class="overflow-hidden rounded-2xl shadow-xl">
 								<img
-									src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?w=400"
-									alt="Современная мебель"
+									src="/img/about/closet_interior.png"
+									alt="Гардеробная"
 									class="h-48 w-full object-cover"
 								/>
 							</div>
@@ -121,7 +127,7 @@
 					class="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-linear-to-br from-sky-100 to-cyan-100 opacity-50 transition-transform duration-300 group-hover:scale-150"
 				></div>
 				<div class="relative">
-					<div class="text-5xl font-bold text-slate-900">358</div>
+					<div class="text-5xl font-bold text-slate-900">300+</div>
 					<div class="mt-2 text-slate-600">Партнёрских салонов</div>
 					<div class="mt-4 h-1 w-12 rounded-full bg-linear-to-r from-sky-500 to-cyan-500"></div>
 				</div>
@@ -133,8 +139,8 @@
 					class="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-linear-to-br from-emerald-100 to-teal-100 opacity-50 transition-transform duration-300 group-hover:scale-150"
 				></div>
 				<div class="relative">
-					<div class="text-5xl font-bold text-slate-900">24</div>
-					<div class="mt-2 text-slate-600">Года опыта работы</div>
+					<div class="text-5xl font-bold text-slate-900">20+</div>
+					<div class="mt-2 text-slate-600">Лет опыта</div>
 					<div class="mt-4 h-1 w-12 rounded-full bg-linear-to-r from-emerald-500 to-teal-500"></div>
 				</div>
 			</div>
@@ -172,31 +178,27 @@
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
 				<div>
-					<h2 class="text-3xl font-bold text-slate-900">Наша история</h2>
+					<h2 class="text-3xl font-bold text-slate-900">Наша миссия</h2>
+					<div class="mt-6 h-1 w-20 rounded-full bg-sky-500"></div>
 					<p class="mt-6 text-lg text-slate-600">
-						Более 20 лет мы оказываем профессиональные дизайнерские услуги в сфере мебельной
-						индустрии и создании интерьеров. За это время мы выросли из небольшой студии в крупную
-						компанию с представительствами по всей России.
+						Мы объединяем два десятилетия мастерства с инновационным подходом, чтобы воплощать
+						интересные проекты любой сложности и масштаба.
 					</p>
 					<p class="mt-4 text-lg text-slate-600">
-						Наша компания — это команда профессионалов, страстно увлечённых созданием уникальных
-						пространств и индивидуальных интерьерных решений. Мы специализируемся на дизайне мебели
-						и интерьеров, объединяя функциональность, эстетику и современные тренды.
+						Наша цель — обеспечить безупречный баланс между функциональностью мебели и
+						индивидуальным стилем вашего домашнего или рабочего пространства.
 					</p>
 					<p class="mt-4 text-lg text-slate-600">
-						Сотрудничая с нами, вы получите не только качественные дизайнерские услуги, но и
-						персональный подход, который позволяет воплотить ваши идеи и пожелания в каждой детали.
+						Мы не просто оказываем услуги — мы становимся вашим надежным партнером в реализации
+						мечты об идеальном доме, уделяя внимание каждой детали.
 					</p>
 				</div>
 				<div class="mt-12 lg:mt-0">
 					<div class="relative">
-						<div
-							class="absolute -inset-4 rounded-3xl bg-linear-to-r from-sky-100 to-cyan-100 opacity-50"
-						></div>
 						<img
-							src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800"
+							src="https://storage.yandexcloud.net/brand-logo/novostroy/logomain.png"
 							alt="Команда Новострой"
-							class="relative rounded-2xl shadow-xl"
+							class="relative"
 						/>
 					</div>
 				</div>
@@ -292,7 +294,7 @@
 					<div>
 						<h3 class="text-lg font-semibold text-slate-900">Пунктуальность</h3>
 						<p class="mt-2 text-slate-600">
-							Соблюдаем сроки и держим клиента в курсе на каждом этапе.
+							Следим за сроками и держим клиента в курсе на каждом этапе.
 						</p>
 					</div>
 				</div>
@@ -427,7 +429,7 @@
 	</div>
 
 	<!-- Галерея работ -->
-	<div class="bg-white py-24">
+	<!-- <div class="bg-white py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="text-center">
 				<h2 class="text-3xl font-bold text-slate-900">Наши работы</h2>
@@ -504,7 +506,7 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- CTA секция -->
 	<div class="bg-linear-to-r from-sky-500 to-cyan-600 py-24">

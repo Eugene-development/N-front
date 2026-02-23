@@ -32,7 +32,7 @@
 				items={brands}
 				rubricSlug="santehnika"
 				title="Бренды"
-				externalLinks={true}
+				externalLinks={false}
 				banner={{
 					title: 'Подбор под столешницу',
 					description: 'Поможем выбрать мойку и смеситель под ваш проект',
