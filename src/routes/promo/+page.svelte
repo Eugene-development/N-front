@@ -160,7 +160,7 @@
 							<h3 class="text-4xl font-bold mb-3 text-sky-400">Заявка</h3>
 							<p class="text-slate-400 leading-relaxed text-lg">
 								Заявки на изготовление мебели от ремонтных бригад, дизайнеров и продавцов мебели
-								регистрируются на нашей платформе и обрабатываются нашими кураторами.
+								регистрируются на нашей платформе и обрабатываются нашими кураторами
 							</p>
 						</div>
 						<div
@@ -216,6 +216,14 @@
 												</div>
 												Продавцы и консультанты
 											</li>
+											<li class="flex items-center gap-3">
+												<div
+													class="flex items-center justify-center w-6 h-6 rounded-md bg-slate-800 border border-slate-700"
+												>
+													<div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div>
+												</div>
+												Застройщики
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -234,7 +242,7 @@
 							<h3 class="text-4xl font-bold mb-3 text-indigo-400">Проект</h3>
 							<p class="text-slate-400 leading-relaxed text-lg">
 								Наши кураторы обрабатывают каждую заявку и создают комплексный проект. Они
-								связываются с клиентом, уточняют все детали и формируют чёткое техническое задание.
+								связываются с клиентом, уточняют все детали и формируют чёткое техническое задание
 							</p>
 						</div>
 						<div
@@ -285,8 +293,8 @@
 						>
 							<h3 class="text-4xl font-bold mb-3 text-emerald-400">Просчёт</h3>
 							<p class="text-slate-400 leading-relaxed text-lg mb-6">
-								Техническое задание передаётся вам на просчёт. Все нюансы обсуждаются с нашим
-								куратором проекта
+								Готовое техническое задание передаётся вам на просчёт. Все нюансы по проекту
+								обсуждаются с нашим куратором
 							</p>
 
 							<div class="inline-flex flex-col items-start md:items-end w-full">
@@ -359,7 +367,7 @@
 							<h3 class="text-4xl font-bold mb-3 text-amber-400">Клиент</h3>
 							<p class="text-slate-400 leading-relaxed text-lg">
 								После финального согласования проекта и его стоимости, клиент приобретает у вас
-								мебель или технику.
+								мебель, столешницу и технику
 							</p>
 						</div>
 						<div
@@ -423,7 +431,7 @@
 							<h3 class="text-4xl font-bold mb-3 text-violet-400">Выплата</h3>
 							<p class="text-slate-400 leading-relaxed text-lg">
 								После заключения договора вами с клиентом мы ожидаем выплату оговоренных ранее
-								процентов за сделку.
+								процентов за сделку
 							</p>
 						</div>
 						<div
@@ -463,7 +471,7 @@
 											<div
 												class="bg-slate-800 border border-slate-700 rounded-lg p-2 text-center text-xs text-slate-300 font-medium"
 											>
-												Дизайнерам
+												Маркетологам
 											</div>
 											<div
 												class="bg-slate-800 border border-slate-700 rounded-lg p-2 text-center text-xs text-slate-300 font-medium col-span-2"
@@ -519,7 +527,7 @@
 							></path></svg
 						>
 					</div>
-					<h3 class="text-lg font-bold text-white mb-2">Выплата</h3>
+					<!-- <h3 class="text-lg font-bold text-white mb-2">Выплата</h3> -->
 					<p class="text-slate-400 text-sm">Вы оплачиваете нам комиссию за полученный заказ</p>
 					<div
 						class="mt-6 font-mono font-bold text-2xl text-emerald-400/80 bg-slate-900/50 py-2 rounded-xl border border-slate-700"

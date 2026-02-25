@@ -213,6 +213,11 @@
 		</div>
 
 		<div class="mt-12 text-center">
+			<p class="mb-6 mx-auto max-w-2xl text-slate-600 leading-relaxed">
+				Профессиональная платформа для автоматизации партнёрских продаж: регистрируйте новые заказы,
+				отслеживайте статус реализации проектов в реальном времени и управляйте начислениями бонусов
+				через единую прозрачную систему.
+			</p>
 			<a
 				href="https://rubonus.pro"
 				target="_blank"
@@ -240,9 +245,11 @@
 					<div
 						class="inline-flex items-center rounded-full bg-sky-500/10 px-4 py-2 text-sm font-medium text-sky-400"
 					>
-						Для производителей и поставщиков
+						Вы организация?
 					</div>
-					<h2 class="mt-6 text-3xl font-bold text-white sm:text-4xl">Вы организация?</h2>
+					<h2 class="mt-6 text-3xl font-bold text-white sm:text-4xl">
+						Для производителей и поставщиков
+					</h2>
 					<p class="mt-6 text-lg text-slate-300">
 						Мы готовы предложить уникальные возможности для совместного развития. Наш опыт и
 						современные технологии маркетинга помогут привлечь новых лояльных клиентов.

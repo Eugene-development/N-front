@@ -26,11 +26,11 @@
 				</div>
 				<div class="p-8">
 					<h3 class="text-xl font-bold text-slate-900 transition-colors group-hover:text-sky-600">
-						Столешницы и стеновые панели
+						Столешницы
 					</h3>
 					<p class="mt-3 text-base leading-relaxed text-slate-600">
 						Широкий выбор дизайнов для вашей кухни. Качественные столешницы от ведущих
-						производителей. Индивидуальный подбор материалов и цветов.
+						производителей. Большой выбор материалов и цветов
 					</p>
 				</div>
 			</div>
@@ -51,8 +51,8 @@
 						Системы выдвижения
 					</h3>
 					<p class="mt-3 text-base leading-relaxed text-slate-600">
-						Современные механизмы, обеспечивающие плавность, надежность и бесшумность. Широкий
-						ассортимент для комфортного хранения.
+						Современные механизмы Hettich и BLUM, обеспечивающие плавность, надежность и
+						бесшумность. Широкий ассортимент для комфортного хранения
 					</p>
 				</div>
 			</div>
@@ -61,7 +61,7 @@
 			<div
 				class="group relative overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200 transition-all duration-500 hover:shadow-xl hover:ring-slate-300 lg:col-span-2"
 			>
-				<div class="aspect-[4/3] w-full overflow-hidden">
+				<div class="aspect-[4/4] w-full overflow-hidden">
 					<img
 						class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
 						src="/equipment/appliances.png"
@@ -73,7 +73,7 @@
 						Бытовая техника
 					</h3>
 					<p class="mt-2 text-sm leading-relaxed text-slate-600">
-						Встраиваемая и отдельностоящая техника от проверенных производителей с гарантией.
+						Встраиваемая и отдельностоящая техника от проверенных производителей с гарантией
 					</p>
 				</div>
 			</div>
@@ -82,7 +82,7 @@
 			<div
 				class="group relative overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200 transition-all duration-500 hover:shadow-xl hover:ring-slate-300 lg:col-span-2"
 			>
-				<div class="aspect-[4/3] w-full overflow-hidden">
+				<div class="aspect-[4/4] w-full overflow-hidden">
 					<img
 						class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
 						src="/equipment/sinks.png"
@@ -94,8 +94,7 @@
 						Мойки и смесители
 					</h3>
 					<p class="mt-2 text-sm leading-relaxed text-slate-600">
-						Качественная сантехника от ведущих мировых и российских производителей с гарантией до 5
-						лет.
+						Качественная сантехника от ведущих мировых производителей с гарантией до 5 лет
 					</p>
 				</div>
 			</div>
@@ -104,7 +103,7 @@
 			<div
 				class="group relative overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200 transition-all duration-500 hover:shadow-xl hover:ring-slate-300 lg:col-span-2"
 			>
-				<div class="aspect-[4/3] w-full overflow-hidden">
+				<div class="aspect-[4/4] w-full overflow-hidden">
 					<img
 						class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
 						src="/equipment/lighting.png"
@@ -116,7 +115,7 @@
 						Зональное освещение
 					</h3>
 					<p class="mt-2 text-sm leading-relaxed text-slate-600">
-						Комфортное освещение для создания уютной атмосферы в каждом уголке вашего дома.
+						Комфортное освещение для создания уютной атмосферы в каждом уголке вашего дома
 					</p>
 				</div>
 			</div>

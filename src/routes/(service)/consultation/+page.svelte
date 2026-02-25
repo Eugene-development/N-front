@@ -50,25 +50,6 @@
 							<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 						</svg>
 					</ServiceOrderButton>
-					<a
-						href="tel:+79154000020"
-						class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-6 py-3 text-sm font-semibold text-white transition hover:border-gray-400"
-					>
-						<svg
-							class="size-4"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-							/>
-						</svg>
-						8 (915) 400-00-20
-					</a>
 				</div>
 			</div>
 
@@ -306,11 +287,6 @@
 				</svg>
 			</ServiceOrderButton>
 		</div>
-		<p class="mt-8 text-sm text-gray-500">
-			Или позвоните: <a
-				href="tel:+79154000020"
-				class="text-amber-400 transition hover:text-amber-300">8 (915) 400-00-20</a
-			>
-		</p>
+
 	</div>
 </section>

@@ -253,7 +253,7 @@
 									data={{ productName: item.name, productPrice: item.price }}
 									class="flex-1 rounded-xl bg-linear-to-r from-sky-500 to-cyan-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/30 disabled:cursor-not-allowed disabled:opacity-50"
 								>
-									{item.inStock !== false ? 'Заказать проект' : 'Уточнить наличие'}
+									{item.inStock !== false ? 'Разработать проект' : 'Уточнить наличие'}
 								</ServiceOrderButton>
 								{#if item.slug}
 									<a
@@ -322,7 +322,7 @@
 </section>
 
 <!-- Рекомендации -->
-<section class="bg-slate-50 py-16 sm:py-20">
+<!-- <section class="bg-slate-50 py-16 sm:py-20">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="flex items-center justify-between">
 			<h2 class="text-2xl font-bold tracking-tight text-slate-900">Вам может понравиться</h2>
@@ -366,7 +366,7 @@
 			{/each}
 		</div>
 	</div>
-</section>
+</section> -->
 
 <!-- Модальное окно подтверждения очистки -->
 {#if isClearModalOpen}

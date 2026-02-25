@@ -11,12 +11,14 @@
 	});
 </script>
 
-<header class="sticky top-0 z-50 shadow-md">
+<header
+	class="sticky top-0 z-50 shadow-md transition-transform duration-300 ease-out"
+	class:max-lg:-translate-y-full={bannerStore.isHidden}
+>
 	<div
-		class="transition-all duration-300 ease-out overflow-hidden"
-		class:max-h-0={bannerStore.isHidden}
-		class:opacity-0={bannerStore.isHidden}
-		class:max-h-20={!bannerStore.isHidden}
+		class="transition-all duration-300 ease-out overflow-hidden max-h-20"
+		class:lg:max-h-0={bannerStore.isHidden}
+		class:lg:opacity-0={bannerStore.isHidden}
 	>
 		<Banner />
 	</div>

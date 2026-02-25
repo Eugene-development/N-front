@@ -40,7 +40,7 @@
 				rubricSlug="furnitura"
 				title="Магазины фурнитуры"
 				itemType="shop"
-				externalLinks={true}
+				externalLinks={false}
 				banner={{
 					title: 'Премиум фурнитура',
 					description: 'Blum, Hettich, Grass — официальные дилеры',
@@ -88,7 +88,6 @@
 						</div>
 					</div>
 				</div>
-
 
 				<!-- Карточки магазинов -->
 				<div class="mt-12">
@@ -257,18 +256,16 @@
 										</div>
 										{#if shop.website}
 											<a
-												href={shop.website}
-												target="_blank"
-												rel="noopener noreferrer"
+												href="/furnitura/{shop.slug}"
 												class="inline-flex items-center gap-1 text-sm font-medium {gradient.text} hover:underline"
 											>
-												Перейти на сайт
+												Подробнее
 												<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 													<path
 														stroke-linecap="round"
 														stroke-linejoin="round"
 														stroke-width="2"
-														d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+														d="M9 5l7 7-7 7"
 													/>
 												</svg>
 											</a>

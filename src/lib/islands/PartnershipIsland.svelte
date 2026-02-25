@@ -23,12 +23,15 @@
 	// Типы партнёров
 	const partnerTypes = [
 		{ value: '', label: 'Выберите тип партнёрства' },
-		{ value: 'designer', label: 'Дизайнер интерьеров' },
-		{ value: 'repair-team', label: 'Ремонтная бригада' },
-		{ value: 'furniture-seller', label: 'Продавец мебели' },
-		{ value: 'manufacturer', label: 'Мебельная фабрика / Поставщик' },
-		{ value: 'individual', label: 'Физическое лицо' },
-		{ value: 'other', label: 'Другое' }
+		{ value: 'furniture-manufacturer', label: 'Производитель мебели' },
+		{ value: 'furniture-supplier', label: 'Поставщик мебели' },
+		{ value: 'appliance-supplier', label: 'Поставщик техники' },
+		{ value: 'countertop-supplier', label: 'Поставщик столешниц' },
+		{ value: 'plumbing-supplier', label: 'Поставщик сантехники' },
+		{ value: 'countertop-processor', label: 'Обработчик столешниц' },
+		{ value: 'hardware-supplier', label: 'Поставщик фурнитуры' },
+		{ value: 'lighting-supplier', label: 'Поставщик освещения' },
+		{ value: 'accessories-supplier', label: 'Поставщик аксессуаров' }
 	];
 
 	// Закрытие модального окна

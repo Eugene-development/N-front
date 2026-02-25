@@ -40,7 +40,7 @@
 				rubricSlug="osveschenie"
 				title="Магазины освещения"
 				itemType="shop"
-				externalLinks={true}
+				externalLinks={false}
 				banner={{
 					title: 'Дизайнерский свет',
 					description: 'Подберём высококачественное освещение под ваш интерьер',
@@ -90,9 +90,7 @@
 						{#each shops as shop, index (shop.id || shop.slug)}
 							{@const gradient = getGradient(index)}
 							<a
-								href={shop.website}
-								target="_blank"
-								rel="noopener noreferrer"
+								href="/osveschenie/{shop.slug}"
 								class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm transition-all hover:shadow-md"
 							>
 								<span
@@ -282,24 +280,20 @@
 												</a>
 											{/if}
 										</div>
-										{#if shop.website}
-											<a
-												href={shop.website}
-												target="_blank"
-												rel="noopener noreferrer"
-												class="inline-flex items-center gap-1 text-sm font-medium {gradient.text} hover:underline"
-											>
-												Перейти на сайт
-												<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-													<path
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														stroke-width="2"
-														d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-													/>
-												</svg>
-											</a>
-										{/if}
+										<a
+											href="/osveschenie/{shop.slug}"
+											class="inline-flex items-center gap-1 text-sm font-medium {gradient.text} hover:underline"
+										>
+											Подробнее
+											<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M9 5l7 7-7 7"
+												/>
+											</svg>
+										</a>
 									</div>
 								</div>
 							{/each}
