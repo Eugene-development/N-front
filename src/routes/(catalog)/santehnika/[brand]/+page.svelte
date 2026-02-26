@@ -268,9 +268,9 @@
 					<!-- Подробная информация о бренде -->
 					<div class="mt-8 rounded-2xl bg-white p-8 shadow-sm">
 						<h2 class="text-2xl font-bold text-slate-900">О бренде {currentBrand.name}</h2>
-						<p class="mt-4 text-slate-600 leading-relaxed">
-							{currentBrand.fullDescription}
-						</p>
+						<div class="mt-4 text-slate-600 leading-relaxed prose prose-slate max-w-none">
+							{@html currentBrand.fullDescription}
+						</div>
 					</div>
 
 					<!-- CTA секция -->

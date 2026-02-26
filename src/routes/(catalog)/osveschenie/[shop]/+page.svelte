@@ -91,9 +91,11 @@
 									</h1>
 
 									{#if shop.description}
-										<p class="mt-4 max-w-xl text-lg text-slate-300">
-											{shop.description}
-										</p>
+										<div
+											class="mt-4 max-w-xl text-lg text-slate-300 prose prose-invert prose-lg max-w-none"
+										>
+											{@html shop.description}
+										</div>
 									{/if}
 
 									<div class="mt-6 flex flex-wrap gap-4">

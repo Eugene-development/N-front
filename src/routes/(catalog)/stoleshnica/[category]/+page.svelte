@@ -194,13 +194,13 @@
 
 									<!-- Логотип компании -->
 									<div
-										class="relative h-40 overflow-hidden bg-slate-50 flex items-center justify-center"
+										class="relative h-40 overflow-hidden bg-slate-50 flex items-start justify-start"
 									>
 										{#if supplier.logo}
 											<img
 												src={supplier.logo}
 												alt={supplier.name}
-												class="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+												class="max-h-full max-w-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
 											/>
 										{:else}
 											<div class="flex h-full w-full items-center justify-center">
@@ -231,9 +231,11 @@
 											{supplier.name}
 										</h3>
 										{#if supplier.description}
-											<p class="mt-2 text-sm text-slate-600 line-clamp-2">
-												{supplier.description}
-											</p>
+											<div
+												class="mt-2 text-sm text-slate-600 line-clamp-2 prose prose-sm prose-slate max-w-none"
+											>
+												{@html supplier.description}
+											</div>
 										{/if}
 
 										<!-- Ценовой диапазон -->
