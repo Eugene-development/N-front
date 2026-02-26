@@ -151,7 +151,7 @@
 					</div>
 					<h3 class="mt-6 text-xl font-bold text-slate-900">Ремонтные бригады</h3>
 					<p class="mt-3 text-slate-600">
-						После ремонта клиенты покупают мебель. Рекомендуйте нас и зарабатывайте.
+						После ремонта клиенты покупают мебель и технику. Рекомендуйте нас и повышайте ваш доход.
 					</p>
 				</div>
 			</div>
@@ -323,19 +323,6 @@
 					</div>
 
 					<div class="mt-8 flex flex-wrap gap-4">
-						<PartnershipButton
-							class="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-sky-600 hover:shadow-xl"
-						>
-							Оставить заявку
-							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M17 8l4 4m0 0l-4 4m4-4H3"
-								/>
-							</svg>
-						</PartnershipButton>
 						<a
 							href="/promo"
 							class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur transition-all hover:bg-white/20"
@@ -350,6 +337,19 @@
 								/>
 							</svg>
 						</a>
+						<PartnershipButton
+							class="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-sky-600 hover:shadow-xl"
+						>
+							Оставить заявку
+							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M17 8l4 4m0 0l-4 4m4-4H3"
+								/>
+							</svg>
+						</PartnershipButton>
 					</div>
 				</div>
 
