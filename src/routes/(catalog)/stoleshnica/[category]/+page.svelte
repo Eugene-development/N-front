@@ -194,13 +194,13 @@
 
 									<!-- Логотип компании -->
 									<div
-										class="relative h-40 overflow-hidden bg-slate-50 flex items-start justify-start p-4"
+										class="relative h-40 overflow-hidden bg-slate-50 flex items-center justify-center p-6"
 									>
 										{#if supplier.logo}
 											<img
 												src={supplier.logo}
 												alt={supplier.name}
-												class="h-20 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+												class="max-h-24 max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
 											/>
 										{:else}
 											<div class="flex h-full w-full items-center justify-center">
