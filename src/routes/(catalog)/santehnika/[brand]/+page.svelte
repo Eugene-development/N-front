@@ -11,96 +11,21 @@
 	let allBrands = $derived(data.allBrands || []);
 	let brandSlug = $derived(data.brandSlug);
 
-	// Fallback данные для брендов (на случай если API не вернет полную информацию)
-	const fallbackBrandsData = {
-		'omoikiri': {
-			slug: 'omoikiri',
-			value: 'Omoikiri',
-			country: 'Япония',
-			founded: '1981',
-			logo: 'https://storage.yandexcloud.net/novostroy/brands/omoikiri.png',
-			description: 'Omoikiri — японская торговая марка, специализирующаяся на производстве кухонных моек, смесителей, водоочистителей и аксессуаров для кухни премиум-класса.',
-			fullDescription: 'Продукция Omoikiri отличается эксклюзивным дизайном, высочайшим качеством используемых материалов и передовыми технологиями производства. Бренд уделяет особое внимание экологичности и долговечности своих изделий.',
-			website: 'https://omoikiri.ru',
-			features: ['Японское качество', 'Эксклюзивный дизайн', 'Экологичные материалы', 'Долговечность'],
-			categories: ['Кухонные мойки', 'Смесители', 'Дозаторы', 'Измельчители']
-		},
-		'blanco': {
-			slug: 'blanco',
-			value: 'Blanco',
-			country: 'Германия',
-			founded: '1925',
-			logo: 'https://storage.yandexcloud.net/novostroy/brands/blanco.png',
-			description: 'Blanco — немецкий производитель кухонных моек, смесителей и систем сортировки отходов высочайшего качества.',
-			fullDescription: 'Blanco предлагает комплексные решения для зоны мойки (Blanco Unit), где мойка, смеситель и система сортировки отходов идеально сочетаются друг с другом по дизайну и функциональности.',
-			website: 'https://www.blanco.com/ru-ru/',
-			features: ['Немецкая надежность', 'Материал Silgranit', 'Системы Blanco Unit', 'Инновации'],
-			categories: ['Мойки из Silgranit', 'Мойки из нержавеющей стали', 'Смесители', 'Системы сортировки отходов']
-		},
-		'franke': {
-			slug: 'franke',
-			value: 'Franke',
-			country: 'Швейцария',
-			founded: '1911',
-			logo: 'https://storage.yandexcloud.net/novostroy/brands/franke.png',
-			description: 'Franke — швейцарский концерн, один из ведущих мировых производителей интеллектуальных систем для домашних кухонь.',
-			fullDescription: 'Franke предлагает решения "Сделай это превосходным", сочетающие безупречный дизайн, швейцарское качество и передовые технологии. В ассортименте бренда — мойки, смесители и вытяжки.',
-			website: 'https://www.franke.com/ru/ru/home-solutions.html',
-			features: ['Швейцарское качество', 'Материал Fragranite', 'Комплексные системы', 'Современный дизайн'],
-			categories: ['Кухонные мойки', 'Смесители', 'Измельчители отходов']
-		},
-		'paulmark': {
-			slug: 'paulmark',
-			value: 'Paulmark',
-			country: 'Германия',
-			founded: '2010',
-			logo: 'https://storage.yandexcloud.net/novostroy/brands/paulmark.png',
-			description: 'Paulmark — бренд, представляющий на российском рынке качественную сантехнику, кухонные мойки, смесители и аксессуары.',
-			fullDescription: 'Paulmark зарекомендовал себя как производитель надежной и эстетичной продукции для кухни. Бренд сочетает в себе современные тенденции дизайна с практичностью и долговечностью.',
-			website: 'https://paulmark.ru',
-			features: ['Стильный дизайн', 'Цветовые решения', 'Надежность', 'Гарантия качества'],
-			categories: ['Кухонные мойки', 'Смесители для кухни', 'Аксессуары']
-		},
-		'zorq': {
-			slug: 'zorq',
-			value: 'Zorq',
-			country: 'Россия/Китай',
-			founded: '2015',
-			logo: 'https://storage.yandexcloud.net/novostroy/brands/zorq.png',
-			description: 'Zorq — производитель современных кухонных моек и смесителей, предлагающий оптимальное соотношение цены и качества.',
-			fullDescription: 'Ассортимент Zorq включает мойки из искусственного камня и нержавеющей стали, а также стильные смесители в цвет моек, обеспечивая идеальное визуальное единство рабочей зоны кухни.',
-			website: 'https://zorq.ru',
-			features: ['Доступная цена', 'Широкая цветовая гамма', 'Ударопрочность', 'Современный дизайн'],
-			categories: ['Кварцевые мойки', 'Смесители']
-		}
-	};
-
-	// Fallback список брендов (если сервер не вернул данные)
-	const fallbackBrandsList = Object.values(fallbackBrandsData).map(b => ({ slug: b.slug, value: b.value }));
-
-	// Объединяем данные из API с fallback данными
 	let displayBrand = $derived(() => {
-		if (!brand && !fallbackBrandsData[brandSlug]) return null;
-		
-		const fallback = fallbackBrandsData[brandSlug] || {};
-		const apiData = brand || {};
+		if (!brand) return null;
 		
 		return {
-			...fallback,
-			...apiData,
-			name: apiData.value || apiData.name || fallback.value || fallback.name || brandSlug,
-			founded: apiData.founded || fallback.founded || 'н.д.',
-			country: apiData.country || fallback.country || 'н.д.',
-			fullDescription: apiData.description || fallback.fullDescription || fallback.description || 'Описание бренда в стадии заполнения.',
-			website: apiData.website || fallback.website || '#',
-			logo: apiData.logo || fallback.logo || '',
-			features: fallback.features || [],
-			categories: fallback.categories || []
+			...brand,
+			name: brand.value || brand.name || brandSlug,
+			founded: brand.founded || 'н.д.',
+			country: brand.country || 'н.д.',
+			fullDescription: brand.description || 'Описание бренда в стадии заполнения.',
+			website: brand.website || '#',
+			logo: brand.logo || ''
 		};
 	});
 
-	// Используем серверные бренды или fallback
-	let displayBrands = $derived(allBrands.length > 0 ? allBrands : fallbackBrandsList);
+	let displayBrands = $derived(allBrands);
 
 	// Получение имени бренда (поддержка value и name)
 	function getBrandName(b) {
@@ -196,23 +121,6 @@
 													/>
 												</svg>
 												<span class="font-medium">{currentBrand.country}</span>
-											</div>
-										{/if}
-
-										<!-- Год основания -->
-										{#if currentBrand.founded && currentBrand.founded !== 'н.д.'}
-											<div
-												class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur"
-											>
-												<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-													<path
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														stroke-width="2"
-														d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-													/>
-												</svg>
-												<span class="font-medium">Основан в {currentBrand.founded} году</span>
 											</div>
 										{/if}
 									</div>

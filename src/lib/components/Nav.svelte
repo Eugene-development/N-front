@@ -154,6 +154,10 @@
 			>
 				<button
 					type="button"
+					onclick={() => {
+						visibleCatalogMenu = !visibleCatalogMenu;
+						if (!visibleCatalogMenu) hoveredItem = null;
+					}}
 					class="nav-item group relative flex items-center gap-x-1 px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300 hover:text-sky-600 {isCatalogActive
 						? 'text-sky-600'
 						: 'text-slate-700'}"
@@ -229,6 +233,10 @@
 							{#each catalogItems as item, idx}
 								<a
 									href={item.href}
+									onclick={() => {
+										visibleCatalogMenu = false;
+										hoveredItem = null;
+									}}
 									class="group flex items-center justify-between rounded-xl px-4 py-2.5 transition-all duration-200 hover:bg-linear-to-r hover:from-sky-50 hover:to-cyan-50"
 									transition:fly={{ y: -5, duration: 150, delay: idx * 30 }}
 								>
@@ -271,6 +279,10 @@
 			>
 				<button
 					type="button"
+					onclick={() => {
+						visibleServicesMenu = !visibleServicesMenu;
+						if (!visibleServicesMenu) hoveredItem = null;
+					}}
 					class="nav-item group relative flex items-center gap-x-1 px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300 hover:text-sky-600 {isServicesActive
 						? 'text-sky-600'
 						: 'text-slate-700'}"
@@ -317,6 +329,10 @@
 						{#each serviceItems as service, idx}
 							<a
 								href={service.href}
+								onclick={() => {
+									visibleServicesMenu = false;
+									hoveredItem = null;
+								}}
 								class="group flex items-start gap-3 rounded-xl p-3 transition-all duration-200 hover:bg-linear-to-r hover:from-sky-50 hover:to-cyan-50"
 								transition:fly={{ y: -5, duration: 150, delay: idx * 30 }}
 							>
