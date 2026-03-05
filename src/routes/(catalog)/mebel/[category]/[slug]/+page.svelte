@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import ConsultationButton from '$lib/components/ConsultationButton.svelte';
 	import ProductFavoriteButton from '$lib/components/ProductFavoriteButton.svelte';
+	import ServiceOrderButton from '$lib/components/ServiceOrderButton.svelte';
 
 	// Данные загружаются на сервере в +page.server.js
 	let { data } = $props();
@@ -221,10 +222,12 @@
 
 					<!-- Кнопки действий -->
 					<div class="mt-8 flex flex-col gap-4 sm:flex-row">
-						<ConsultationButton
-							class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-sky-600 hover:shadow-xl"
+						<ServiceOrderButton
+							serviceType="furniture-project"
+							data={{ projectName: project.value }}
+							class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-sky-600 hover:shadow-xl cursor-pointer"
 						>
-							Заказать расчёт
+							Создать ваш проект
 							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path
 									stroke-linecap="round"
@@ -233,7 +236,7 @@
 									d="M17 8l4 4m0 0l-4 4m4-4H3"
 								/>
 							</svg>
-						</ConsultationButton>
+						</ServiceOrderButton>
 						<a
 							href="tel:+79154000020"
 							class="flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-4 font-semibold text-slate-700 transition-all hover:border-sky-500 hover:text-sky-600"
@@ -431,10 +434,12 @@
 					Оставьте заявку и получите бесплатный расчёт стоимости с учётом ваших размеров
 				</p>
 				<div class="mt-6 flex flex-wrap justify-center gap-4">
-					<ConsultationButton
-						class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl"
+					<ServiceOrderButton
+						serviceType="furniture-project"
+						data={{ projectName: project.value }}
+						class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-sky-600 shadow-lg transition-all hover:bg-sky-50 hover:shadow-xl cursor-pointer"
 					>
-						Заказать расчёт
+						Создать ваш проект
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path
 								stroke-linecap="round"
@@ -443,7 +448,7 @@
 								d="M17 8l4 4m0 0l-4 4m4-4H3"
 							/>
 						</svg>
-					</ConsultationButton>
+					</ServiceOrderButton>
 					<a
 						href="tel:+79154000020"
 						class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur transition-all hover:bg-white/20"

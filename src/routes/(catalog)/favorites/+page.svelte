@@ -253,7 +253,7 @@
 									data={{ productName: item.name, productPrice: item.price }}
 									class="flex-1 rounded-xl bg-linear-to-r from-sky-500 to-cyan-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/30 disabled:cursor-not-allowed disabled:opacity-50"
 								>
-									{item.inStock !== false ? 'Разработать проект' : 'Уточнить наличие'}
+									{item.inStock !== false ? 'Ваш проект' : 'Уточнить наличие'}
 								</ServiceOrderButton>
 								{#if item.slug}
 									<a

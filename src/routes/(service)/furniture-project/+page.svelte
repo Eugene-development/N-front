@@ -43,7 +43,7 @@
 						serviceType="furniture-project"
 						class="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-orange-400 cursor-pointer"
 					>
-						Разработать проект
+						Ваш проект
 						<svg
 							class="size-4"
 							fill="none"
@@ -387,6 +387,5 @@
 				</svg>
 			</ServiceOrderButton>
 		</div>
-
 	</div>
 </section>
