@@ -321,7 +321,7 @@
 							</div>
 							<div class="text-sm">
 								<div class="font-medium text-slate-900">Рассрочка 0%</div>
-								<div class="text-slate-500">До 24 месяцев</div>
+								<div class="text-slate-500">До 12 месяцев</div>
 							</div>
 						</div>
 					</div>
@@ -630,7 +630,6 @@
 		</button>
 	</div>
 {/if}
-
 
 <style>
 	:global(body.lightbox-open header) {

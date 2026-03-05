@@ -20,6 +20,7 @@
 		{ href: '/bytovaya-tehnika', label: 'Бытовая техника' },
 		{ href: '/stoleshnica', label: 'Столешницы' },
 		{ href: '/santehnika', label: 'Сантехника' },
+		{ href: '/plitka', label: 'Плитка' },
 		{ href: '/furnitura', label: 'Фурнитура' },
 		{ href: '/osveschenie', label: 'Освещение' },
 		{ href: '/aksessuary', label: 'Аксессуары' }

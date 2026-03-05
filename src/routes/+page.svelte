@@ -1,5 +1,6 @@
 <script>
 	import Hero from '$lib/components/Hero.svelte';
+	import PromoOfferAlt from '$lib/components/home/PromoOfferAlt.svelte';
 	import Message from '$lib/components/home/Message.svelte';
 	import Equipment from '$lib/components/home/Equipment.svelte';
 	import Stage from '$lib/components/home/Stage.svelte';
@@ -18,6 +19,8 @@
 
 <Hero />
 <Message />
+<PromoOfferAlt />
+
 <Equipment />
 <Stage />
 <Incentives />
