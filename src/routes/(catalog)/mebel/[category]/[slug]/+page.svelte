@@ -215,8 +215,6 @@
 									>{formatPrice(project.old_price)}</span
 								>
 							{/if}
-						{:else}
-							<span class="text-xl font-bold text-slate-900">Цена по запросу</span>
 						{/if}
 					</div>
 
@@ -414,8 +412,6 @@
 													>{formatPrice(item.old_price)}</span
 												>
 											{/if}
-										{:else}
-											<span class="text-lg font-semibold text-slate-700">По запросу</span>
 										{/if}
 									</div>
 								</div>

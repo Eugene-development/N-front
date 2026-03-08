@@ -263,31 +263,16 @@
 										{#if project.short_description}
 											<p class="text-xs text-slate-500 line-clamp-1">{project.short_description}</p>
 										{/if}
-										<h3
-											class="mt-2 text-xl font-semibold text-slate-900 group-hover:text-sky-600 transition-colors line-clamp-2"
-										>
-											{project.value}
-										</h3>
-										<div class="mt-3 flex items-center justify-between">
-											<div>
-												{#if project.price}
-													<span class="text-xs text-slate-500">от</span>
-													<span class="ml-1 text-xl font-bold text-slate-900"
-														>{formatPrice(project.price)}</span
-													>
-													<!-- {#if project.old_price && project.old_price > project.price}
-														<span class="ml-1 text-sm text-slate-400 line-through"
-															>{formatPrice(project.old_price)}</span
-														>
-													{/if} -->
-												{:else}
-													<span class="text-sm font-semibold text-slate-900">Цена по запросу</span>
-												{/if}
-											</div>
+										<div class="mt-2 flex items-start justify-between gap-4">
+											<h3
+												class="text-xl font-semibold text-slate-900 group-hover:text-sky-600 transition-colors line-clamp-2"
+											>
+												{project.value}
+											</h3>
 											<ServiceOrderButton
 												serviceType="furniture-project"
 												data={{ projectName: project.value }}
-												class="inline-flex items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700"
+												class="mt-1 inline-flex shrink-0 items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700"
 											>
 												Ваш проект
 												<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -300,6 +285,19 @@
 												</svg>
 											</ServiceOrderButton>
 										</div>
+										{#if project.price}
+											<div class="mt-3">
+												<span class="text-xs text-slate-500">от</span>
+												<span class="ml-1 text-xl font-bold text-slate-900"
+													>{formatPrice(project.price)}</span
+												>
+												<!-- {#if project.old_price && project.old_price > project.price}
+													<span class="ml-1 text-sm text-slate-400 line-through"
+														>{formatPrice(project.old_price)}</span
+													>
+												{/if} -->
+											</div>
+										{/if}
 									</div>
 								</article>
 							{/each}

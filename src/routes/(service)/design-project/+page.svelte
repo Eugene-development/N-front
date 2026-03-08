@@ -385,6 +385,5 @@
 				</svg>
 			</ServiceOrderButton>
 		</div>
-
 	</div>
 </section>
