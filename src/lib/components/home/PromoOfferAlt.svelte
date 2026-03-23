@@ -53,26 +53,20 @@
 			<!-- Метка -->
 			<div class="promo-alt__badge">
 				<span class="promo-alt__badge-dot"></span>
-				Эксклюзивное предложение
+				Эксклюзивное предложение партнёра
 			</div>
 
 			<!-- Заголовок -->
 			<h2 class="promo-alt__title">
-				Главное
-				<span class="promo-alt__title-accent">рекламное</span>
-				предложение
+				Фабрика
+				<span class="promo-alt__title-accent">ЗОВ</span>
 			</h2>
 
 			<!-- Текст -->
 			<div class="promo-alt__text">
-				<p class="promo-alt__text-primary">
-					Здесь вы можете разместить любой читабельный рекламный текст, который привлечет внимание
-					ваших клиентов и повысит конверсию.
-				</p>
+				<p class="promo-alt__text-primary">Этой весной мы дарим скидку 15% на нашу мебель</p>
 				<p class="promo-alt__text-secondary">
-					Используйте этот блок для описания ваших акций, скидок, специальных предложений или
-					уникальных преимуществ. Позитивное изображение и стильная подача помогут значительно
-					повысить доверие.
+					Воспользуйтесь уникальной возможностью приобрести качественную мебель по выгодной цене
 				</p>
 			</div>
 
@@ -91,7 +85,7 @@
 							<polyline points="20 6 9 17 4 12"></polyline>
 						</svg>
 					</div>
-					<span>Преимущество 1</span>
+					<span>Бесплатная сборка</span>
 				</div>
 				<div class="promo-alt__feature">
 					<div class="promo-alt__feature-icon">
@@ -106,7 +100,7 @@
 							<polyline points="20 6 9 17 4 12"></polyline>
 						</svg>
 					</div>
-					<span>Преимущество 2</span>
+					<span>Акции по бытовой технике</span>
 				</div>
 				<div class="promo-alt__feature">
 					<div class="promo-alt__feature-icon">
@@ -121,7 +115,7 @@
 							<polyline points="20 6 9 17 4 12"></polyline>
 						</svg>
 					</div>
-					<span>Преимущество 3</span>
+					<span>Каменная столешница в подарок</span>
 				</div>
 			</div>
 

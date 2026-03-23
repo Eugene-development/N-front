@@ -15,6 +15,19 @@
 	let categorySlug = $derived(data.categorySlug);
 	let error = $derived(data.error);
 
+	// Пагинация
+	let currentPage = $state(1);
+	const itemsPerPage = 6;
+	let paginatedProjects = $derived(projects.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
+	let totalPages = $derived(Math.ceil(projects.length / itemsPerPage));
+
+	// Сброс страницы при смене категории
+	$effect(() => {
+		if (categorySlug) {
+			currentPage = 1;
+		}
+	});
+
 	const formatPrice = (price) => {
 		if (!price) return 'По запросу';
 		return new Intl.NumberFormat('ru-RU').format(price) + ' ₽';
@@ -137,24 +150,6 @@
 						</div>
 					</div>
 
-					<!-- Фильтры и сортировка -->
-					<div class="mt-8 flex flex-wrap items-center justify-between gap-4">
-						<div class="flex items-center gap-2">
-							<span class="text-sm text-slate-500">Всего проектов:</span>
-							<span class="font-semibold text-slate-900">{projects.length}</span>
-						</div>
-						<!-- <div class="flex items-center gap-4">
-							<select
-								class="rounded-lg border-slate-200 bg-white pl-4 pr-10 py-2 text-sm text-slate-700 shadow-sm focus:border-sky-500 focus:ring-sky-500"
-							>
-								<option>По популярности</option>
-								<option>Сначала дешевле</option>
-								<option>Сначала дороже</option>
-								<option>По названию</option>
-							</select>
-						</div> -->
-					</div>
-
 					<!-- Сетка проектов -->
 					{#if projects.length === 0}
 						<div class="mt-6 rounded-2xl bg-white p-12 text-center shadow-sm">
@@ -181,7 +176,7 @@
 						</div>
 					{:else}
 						<div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-							{#each projects as project (project.id)}
+							{#each paginatedProjects as project (project.id)}
 								<article
 									class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
 								>
@@ -249,15 +244,15 @@
 										<div
 											class="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 										></div>
-										<div
+										<!-- <div
 											class="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 transition-all duration-300 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
 										>
 											<span
-												class="flex-1 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-lg transition-all hover:bg-sky-500 hover:text-white text-center"
+												class="flex-1 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-lg transition-all hover:bg-linear-to-r hover:from-sky-500 hover:to-cyan-500 hover:text-white text-center"
 											>
 												Подробнее
 											</span>
-										</div>
+										</div> -->
 									</a>
 									<div class="p-5">
 										{#if project.short_description}
@@ -265,16 +260,15 @@
 										{/if}
 										<div class="mt-2 flex items-start justify-between gap-4">
 											<h3
-												class="text-xl font-semibold text-slate-900 group-hover:text-sky-600 transition-colors line-clamp-2"
+												class="text-lg font-semibold text-slate-900 group-hover:text-sky-600 transition-colors line-clamp-2"
 											>
 												{project.value}
 											</h3>
-											<ServiceOrderButton
-												serviceType="furniture-project"
-												data={{ projectName: project.value }}
+											<a
+												href="/mebel/{categorySlug}/{project.slug}"
 												class="mt-1 inline-flex shrink-0 items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700"
 											>
-												Ваш проект
+												Подробнее
 												<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 													<path
 														stroke-linecap="round"
@@ -283,7 +277,7 @@
 														d="M9 5l7 7-7 7"
 													/>
 												</svg>
-											</ServiceOrderButton>
+											</a>
 										</div>
 										{#if project.price}
 											<div class="mt-3">
@@ -302,11 +296,72 @@
 								</article>
 							{/each}
 						</div>
+
+						<!-- Пагинация и кол-во проектов -->
+						<div class="mt-6 flex flex-wrap items-start justify-between gap-4">
+							<div class="flex items-center gap-2">
+								<span class="text-sm text-slate-500">Всего проектов:</span>
+								<span class="font-semibold text-slate-900">{projects.length}</span>
+							</div>
+
+							{#if totalPages > 1}
+								<div class="flex items-center gap-2">
+									<!-- Кнопка "Назад" -->
+									<button
+										class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+										disabled={currentPage === 1}
+										onclick={() => currentPage--}
+										aria-label="Предыдущая страница"
+									>
+										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												stroke-width="2"
+												d="M15 19l-7-7 7-7"
+											/>
+										</svg>
+									</button>
+
+									<!-- Номера страниц -->
+									<div class="flex gap-1">
+										{#each Array.from({ length: totalPages }) as _, i}
+											<button
+												class="flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium transition-all {currentPage ===
+												i + 1
+													? 'bg-sky-500 text-white shadow-sm'
+													: 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}"
+												onclick={() => (currentPage = i + 1)}
+											>
+												{i + 1}
+											</button>
+										{/each}
+									</div>
+
+									<!-- Кнопка "Вперед" -->
+									<button
+										class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+										disabled={currentPage === totalPages}
+										onclick={() => currentPage++}
+										aria-label="Следующая страница"
+									>
+										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												stroke-width="2"
+												d="M9 5l7 7-7 7"
+											/>
+										</svg>
+									</button>
+								</div>
+							{/if}
+						</div>
 					{/if}
 
 					<!-- Преимущества -->
 					<div class="mt-12">
-						<h2 class="text-2xl font-bold text-slate-900">Почему заказывают у нас</h2>
+						<h2 class="text-2xl font-bold text-slate-900">Почему мы?</h2>
 						<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 							<div class="rounded-xl bg-white p-5 shadow-sm">
 								<div
