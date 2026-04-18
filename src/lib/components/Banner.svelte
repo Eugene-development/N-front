@@ -5,7 +5,7 @@
 </script>
 
 <!-- Desktop Banner -->
-<div class="z-40 hidden items-center bg-gray-950/90 backdrop-blur-sm px-4 sm:px-3.5 md:flex">
+<div class="z-40 hidden items-center bg-gray-950/90 backdrop-blur-sm px-4 sm:px-8 md:flex">
 	<div class="hidden flex-1 justify-start lg:flex">
 		<div class="flex items-center justify-center space-x-3.5 tracking-wide">
 			<a

@@ -22,7 +22,7 @@
 	>
 		<Banner />
 	</div>
-	<DevBanner />
+	<!-- <DevBanner /> -->
 
 	<Nav />
 </header>
